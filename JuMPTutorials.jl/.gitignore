@@ -1,0 +1,7 @@
+.DS_Store
+/Manifest.toml
+/dev/
+/docs/build/
+/docs/Manifest.toml
+/docs/site/
+*.ipynb_checkpoints*
