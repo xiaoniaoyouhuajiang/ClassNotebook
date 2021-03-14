@@ -1,5 +1,5 @@
 import numpy as np
-
+from cyberbrain import trace
 __version__ = '0.0.1'
 
 
@@ -858,6 +858,7 @@ class DataFrame:
             rows = np.random.choice(np.arange(len(self)), size=n, replace=replace).tolist()
         return self[rows, :]
 
+    @trace
     def pivot_table(self, rows=None, columns=None, values=None, aggfunc=None):
         """
         Creates a pivot table from one or two 'grouping' columns.
