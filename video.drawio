@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-15T18:44:55.227Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="OjPP4ZBa-QYzPeC2zMdy" version="14.4.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-15T19:39:57.210Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="0WumdvOaPgxScd6t67O-" version="14.4.8" type="github">
   <diagram id="NwGpluzZfBLq9LY4LFKO" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
@@ -54,7 +54,7 @@
             <mxGeometry x="50" y="15" width="100" height="20" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="aSM2XhxC3ORgOG6r9dh8-1" value="CS" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" vertex="1" parent="1">
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-1" value="软件相关" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" vertex="1" parent="1">
           <mxGeometry x="340" y="180" width="200" height="170" as="geometry" />
         </mxCell>
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-2" value="1" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-1">
@@ -76,25 +76,25 @@
           <mxGeometry x="30" y="15" width="150" height="20" as="geometry" />
         </mxCell>
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-8" value="生活，观念" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" vertex="1" parent="1">
-          <mxGeometry x="750" y="180" width="200" height="170" as="geometry" />
+          <mxGeometry x="1090" y="140" width="200" height="170" as="geometry" />
         </mxCell>
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-9" value="3" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-8">
           <mxGeometry y="20" width="200" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="aSM2XhxC3ORgOG6r9dh8-10" value="数学分析/微积分" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-9">
-          <mxGeometry x="50" y="15" width="100" height="20" as="geometry" />
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-10" value="游戏与创造" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-9">
+          <mxGeometry x="60" y="15" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-11" value="2" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-8">
           <mxGeometry y="70" width="200" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="aSM2XhxC3ORgOG6r9dh8-12" value="高等代数/线性代数" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-11">
-          <mxGeometry x="45" y="15" width="110" height="20" as="geometry" />
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-12" value="自我激励以及工具推荐" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-11">
+          <mxGeometry x="30" y="15" width="140" height="20" as="geometry" />
         </mxCell>
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-13" value="1" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-8">
           <mxGeometry y="120" width="200" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="aSM2XhxC3ORgOG6r9dh8-14" value="离散数学" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-13">
-          <mxGeometry x="75" y="15" width="60" height="20" as="geometry" />
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-14" value="消费与理财" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-13">
+          <mxGeometry x="65" y="15" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-15" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="90" y="490" width="200" height="50" as="geometry" />
@@ -143,7 +143,7 @@
           </mxCell>
         </UserObject>
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-57" value="理论/数学-参考书目" style="swimlane;startSize=20;strokeColor=#82b366;fillColor=#d5e8d4;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1140" y="40" width="380" height="300" as="geometry" />
+          <mxGeometry x="1490" y="40" width="380" height="300" as="geometry" />
         </mxCell>
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-58" value="《数学分析-原理与方法》 胡适耕&lt;br&gt;《数学分析-定理，问题，方法》 胡适耕（习题）&lt;br&gt;《数学分析-习题课讲义》 谢惠民（习题）&lt;br&gt;《数学分析教程》 史济怀&lt;br&gt;《高等代数-学习指导书》 丘维声 （习题，教材）&lt;br&gt;《高等代数-定理，问题，方法》 胡适耕 （习题）&lt;br&gt;《复分析-可视化方法》&lt;br&gt;《&lt;span&gt;Understanding&amp;nbsp;&lt;/span&gt;&lt;span&gt;Analysis&lt;/span&gt;》&lt;br&gt;《具体数学》&lt;br&gt;《怎样解题-数学竞赛攻关宝典》&lt;br&gt;《数学的发现：对解题的理解，研究和讲授》&lt;br&gt;《大学数学解题艺术》&lt;br&gt;《数学，计算，逻辑》&lt;br&gt;《Winning Ways for Your Mathematical Plays》 康威 （组合博弈）&lt;br&gt;《On numbers and games》 康威&lt;br&gt;《Adventures in Graph Theory》 W. David Joyner（编程用sagemath）&lt;br&gt;..." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-57">
           <mxGeometry x="-10" y="40" width="390" height="240" as="geometry" />
@@ -195,7 +195,7 @@
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-75" value="" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-70">
           <mxGeometry y="120" width="200" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="aSM2XhxC3ORgOG6r9dh8-86" value="统计学习方法，模式匹配" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-75">
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-86" value="统计学习方法，数据分析" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-75">
           <mxGeometry x="25" y="15" width="150" height="20" as="geometry" />
         </mxCell>
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startSize=20;" edge="1" parent="1" source="aSM2XhxC3ORgOG6r9dh8-6" target="aSM2XhxC3ORgOG6r9dh8-85">
@@ -245,6 +245,219 @@
         </mxCell>
         <mxCell id="aSM2XhxC3ORgOG6r9dh8-105" value="另一种，基于具体内容分类&lt;br&gt;1.算法，数据结构&lt;br&gt;2.软件实现&lt;br&gt;3.基本理论&lt;br&gt;4.类库，框架使用&lt;br&gt;5.语言特性，设计模式" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;startSize=20;strokeColor=#82b366;fillColor=#d5e8d4;position2=0;base=20;size=70;position=0.38;" vertex="1" parent="1">
           <mxGeometry x="540" y="20" width="210" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startSize=20;entryX=0;entryY=0.059;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="aSM2XhxC3ORgOG6r9dh8-73" target="aSM2XhxC3ORgOG6r9dh8-115">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-115" value="深度学习" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="650" width="210" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-116" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-115">
+          <mxGeometry y="20" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-117" value="&lt;a href=&quot;https://www.bilibili.com/video/BV1VX4y157gG/&quot;&gt;自动微分1.Julia实现符号微分&lt;/a&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-116">
+          <mxGeometry x="15" y="15" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-118" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-115">
+          <mxGeometry y="70" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-119" value="使用GO语言构造计算图-初体验" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-118">
+          <mxGeometry x="10" y="15" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-120" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-115">
+          <mxGeometry y="120" width="210" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-121" value="自动微分2.Python构建计算图与优化器" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-120">
+          <mxGeometry x="-10" y="15" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-133" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-120">
+          <mxGeometry y="50" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-134" value="LSTM1.介绍与基本理论" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-133">
+          <mxGeometry x="30" y="15" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-122" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startSize=20;" edge="1" parent="1" source="aSM2XhxC3ORgOG6r9dh8-75">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="650" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="630" y="585" />
+              <mxPoint x="630" y="620" />
+              <mxPoint x="1000" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-123" value="统计，分析相关" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" vertex="1" parent="1">
+          <mxGeometry x="900" y="650" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-124" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-123">
+          <mxGeometry y="20" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-125" value="&lt;a href=&quot;https://www.bilibili.com/video/BV1Cy4y167uS/&quot;&gt;数据分析框架实现1.Julia&lt;/a&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-124">
+          <mxGeometry x="25" y="15" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-126" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-123">
+          <mxGeometry y="70" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-127" value="&lt;a href=&quot;https://www.bilibili.com/video/BV1kU4y1p7Kt/&quot;&gt;数据分析框架实现2.Python(完整版)&lt;/a&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-126">
+          <mxGeometry y="15" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-128" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-123">
+          <mxGeometry y="120" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-129" value="&lt;a href=&quot;https://www.bilibili.com/video/BV1Ab4y1R7Uk/&quot;&gt;贝网实现1.Python实现DAG&lt;/a&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-128">
+          <mxGeometry x="20" y="15" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-131" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="900" y="820" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-132" value="基于fastapi的机器学习部署方案" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-131">
+          <mxGeometry x="10" y="15" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-135" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="660" y="870" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-136" value="学习框架1.讲解，构造DNN架构" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-135">
+          <mxGeometry x="10" y="15" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-137" value="基础算法，数据结构，面试题" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="650" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-138" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-137">
+          <mxGeometry y="20" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-139" value="&lt;a href=&quot;https://www.bilibili.com/video/BV1ty4y127rP/&quot;&gt;动规基础：0-1背包&lt;/a&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-138">
+          <mxGeometry x="40" y="15" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-140" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-137">
+          <mxGeometry y="70" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-141" value="链表，双链表，队列，栈与实现" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-140">
+          <mxGeometry x="10" y="15" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-142" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-137">
+          <mxGeometry y="120" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-143" value="positional list与优先级队列" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-142">
+          <mxGeometry x="20" y="15" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-144" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;startSize=20;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="aSM2XhxC3ORgOG6r9dh8-2" target="aSM2XhxC3ORgOG6r9dh8-137">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="630" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="570" y="213" />
+              <mxPoint x="570" y="630" />
+              <mxPoint x="440" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-145" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="340" y="820" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-146" value="堆与相关算法" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-145">
+          <mxGeometry x="55" y="15" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-147" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="340" y="870" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-148" value="Python后端笔试题讲解" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-147">
+          <mxGeometry x="30" y="15" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-149" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-147">
+          <mxGeometry y="50" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-150" value="华为部分机试考题讲解" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-149">
+          <mxGeometry x="30" y="15" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-151" value="工匠精神" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" vertex="1" parent="1">
+          <mxGeometry x="990" y="370" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-152" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-151">
+          <mxGeometry y="20" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-153" value="前端实现人像分割" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-152">
+          <mxGeometry x="45" y="15" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-154" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-151">
+          <mxGeometry y="70" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-155" value="安卓设备上部署深度学习" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-154">
+          <mxGeometry x="25" y="15" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-156" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-151">
+          <mxGeometry y="120" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-157" value="微信聊天机器人" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-156">
+          <mxGeometry x="50" y="15" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-159" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="990" y="540" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-160" value="维基爬虫构建领域知识图谱" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-159">
+          <mxGeometry x="20" y="15" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-161" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.059;entryDx=0;entryDy=0;entryPerimeter=0;startSize=20;" edge="1" parent="1" source="aSM2XhxC3ORgOG6r9dh8-4" target="aSM2XhxC3ORgOG6r9dh8-151">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-162" value="实现の科学" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" vertex="1" parent="1">
+          <mxGeometry x="665" y="970" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-163" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-162">
+          <mxGeometry y="20" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-164" value="&lt;a href=&quot;https://www.bilibili.com/video/BV1k5411L7qp/&quot;&gt;Python实现超简易Redis&lt;/a&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-163">
+          <mxGeometry x="30" y="15" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-165" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-162">
+          <mxGeometry y="70" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-166" value="GO语言实现动态语言" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-165">
+          <mxGeometry x="35" y="15" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-167" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-162">
+          <mxGeometry y="120" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-168" value="GO语言实现DBMS的存储引擎" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-167">
+          <mxGeometry x="10" y="15" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-169" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=20;" edge="1" parent="1" source="aSM2XhxC3ORgOG6r9dh8-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="860" y="984" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1270" y="325" />
+              <mxPoint x="1270" y="984" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-170" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aSM2XhxC3ORgOG6r9dh8-162" target="aSM2XhxC3ORgOG6r9dh8-116">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="860" as="sourcePoint" />
+            <mxPoint x="680" y="810" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="620" y="930" />
+              <mxPoint x="630" y="770" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-172" value="实例之一" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aSM2XhxC3ORgOG6r9dh8-170">
+          <mxGeometry x="-0.0882" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-171" value="" style="endArrow=none;dashed=1;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="aSM2XhxC3ORgOG6r9dh8-124">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="770" y="970" as="sourcePoint" />
+            <mxPoint x="1160" y="920" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1160" y="900" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-173" value="实例之一" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aSM2XhxC3ORgOG6r9dh8-171">
+          <mxGeometry x="0.2379" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
