@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-14T14:56:57.950Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="poFqJ-AmCCnDTdfpYKYT" version="14.4.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-15T18:08:27.493Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="xOUXHMMDGeTZbR4Qi0xQ" version="14.4.8" type="github">
   <diagram id="NwGpluzZfBLq9LY4LFKO" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
@@ -11,37 +11,158 @@
           <mxGeometry x="400" y="40" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="8-7b5ulnc9BxNWWt8EDz-2" value="理论/数学" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" parent="1" vertex="1">
-          <mxGeometry x="110" y="180" width="200" height="170" as="geometry" />
+          <mxGeometry x="110" y="180" width="200" height="170" as="geometry">
+            <mxRectangle x="110" y="180" width="80" height="20" as="alternateBounds" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="8-7b5ulnc9BxNWWt8EDz-5" value="3" style="swimlane;html=1;startSize=20;horizontal=0;" parent="8-7b5ulnc9BxNWWt8EDz-2" vertex="1">
           <mxGeometry y="20" width="200" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="5zsLjc5uwQKFEbnbnq62-4" value="数学分析/微积分" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="8-7b5ulnc9BxNWWt8EDz-5">
+        <mxCell id="5zsLjc5uwQKFEbnbnq62-4" value="数学分析/微积分" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="8-7b5ulnc9BxNWWt8EDz-5" vertex="1">
           <mxGeometry x="50" y="15" width="100" height="20" as="geometry" />
         </mxCell>
         <mxCell id="8-7b5ulnc9BxNWWt8EDz-4" value="2" style="swimlane;html=1;startSize=20;horizontal=0;" parent="8-7b5ulnc9BxNWWt8EDz-2" vertex="1">
           <mxGeometry y="70" width="200" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="5zsLjc5uwQKFEbnbnq62-6" value="高等代数/线性代数" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="8-7b5ulnc9BxNWWt8EDz-4">
+        <mxCell id="5zsLjc5uwQKFEbnbnq62-6" value="高等代数/线性代数" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="8-7b5ulnc9BxNWWt8EDz-4" vertex="1">
           <mxGeometry x="45" y="15" width="110" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="8-7b5ulnc9BxNWWt8EDz-3" value="1" style="swimlane;html=1;startSize=20;horizontal=0;" parent="8-7b5ulnc9BxNWWt8EDz-2" vertex="1">
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-21" value="1" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="8-7b5ulnc9BxNWWt8EDz-4">
+          <mxGeometry y="-50" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-22" value="数学分析/微积分" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-21">
+          <mxGeometry x="50" y="15" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="8-7b5ulnc9BxNWWt8EDz-3" value="3" style="swimlane;html=1;startSize=20;horizontal=0;" parent="8-7b5ulnc9BxNWWt8EDz-2" vertex="1">
           <mxGeometry y="120" width="200" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="5zsLjc5uwQKFEbnbnq62-7" value="离散数学" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="8-7b5ulnc9BxNWWt8EDz-3">
-          <mxGeometry x="75" y="15" width="60" height="20" as="geometry" />
+        <mxCell id="5zsLjc5uwQKFEbnbnq62-7" value="离散，组合，趣味数学" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="8-7b5ulnc9BxNWWt8EDz-3" vertex="1">
+          <mxGeometry x="35" y="15" width="140" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="5zsLjc5uwQKFEbnbnq62-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8-7b5ulnc9BxNWWt8EDz-5" target="5zsLjc5uwQKFEbnbnq62-10">
+        <mxCell id="5zsLjc5uwQKFEbnbnq62-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="8-7b5ulnc9BxNWWt8EDz-5" target="5zsLjc5uwQKFEbnbnq62-10" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="50" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5zsLjc5uwQKFEbnbnq62-10" value="1" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="70" y="450" width="200" height="50" as="geometry" />
+        <mxCell id="5zsLjc5uwQKFEbnbnq62-10" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="90" y="440" width="200" height="50" as="geometry">
+            <mxRectangle x="90" y="440" width="50" height="40" as="alternateBounds" />
+          </mxGeometry>
         </mxCell>
-        <UserObject label="有理数" link="https://www.bilibili.com/video/BV1mA411s73V/" linkTarget="_blank" id="5zsLjc5uwQKFEbnbnq62-12">
-          <mxCell style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="5zsLjc5uwQKFEbnbnq62-10">
-            <mxGeometry x="75" y="15" width="50" height="20" as="geometry" />
+        <UserObject label="&lt;a href=&quot;https://www.bilibili.com/video/BV1mA411s73V/&quot;&gt;有理数基本性质&lt;/a&gt;" linkTarget="_blank" id="5zsLjc5uwQKFEbnbnq62-12">
+          <mxCell style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="5zsLjc5uwQKFEbnbnq62-10" vertex="1">
+            <mxGeometry x="50" y="15" width="100" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-1" value="理论/数学" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="180" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-2" value="3" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-1">
+          <mxGeometry y="20" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-3" value="数学分析/微积分" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-2">
+          <mxGeometry x="50" y="15" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-4" value="2" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-1">
+          <mxGeometry y="70" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-5" value="高等代数/线性代数" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-4">
+          <mxGeometry x="45" y="15" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-6" value="1" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-1">
+          <mxGeometry y="120" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-7" value="离散数学" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-6">
+          <mxGeometry x="75" y="15" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-8" value="理论/数学" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;" vertex="1" parent="1">
+          <mxGeometry x="570" y="180" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-9" value="3" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-8">
+          <mxGeometry y="20" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-10" value="数学分析/微积分" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-9">
+          <mxGeometry x="50" y="15" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-11" value="2" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-8">
+          <mxGeometry y="70" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-12" value="高等代数/线性代数" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-11">
+          <mxGeometry x="45" y="15" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-13" value="1" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-8">
+          <mxGeometry y="120" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-14" value="离散数学" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-13">
+          <mxGeometry x="75" y="15" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-15" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="90" y="490" width="200" height="50" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;a href=&quot;https://www.bilibili.com/video/BV1jt4y1k78K/&quot;&gt;有理数与稠密性质&lt;/a&gt;" linkTarget="_blank" id="aSM2XhxC3ORgOG6r9dh8-16">
+          <mxCell style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-15">
+            <mxGeometry x="45" y="15" width="110" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-17" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="90" y="540" width="200" height="50" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;a href=&quot;https://www.bilibili.com/video/BV1QK411u7Ur/&quot;&gt;数列极限-1&lt;/a&gt;" linkTarget="_blank" id="aSM2XhxC3ORgOG6r9dh8-18">
+          <mxCell style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-17">
+            <mxGeometry x="65" y="15" width="70" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-19" value="&lt;br&gt;" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="90" y="590" width="200" height="50" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;a href=&quot;https://www.bilibili.com/video/BV1cT4y1T7se/&quot;&gt;数列极限-2&lt;/a&gt;" linkTarget="_blank" id="aSM2XhxC3ORgOG6r9dh8-20">
+          <mxCell style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-19">
+            <mxGeometry x="65" y="15" width="70" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-29" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-19">
+          <mxGeometry y="50" width="200" height="50" as="geometry" />
+        </mxCell>
+        <UserObject label="上极限与下极限" linkTarget="_blank" id="aSM2XhxC3ORgOG6r9dh8-30">
+          <mxCell style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-29">
+            <mxGeometry x="50" y="15" width="100" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-25" value="4" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="350" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-26" value="复变函数" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-25">
+          <mxGeometry x="70" y="15" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-55" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="90" y="690" width="200" height="50" as="geometry" />
+        </mxCell>
+        <UserObject label="连续性相关..." linkTarget="_blank" id="aSM2XhxC3ORgOG6r9dh8-56">
+          <mxCell style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-55">
+            <mxGeometry x="55" y="15" width="90" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-57" value="理论/数学-参考书目" style="swimlane;startSize=20;strokeColor=#82b366;fillColor=#d5e8d4;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="40" width="380" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-58" value="《数学分析-原理与方法》 胡适耕&lt;br&gt;《数学分析-定理，问题，方法》 胡适耕（习题）&lt;br&gt;《数学分析-习题课讲义》 谢惠民（习题）&lt;br&gt;《数学分析教程》 史济怀&lt;br&gt;《高等代数-学习指导书》 丘维声 （习题，教材）&lt;br&gt;《高等代数-定理，问题，方法》 胡适耕 （习题）&lt;br&gt;《复分析-可视化方法》&lt;br&gt;《&lt;span&gt;Understanding&amp;nbsp;&lt;/span&gt;&lt;span&gt;Analysis&lt;/span&gt;》&lt;br&gt;《具体数学》&lt;br&gt;《怎样解题-数学竞赛攻关宝典》&lt;br&gt;《数学的发现：对解题的理解，研究和讲授》&lt;br&gt;《大学数学解题艺术》&lt;br&gt;《数学，计算，逻辑》&lt;br&gt;《Winning Ways for Your Mathematical Plays》 康威 （组合博弈）&lt;br&gt;《On numbers and games》 康威&lt;br&gt;《Adventures in Graph Theory》 W. David Joyner（编程用sagemath）&lt;br&gt;..." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-57">
+          <mxGeometry x="-10" y="40" width="390" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startSize=20;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8-7b5ulnc9BxNWWt8EDz-4" target="aSM2XhxC3ORgOG6r9dh8-61">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="830" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="60" y="275" />
+              <mxPoint x="60" y="825" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSM2XhxC3ORgOG6r9dh8-61" value="" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="90" y="800" width="200" height="50" as="geometry" />
+        </mxCell>
+        <UserObject label="多项式相关..." linkTarget="_blank" id="aSM2XhxC3ORgOG6r9dh8-62">
+          <mxCell style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="aSM2XhxC3ORgOG6r9dh8-61">
+            <mxGeometry x="55" y="15" width="90" height="20" as="geometry" />
           </mxCell>
         </UserObject>
       </root>
