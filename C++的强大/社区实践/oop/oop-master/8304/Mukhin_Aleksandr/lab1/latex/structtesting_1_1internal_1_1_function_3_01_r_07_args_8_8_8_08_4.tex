@@ -1,0 +1,34 @@
+\hypertarget{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4}{}\doxysection{Шаблон структуры testing\+::internal\+::Function$<$ R(Args...)$>$}
+\label{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4}\index{testing::internal::Function$<$ R(Args...)$>$@{testing::internal::Function$<$ R(Args...)$>$}}
+\doxysubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_a71efbc408f9ce64e36e2cc41df0da194}\label{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_a71efbc408f9ce64e36e2cc41df0da194}} 
+using {\bfseries Result} = R
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_aacb86abf5791077bc9f3774fa0240ba2}\label{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_aacb86abf5791077bc9f3774fa0240ba2}} 
+{\footnotesize template$<$size\+\_\+t I$>$ }\\using {\bfseries Arg} = \mbox{\hyperlink{structtesting_1_1internal_1_1_elem_from_list}{Elem\+From\+List}}$<$ I, Args... $>$
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_afc6bddfcfc78f9308c268123ebc2a99b}\label{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_afc6bddfcfc78f9308c268123ebc2a99b}} 
+using {\bfseries Argument\+Tuple} = std\+::tuple$<$ Args... $>$
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_aa1b4dca988b45fea2307518af5ac8a09}\label{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_aa1b4dca988b45fea2307518af5ac8a09}} 
+using {\bfseries Argument\+Matcher\+Tuple} = std\+::tuple$<$ \mbox{\hyperlink{classtesting_1_1_matcher}{Matcher}}$<$ Args $>$... $>$
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_a763920d3647641e1100bc4ade26d1d0c}\label{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_a763920d3647641e1100bc4ade26d1d0c}} 
+using {\bfseries Make\+Result\+Void} = void(Args...)
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_a23361a5e5eb49aad2e1dfe784e60b5da}\label{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_a23361a5e5eb49aad2e1dfe784e60b5da}} 
+using {\bfseries Make\+Result\+Ignored\+Value} = \mbox{\hyperlink{classtesting_1_1internal_1_1_ignored_value}{Ignored\+Value}}(Args...)
+\end{DoxyCompactItemize}
+\doxysubsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_a9fbf56d693d099df9f23ad175ccef781}\label{structtesting_1_1internal_1_1_function_3_01_r_07_args_8_8_8_08_4_a9fbf56d693d099df9f23ad175ccef781}} 
+static constexpr size\+\_\+t {\bfseries Argument\+Count} = sizeof...(Args)
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Google\+\_\+tests/lib/googlemock/include/gmock/internal/gmock-\/internal-\/utils.\+h\end{DoxyCompactItemize}

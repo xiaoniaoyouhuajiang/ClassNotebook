@@ -1,0 +1,37 @@
+\hypertarget{classtesting_1_1internal_1_1_parameterized_test_suite_registry}{}\doxysection{Класс testing\+::internal\+::Parameterized\+Test\+Suite\+Registry}
+\label{classtesting_1_1internal_1_1_parameterized_test_suite_registry}\index{testing::internal::ParameterizedTestSuiteRegistry@{testing::internal::ParameterizedTestSuiteRegistry}}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_parameterized_test_suite_registry_a89ef6dd228f4188e1928513e860580d0}\label{classtesting_1_1internal_1_1_parameterized_test_suite_registry_a89ef6dd228f4188e1928513e860580d0}} 
+{\footnotesize template$<$class Test\+Suite $>$ }\\\mbox{\hyperlink{classtesting_1_1internal_1_1_parameterized_test_suite_info}{Parameterized\+Test\+Suite\+Info}}$<$ \mbox{\hyperlink{classtesting_1_1_test_suite}{Test\+Suite}} $>$ $\ast$ {\bfseries Get\+Test\+Suite\+Pattern\+Holder} (const char $\ast$test\+\_\+suite\+\_\+name, \mbox{\hyperlink{structtesting_1_1internal_1_1_code_location}{Code\+Location}} code\+\_\+location)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_parameterized_test_suite_registry_a44c2ee0296de42dc6ca7abbf48d00495}\label{classtesting_1_1internal_1_1_parameterized_test_suite_registry_a44c2ee0296de42dc6ca7abbf48d00495}} 
+void {\bfseries Register\+Tests} ()
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_parameterized_test_suite_registry_a3fe06fb4e1b4194dae1fbcdf3560fbd3}\label{classtesting_1_1internal_1_1_parameterized_test_suite_registry_a3fe06fb4e1b4194dae1fbcdf3560fbd3}} 
+{\footnotesize template$<$class Test\+Case $>$ }\\\mbox{\hyperlink{classtesting_1_1internal_1_1_parameterized_test_suite_info}{Parameterized\+Test\+Case\+Info}}$<$ Test\+Case $>$ $\ast$ {\bfseries Get\+Test\+Case\+Pattern\+Holder} (const char $\ast$test\+\_\+case\+\_\+name, \mbox{\hyperlink{structtesting_1_1internal_1_1_code_location}{Code\+Location}} code\+\_\+location)
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_parameterized_test_suite_registry_a39a8d3dfa91cb48329bfcf0853f0e72b}\label{classtesting_1_1internal_1_1_parameterized_test_suite_registry_a39a8d3dfa91cb48329bfcf0853f0e72b}} 
+using {\bfseries Test\+Suite\+Info\+Container} = \+::std\+::vector$<$ \mbox{\hyperlink{classtesting_1_1internal_1_1_parameterized_test_suite_info_base}{Parameterized\+Test\+Suite\+Info\+Base}} $\ast$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_parameterized_test_suite_registry_ac1454da4ff60ddeda6b4e60f1b6ce606}\label{classtesting_1_1internal_1_1_parameterized_test_suite_registry_ac1454da4ff60ddeda6b4e60f1b6ce606}} 
+{\bfseries G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+C\+O\+P\+Y\+\_\+\+A\+N\+D\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+} (\mbox{\hyperlink{classtesting_1_1internal_1_1_parameterized_test_suite_registry}{Parameterized\+Test\+Suite\+Registry}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_parameterized_test_suite_registry_afb0271d017a518724a075986bd16c69c}\label{classtesting_1_1internal_1_1_parameterized_test_suite_registry_afb0271d017a518724a075986bd16c69c}} 
+Test\+Suite\+Info\+Container {\bfseries test\+\_\+suite\+\_\+infos\+\_\+}
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Google\+\_\+tests/lib/googletest/include/gtest/internal/gtest-\/param-\/util.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,44 @@
+The custom directory is an injection point for custom user configurations.\hypertarget{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md256}{}\doxysection{Header $<$tt$>$gtest.\+h$<$/tt$>$}\label{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md256}
+\hypertarget{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md257}{}\doxysubsection{The following macros can be defined\+:}\label{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md257}
+
+\begin{DoxyItemize}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+O\+S\+\_\+\+S\+T\+A\+C\+K\+\_\+\+T\+R\+A\+C\+E\+\_\+\+G\+E\+T\+T\+E\+R\+\_\+} -\/ The name of an implementation of {\ttfamily Os\+Stack\+Trace\+Getter\+Interface}.
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+C\+U\+S\+T\+O\+M\+\_\+\+T\+E\+M\+P\+D\+I\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+} -\/ An override for {\ttfamily testing\+::\+Temp\+Dir()}. See {\ttfamily testing\+::\+Temp\+Dir} for semantics and signature.
+\end{DoxyItemize}\hypertarget{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md258}{}\doxysection{Header $<$tt$>$gtest-\/port.\+h$<$/tt$>$}\label{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md258}
+The following macros can be defined\+:\hypertarget{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md259}{}\doxysubsection{Flag related macros\+:}\label{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md259}
+
+\begin{DoxyItemize}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G(flag\+\_\+name)}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+F\+L\+A\+G\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+\_\+} -\/ Define to 0 when the system provides its own flagfile flag parsing.
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+(name)}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+(name)}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+(name)}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+(name, default\+\_\+val, doc)}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+(name, default\+\_\+val, doc)}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+(name, default\+\_\+val, doc)}
+\end{DoxyItemize}\hypertarget{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md260}{}\doxysubsection{Logging\+:}\label{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md260}
+
+\begin{DoxyItemize}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+L\+O\+G\+\_\+(severity)}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+(condition)}
+\item Functions {\ttfamily Log\+To\+Stderr()} and {\ttfamily Flush\+Info\+Log()} have to be provided too.
+\end{DoxyItemize}\hypertarget{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md261}{}\doxysubsection{Threading\+:}\label{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md261}
+
+\begin{DoxyItemize}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+N\+\_\+} -\/ Enabled if Notification is already provided.
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+M\+U\+T\+E\+X\+\_\+\+A\+N\+D\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+L\+O\+C\+A\+L\+\_\+} -\/ Enabled if {\ttfamily Mutex} and {\ttfamily Thread\+Local} are already provided. Must also provide {\ttfamily G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+(mutex)} and {\ttfamily G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+(mutex)}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(locks)}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+L\+O\+C\+K\+\_\+\+E\+X\+C\+L\+U\+D\+E\+D\+\_\+(locks)}
+\end{DoxyItemize}\hypertarget{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md262}{}\doxysubsection{Underlying library support features}\label{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md262}
+
+\begin{DoxyItemize}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+X\+X\+A\+B\+I\+\_\+\+H\+\_\+}
+\end{DoxyItemize}\hypertarget{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md263}{}\doxysubsection{Exporting A\+P\+I symbols\+:}\label{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md263}
+
+\begin{DoxyItemize}
+\item {\ttfamily G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} -\/ Specifier for exported symbols.
+\end{DoxyItemize}\hypertarget{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md264}{}\doxysection{Header $<$tt$>$gtest-\/printers.\+h$<$/tt$>$}\label{md__google_tests_lib_googletest_include_gtest_internal_custom__r_e_a_d_m_e_autotoc_md264}
+
+\begin{DoxyItemize}
+\item See documentation at {\ttfamily \mbox{\hyperlink{gtest-printers_8h_source}{gtest/gtest-\/printers.\+h}}} for details on how to define first custom printer. 
+\end{DoxyItemize}

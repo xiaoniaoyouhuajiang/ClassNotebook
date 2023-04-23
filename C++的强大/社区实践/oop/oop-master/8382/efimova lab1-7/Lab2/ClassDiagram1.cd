@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ActionDispatcher" Collapsed="true">
+    <Position X="33.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAgQAABIAAA=</HashCode>
+      <FileName>include\ActionDispatcher.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artillery" Collapsed="true">
+    <Position X="18.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>include\Artillery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Catapult" Collapsed="true">
+    <Position X="17.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAgAAAAAAAAAAAAAEBEAAAAAAA=</HashCode>
+      <FileName>include\Artillery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cannon" Collapsed="true">
+    <Position X="19.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAACAAEBEAAAAAAA=</HashCode>
+      <FileName>include\Artillery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArtilleryFactory" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>include\Artillery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Board" Collapsed="true">
+    <Position X="36.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACAAAAgAAIAcAAAAAAAAAACAAEAAAAAACQEAAA=</HashCode>
+      <FileName>include\Board.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoardUnit" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACwAAAAAAAKIAABAAAAAAAAAAAAADAAEAAAAAAA=</HashCode>
+      <FileName>include\BoardUnit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cavalry" Collapsed="true">
+    <Position X="23" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>include\Cavalry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HeavyCavalry" Collapsed="true">
+    <Position X="21.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAEBEAIAAAAA=</HashCode>
+      <FileName>include\Cavalry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LightCavalry" Collapsed="true">
+    <Position X="24" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAABAAAAAAAAAEBEAAAAAAA=</HashCode>
+      <FileName>include\Cavalry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CavalryFactory" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>include\Cavalry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true">
+    <Position X="33.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECCAAAAAACgAABAAAQACQAAAAAIQAAQAAAEAAAAgAAA=</HashCode>
+      <FileName>include\Game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grass" Collapsed="true">
+    <Position X="10.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAIABAAAAAAAAAAAAAACAAEAAAAAAA=</HashCode>
+      <FileName>include\Grass.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Infantry" Collapsed="true">
+    <Position X="27.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>include\Infantry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swordsman" Collapsed="true">
+    <Position X="26.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAABAAAAAAAAAAAEBEAAAAAAA=</HashCode>
+      <FileName>include\Infantry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spearman" Collapsed="true">
+    <Position X="28.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAgAAAAAAAAAAAAAAAAAAAAAAAAAAEBEAAAAAAA=</HashCode>
+      <FileName>include\Infantry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InfantryFactory" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>include\Infantry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayableBoardUnit" Collapsed="true">
+    <Position X="24" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAACAAAAAAIAAAAAEBAAAAAAAA=</HashCode>
+      <FileName>include\PlayableBoardUnit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoardUnitFactory" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAI=</HashCode>
+      <FileName>include\BoardUnitFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PongoBoardUnit" Collapsed="true">
+    <Position X="23" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>include\PongoBoardUnit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="River" Collapsed="true">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgBAAAAAAAAABAAAAAAAAAAAAAACAAEAAAAAAA=</HashCode>
+      <FileName>include\River.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Snow" Collapsed="true">
+    <Position X="15" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgBAAAAAAAAABAAAAAAAAAAAAAACAAEAAAAAAA=</HashCode>
+      <FileName>include\Snow.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TerrainBoardUnit" Collapsed="true">
+    <Position X="12.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\TerrainBoardUnit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PongoBaseBoardUnit" Collapsed="true">
+    <Position X="30.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAQAAIAAAAAAAAAQAAAAAAACEBEQAAAAAA=</HashCode>
+      <FileName>include\PongoBaseBoardUnit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DirtPit" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAAEAAAAAAA=</HashCode>
+      <FileName>include\DirtPit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stone" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAAEAAAAAAA=</HashCode>
+      <FileName>include\Stone.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tree" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAAEAAAAAAA=</HashCode>
+      <FileName>include\Tree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeLog" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAAEAAAAAAA=</HashCode>
+      <FileName>include\TreeLog.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UItoBackendConnector" Collapsed="true">
+    <Position X="35" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAIBAAAAAAAAAABAQAAAEAAAAAAACQAAAAAAAAAAAA=</HashCode>
+      <FileName>include\UItoBackendConnector.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="siv::BasicPerlinNoise&lt;Float&gt;" Collapsed="true">
+    <Position X="35" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAAwgkAQAEAAAAAAAACJAEAACkQQAggwEAEAIAIAAA=</HashCode>
+      <FileName>3rd party\Reputeless\PerlinNoise.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

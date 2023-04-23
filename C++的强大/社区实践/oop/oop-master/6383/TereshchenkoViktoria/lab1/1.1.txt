@@ -1,0 +1,9 @@
+class A
+{
+public:
+  A() {};
+
+private:
+  A (A const& a);
+  A & operator = (A const& a);
+};

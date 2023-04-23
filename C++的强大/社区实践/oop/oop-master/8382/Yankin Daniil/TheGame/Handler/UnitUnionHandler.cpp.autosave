@@ -1,0 +1,11 @@
+#include "UnitUnionHandler.h"
+#include "Unit/UnitHeader.h"
+#include "Handler/RouteHandler.h"
+
+
+void UnitUnionHandler::handle(IUnit* active, IUnit* passive) {
+    bool success = routeHandler.handle(active, passive->getPoint(), false);
+    if (!success)
+        return;
+    active->unite(passive);
+}

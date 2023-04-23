@@ -1,0 +1,5 @@
+0   | qwe         | 0   | 5   | 1   | 5555| 34  | 12  | goblin  | water   | deadas| 
+1   | asd         | 0   | 1   | 2   | 5555| 34  | 12  | goblin  | water   | it`s better card!| 
+2   | zxc zxc     | 0   | 2   | 3   | 5555| 34  | 12  | goblin  | water   | deadas| 
+3   | Maskit      | 0   | 3   | 4   | 5555| 34  | 12  | goblin  | water   | deadas| 
+4   | sir         | 0   | 2   | 2   | 35  | 3   | 7   | orc     | fire    | last card| 

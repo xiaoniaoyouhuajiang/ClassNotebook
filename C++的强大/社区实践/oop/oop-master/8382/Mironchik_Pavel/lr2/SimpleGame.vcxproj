@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\engine\Attachable.cpp" />
+    <ClCompile Include="src\engine\Cell.cpp" />
+    <ClCompile Include="src\engine\Effect.cpp" />
+    <ClCompile Include="src\engine\GameController.cpp" />
+    <ClCompile Include="src\engine\GameObjectsSet.cpp" />
+    <ClCompile Include="src\engine\Neutral.cpp" />
+    <ClCompile Include="src\engine\NeutralEffect.cpp" />
+    <ClCompile Include="src\engine\units\Home.cpp" />
+    <ClCompile Include="src\engine\Info.cpp" />
+    <ClCompile Include="src\engine\RelativePositioned.cpp" />
+    <ClCompile Include="src\engine\GameBoard.cpp" />
+    <ClCompile Include="src\engine\GameObject.cpp" />
+    <ClCompile Include="src\engine\Terrain.cpp" />
+    <ClCompile Include="src\engine\terrains\LavaTerrain.cpp" />
+    <ClCompile Include="src\engine\terrains\SeaTerrain.cpp" />
+    <ClCompile Include="src\engine\terrains\TerrainEffect.cpp" />
+    <ClCompile Include="src\engine\Unit.cpp" />
+    <ClCompile Include="src\graphics\BoardView.cpp" />
+    <ClCompile Include="src\graphics\HealthDrawer.cpp" />
+    <ClCompile Include="src\graphics\ShapeDrawer.cpp" />
+    <ClCompile Include="src\graphics\Viewport.cpp" />
+    <ClCompile Include="src\graphics\CellDrawer.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\utils\List.cpp" />
+    <ClCompile Include="src\utils\MouseTracker.cpp" />
+    <ClCompile Include="src\utils\PathSearcher.cpp" />
+    <ClCompile Include="src\utils\Textures.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\GAME\engine\Attachable.hpp" />
+    <ClInclude Include="include\GAME\engine\BoardListener.hpp" />
+    <ClInclude Include="include\GAME\engine\Cell.hpp" />
+    <ClInclude Include="include\GAME\engine\Effect.hpp" />
+    <ClInclude Include="include\GAME\engine\Focusable.hpp" />
+    <ClInclude Include="include\GAME\engine\GameController.hpp" />
+    <ClInclude Include="include\GAME\engine\GameObjectsSet.hpp" />
+    <ClInclude Include="include\GAME\engine\Info.hpp" />
+    <ClInclude Include="include\GAME\engine\Interceptor.hpp" />
+    <ClInclude Include="include\GAME\engine\Neutral.hpp" />
+    <ClInclude Include="include\GAME\engine\NeutralEffect.hpp" />
+    <ClInclude Include="include\GAME\engine\RelativePositioned.hpp" />
+    <ClInclude Include="include\GAME\engine\RelativeSized.hpp" />
+    <ClInclude Include="include\GAME\engine\Tangible.hpp" />
+    <ClInclude Include="include\GAME\engine\Terrain.hpp" />
+    <ClInclude Include="include\GAME\engine\terrains\GroundTerrain.hpp" />
+    <ClInclude Include="include\GAME\engine\terrains\LavaTerrain.hpp" />
+    <ClInclude Include="include\GAME\engine\terrains\SeaTerrain.hpp" />
+    <ClInclude Include="include\GAME\engine\terrains\TerrainEffect.hpp" />
+    <ClInclude Include="include\GAME\engine\Unit.hpp" />
+    <ClInclude Include="include\GAME\engine\units\BlackHole.hpp" />
+    <ClInclude Include="include\GAME\engine\units\BumSoldier.hpp" />
+    <ClInclude Include="include\GAME\engine\units\Chancel.hpp" />
+    <ClInclude Include="include\GAME\engine\units\CleverTower.hpp" />
+    <ClInclude Include="include\GAME\engine\units\Heal.hpp" />
+    <ClInclude Include="include\GAME\engine\units\Home.hpp" />
+    <ClInclude Include="include\GAME\engine\units\Mounted.hpp" />
+    <ClInclude Include="include\GAME\engine\units\MountedShooter.hpp" />
+    <ClInclude Include="include\GAME\engine\units\MountedWarrior.hpp" />
+    <ClInclude Include="include\GAME\engine\units\Poor.hpp" />
+    <ClInclude Include="include\GAME\engine\units\Peasant.hpp" />
+    <ClInclude Include="include\GAME\engine\units\Stone.hpp" />
+    <ClInclude Include="include\GAME\engine\units\StrongTower.hpp" />
+    <ClInclude Include="include\GAME\engine\units\Tower.hpp" />
+    <ClInclude Include="include\GAME\graphics\HealthDrawer.hpp" />
+    <ClInclude Include="include\GAME\graphics\Viewport.hpp" />
+    <ClInclude Include="include\GAME\factory\Factory.hpp" />
+    <ClInclude Include="include\GAME\graphics\BoardView.hpp" />
+    <ClInclude Include="include\GAME\graphics\CellDrawer.hpp" />
+    <ClInclude Include="include\GAME\engine\Properties.hpp" />
+    <ClInclude Include="include\GAME\utils\FixedArray.hpp" />
+    <ClInclude Include="include\GAME\engine\GameBoard.hpp" />
+    <ClInclude Include="include\GAME\engine\GameObject.hpp" />
+    <ClInclude Include="include\GAME\utils\List.hpp" />
+    <ClInclude Include="include\GAME\utils\MouseTracker.hpp" />
+    <ClInclude Include="include\GAME\utils\PathSearcher.hpp" />
+    <ClInclude Include="include\GAME\utils\SharedSet.h" />
+    <ClInclude Include="include\GAME\utils\Textures.hpp" />
+    <ClInclude Include="include\GAME\utils\Utils.hpp" />
+    <ClInclude Include="include\GAME\utils\VectorsSet.hpp" />
+    <ClInclude Include="src\engine\RelativeSized.cpp" />
+    <ClInclude Include="include\GAME\graphics\GridDrawer.hpp" />
+    <ClCompile Include="src\graphics\GridDrawer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClInclude Include="include\GAME\graphics\ShapeDrawer.hpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{F572D01D-1AAC-4511-A31F-B8997CEBAEC5}</ProjectGuid>
+    <RootNamespace>SimpleGame</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <SourcePath>D:\University\3_course\OOP\Game\SimpleGame\src;$(VC_SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <SourcePath>D:\University\3_course\OOP\Game\SimpleGame\src;$(VC_SourcePath)</SourcePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\University\3_course\OOP\Game\SimpleGame\include;D:\University\3_course\SFML-2.5.1\include;D:\University\3_course\OOP\Game\SimpleGame\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>D:\University\3_course\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-main.lib;sfml-network.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\University\3_course\OOP\Game\SimpleGame\include;D:\University\3_course\SFML-2.5.1\include;D:\University\3_course\OOP\Game\SimpleGame\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>D:\University\3_course\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-main.lib;sfml-network.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

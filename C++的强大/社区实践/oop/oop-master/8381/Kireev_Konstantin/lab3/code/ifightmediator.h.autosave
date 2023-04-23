@@ -1,0 +1,7 @@
+#pragma once
+
+class IFightMediator {
+public:
+    virtual void commitFight(int)
+    
+};

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1058</width>
+    <height>591</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextEdit" name="fieldWindow">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>611</width>
+      <height>391</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="infoWindow">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>70</y>
+      <width>201</width>
+      <height>391</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="logWindow">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>70</y>
+      <width>191</width>
+      <height>391</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelField">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>59</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Field</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelInfo">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>50</y>
+      <width>201</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Information about item</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelLog">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>50</y>
+      <width>59</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Logs</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gameInfoButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>game info</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1058</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Logs</string>
+    </property>
+    <addaction name="actionsettings_logs"/>
+    <addaction name="action_logs_settings"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Add object</string>
+    </property>
+    <addaction name="actionsetting_for_adding"/>
+    <addaction name="actionadd_neutral"/>
+    <addaction name="actionadd_base"/>
+   </widget>
+   <widget class="QMenu" name="menuObject_info">
+    <property name="title">
+     <string>Info</string>
+    </property>
+    <addaction name="actionInfo"/>
+    <addaction name="actiongame_info"/>
+    <addaction name="actionland_info"/>
+    <addaction name="actionneutral_info"/>
+    <addaction name="actionbase_info"/>
+   </widget>
+   <widget class="QMenu" name="menuGame_settings">
+    <property name="title">
+     <string>Game settings</string>
+    </property>
+    <addaction name="actionload_game"/>
+    <addaction name="actionsave_game"/>
+   </widget>
+   <widget class="QMenu" name="menuUnit">
+    <property name="title">
+     <string>Unit</string>
+    </property>
+    <addaction name="actionMove"/>
+    <addaction name="actionAttack"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menuObject_info"/>
+   <addaction name="menuGame_settings"/>
+   <addaction name="menuUnit"/>
+  </widget>
+  <action name="actionsettings_logs">
+   <property name="text">
+    <string>settings logs</string>
+   </property>
+  </action>
+  <action name="actionsetting_for_adding">
+   <property name="text">
+    <string>add unit</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="text">
+    <string>unit info</string>
+   </property>
+  </action>
+  <action name="actiongame_info">
+   <property name="text">
+    <string>game info</string>
+   </property>
+  </action>
+  <action name="actionadd_neutral">
+   <property name="text">
+    <string>add neutral</string>
+   </property>
+  </action>
+  <action name="actionadd_base">
+   <property name="text">
+    <string>add base</string>
+   </property>
+  </action>
+  <action name="actionland_info">
+   <property name="text">
+    <string>land info</string>
+   </property>
+  </action>
+  <action name="actionneutral_info">
+   <property name="text">
+    <string>neutral info</string>
+   </property>
+  </action>
+  <action name="actionbase_info">
+   <property name="text">
+    <string>base info</string>
+   </property>
+  </action>
+  <action name="actionload_game">
+   <property name="text">
+    <string>load game</string>
+   </property>
+  </action>
+  <action name="actionsave_game">
+   <property name="text">
+    <string>save game</string>
+   </property>
+  </action>
+  <action name="actionMove">
+   <property name="text">
+    <string>Move</string>
+   </property>
+  </action>
+  <action name="actionAttack">
+   <property name="text">
+    <string>Attack</string>
+   </property>
+  </action>
+  <action name="action_logs_settings">
+   <property name="text">
+    <string>logs settings</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

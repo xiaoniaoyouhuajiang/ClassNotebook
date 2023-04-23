@@ -1,0 +1,16 @@
+\hypertarget{structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_01_4}{}\doxysection{Шаблон структуры testing\+::internal\+::Is\+Recursive\+Container\+Impl$<$ C, true $>$}
+\label{structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_01_4}\index{testing::internal::IsRecursiveContainerImpl$<$ C, true $>$@{testing::internal::IsRecursiveContainerImpl$<$ C, true $>$}}
+\doxysubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_01_4_a5e8e2cf58f0d2581e9e3ab5f5630cd61}\label{structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_01_4_a5e8e2cf58f0d2581e9e3ab5f5630cd61}} 
+using {\bfseries value\+\_\+type} = decltype($\ast$std\+::declval$<$ typename C\+::const\+\_\+iterator $>$())
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_01_4_abbe7d626075829c10a83b931c625662c}\label{structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_01_4_abbe7d626075829c10a83b931c625662c}} 
+using {\bfseries type} = std\+::is\+\_\+same$<$ typename std\+::remove\+\_\+const$<$ typename std\+::remove\+\_\+reference$<$ value\+\_\+type $>$\+::type $>$\+::type, C $>$
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Google\+\_\+tests/lib/googletest/include/gtest/internal/gtest-\/internal.\+h\end{DoxyCompactItemize}

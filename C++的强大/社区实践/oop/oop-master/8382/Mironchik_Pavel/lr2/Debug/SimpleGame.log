@@ -1,0 +1,48 @@
+﻿  Attachable.cpp
+  Cell.cpp
+  Effect.cpp
+  GameController.cpp
+d:\university\3_course\oop\game\simplegame\include\game\engine\units\chancel.hpp(14): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+  GameObjectsSet.cpp
+  Neutral.cpp
+  NeutralEffect.cpp
+  Home.cpp
+  Info.cpp
+  RelativePositioned.cpp
+  GameBoard.cpp
+  GameObject.cpp
+  Terrain.cpp
+  LavaTerrain.cpp
+  SeaTerrain.cpp
+  TerrainEffect.cpp
+  Unit.cpp
+d:\university\3_course\oop\repo\8382\mironchik_pavel\lr2\src\engine\unit.cpp(61): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+d:\university\3_course\oop\repo\8382\mironchik_pavel\lr2\src\engine\unit.cpp(117): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\university\3_course\oop\repo\8382\mironchik_pavel\lr2\src\engine\unit.cpp(122): warning C4244: return: преобразование "float" в "int", возможна потеря данных
+  BoardView.cpp
+d:\university\3_course\oop\repo\8382\mironchik_pavel\lr2\src\graphics\boardview.cpp(64): warning C4244: аргумент: преобразование "long double" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+d:\university\3_course\oop\repo\8382\mironchik_pavel\lr2\src\graphics\boardview.cpp(63): warning C4244: аргумент: преобразование "long double" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+  HealthDrawer.cpp
+  ShapeDrawer.cpp
+  Создание кода...
+  Компиляция...
+  Viewport.cpp
+  CellDrawer.cpp
+  main.cpp
+d:\university\3_course\oop\game\simplegame\include\game\engine\units\chancel.hpp(14): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+d:\university\3_course\oop\repo\8382\mironchik_pavel\lr2\src\main.cpp(35): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  List.cpp
+  MouseTracker.cpp
+  PathSearcher.cpp
+  Textures.cpp
+  Создание кода...
+  GridDrawer.cpp
+  SimpleGame.vcxproj -> D:\University\3_course\OOP\repo\8382\Mironchik_Pavel\lr2\Debug\SimpleGame.exe

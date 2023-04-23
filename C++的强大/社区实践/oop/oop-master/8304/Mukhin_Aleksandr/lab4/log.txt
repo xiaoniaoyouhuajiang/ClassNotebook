@@ -1,0 +1,30 @@
+Start recording!
+Start recording!
+1) Mon Apr 13 13:55:22 2020
+						: Adding base at (3; 3)
+
+2) Mon Apr 13 13:55:22 2020
+						: Adding unit at (0; 0) 0 type
+
+3) Mon Apr 13 13:55:22 2020
+						: Can't add unit at (0; 5) 1 type
+
+4) Mon Apr 13 13:55:22 2020
+						: Can't add unit at (0; 0) 2 type
+
+End recording!
+End recording!
+Start recording!
+1) Mon Apr 13 13:57:50 2020
+						: Adding base at (3; 3)
+
+2) Mon Apr 13 13:57:50 2020
+						: Adding unit at (0; 0) 0 type
+
+3) Mon Apr 13 13:57:50 2020
+						: Can't add unit at (0; 5) 1 type
+
+4) Mon Apr 13 13:57:50 2020
+						: Can't add unit at (0; 0) 2 type
+
+End recording!

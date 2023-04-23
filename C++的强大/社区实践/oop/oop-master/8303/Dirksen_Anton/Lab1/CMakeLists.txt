@@ -1,0 +1,59 @@
+cmake_minimum_required(VERSION 3.15)
+project(Lab1)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(.)
+include_directories(Field)
+include_directories(Units)
+include_directories(Units/Archers)
+include_directories(Units/Armor)
+include_directories(Units/Factories)
+include_directories(Units/Swordsmen)
+include_directories(Units/Weapon)
+include_directories(Units/Wizards)
+
+add_executable(Lab1
+        Field/Cell.h
+        Field/Field.cpp
+        Field/Field.h
+        Field/FieldIterator.h
+        Units/Archers/Archer.h
+        Units/Archers/Bowman.cpp
+        Units/Archers/Bowman.h
+        Units/Archers/Crossbowman.cpp
+        Units/Archers/Crossbowman.h
+        Units/Armor/Armor.h
+        Units/Armor/ChainMail.h
+        Units/Armor/Cloak.h
+        Units/Armor/Cuirass.h
+        Units/Armor/Hoodie.h
+        Units/Armor/LeatherArmor.h
+        Units/Factories/ArcherFactory.h
+        Units/Factories/SwordsmenFactory.h
+        Units/Factories/UnitFactory.h
+        Units/Factories/WizardFactory.h
+        Units/Swordsmen/Knight.cpp
+        Units/Swordsmen/Knight.h
+        Units/Swordsmen/Squire.cpp
+        Units/Swordsmen/Squire.h
+        Units/Swordsmen/Swordsman.h
+        Units/Weapon/Bow.h
+        Units/Weapon/Crossbow.h
+        Units/Weapon/Dagger.h
+        Units/Weapon/LongSword.h
+        Units/Weapon/MagicStaff.h
+        Units/Weapon/SpellBook.h
+        Units/Weapon/Weapon.h
+        Units/Wizards/Archmage.cpp
+        Units/Wizards/Archmage.h
+        Units/Wizards/Druid.cpp
+        Units/Wizards/Druid.h
+        Units/Wizards/Wizard.h
+        Units/Unit.cpp
+        Units/Unit.h
+        main.cpp
+        Object.cpp
+        Object.h
+        Point.cpp
+        Point.h)

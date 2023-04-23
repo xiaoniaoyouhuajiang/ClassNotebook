@@ -1,0 +1,25 @@
+1 [../file.txt] : The field with a width = 5 and a height = 5 was created.
+2 [../file.txt] : The base is set in a cell (2,2).
+3 [../file.txt] : User creates new unit.
+4 [../file.txt] : The base has created a new unit: guardsmen. Coordinates: (4,4)
+Field status:
+Cells without units: 24
+
+5 [../file.txt] : User creates new unit.
+6 [../file.txt] : The base has created a new unit: infantry. Coordinates: (1,1)
+Field status:
+Cells without units: 23
+
+7 [../file.txt] : User want to attacks another unit.
+8 [../file.txt] : Unit from cell (4,4) attacked unit from cell (1,1).
+Field status:
+Cells without units: 24
+
+9 [../file.txt] : User prints his units.
+10 [../file.txt] : User prints game field.
+11 [../file.txt] : User wants to make action of his unit with the object.
+12 [../file.txt] : Unit from cell (1,1) visited the training base from cell (1,1).
+Field status:
+Cells without units: 24
+
+13 [../file.txt] : User prints units's attributes.

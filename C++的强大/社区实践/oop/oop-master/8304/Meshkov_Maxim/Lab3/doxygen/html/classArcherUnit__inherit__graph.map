@@ -1,0 +1,8 @@
+<map id="ArcherUnit" name="ArcherUnit">
+<area shape="rect" id="node1" title=" " alt="" coords="133,1041,249,1119"/>
+<area shape="rect" id="node5" href="$classDistanceArcherUnit.html" title=" " alt="" coords="5,1167,179,1288"/>
+<area shape="rect" id="node6" href="$classPowerfulArcherUnit.html" title=" " alt="" coords="203,1167,376,1288"/>
+<area shape="rect" id="node2" href="$classBaseUnit.html" title=" " alt="" coords="70,549,311,993"/>
+<area shape="rect" id="node3" href="$classUnit.html" title=" " alt="" coords="70,189,311,501"/>
+<area shape="rect" id="node4" href="$classCreature.html" title=" " alt="" coords="121,5,260,141"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="Gui" name="Gui">
+<area shape="rect" id="node1" href="dir_afb8033ad6b5856085decaff90674dbb.html" title="Gui" alt="" coords="81,5,153,53"/>
+<area shape="rect" id="node2" href="dir_4fd9b0d224c4ef9377ad360ff64c9cbc.html" title="Terrains" alt="" coords="5,101,79,149"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000001_000002.html" title="4" alt="" coords="74,85,83,100"/>
+<area shape="rect" id="node3" href="dir_09fea7709a07be39eba0833b35f71a20.html" title="Units" alt="" coords="117,197,189,245"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000001_000004.html" title="10" alt="" coords="145,170,162,185"/>
+<area shape="rect" id="node4" href="dir_73acbc756acd7abee55054ffce6d926d.html" title="Things" alt="" coords="154,101,226,149"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000001_000003.html" title="5" alt="" coords="163,74,172,89"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000003_000004.html" title="1" alt="" coords="172,176,181,191"/>
+</map>

@@ -1,0 +1,74 @@
+\hypertarget{classupload_1_1_http_rpc_server}{}\doxysection{Класс upload.\+Http\+Rpc\+Server}
+\label{classupload_1_1_http_rpc_server}\index{upload.HttpRpcServer@{upload.HttpRpcServer}}
+
+
+elif e.\+code $>$= 500 and e.\+code $<$ 600\+:  
+
+
+Граф наследования\+:upload.\+Http\+Rpc\+Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classupload_1_1_http_rpc_server}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classupload_1_1_http_rpc_server_ad5c1a730c030f9d3b5f70c2e0d8b9a1d}\label{classupload_1_1_http_rpc_server_ad5c1a730c030f9d3b5f70c2e0d8b9a1d}} 
+{\bfseries cookie\+\_\+file}
+\item 
+\mbox{\Hypertarget{classupload_1_1_http_rpc_server_a1b9c9af7f0a46afd84a9d524782323bf}\label{classupload_1_1_http_rpc_server_a1b9c9af7f0a46afd84a9d524782323bf}} 
+{\bfseries cookie\+\_\+jar}
+\item 
+\mbox{\Hypertarget{classupload_1_1_http_rpc_server_aaa356e2491537dd0d4bfc5b1bb0fec96}\label{classupload_1_1_http_rpc_server_aaa356e2491537dd0d4bfc5b1bb0fec96}} 
+{\bfseries authenticated}
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classupload_1_1_http_rpc_server_ab46a30c5aaa9f4d8f5a4bcb32293010e}{\+\_\+\+Authenticate}} (self)
+\item 
+def \mbox{\hyperlink{classupload_1_1_http_rpc_server_a4685030df704ec17f020c8790108a05a}{\+\_\+\+Get\+Opener}} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Дополнительные унаследованные члены}
+
+
+\doxysubsection{Подробное описание}
+elif e.\+code $>$= 500 and e.\+code $<$ 600\+: 
+
+\hypertarget{classupload_1_1_http_rpc_server_autotoc_md277}{}\doxysubsection{Server Error -\/ try again.}\label{classupload_1_1_http_rpc_server_autotoc_md277}
+continue \begin{DoxyVerb}Provides a simplified RPC-style interface for HTTP requests.\end{DoxyVerb}
+ 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classupload_1_1_http_rpc_server_ab46a30c5aaa9f4d8f5a4bcb32293010e}\label{classupload_1_1_http_rpc_server_ab46a30c5aaa9f4d8f5a4bcb32293010e}} 
+\index{upload.HttpRpcServer@{upload.HttpRpcServer}!\_Authenticate@{\_Authenticate}}
+\index{\_Authenticate@{\_Authenticate}!upload.HttpRpcServer@{upload.HttpRpcServer}}
+\doxysubsubsection{\texorpdfstring{\_Authenticate()}{\_Authenticate()}}
+{\footnotesize\ttfamily def upload.\+Http\+Rpc\+Server.\+\_\+\+Authenticate (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}Save the cookie jar after authentication.\end{DoxyVerb}
+ 
+
+Переопределяет метод предка \mbox{\hyperlink{classupload_1_1_abstract_rpc_server_a8517a9d90ee2478752a53302f01d868d}{upload.\+Abstract\+Rpc\+Server}}.
+
+\mbox{\Hypertarget{classupload_1_1_http_rpc_server_a4685030df704ec17f020c8790108a05a}\label{classupload_1_1_http_rpc_server_a4685030df704ec17f020c8790108a05a}} 
+\index{upload.HttpRpcServer@{upload.HttpRpcServer}!\_GetOpener@{\_GetOpener}}
+\index{\_GetOpener@{\_GetOpener}!upload.HttpRpcServer@{upload.HttpRpcServer}}
+\doxysubsubsection{\texorpdfstring{\_GetOpener()}{\_GetOpener()}}
+{\footnotesize\ttfamily def upload.\+Http\+Rpc\+Server.\+\_\+\+Get\+Opener (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}Returns an OpenerDirector that supports cookies and ignores redirects.
+
+Returns:
+  A urllib2.OpenerDirector object.
+\end{DoxyVerb}
+ 
+
+Переопределяет метод предка \mbox{\hyperlink{classupload_1_1_abstract_rpc_server_a388a9974eab1157ba4785e2ab2c33be9}{upload.\+Abstract\+Rpc\+Server}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Google\+\_\+tests/lib/googletest/scripts/upload.\+py\end{DoxyCompactItemize}

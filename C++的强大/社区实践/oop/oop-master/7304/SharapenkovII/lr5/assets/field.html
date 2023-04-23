@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Field</title>
+    <link rel="stylesheet" href="field.css">
+    <script src="field.js"></script>
+</head>
+
+<body>
+
+    <div id="create-unit-modal">
+        <div id="create-predef-unit">
+            <h1>Predefined units</h1>
+            <button class="btn" onclick="OnCreateNewUnit(0)">Archer</button>
+            <button class="btn" onclick="OnCreateNewUnit(1)">Tank</button>
+            <button class="btn" onclick="OnCreateNewUnit(2)">Knight</button>
+            <button class="btn" onclick="OnCreateNewUnit(3)">King</button>
+            <button class="btn" onclick="OnCreateNewUnit(4)">Priest</button>
+            <button class="btn" onclick="OnCreateNewUnit(5)">Killer</button>
+        </div>
+        <div id="create-userdef-unit">
+            <h1>User defined units</h1>
+            <button class="btn" onclick="OnCreateNewUnit(0)">Archer</button>
+        </div>
+        <div id="create-own-unit">
+            <h1>New unit</h1>
+            <div class="hexagon hexagon-picked hex-style-crt" onclick="hexCreateUnitStyle(1)"><div class="hexagon-unit-own1"></div></div>
+            <div class="hexagon hex-style-crt" onclick="hexCreateUnitStyle(2)"><div class="hexagon-unit-own2"></div></div>
+            <div class="hexagon hex-style-crt" onclick="hexCreateUnitStyle(3)"><div class="hexagon-unit-own3"></div></div><br>
+            <input type="text" name="unit_type" placeholder="Name"><br>
+            <input type="text" name="attack" placeholder="Attack"><br>
+            <input type="text" name="range" placeholder="Range"><br>
+            <input type="text" name="armor" placeholder="Armor"><br>
+            <input type="text" name="health" placeholder="Health"><br>
+            <input type="text" name="energy" placeholder="Energy"><br>
+            <input type="checkbox">
+            <button class="btn" id="create-own-unit-btn" onclick="createOwnUnit()">Create</button>
+            <button class="btn" onclick="closeCreateUnitModal()">Close</button>
+        </div>
+    </div>
+
+    <div class="top-bar-info">
+        <div class="current-turn-info">
+            <div id="current-turn-player">Current turn: None</div>
+            <div id="num-of-moves-info">Number of moves: 0</div>
+        </div>
+        <div class="menu-btn">
+            <button onclick="OnNextTurn()" class="btn" id="next-btn">Next turn</button>
+            <button onclick="OnNewGame()" class="btn">New Game</button>
+            <button onclick="OnRecreate(document.getElementById('field-size').value)" class="btn">Recreate</button>
+            <button onclick="OnClearField()" class="btn">Clear</button>
+            <button onclick="OnLogMode()" class="btn">Log Mode</button>
+            <button onclick="OnCreateUnit()" class="btn" id="create-unit-btn" disabled>Create Unit</button>
+            <input id="field-size" type="text" placeholder="Field size">
+            <div id="log-mode">Log mode: On(no cache)</div>
+        </div>
+    </div>
+
+    <div class="field">
+    </div>
+
+    <div class="menu">
+        <div class="picked-hex-info" id="picked-hex-info">
+            <h4>Picked hex info</h4>
+            <p id="picked-hex-info-coord">Coord: Wind</p>
+            <p id="picked-hex-info-unit">Unit: Wind</p>
+            <p id="picked-hex-info-imp">Impediment: Wind</p>
+        </div>
+        <div class="picked-hex-info" id="picked-unit-info">
+            <h4>Picked Unit info</h4>
+            <p id="unit-attack">Attack: 10</p>
+            <p id="unit-attack-range">Attack range: 0</p>
+            <p id="unit-health">Health: 100/100</p>
+            <p id="unit-energy">Energy: 100/100</p>
+        </div>
+        <div class="logs" id="logs">
+        </div>
+    </div>
+
+</body>
+
+</html>

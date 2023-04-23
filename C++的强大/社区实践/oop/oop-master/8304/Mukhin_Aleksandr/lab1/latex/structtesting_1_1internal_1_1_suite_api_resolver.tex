@@ -1,0 +1,28 @@
+\hypertarget{structtesting_1_1internal_1_1_suite_api_resolver}{}\doxysection{Шаблон структуры testing\+::internal\+::Suite\+Api\+Resolver$<$ T $>$}
+\label{structtesting_1_1internal_1_1_suite_api_resolver}\index{testing::internal::SuiteApiResolver$<$ T $>$@{testing::internal::SuiteApiResolver$<$ T $>$}}
+Граф наследования\+:testing\+::internal\+::Suite\+Api\+Resolver$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structtesting_1_1internal_1_1_suite_api_resolver}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_suite_api_resolver_a343c36f492a946d302b1cfc930266768}\label{structtesting_1_1internal_1_1_suite_api_resolver_a343c36f492a946d302b1cfc930266768}} 
+using {\bfseries Test} = typename std\+::conditional$<$ sizeof(T) !=0, \+::\mbox{\hyperlink{classtesting_1_1_test}{testing\+::\+Test}}, void $>$\+::type
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_suite_api_resolver_abae647b1fed9422fc596fd385de6dd5b}\label{structtesting_1_1internal_1_1_suite_api_resolver_abae647b1fed9422fc596fd385de6dd5b}} 
+static Set\+Up\+Tear\+Down\+Suite\+Func\+Type {\bfseries Get\+Set\+Up\+Case\+Or\+Suite} (const char $\ast$filename, int line\+\_\+num)
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_suite_api_resolver_a60e647dc7974c2e834812c491cbbca25}\label{structtesting_1_1internal_1_1_suite_api_resolver_a60e647dc7974c2e834812c491cbbca25}} 
+static Set\+Up\+Tear\+Down\+Suite\+Func\+Type {\bfseries Get\+Tear\+Down\+Case\+Or\+Suite} (const char $\ast$filename, int line\+\_\+num)
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Google\+\_\+tests/lib/googletest/include/gtest/internal/gtest-\/internal.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,14 @@
+<map id="BaseUnit" name="BaseUnit">
+<area shape="rect" id="node1" title=" " alt="" coords="462,549,703,993"/>
+<area shape="rect" id="node4" href="$classArcherUnit.html" title=" " alt="" coords="231,1041,347,1119"/>
+<area shape="rect" id="node7" href="$classKnightUnit.html" title=" " alt="" coords="525,1041,641,1119"/>
+<area shape="rect" id="node10" href="$classMageUnit.html" title=" " alt="" coords="829,1041,939,1119"/>
+<area shape="rect" id="node2" href="$classUnit.html" title=" " alt="" coords="462,189,703,501"/>
+<area shape="rect" id="node3" href="$classCreature.html" title=" " alt="" coords="513,5,652,141"/>
+<area shape="rect" id="node5" href="$classDistanceArcherUnit.html" title=" " alt="" coords="5,1167,179,1288"/>
+<area shape="rect" id="node6" href="$classPowerfulArcherUnit.html" title=" " alt="" coords="203,1167,376,1288"/>
+<area shape="rect" id="node8" href="$classHeavyKnightUnit.html" title=" " alt="" coords="400,1167,563,1288"/>
+<area shape="rect" id="node9" href="$classLightweightKnightUnit.html" title=" " alt="" coords="587,1167,779,1288"/>
+<area shape="rect" id="node11" href="$classFireMageUnit.html" title=" " alt="" coords="803,1167,965,1288"/>
+<area shape="rect" id="node12" href="$classIceMageUnit.html" title=" " alt="" coords="989,1167,1152,1288"/>
+</map>

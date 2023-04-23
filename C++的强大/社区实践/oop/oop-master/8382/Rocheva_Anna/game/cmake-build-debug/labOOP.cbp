@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="labOOP"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/bi/labOOP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/bi/labOOP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="labOOP">
+				<Option output="/home/bi/labOOP/cmake-build-debug/labOOP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bi/labOOP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 labOOP"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="labOOP/fast">
+				<Option output="/home/bi/labOOP/cmake-build-debug/labOOP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bi/labOOP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 labOOP/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/bi/labOOP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bi/labOOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/bi/labOOP/Facade.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/Facade.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/FieldCell.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/FieldCell.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/GameField.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/GameField.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/Manager.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/Manager.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/ActionWithObjectCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/ActionWithObjectCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/AttackUnitCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/AttackUnitCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/Command.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/Command.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/CreateUnitCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/CreateUnitCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/DeleteUnitCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/DeleteUnitCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/MoveUnitCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/MoveUnitCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/StartGameCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/StartGameCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/UnitsAttributesCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/commands/UnitsAttributesCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Forest.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Forest.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Grass.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Grass.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Landscape.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Landscape.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Mountains.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Mountains.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Proxy.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Proxy.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Swamp.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/landscapes/Swamp.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/main.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/Base.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/Base.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/Object.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/Object.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/Observer.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/Observer.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/Subject.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/Subject.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/Bar.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/Bar.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/Hospital.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/Hospital.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/NeutralObject.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/NeutralObject.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/Shop.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/Shop.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/Strategy.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/Strategy.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/TrainingBase.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/neutralObjects/TrainingBase.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/CompositeUnit.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/CompositeUnit.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/FactoryMethod.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/FactoryMethod.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/Unit.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/Unit.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/aircrafts/Aircraft.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/aircrafts/Aircraft.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/aircrafts/Fighter.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/aircrafts/Fighter.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/aircrafts/Scout.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/aircrafts/Scout.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/attributes/Attack.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/attributes/Attack.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/attributes/Attribute.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/attributes/Attribute.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/attributes/Defense.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/attributes/Defense.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/attributes/Health.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/attributes/Health.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/groundForces/Cannon.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/groundForces/Cannon.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/groundForces/GroundForce.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/groundForces/GroundForce.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/groundForces/Tank.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/groundForces/Tank.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/people/Guardsmen.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/people/Guardsmen.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/people/Infantry.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/people/Infantry.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/people/People.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/objects/units/people/People.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/labOOP/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

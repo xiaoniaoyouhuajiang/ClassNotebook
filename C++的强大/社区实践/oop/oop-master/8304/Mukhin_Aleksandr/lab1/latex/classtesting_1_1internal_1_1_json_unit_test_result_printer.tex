@@ -1,0 +1,64 @@
+\hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer}{}\doxysection{Класс testing\+::internal\+::Json\+Unit\+Test\+Result\+Printer}
+\label{classtesting_1_1internal_1_1_json_unit_test_result_printer}\index{testing::internal::JsonUnitTestResultPrinter@{testing::internal::JsonUnitTestResultPrinter}}
+Граф наследования\+:testing\+::internal\+::Json\+Unit\+Test\+Result\+Printer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classtesting_1_1internal_1_1_json_unit_test_result_printer}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_a273623decde1be18db45e95594f9d501}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_a273623decde1be18db45e95594f9d501}} 
+{\bfseries Json\+Unit\+Test\+Result\+Printer} (const char $\ast$output\+\_\+file)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_a9716a1dd5a3608181748c1b6f039c365}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_a9716a1dd5a3608181748c1b6f039c365}} 
+void {\bfseries On\+Test\+Iteration\+End} (const \mbox{\hyperlink{classtesting_1_1_unit_test}{Unit\+Test}} \&unit\+\_\+test, int iteration) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_a7dcd37f4feff122ff05d4fc716949ca2}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_a7dcd37f4feff122ff05d4fc716949ca2}} 
+static void {\bfseries Print\+Json\+Test\+List} (\+::std\+::ostream $\ast$stream, const std\+::vector$<$ \mbox{\hyperlink{classtesting_1_1_test_suite}{Test\+Suite}} $\ast$ $>$ \&test\+\_\+suites)
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_a523698d681147f4315e3a66bc8ab1a72}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_a523698d681147f4315e3a66bc8ab1a72}} 
+{\bfseries G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+C\+O\+P\+Y\+\_\+\+A\+N\+D\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+} (\mbox{\hyperlink{classtesting_1_1internal_1_1_json_unit_test_result_printer}{Json\+Unit\+Test\+Result\+Printer}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_a1db1a765a0ed6402d9585f2fe131fde6}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_a1db1a765a0ed6402d9585f2fe131fde6}} 
+static std\+::string {\bfseries Escape\+Json} (const std\+::string \&str)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_a63dcc481aba7d2305fad8ad9d4d8090c}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_a63dcc481aba7d2305fad8ad9d4d8090c}} 
+static void {\bfseries Output\+Json\+Key} (std\+::ostream $\ast$stream, const std\+::string \&element\+\_\+name, const std\+::string \&name, const std\+::string \&value, const std\+::string \&indent, bool comma=true)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_a312b071e5ed3913b854490b1e427d326}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_a312b071e5ed3913b854490b1e427d326}} 
+static void {\bfseries Output\+Json\+Key} (std\+::ostream $\ast$stream, const std\+::string \&element\+\_\+name, const std\+::string \&name, int value, const std\+::string \&indent, bool comma=true)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_aca28dc59e9fbf804c9efa97e022d15e1}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_aca28dc59e9fbf804c9efa97e022d15e1}} 
+static void {\bfseries Output\+Json\+Test\+Info} (\+::std\+::ostream $\ast$stream, const char $\ast$test\+\_\+suite\+\_\+name, const \mbox{\hyperlink{classtesting_1_1_test_info}{Test\+Info}} \&test\+\_\+info)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_ab4fe00e4900f5189beba931f035ae48c}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_ab4fe00e4900f5189beba931f035ae48c}} 
+static void {\bfseries Print\+Json\+Test\+Suite} (\+::std\+::ostream $\ast$stream, const \mbox{\hyperlink{classtesting_1_1_test_suite}{Test\+Suite}} \&test\+\_\+suite)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_a18b5f31f180d47044871e0dd4ec38a00}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_a18b5f31f180d47044871e0dd4ec38a00}} 
+static void {\bfseries Print\+Json\+Unit\+Test} (\+::std\+::ostream $\ast$stream, const \mbox{\hyperlink{classtesting_1_1_unit_test}{Unit\+Test}} \&unit\+\_\+test)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_af6c2baf27486ffa5ac7fd328044ec235}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_af6c2baf27486ffa5ac7fd328044ec235}} 
+static std\+::string {\bfseries Test\+Properties\+As\+Json} (const \mbox{\hyperlink{classtesting_1_1_test_result}{Test\+Result}} \&result, const std\+::string \&indent)
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_json_unit_test_result_printer_a0471c1f94083f864b5e4d98fd9e80207}\label{classtesting_1_1internal_1_1_json_unit_test_result_printer_a0471c1f94083f864b5e4d98fd9e80207}} 
+const std\+::string {\bfseries output\+\_\+file\+\_\+}
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Google\+\_\+tests/lib/googletest/src/gtest.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,89 @@
+\hypertarget{classcpp_1_1ast_1_1_class}{}\doxysection{Класс cpp.\+ast.\+Class}
+\label{classcpp_1_1ast_1_1_class}\index{cpp.ast.Class@{cpp.ast.Class}}
+Граф наследования\+:cpp.\+ast.\+Class\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{classcpp_1_1ast_1_1_class}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcpp_1_1ast_1_1_class_acc17c34512d5cc54d5125734ce79f219}\label{classcpp_1_1ast_1_1_class_acc17c34512d5cc54d5125734ce79f219}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, start, end, name, bases, templated\+\_\+types, body, namespace)
+\item 
+def \mbox{\hyperlink{classcpp_1_1ast_1_1_class_a4758bfb7c00410575932974e1ed8b7da}{Is\+Declaration}} (self)
+\item 
+def \mbox{\hyperlink{classcpp_1_1ast_1_1_class_ae6d2356f835d06d5109d9e4609d86780}{Is\+Definition}} (self)
+\item 
+def \mbox{\hyperlink{classcpp_1_1ast_1_1_class_a1ab749f8cfddb0903c6484791f70f42e}{Is\+Exportable}} (self)
+\item 
+def \mbox{\hyperlink{classcpp_1_1ast_1_1_class_a347673e0a2a7b840b7d2d1cae13977f7}{Requires}} (self, node)
+\item 
+\mbox{\Hypertarget{classcpp_1_1ast_1_1_class_a0a63f6fab75d61ffac6fb9f1c29ae84d}\label{classcpp_1_1ast_1_1_class_a0a63f6fab75d61ffac6fb9f1c29ae84d}} 
+def {\bfseries \+\_\+\+\_\+str\+\_\+\+\_\+} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcpp_1_1ast_1_1_class_a5665eb67314a075d4e0ff91accbde5d1}\label{classcpp_1_1ast_1_1_class_a5665eb67314a075d4e0ff91accbde5d1}} 
+{\bfseries bases}
+\item 
+\mbox{\Hypertarget{classcpp_1_1ast_1_1_class_add39f61fdcf6dae42d79cac3dcbb7782}\label{classcpp_1_1ast_1_1_class_add39f61fdcf6dae42d79cac3dcbb7782}} 
+{\bfseries body}
+\item 
+\mbox{\Hypertarget{classcpp_1_1ast_1_1_class_a48ed0d3115656554d9134bc1787390fa}\label{classcpp_1_1ast_1_1_class_a48ed0d3115656554d9134bc1787390fa}} 
+{\bfseries templated\+\_\+types}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classcpp_1_1ast_1_1_class_a4758bfb7c00410575932974e1ed8b7da}\label{classcpp_1_1ast_1_1_class_a4758bfb7c00410575932974e1ed8b7da}} 
+\index{cpp.ast.Class@{cpp.ast.Class}!IsDeclaration@{IsDeclaration}}
+\index{IsDeclaration@{IsDeclaration}!cpp.ast.Class@{cpp.ast.Class}}
+\doxysubsubsection{\texorpdfstring{IsDeclaration()}{IsDeclaration()}}
+{\footnotesize\ttfamily def cpp.\+ast.\+Class.\+Is\+Declaration (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns bool if this node is a declaration.\end{DoxyVerb}
+ 
+
+Переопределяет метод предка \mbox{\hyperlink{classcpp_1_1ast_1_1_node_ab3eca703a79fb65bc25dfbcb7547c79e}{cpp.\+ast.\+Node}}.
+
+\mbox{\Hypertarget{classcpp_1_1ast_1_1_class_ae6d2356f835d06d5109d9e4609d86780}\label{classcpp_1_1ast_1_1_class_ae6d2356f835d06d5109d9e4609d86780}} 
+\index{cpp.ast.Class@{cpp.ast.Class}!IsDefinition@{IsDefinition}}
+\index{IsDefinition@{IsDefinition}!cpp.ast.Class@{cpp.ast.Class}}
+\doxysubsubsection{\texorpdfstring{IsDefinition()}{IsDefinition()}}
+{\footnotesize\ttfamily def cpp.\+ast.\+Class.\+Is\+Definition (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns bool if this node is a definition.\end{DoxyVerb}
+ 
+
+Переопределяет метод предка \mbox{\hyperlink{classcpp_1_1ast_1_1_node_a684ee9a357168e7e07a24fc6812f66e6}{cpp.\+ast.\+Node}}.
+
+\mbox{\Hypertarget{classcpp_1_1ast_1_1_class_a1ab749f8cfddb0903c6484791f70f42e}\label{classcpp_1_1ast_1_1_class_a1ab749f8cfddb0903c6484791f70f42e}} 
+\index{cpp.ast.Class@{cpp.ast.Class}!IsExportable@{IsExportable}}
+\index{IsExportable@{IsExportable}!cpp.ast.Class@{cpp.ast.Class}}
+\doxysubsubsection{\texorpdfstring{IsExportable()}{IsExportable()}}
+{\footnotesize\ttfamily def cpp.\+ast.\+Class.\+Is\+Exportable (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns bool if this node exportable from a header file.\end{DoxyVerb}
+ 
+
+Переопределяет метод предка \mbox{\hyperlink{classcpp_1_1ast_1_1_node_a313273874ccf578485006d4000128234}{cpp.\+ast.\+Node}}.
+
+\mbox{\Hypertarget{classcpp_1_1ast_1_1_class_a347673e0a2a7b840b7d2d1cae13977f7}\label{classcpp_1_1ast_1_1_class_a347673e0a2a7b840b7d2d1cae13977f7}} 
+\index{cpp.ast.Class@{cpp.ast.Class}!Requires@{Requires}}
+\index{Requires@{Requires}!cpp.ast.Class@{cpp.ast.Class}}
+\doxysubsubsection{\texorpdfstring{Requires()}{Requires()}}
+{\footnotesize\ttfamily def cpp.\+ast.\+Class.\+Requires (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{node }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Does this AST node require the definition of the node passed in?\end{DoxyVerb}
+ 
+
+Переопределяет метод предка \mbox{\hyperlink{classcpp_1_1ast_1_1_node_a31ae211f954a8c578ef16226df5ac8c8}{cpp.\+ast.\+Node}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Google\+\_\+tests/lib/googlemock/scripts/generator/cpp/ast.\+py\end{DoxyCompactItemize}

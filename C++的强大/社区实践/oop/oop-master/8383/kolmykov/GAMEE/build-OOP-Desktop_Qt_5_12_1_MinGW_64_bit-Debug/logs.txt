@@ -1,0 +1,109 @@
+Attempt to create tower in coordinates  (0 ; 19)
+Tower was created with coordinates  (0 ; 19)
+Tower state: hp = 500 level = 0damage = 200 size = 2
+Attempt to create tower in coordinates  (19 ; 0)
+Tower was created with coordinates  (19 ; 0)
+Tower state: hp = 500 level = 0damage = 200 size = 2
+Attempt to create tower in coordinates  (1 ; 19)
+Tower was created with coordinates  (1 ; 19)
+Tower state: hp = 500 level = 0damage = 200 size = 2
+Attempt to create tower in coordinates  (18 ; 0)
+Tower was created with coordinates  (18 ; 0)
+Tower state: hp = 500 level = 0damage = 200 size = 2
+Attempt to create tower in coordinates  (2 ; 19)
+Tower was created with coordinates  (2 ; 19)
+Tower state: hp = 500 level = 0damage = 200 size = 2
+Attempt to create tower in coordinates  (17 ; 0)
+Tower was created with coordinates  (17 ; 0)
+Tower state: hp = 500 level = 0damage = 200 size = 2
+Attempt to create a unit from a tower with coordinates (2 ; 19) in coordinates (19 ; 18)
+Unit was created with coordinates  (19 ; 18)
+Unit state: hp = 200 damage = 80 armor = 50
+Attempt to create a unit from a tower with coordinates (19 ; 0) in coordinates (0 ; 1)
+Unit was created with coordinates  (0 ; 1)
+Unit state: hp = 200 damage = 150 armor = 0
+Attempt to create a unit from a tower with coordinates (1 ; 19) in coordinates (15 ; 18)
+Unit was created with coordinates  (15 ; 18)
+Unit state: hp = 100 damage = 120 armor = 10
+Attempt to create a unit from a tower with coordinates (18 ; 0) in coordinates (15 ; 1)
+Unit was created with coordinates  (15 ; 1)
+Unit state: hp = 100 damage = 120 armor = 0
+Attempt to create a unit from a tower with coordinates (2 ; 19) in coordinates (18 ; 18)
+Unit was created with coordinates  (18 ; 18)
+Unit state: hp = 200 damage = 80 armor = 50
+Attempt to create a unit from a tower with coordinates (17 ; 0) in coordinates (1 ; 1)
+Unit was created with coordinates  (1 ; 1)
+Unit state: hp = 300 damage = 400 armor = 0
+Movement caused by unit with coordinates  (19 ; 18)
+Unit has moved to coordinates  (19 ; 15)
+Movement caused by unit with coordinates  (19 ; 15)
+Unit has moved to coordinates  (19 ; 12)
+Movement caused by unit with coordinates  (19 ; 12)
+Unit has moved to coordinates  (19 ; 9)
+Movement caused by unit with coordinates  (19 ; 9)
+Unit has moved to coordinates  (19 ; 6)
+Movement caused by unit with coordinates  (19 ; 6)
+Unit has moved to coordinates  (19 ; 3)
+Movement caused by unit with coordinates  (19 ; 3)
+Unit has moved to coordinates  (19 ; 1)
+Attack caused by unit with coordinates  (19 ; 1)
+Attack by unit with coordinates  (19 ; 1)
+Tower with coordinates  (19 ; 0) has got damage = 80
+Tower state: hp = 420 level = 0damage = 200 size = 2
+Attack caused by unit with coordinates  (19 ; 1)
+Attack by unit with coordinates  (19 ; 1)
+Tower with coordinates  (19 ; 0) has got damage = 80
+Tower state: hp = 340 level = 0damage = 200 size = 2
+Attack caused by unit with coordinates  (19 ; 1)
+Attack by unit with coordinates  (19 ; 1)
+Tower with coordinates  (19 ; 0) has got damage = 80
+Tower state: hp = 260 level = 0damage = 200 size = 2
+Attack caused by unit with coordinates  (19 ; 1)
+Attack by unit with coordinates  (19 ; 1)
+Tower with coordinates  (19 ; 0) has got damage = 80
+Tower state: hp = 180 level = 0damage = 200 size = 2
+Attack caused by unit with coordinates  (19 ; 1)
+Attack by unit with coordinates  (19 ; 1)
+Tower with coordinates  (19 ; 0) has got damage = 80
+Tower state: hp = 100 level = 0damage = 200 size = 2
+Attack caused by unit with coordinates  (19 ; 1)
+Attack by unit with coordinates  (19 ; 1)
+Tower with coordinates  (19 ; 0) has got damage = 80
+Tower state: hp = 20 level = 0damage = 200 size = 2
+Attack caused by unit with coordinates  (19 ; 1)
+Attack by unit with coordinates  (19 ; 1)
+Tower with coordinates  (19 ; 0) has got damage = 80
+Tower with coordinates  (19 ; 0) has been destroyed
+Movement caused by unit with coordinates  (15 ; 19)
+Unit doesn't exist
+Movement caused by unit with coordinates  (15 ; 1)
+Unit has moved to coordinates  (15 ; 2)
+Movement caused by unit with coordinates  (15 ; 18)
+Unit has moved to coordinates  (15 ; 17)
+Movement caused by unit with coordinates  (15 ; 2)
+Unit has moved to coordinates  (15 ; 3)
+Movement caused by unit with coordinates  (15 ; 17)
+Unit has moved to coordinates  (15 ; 16)
+Movement caused by unit with coordinates  (15 ; 3)
+Unit has moved to coordinates  (15 ; 4)
+Movement caused by unit with coordinates  (15 ; 16)
+Unit has moved to coordinates  (15 ; 15)
+Movement caused by unit with coordinates  (15 ; 4)
+Unit has moved to coordinates  (15 ; 5)
+Movement caused by unit with coordinates  (15 ; 15)
+Unit has moved to coordinates  (15 ; 14)
+Movement caused by unit with coordinates  (15 ; 5)
+Unit has moved to coordinates  (15 ; 6)
+Movement caused by unit with coordinates  (15 ; 14)
+Unit has moved to coordinates  (15 ; 13)
+Movement caused by unit with coordinates  (15 ; 6)
+Unit has moved to coordinates  (15 ; 7)
+Movement caused by unit with coordinates  (15 ; 13)
+Unit has moved to coordinates  (15 ; 12)
+Movement caused by unit with coordinates  (15 ; 7)
+Unit has moved to coordinates  (15 ; 8)
+Movement caused by unit with coordinates  (15 ; 12)
+Unit has moved to coordinates  (15 ; 11)
+Movement caused by unit with coordinates  (15 ; 8)
+Unit has moved to coordinates  (15 ; 9)
+Attack caused by unit with coordinates  (15 ; 9)

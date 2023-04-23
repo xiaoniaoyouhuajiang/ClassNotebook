@@ -1,0 +1,22 @@
+\hypertarget{structtesting_1_1internal_1_1_invoke_method_action}{}\doxysection{Шаблон структуры testing\+::internal\+::Invoke\+Method\+Action$<$ Class, Method\+Ptr $>$}
+\label{structtesting_1_1internal_1_1_invoke_method_action}\index{testing::internal::InvokeMethodAction$<$ Class, MethodPtr $>$@{testing::internal::InvokeMethodAction$<$ Class, MethodPtr $>$}}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_invoke_method_action_a152a1d71805ff44a9ad9fcd01a506eb8}\label{structtesting_1_1internal_1_1_invoke_method_action_a152a1d71805ff44a9ad9fcd01a506eb8}} 
+{\footnotesize template$<$typename... Args$>$ }\\auto {\bfseries operator()} (Args \&\&... args) const -\/$>$ decltype((obj\+\_\+ptr-\/$>$ $\ast$method\+\_\+ptr)(std\+::forward$<$ Args $>$(args)...))
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_invoke_method_action_a385b218f5e83060df70d56bc85699e9c}\label{structtesting_1_1internal_1_1_invoke_method_action_a385b218f5e83060df70d56bc85699e9c}} 
+Class $\ast$const {\bfseries obj\+\_\+ptr}
+\item 
+\mbox{\Hypertarget{structtesting_1_1internal_1_1_invoke_method_action_a3101d543f56f7d010fac4d8eaa03acfb}\label{structtesting_1_1internal_1_1_invoke_method_action_a3101d543f56f7d010fac4d8eaa03acfb}} 
+const Method\+Ptr {\bfseries method\+\_\+ptr}
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Google\+\_\+tests/lib/googlemock/include/gmock/gmock-\/actions.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,8 @@
+<map id="MageUnit" name="MageUnit">
+<area shape="rect" id="node1" title=" " alt="" coords="125,1041,235,1119"/>
+<area shape="rect" id="node5" href="$classFireMageUnit.html" title=" " alt="" coords="5,1167,168,1288"/>
+<area shape="rect" id="node6" href="$classIceMageUnit.html" title=" " alt="" coords="192,1167,355,1288"/>
+<area shape="rect" id="node2" href="$classBaseUnit.html" title=" " alt="" coords="59,549,301,993"/>
+<area shape="rect" id="node3" href="$classUnit.html" title=" " alt="" coords="59,189,301,501"/>
+<area shape="rect" id="node4" href="$classCreature.html" title=" " alt="" coords="111,5,249,141"/>
+</map>

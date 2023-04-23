@@ -1,0 +1,3 @@
+/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/CMakeFiles/labOOP.dir
+/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/CMakeFiles/edit_cache.dir

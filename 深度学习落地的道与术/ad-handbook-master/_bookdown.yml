@@ -1,0 +1,29 @@
+delete_merged_file: true
+new_session: FALSE
+before_chapter_script: "before-chapter.R"
+rmd_files: [
+  "index.Rmd",
+
+  "derivatives.Rmd",
+
+  "finite-differences.Rmd",
+
+  "forward.Rmd",
+  "reverse.Rmd",
+  "nested.Rmd",
+  "matrix-derivatives.Rmd",
+
+  "scalars.Rmd",
+  "matrix-arithmetic.Rmd",
+  "hmm.Rmd",
+  "odes.Rmd",
+  "algebraic-equations.Rmd",
+  "complex.Rmd",
+  "integration.Rmd",
+  "transforms.Rmd",
+  "generalized-linear-models.Rmd",
+  "monte-carlo.Rmd",
+
+#  "bibliography.Rmd",
+  "cpp-implementation.Rmd"
+]

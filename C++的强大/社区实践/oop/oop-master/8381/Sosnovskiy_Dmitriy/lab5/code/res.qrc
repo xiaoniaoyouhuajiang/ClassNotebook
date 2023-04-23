@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pictures/abs_archer.png</file>
+        <file>pictures/abs_cavalry.png</file>
+        <file>pictures/abs_infantry.png</file>
+        <file>pictures/crit_archer.png</file>
+        <file>pictures/crit_cavalry.png</file>
+        <file>pictures/crit_infantry.png</file>
+        <file>pictures/base.png</file>
+        <file>pictures/banner.png</file>
+        <file>pictures/forge.png</file>
+        <file>pictures/temple.png</file>
+        <file>pictures/tower.png</file>
+    </qresource>
+</RCC>

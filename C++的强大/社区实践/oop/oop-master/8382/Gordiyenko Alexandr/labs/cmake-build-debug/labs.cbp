@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="labs"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/alexg/Desktop/labs/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/alexg/Desktop/labs/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="labs">
+				<Option output="C:/Users/alexg/Desktop/labs/cmake-build-debug/labs.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/alexg/Desktop/labs/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 labs"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="labs/fast">
+				<Option output="C:/Users/alexg/Desktop/labs/cmake-build-debug/labs.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/alexg/Desktop/labs/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 labs/fast"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/alexg/Desktop/labs/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/alexg/Desktop/labs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Base.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Base.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Exceptions.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Field.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Field.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/GameFacade.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Landscape/Ground.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Landscape/Landscape.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Landscape/Mountain.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Landscape/Water.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Crossbow.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Katanadude.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Magic.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Melee.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Necromancer.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Priest.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Range.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Slingerman.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Unit.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Unit.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/Units/Yoyoist.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra1/UnitCreator.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra1/iterator.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra1/iterator.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra1/unitfactory.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra1/unitfactory.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/Neutral/damage.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/Neutral/neutralObject.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/Neutral/none.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/Neutral/restoreArmour.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/Neutral/restoreHealth.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/Neutral/restoreMana.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/Observer.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/SubjectObserver.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/SubjectObserver.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/unitsgroup.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra2/unitsgroup.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra3/ChainOfCommand.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra3/Command.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra3/facade.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra3/facade.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra4/LogSwitch.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra4/LoggerProxy.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra4/adapter.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra4/adapter.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra5/RAII.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra5/snapshotbackup.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra5/snapshotbackup.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra6/Rules.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/extra6/State.h">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/main.cpp">
+			<Option target="labs"/>
+		</Unit>
+		<Unit filename="C:/Users/alexg/Desktop/labs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

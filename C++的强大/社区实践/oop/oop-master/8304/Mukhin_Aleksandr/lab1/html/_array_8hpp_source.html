@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>lab1: Исходный файл headers/Array.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">lab1
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7f57b1e41c5acd0e859ae5f3a2b075a9.html">headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Array.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;bits/exception.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Unit.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Iterator.hpp&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_array.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_array.html">Array</a>{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_array.html">Array</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_array.html#a0fd0d11e9fe1b8112e20b31c4d4377fa">   25</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_array.html#a0fd0d11e9fe1b8112e20b31c4d4377fa">Array</a>(<span class="keywordtype">size_t</span> <a class="code" href="class_array.html#a7107895696d288150660c3ae6ba7b5a4">size</a>) : max_size(<a class="code" href="class_array.html#a7107895696d288150660c3ae6ba7b5a4">size</a>) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">object</span> = <span class="keyword">new</span> T[<a class="code" href="class_array.html#a7107895696d288150660c3ae6ba7b5a4">size</a>]();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_array.html#a9e0bd058e33e95caa003e11cd58b99ef">   33</a></span>&#160;    <a class="code" href="class_array.html#a9e0bd058e33e95caa003e11cd58b99ef">Array</a>(<span class="keyword">const</span> <a class="code" href="class_array.html">Array</a>&amp; old_obj) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">delete</span>[] object;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        max_size = old_obj.max_size;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">object</span> = <span class="keyword">new</span> T[max_size];</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; max_size; i++) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordtype">object</span>[i] = old_obj.object[i];</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_array.html#a50bba10fa94ed227b1af25f0b0bb6a3a">   46</a></span>&#160;    <a class="code" href="class_array.html#a50bba10fa94ed227b1af25f0b0bb6a3a">Array</a>(<a class="code" href="class_array.html">Array</a>&amp;&amp; old_obj) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        max_size = old_obj.max_size;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">object</span> = old_obj.object;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; max_size; i++) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordtype">object</span>[i] = old_obj.object[i];</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_array.html#ad7e50771bddbb7ff939ae0211521be51">   59</a></span>&#160;    <a class="code" href="class_array.html">Array</a>&amp; <a class="code" href="class_array.html#ad7e50771bddbb7ff939ae0211521be51">operator= </a>(<span class="keyword">const</span> <a class="code" href="class_array.html">Array</a>&amp; old_obj) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;old_obj) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">delete</span>[] object;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            max_size = old_obj.max_size;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordtype">object</span> = <span class="keyword">new</span> T[max_size];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; max_size; i++) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordtype">object</span>[i] = old_obj.object[i];</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    T&amp; operator[] (<span class="keywordtype">size_t</span> index)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> (index &lt; max_size) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> <span class="keywordtype">object</span>[index];</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;Array index out of range!&quot;</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">bool</span> operator== (<a class="code" href="class_array.html">Array</a> <span class="keyword">const</span>&amp; second_object) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">bool</span> len = <a class="code" href="class_array.html#a7107895696d288150660c3ae6ba7b5a4">size</a>() == second_object.<a class="code" href="class_array.html#a7107895696d288150660c3ae6ba7b5a4">size</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> (len) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; len; i++) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordflow">if</span> (<span class="keyword">this</span>[i] != second_object[i]) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> len;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="class_array.html#a7107895696d288150660c3ae6ba7b5a4">   96</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="class_array.html#a7107895696d288150660c3ae6ba7b5a4">size</a>() {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> max_size - 1;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    ~<a class="code" href="class_array.html">Array</a>() {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keyword">delete</span>[] object;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        max_size = 0;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">object</span> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="class_array.html#a3d65a25813f8bd5654b96cf42d18b17d">  110</a></span>&#160;    <a class="code" href="class_iterator.html">Iterator&lt;T&gt;</a> <a class="code" href="class_array.html#a3d65a25813f8bd5654b96cf42d18b17d">begin</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_iterator.html">Iterator</a>(<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="class_array.html#af003ad9d69389d211497c6dc97e76365">  118</a></span>&#160;    <a class="code" href="class_iterator.html">Iterator&lt;T&gt;</a> <a class="code" href="class_array.html#af003ad9d69389d211497c6dc97e76365">end</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_iterator.html">Iterator</a>(<span class="keywordtype">object</span> + max_size);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">size_t</span> max_size = 0;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    T* <span class="keywordtype">object</span> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;};</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_array_html_a3d65a25813f8bd5654b96cf42d18b17d"><div class="ttname"><a href="class_array.html#a3d65a25813f8bd5654b96cf42d18b17d">Array::begin</a></div><div class="ttdeci">Iterator&lt; T &gt; begin() const</div><div class="ttdoc">Возвращает итератор на первый элемент массива</div><div class="ttdef"><b>Definition:</b> <a href="_array_8hpp_source.html#l00110">Array.hpp:110</a></div></div>
+<div class="ttc" id="aclass_array_html_a0fd0d11e9fe1b8112e20b31c4d4377fa"><div class="ttname"><a href="class_array.html#a0fd0d11e9fe1b8112e20b31c4d4377fa">Array::Array</a></div><div class="ttdeci">Array(size_t size)</div><div class="ttdoc">Конструктор</div><div class="ttdef"><b>Definition:</b> <a href="_array_8hpp_source.html#l00025">Array.hpp:25</a></div></div>
+<div class="ttc" id="aclass_iterator_html"><div class="ttname"><a href="class_iterator.html">Iterator</a></div><div class="ttdef"><b>Definition:</b> <a href="_iterator_8hpp_source.html#l00005">Iterator.hpp:5</a></div></div>
+<div class="ttc" id="aclass_array_html_a7107895696d288150660c3ae6ba7b5a4"><div class="ttname"><a href="class_array.html#a7107895696d288150660c3ae6ba7b5a4">Array::size</a></div><div class="ttdeci">size_t size()</div><div class="ttdoc">Возвращает максимально возможный индекс в контейнеры</div><div class="ttdef"><b>Definition:</b> <a href="_array_8hpp_source.html#l00096">Array.hpp:96</a></div></div>
+<div class="ttc" id="aclass_array_html_a50bba10fa94ed227b1af25f0b0bb6a3a"><div class="ttname"><a href="class_array.html#a50bba10fa94ed227b1af25f0b0bb6a3a">Array::Array</a></div><div class="ttdeci">Array(Array &amp;&amp;old_obj)</div><div class="ttdoc">Конструктор переноса</div><div class="ttdef"><b>Definition:</b> <a href="_array_8hpp_source.html#l00046">Array.hpp:46</a></div></div>
+<div class="ttc" id="aclass_array_html_ad7e50771bddbb7ff939ae0211521be51"><div class="ttname"><a href="class_array.html#ad7e50771bddbb7ff939ae0211521be51">Array::operator=</a></div><div class="ttdeci">Array &amp; operator=(const Array &amp;old_obj)</div><div class="ttdoc">Оператор присваивания копированием</div><div class="ttdef"><b>Definition:</b> <a href="_array_8hpp_source.html#l00059">Array.hpp:59</a></div></div>
+<div class="ttc" id="aclass_array_html_af003ad9d69389d211497c6dc97e76365"><div class="ttname"><a href="class_array.html#af003ad9d69389d211497c6dc97e76365">Array::end</a></div><div class="ttdeci">Iterator&lt; T &gt; end() const</div><div class="ttdoc">Возвращает итератор на последний элемент массива</div><div class="ttdef"><b>Definition:</b> <a href="_array_8hpp_source.html#l00118">Array.hpp:118</a></div></div>
+<div class="ttc" id="aclass_array_html"><div class="ttname"><a href="class_array.html">Array</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_8hpp_source.html#l00017">Array.hpp:17</a></div></div>
+<div class="ttc" id="aclass_array_html_a9e0bd058e33e95caa003e11cd58b99ef"><div class="ttname"><a href="class_array.html#a9e0bd058e33e95caa003e11cd58b99ef">Array::Array</a></div><div class="ttdeci">Array(const Array &amp;old_obj)</div><div class="ttdoc">Конструктор копирования</div><div class="ttdef"><b>Definition:</b> <a href="_array_8hpp_source.html#l00033">Array.hpp:33</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

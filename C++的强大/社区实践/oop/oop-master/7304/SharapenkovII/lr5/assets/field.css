@@ -1,0 +1,442 @@
+html,
+body {
+    height: 97%;
+    margin: 0;
+    min-width: 1280px;
+    font-size: 12px;
+}
+
+.menu-btn {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.current-turn-info {
+    display: inline-block;
+}
+
+.num-of-moves-info {
+    display: inline-block;
+}
+
+.btn {
+    background-color: white;
+}
+
+.btn:hover {
+    background-color: #eeeeee;
+}
+
+.btn:active {
+    background-color: #dddddd;
+}
+
+.top-bar-info {
+    display: flex;
+    position: fixed;
+    z-index: 99;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    background-color: #dfeeff;
+    border-bottom: solid 1px #dddddd;
+}
+
+.field {
+    display: inline-block;
+    white-space: nowrap;
+    max-width: 950px;
+    padding: 20px;
+    margin-top: 40px;
+    overflow: auto;
+    position: absolute;
+}
+
+.hexagon-row {
+    display: block;
+    margin-bottom: -17px;
+}
+
+.hexagon-row:nth-child(even) {
+    padding-left: 20px;
+}
+
+.hexagon:hover {
+    background-color: #11aab4;
+}
+
+.hexagon {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 23.09px;
+    background-color: #8cc9cd;
+    margin: 11.55px 0;
+    border-left: solid 1px #ffffff;
+    border-right: solid 1px #ffffff;
+    margin-right: -2px;
+}
+
+.hexagon-imp-river {
+    background-color: #1930ff;
+}
+
+.hexagon-imp-mountains {
+    background-color: #5c5c5c;
+}
+
+.hexagon-imp-forest {
+    background-color: #007c30;
+}
+
+.hexagon-imp-swamp {
+    background-color: #207c78;
+}
+
+.hexagon-imp-snow {
+    background-color: #f4f6ff;
+}
+
+.hexagon-imp-fog {
+    background-color: #a3a3a3;
+}
+
+.hexagon-imp-rain {
+    background-color: #589bff;
+}
+
+.hexagon-unit-archer {
+    position: absolute;
+    left: 7.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-archer:after {
+    content: '';
+    position: absolute;
+    transform: rotate(45deg);
+    top: 0;
+    left: 7px;
+    width: 4px;
+    height: 20px;
+    border-radius: 25%;
+    background-color: green;
+}
+
+.hexagon-unit-tank {
+    position: absolute;
+    left: 7.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-tank:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 20px;
+    border-left: solid 4px red;
+    border-right: solid 4px red;
+}
+
+.hexagon-unit-knight {
+    position: absolute;
+    left: 7.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border: solid 2px white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: black;
+}
+
+.hexagon-unit-knight:after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 4px;
+    height: 12px;
+    border-left: solid 4px red;
+    border-right: solid 4px red;
+}
+
+.hexagon-unit-king {
+    position: absolute;
+    left: 7.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border: solid 2px white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: black;
+}
+
+.hexagon-unit-king:after {
+    content: '';
+    position: absolute;
+    transform: rotate(45deg);
+    top: -4px;
+    left: 6px;
+    width: 6px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.hexagon-unit-priest {
+    position: absolute;
+    left: 7.5px;
+    top: 5px;
+    z-index: 2;
+    display: block;
+    height: 10px;
+    width: 20px;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-priest:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    width: 20px;
+    height: 4px;
+    border-radius: 25%;
+    background-color: green;
+}
+
+.hexagon-unit-killer {
+    position: absolute;
+    left: 15.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 4px;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-killer:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 25%;
+    background-color: red;
+}
+
+.hexagon-unit-own1{
+    position: absolute;
+    left: 15.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 4px;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-own1:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 25%;
+    background-color: red;
+}
+
+.hexagon-unit-own2{
+    position: absolute;
+    left: 15.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 12px;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-own2:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 25%;
+    background-color: red;
+}
+
+.hexagon-unit-own3{
+    position: absolute;
+    left: 15.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 14px;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-own3:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 25%;
+    background-color: red;
+}
+
+.hexagon:before,
+.hexagon:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 28.28px;
+    height: 28.28px;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: 4.8579px;
+}
+
+.hexagon:before {
+    top: -14.1421px;
+    border-top: solid 1.4142px #ffffff;
+    border-right: solid 1.4142px #ffffff;
+}
+
+.hexagon:after {
+    bottom: -14.1421px;
+    border-bottom: solid 1.4142px #ffffff;
+    border-left: solid 1.4142px #ffffff;
+}
+
+
+.hexagon-dynamic-snow {
+    background-color: #7cb2fa;
+}
+
+.hexagon-dynamic-sandstorm {
+    background-color: #b47266;
+}
+
+.hexagon-dynamic-rain {
+    background-color: #535088;
+}
+
+.hexagon-dynamic-fog {
+    background-color: #b3b3b3;
+}
+
+.menu {
+    width: 20%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 300px;
+    height: 100%;
+    float: right;
+    background-color: #dfeeff;
+    border-left: solid 1px #dddddd;
+    padding-top: 5px;
+    margin-top: -1px;
+    position: fixed;
+    top: 20px;
+    right: 0;
+}
+
+.picked-hex-info, .pass-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 95%;
+    background-color: #2089ff;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+#picked-hex-info {
+    display: none;
+}
+
+#picked-unit-info {
+    display: none;
+}
+
+.picked-hex-info h4, .pass-info h4 {
+  margin: 10px;
+}
+
+.picked-hex-info p, .pass-info p {
+  margin: 5px;;
+}
+
+.hide {
+    display: none;
+}
+
+#logs {
+    background-color: white;
+    min-height: 100px;
+    max-height: 500px;
+    overflow: auto;
+    width: 95%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: none;
+}
+
+#log-mode {
+    display: inline-block;
+}
+
+#create-unit-modal {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    right: 0;
+    position: fixed;
+    z-index: 300;
+    width: 300px;
+    height: 500px;
+    background-color: white;
+}
+
+.hexagon-picked {
+    opacity: 0.4;
+}

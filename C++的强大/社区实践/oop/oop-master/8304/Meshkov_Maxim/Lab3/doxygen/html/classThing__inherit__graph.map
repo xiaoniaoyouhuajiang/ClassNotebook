@@ -1,0 +1,7 @@
+<map id="Thing" name="Thing">
+<area shape="rect" id="node1" title=" " alt="" coords="267,5,365,83"/>
+<area shape="rect" id="node2" href="$classMedicineThing.html" title=" " alt="" coords="5,131,123,208"/>
+<area shape="rect" id="node3" href="$classMicroMedicineThing.html" title=" " alt="" coords="146,131,299,208"/>
+<area shape="rect" id="node4" href="$classPowerfulMedicineThing.html" title=" " alt="" coords="323,131,498,208"/>
+<area shape="rect" id="node5" href="$classSmallMedicineThing.html" title=" " alt="" coords="523,131,677,208"/>
+</map>

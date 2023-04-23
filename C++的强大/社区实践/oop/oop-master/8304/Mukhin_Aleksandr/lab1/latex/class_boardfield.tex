@@ -1,0 +1,245 @@
+\hypertarget{class_boardfield}{}\doxysection{Класс Boardfield}
+\label{class_boardfield}\index{Boardfield@{Boardfield}}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_boardfield_ab7cb001503e6f2041dc1a5a9bd3c1def}{Boardfield}} (int length, int width)
+\begin{DoxyCompactList}\small\item\em Конструктор принимает ширину и длину поля и выделяет память под все необходимые данные \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_boardfield_ab843ba4a3afaabcdcbb4764332bf06ef}{add\+\_\+unit\+\_\+at}} (int key, int x, int y)
+\begin{DoxyCompactList}\small\item\em Добавляет \mbox{\hyperlink{class_unit}{Unit}} на конкретную позицию \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_boardfield_ac0820138e85629309774ff9b7b4e370b}{add\+\_\+unit\+\_\+random}} (int key)
+\begin{DoxyCompactList}\small\item\em Добавляет \mbox{\hyperlink{class_unit}{Unit}} на первую свободную позицию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_boardfield_acc89108b1a1ace6c1dca0251eb0295ce}\label{class_boardfield_acc89108b1a1ace6c1dca0251eb0295ce}} 
+void \mbox{\hyperlink{class_boardfield_acc89108b1a1ace6c1dca0251eb0295ce}{get\+\_\+board}} ()
+\begin{DoxyCompactList}\small\item\em С помощью итератора выводит игровое поле на экран \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_boardfield_a81b232589489d0b36707541e92e4599f}{is\+\_\+free\+\_\+space}} ()
+\begin{DoxyCompactList}\small\item\em Проверяет, есть ли свободное место на доске \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_boardfield_a54c0a9e0369a215d267fdf3607d5a673}{delete\+\_\+unit}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Удаляет юнит с доски \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_boardfield_ac2bc8101f06c2b05a242318828d16411}{move}} (int old\+\_\+x, int old\+\_\+y, int dest\+\_\+x, int dest\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Передвигает существующий юнит с одного места на другое \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_boardfield_aab945adbee909f09fd3950d85cc34c43}{is\+\_\+valid\+\_\+coord}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Проверяет валидность переденных координат \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_unit}{Unit}} $>$ \mbox{\hyperlink{class_boardfield_a89f32f64d7364da58801bb05d73435a1}{get\+\_\+unit}} (int key)
+\begin{DoxyCompactList}\small\item\em Возвращает конкретный \mbox{\hyperlink{class_unit}{Unit}} взависимости от переданного ключа \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_boardfield_a06039c592a889562508bb2d639185ca9}\label{class_boardfield_a06039c592a889562508bb2d639185ca9}} 
+int {\bfseries length} = 0
+\item 
+\mbox{\Hypertarget{class_boardfield_ac0503f1698eacf9564c2cdc93ceb6483}\label{class_boardfield_ac0503f1698eacf9564c2cdc93ceb6483}} 
+int {\bfseries width} = 0
+\item 
+\mbox{\Hypertarget{class_boardfield_a3b7fb90d2444770a25218b17ade2d2f7}\label{class_boardfield_a3b7fb90d2444770a25218b17ade2d2f7}} 
+int {\bfseries unit\+\_\+amount\+\_\+on\+\_\+the\+\_\+board} = 0
+\item 
+\mbox{\Hypertarget{class_boardfield_a7a8bdfcf7c35a13bfaaa3b648880967b}\label{class_boardfield_a7a8bdfcf7c35a13bfaaa3b648880967b}} 
+\mbox{\hyperlink{class_array}{Array}}$<$ \mbox{\hyperlink{class_array}{Array}}$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_unit}{Unit}} $>$ $>$ $>$ {\bfseries repository}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+
+
+См. определение в файле Boardfield.\+h строка 16
+
+
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{class_boardfield_ab7cb001503e6f2041dc1a5a9bd3c1def}\label{class_boardfield_ab7cb001503e6f2041dc1a5a9bd3c1def}} 
+\index{Boardfield@{Boardfield}!Boardfield@{Boardfield}}
+\index{Boardfield@{Boardfield}!Boardfield@{Boardfield}}
+\doxysubsubsection{\texorpdfstring{Boardfield()}{Boardfield()}}
+{\footnotesize\ttfamily Boardfield\+::\+Boardfield (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{int}]{width }\end{DoxyParamCaption})}
+
+
+
+Конструктор принимает ширину и длину поля и выделяет память под все необходимые данные 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em length} & длина поля \\
+\hline
+{\em width} & ширина поля \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле Boardfield.\+cpp строка 14
+
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{class_boardfield_ab843ba4a3afaabcdcbb4764332bf06ef}\label{class_boardfield_ab843ba4a3afaabcdcbb4764332bf06ef}} 
+\index{Boardfield@{Boardfield}!add\_unit\_at@{add\_unit\_at}}
+\index{add\_unit\_at@{add\_unit\_at}!Boardfield@{Boardfield}}
+\doxysubsubsection{\texorpdfstring{add\_unit\_at()}{add\_unit\_at()}}
+{\footnotesize\ttfamily bool Boardfield\+::add\+\_\+unit\+\_\+at (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Добавляет \mbox{\hyperlink{class_unit}{Unit}} на конкретную позицию 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em x} & координата по вертикали \\
+\hline
+{\em y} & координата по горизонтали \\
+\hline
+{\em key} & показатель того, какой именно \mbox{\hyperlink{class_unit}{Unit}} будет создан \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если функция успешно выполнила свою задачу, false -\/ в другом случае 
+\end{DoxyReturn}
+
+
+См. определение в файле Boardfield.\+cpp строка 143
+
+\mbox{\Hypertarget{class_boardfield_ac0820138e85629309774ff9b7b4e370b}\label{class_boardfield_ac0820138e85629309774ff9b7b4e370b}} 
+\index{Boardfield@{Boardfield}!add\_unit\_random@{add\_unit\_random}}
+\index{add\_unit\_random@{add\_unit\_random}!Boardfield@{Boardfield}}
+\doxysubsubsection{\texorpdfstring{add\_unit\_random()}{add\_unit\_random()}}
+{\footnotesize\ttfamily bool Boardfield\+::add\+\_\+unit\+\_\+random (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+
+
+Добавляет \mbox{\hyperlink{class_unit}{Unit}} на первую свободную позицию 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em key} & показатель того, какой именно \mbox{\hyperlink{class_unit}{Unit}} будет создан \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если функция успешно выполнила свою задачу, false -\/ в другом случае 
+\end{DoxyReturn}
+
+
+См. определение в файле Boardfield.\+cpp строка 75
+
+\mbox{\Hypertarget{class_boardfield_a54c0a9e0369a215d267fdf3607d5a673}\label{class_boardfield_a54c0a9e0369a215d267fdf3607d5a673}} 
+\index{Boardfield@{Boardfield}!delete\_unit@{delete\_unit}}
+\index{delete\_unit@{delete\_unit}!Boardfield@{Boardfield}}
+\doxysubsubsection{\texorpdfstring{delete\_unit()}{delete\_unit()}}
+{\footnotesize\ttfamily bool Boardfield\+::delete\+\_\+unit (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Удаляет юнит с доски 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em x} & координата по вертикали \\
+\hline
+{\em y} & координата по горизонтали \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если функция успешно выполнила свою задачу, false -\/ в другом случае 
+\end{DoxyReturn}
+
+
+См. определение в файле Boardfield.\+cpp строка 51
+
+\mbox{\Hypertarget{class_boardfield_a89f32f64d7364da58801bb05d73435a1}\label{class_boardfield_a89f32f64d7364da58801bb05d73435a1}} 
+\index{Boardfield@{Boardfield}!get\_unit@{get\_unit}}
+\index{get\_unit@{get\_unit}!Boardfield@{Boardfield}}
+\doxysubsubsection{\texorpdfstring{get\_unit()}{get\_unit()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_unit}{Unit}} $>$ Boardfield\+::get\+\_\+unit (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Возвращает конкретный \mbox{\hyperlink{class_unit}{Unit}} взависимости от переданного ключа 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em key} & показатель того, какой именно \mbox{\hyperlink{class_unit}{Unit}} будет создан \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+умный указатель на созданный \mbox{\hyperlink{class_unit}{Unit}} 
+\end{DoxyReturn}
+
+
+См. определение в файле Boardfield.\+cpp строка 100
+
+\mbox{\Hypertarget{class_boardfield_a81b232589489d0b36707541e92e4599f}\label{class_boardfield_a81b232589489d0b36707541e92e4599f}} 
+\index{Boardfield@{Boardfield}!is\_free\_space@{is\_free\_space}}
+\index{is\_free\_space@{is\_free\_space}!Boardfield@{Boardfield}}
+\doxysubsubsection{\texorpdfstring{is\_free\_space()}{is\_free\_space()}}
+{\footnotesize\ttfamily bool Boardfield\+::is\+\_\+free\+\_\+space (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Проверяет, есть ли свободное место на доске 
+
+\begin{DoxyReturn}{Возвращает}
+true, есть есть, false -\/ в другом случае 
+\end{DoxyReturn}
+
+
+См. определение в файле Boardfield.\+cpp строка 41
+
+\mbox{\Hypertarget{class_boardfield_aab945adbee909f09fd3950d85cc34c43}\label{class_boardfield_aab945adbee909f09fd3950d85cc34c43}} 
+\index{Boardfield@{Boardfield}!is\_valid\_coord@{is\_valid\_coord}}
+\index{is\_valid\_coord@{is\_valid\_coord}!Boardfield@{Boardfield}}
+\doxysubsubsection{\texorpdfstring{is\_valid\_coord()}{is\_valid\_coord()}}
+{\footnotesize\ttfamily bool Boardfield\+::is\+\_\+valid\+\_\+coord (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Проверяет валидность переденных координат 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em x} & координата по вертикали \\
+\hline
+{\em y} & координата по горизонтали \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если координаты валидные, false -\/ в другом случае 
+\end{DoxyReturn}
+
+
+См. определение в файле Boardfield.\+cpp строка 66
+
+\mbox{\Hypertarget{class_boardfield_ac2bc8101f06c2b05a242318828d16411}\label{class_boardfield_ac2bc8101f06c2b05a242318828d16411}} 
+\index{Boardfield@{Boardfield}!move@{move}}
+\index{move@{move}!Boardfield@{Boardfield}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily bool Boardfield\+::move (\begin{DoxyParamCaption}\item[{int}]{old\+\_\+x,  }\item[{int}]{old\+\_\+y,  }\item[{int}]{dest\+\_\+x,  }\item[{int}]{dest\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Передвигает существующий юнит с одного места на другое 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em old\+\_\+x} & старая координата по вертикали \\
+\hline
+{\em old\+\_\+y} & старая координата по горизонтали \\
+\hline
+{\em dest\+\_\+x} & новая координата по вертикали \\
+\hline
+{\em dest\+\_\+y} & новая координата по горизонтали \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если функция успешно выполнила свою задачу, false -\/ в другом случае 
+\end{DoxyReturn}
+
+
+См. определение в файле Boardfield.\+cpp строка 164
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+headers/Boardfield.\+h\item 
+Boardfield.\+cpp\end{DoxyCompactItemize}

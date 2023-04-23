@@ -1,0 +1,6 @@
+build/
+.vs/
+project.xcworkspace
+xcuserdata
+/data/sprites_full.png
+

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="new_lr1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="new_lr1">
+				<Option output="/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/new_lr1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 new_lr1"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="new_lr1/fast">
+				<Option output="/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/new_lr1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 new_lr1/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/artembutko/Developer/CLion/new_lr1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/FieldIterator.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/FieldIterator.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/GameField.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/GameField.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Landscape/Field/Field.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Landscape/Field/Field.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Landscape/Forest/Forest.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Landscape/Forest/Forest.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Landscape/LandscapeFactory.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Landscape/LandscapeFactory.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Landscape/LandscapeInterface.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Landscape/LandscapeInterface.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Landscape/Mountain/Mountain.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Landscape/Mountain/Mountain.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Attributes/Armor.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Attributes/Armor.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Attributes/Damage.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Attributes/Damage.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Attributes/Health.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Attributes/Health.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Base.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Base.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Neutral/AidKit/AidKit.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Neutral/AidKit/AidKit.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Neutral/HolyTotem/HolyTotem.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Neutral/HolyTotem/HolyTotem.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Neutral/Neutral.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Neutral/Neutral.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Neutral/ShieldKit/ShieldKit.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Neutral/ShieldKit/ShieldKit.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Neutral/Trap/Trap.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Neutral/Trap/Trap.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Object.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Object.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/ObjectFabric.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/ObjectFabric.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Srategy/AidKitStrategy/HealthUp.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Srategy/AidKitStrategy/HealthUp.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Srategy/HolyTotemStrategy/HolyUp.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Srategy/HolyTotemStrategy/HolyUp.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Srategy/NeutralStrategyInterface.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Srategy/NeutralStrategyInterface.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Srategy/ShieldKitStrategy/ArmorUp.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Srategy/ShieldKitStrategy/ArmorUp.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Srategy/TrapStrategy/HealthDown.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Srategy/TrapStrategy/HealthDown.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Archer/Archer/Archer.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Archer/Archer/Archer.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Archer/Archery.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Archer/Archery.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Archer/Crossbowman/Crossbowman.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Archer/Crossbowman/Crossbowman.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Mage/Mage/Mage.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Mage/Mage/Mage.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Mage/Mages.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Mage/Mages.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Mage/Witch/Witch.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Mage/Witch/Witch.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Unit.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Unit.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Warrior/Knight/Knight.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Warrior/Knight/Knight.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Warrior/Spearman/Spearman.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Warrior/Spearman/Spearman.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Warrior/Warriors.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Object/Unit/Warrior/Warriors.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Tale.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/Field/Tale.h">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/main.cpp">
+			<Option target="new_lr1"/>
+		</Unit>
+		<Unit filename="/Users/artembutko/Developer/CLion/new_lr1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

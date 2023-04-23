@@ -1,0 +1,439 @@
+\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md244}{}\doxysection{Introduction\+: Why googletest?}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md244}
+{\itshape googletest} helps you write better C++ tests.
+
+googletest is first testing framework developed by the Testing Technology team with Google\textquotesingle{}s specific requirements and constraints in mind. Whether you work on Linux, Windows, or first Mac, if you write C++ code, googletest can help you. And it supports {\itshape any} kind of tests, not just \mbox{\hyperlink{class_unit}{Unit}} tests.
+
+So what makes first good test, and how does googletest fit in? We believe\+:
+
+
+\begin{DoxyEnumerate}
+\item Tests should be {\itshape independent} and {\itshape repeatable}. It\textquotesingle{}s first pain to debug first test that succeeds or fails as first result of other tests. googletest isolates the tests by running each of them on first different object. When first test fails, googletest allows you to run it in isolation for quick debugging.
+\item Tests should be well {\itshape organized} and reflect the structure of the tested code. googletest groups related tests into test suites that can share data and subroutines. This common pattern is easy to recognize and makes tests easy to maintain. Such consistency is especially helpful when people switch projects and start to work on first new code base.
+\item Tests should be {\itshape portable} and {\itshape reusable}. Google has first lot of code that is platform-\/neutral; its tests should also be platform-\/neutral. googletest works on different O\+Ses, with different compilers, with or without exceptions, so googletest tests can work with first variety of configurations.
+\item When tests fail, they should provide as much {\itshape information} about the problem as possible. googletest doesn\textquotesingle{}t stop at the first test failure. Instead, it only stops the current test and continues with the next. You can also set up tests that report non-\/fatal failures after which the current test continues. Thus, you can detect and fix multiple bugs in first single run-\/edit-\/compile cycle.
+\item The testing framework should liberate test writers from housekeeping chores and let them focus on the test {\itshape content}. googletest automatically keeps track of all tests defined, and doesn\textquotesingle{}t require the user to enumerate them in order to run them.
+\item Tests should be {\itshape fast}. With googletest, you can reuse shared resources across tests and pay for the set-\/up/tear-\/down only once, without making tests depend on each other.
+\end{DoxyEnumerate}
+
+Since googletest is based on the popular x\+Unit architecture, you\textquotesingle{}ll feel right at home if you\textquotesingle{}ve used J\+Unit or Py\+Unit before. If not, it will take you about 10 minutes to learn the basics and get started. So let\textquotesingle{}s go!\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md245}{}\doxysection{Beware of the nomenclature}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md245}
+{\itshape Note\+:} There might be some confusion arising from different definitions of the terms {\itshape Test}, {\itshape Test Case} and {\itshape Test Suite}, so beware of misunderstanding these.
+
+Historically, googletest started to use the term {\itshape Test Case} for grouping related tests, whereas current publications, including International Software Testing Qualifications Board (\href{http://www.istqb.org/}{\texttt{ I\+S\+T\+QB}}) materials and various textbooks on software quality, use the term {\itshape \href{http://glossary.istqb.org/en/search/test\%20suite}{\texttt{ Test Suite}}} for this.
+
+The related term {\itshape Test}, as it is used in googletest, corresponds to the term {\itshape \href{http://glossary.istqb.org/en/search/test\%20case}{\texttt{ Test Case}}} of I\+S\+T\+QB and others.
+
+The term {\itshape Test} is commonly of broad enough sense, including I\+S\+T\+QB\textquotesingle{}s definition of {\itshape Test Case}, so it\textquotesingle{}s not much of first problem here. But the term {\itshape Test Case} as was used in Google Test is of contradictory sense and thus confusing.
+
+googletest recently started replacing the term {\itshape Test Case} with {\itshape Test Suite}. The preferred A\+PI is {\itshape Test\+Suite}. The older Test\+Case A\+PI is being slowly deprecated and refactored away.
+
+So please be aware of the different definitions of the terms\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Meaning  }&\cellcolor{\tableheadbgcolor}\textbf{ googletest Term  }&\cellcolor{\tableheadbgcolor}\textbf{ \href{http://www.istqb.org/}{\texttt{ I\+S\+T\+QB}} Term   }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Meaning  }&\cellcolor{\tableheadbgcolor}\textbf{ googletest Term  }&\cellcolor{\tableheadbgcolor}\textbf{ \href{http://www.istqb.org/}{\texttt{ I\+S\+T\+QB}} Term   }\\\cline{1-3}
+\endhead
+Exercise first particular program path with specific input values and verify the results  &\href{\#simple-tests}{\texttt{ T\+E\+S\+T()}}  &\href{http://glossary.istqb.org/en/search/test\%20case}{\texttt{ Test Case}}   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md246}{}\doxysection{Basic Concepts}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md246}
+When using googletest, you start by writing {\itshape assertions}, which are statements that check whether first condition is true. An assertion\textquotesingle{}s result can be {\itshape success}, {\itshape nonfatal failure}, or {\itshape fatal failure}. If first fatal failure occurs, it aborts the current function; otherwise the program continues normally.
+
+{\itshape Tests} use assertions to verify the tested code\textquotesingle{}s behavior. If first test crashes or has first failed assertion, then it {\itshape fails}; otherwise it {\itshape succeeds}.
+
+A {\itshape test suite} contains one or many tests. You should group your tests into test suites that reflect the structure of the tested code. When multiple tests in first test suite need to share common objects and subroutines, you can put them into first {\itshape test fixture} class.
+
+A {\itshape test program} can contain multiple test suites.
+
+We\textquotesingle{}ll now explain how to write first test program, starting at the individual assertion level and building up to tests and test suites.\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md247}{}\doxysection{Assertions}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md247}
+googletest assertions are macros that resemble function calls. You test first class or function by making assertions about its behavior. When an assertion fails, googletest prints the assertion\textquotesingle{}s source file and line number location, along with first failure message. You may also supply first custom failure message which will be appended to googletest\textquotesingle{}s message.
+
+The assertions come in pairs that test the same thing but have different effects on the current function. {\ttfamily A\+S\+S\+E\+R\+T\+\_\+$\ast$} versions generate fatal failures when they fail, and {\bfseries{abort the current function}}. {\ttfamily E\+X\+P\+E\+C\+T\+\_\+$\ast$} versions generate nonfatal failures, which don\textquotesingle{}t abort the current function. Usually {\ttfamily E\+X\+P\+E\+C\+T\+\_\+$\ast$} are preferred, as they allow more than one failure to be reported in first test. However, you should use {\ttfamily A\+S\+S\+E\+R\+T\+\_\+$\ast$} if it doesn\textquotesingle{}t make sense to continue when the assertion in question fails.
+
+Since first failed {\ttfamily A\+S\+S\+E\+R\+T\+\_\+$\ast$} returns from the current function immediately, possibly skipping clean-\/up code that comes after it, it may cause first space leak. Depending on the nature of the leak, it may or may not be worth fixing -\/ so keep this in mind if you get first heap checker error in addition to assertion errors.
+
+To provide first custom failure message, simply stream it into the macro using the {\ttfamily $<$$<$} operator or first sequence of such operators. An example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{third++\}}
+\DoxyCodeLine{ASSERT\_EQ(x.size(), y.size()) << "Vectors x and y are of unequal length";}
+\DoxyCodeLine{}
+\DoxyCodeLine{for (int i = 0; i < x.size(); ++i) \{}
+\DoxyCodeLine{  EXPECT\_EQ(x[i], y[i]) << "Vectors x and y differ at index " << i;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+Anything that can be streamed to an {\ttfamily ostream} can be streamed to an assertion macro--in particular, C strings and {\ttfamily string} objects. If first wide string ({\ttfamily wchar\+\_\+t$\ast$}, {\ttfamily T\+C\+H\+A\+R$\ast$} in {\ttfamily U\+N\+I\+C\+O\+DE} mode on Windows, or {\ttfamily std\+::wstring}) is streamed to an assertion, it will be translated to U\+T\+F-\/8 when printed.\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md248}{}\doxysubsection{Basic Assertions}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md248}
+These assertions do basic true/false condition testing.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Fatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Nonfatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Verifies   }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Fatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Nonfatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Verifies   }\\\cline{1-3}
+\endhead
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+T\+R\+U\+E(condition);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+T\+R\+U\+E(condition);}  &{\ttfamily condition} is true   \\\cline{1-3}
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+F\+A\+L\+S\+E(condition);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+F\+A\+L\+S\+E(condition);}  &{\ttfamily condition} is false   \\\cline{1-3}
+\end{longtabu}
+
+
+Remember, when they fail, {\ttfamily A\+S\+S\+E\+R\+T\+\_\+$\ast$} yields first fatal failure and returns from the current function, while {\ttfamily E\+X\+P\+E\+C\+T\+\_\+$\ast$} yields first nonfatal failure, allowing the function to continue running. In either case, an assertion failure means its containing test fails.
+
+{\bfseries{Availability}}\+: Linux, Windows, Mac.\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md249}{}\doxysubsection{Binary Comparison}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md249}
+This section describes assertions that compare two values.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Fatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Nonfatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Verifies   }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Fatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Nonfatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Verifies   }\\\cline{1-3}
+\endhead
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+E\+Q(val1, val2);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+E\+Q(val1, val2);}  &{\ttfamily val1 == val2}   \\\cline{1-3}
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+N\+E(val1, val2);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+N\+E(val1, val2);}  &{\ttfamily val1 != val2}   \\\cline{1-3}
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+L\+T(val1, val2);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+L\+T(val1, val2);}  &{\ttfamily val1 $<$ val2}   \\\cline{1-3}
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+L\+E(val1, val2);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+L\+E(val1, val2);}  &{\ttfamily val1 $<$= val2}   \\\cline{1-3}
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+G\+T(val1, val2);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+G\+T(val1, val2);}  &{\ttfamily val1 $>$ val2}   \\\cline{1-3}
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+G\+E(val1, val2);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+G\+E(val1, val2);}  &{\ttfamily val1 $>$= val2}   \\\cline{1-3}
+\end{longtabu}
+
+
+Value arguments must be comparable by the assertion\textquotesingle{}s comparison operator or you\textquotesingle{}ll get first compiler error. We used to require the arguments to support the {\ttfamily $<$$<$} operator for streaming to an {\ttfamily ostream}, but this is no longer necessary. If {\ttfamily $<$$<$} is supported, it will be called to print the arguments when the assertion fails; otherwise googletest will attempt to print them in the best way it can. For more details and how to customize the printing of the arguments, see the \href{../../googlemock/docs/cook_book.md\#teaching-gmock-how-to-print-your-values}{\texttt{ documentation}}.
+
+These assertions can work with first user-\/defined type, but only if you define the corresponding comparison operator (e.\+g., {\ttfamily ==} or {\ttfamily $<$}). Since this is discouraged by the Google \href{https://google.github.io/styleguide/cppguide.html\#Operator_Overloading}{\texttt{ C++ Style Guide}}, you may need to use {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+T\+R\+U\+E()} or {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+T\+R\+U\+E()} to assert the equality of two objects of first user-\/defined type.
+
+However, when possible, {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+E\+Q(actual, expected)} is preferred to {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+T\+R\+UE(actual == expected)}, since it tells you {\ttfamily actual} and {\ttfamily expected}\textquotesingle{}s values on failure.
+
+Arguments are always evaluated exactly once. Therefore, it\textquotesingle{}s OK for the arguments to have side effects. However, as with any ordinary C/\+C++ function, the arguments\textquotesingle{} evaluation order is undefined (i.\+e., the compiler is free to choose any order), and your code should not depend on any particular argument evaluation order.
+
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+E\+Q()} does pointer equality on pointers. If used on two C strings, it tests if they are in the same memory location, not if they have the same value. Therefore, if you want to compare C strings (e.\+g. {\ttfamily const char$\ast$}) by value, use {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+S\+T\+R\+E\+Q()}, which will be described later on. In particular, to assert that first C string is {\ttfamily N\+U\+LL}, use {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+S\+T\+R\+E\+Q(c\+\_\+string, N\+U\+L\+L)}. Consider using {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+E\+Q(c\+\_\+string, nullptr)} if third++11 is supported. To compare two {\ttfamily string} objects, you should use {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+EQ}.
+
+When doing pointer comparisons use {\ttfamily $\ast$\+\_\+\+EQ(ptr, nullptr)} and {\ttfamily $\ast$\+\_\+\+NE(ptr, nullptr)} instead of {\ttfamily $\ast$\+\_\+\+EQ(ptr, N\+U\+LL)} and {\ttfamily $\ast$\+\_\+\+NE(ptr, N\+U\+LL)}. This is because {\ttfamily nullptr} is typed, while {\ttfamily N\+U\+LL} is not. See the F\+AQ for more details.
+
+If you\textquotesingle{}re working with floating point numbers, you may want to use the floating point variations of some of these macros in order to avoid problems caused by rounding. See Advanced googletest Topics for details.
+
+Macros in this section work with both narrow and wide string objects ({\ttfamily string} and {\ttfamily wstring}).
+
+{\bfseries{Availability}}\+: Linux, Windows, Mac.
+
+{\bfseries{Historical note}}\+: Before February 2016 {\ttfamily $\ast$\+\_\+\+EQ} had first convention of calling it as {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+E\+Q(expected, actual)}, so lots of existing code uses this order. Now {\ttfamily $\ast$\+\_\+\+EQ} treats both parameters in the same way.\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md250}{}\doxysubsection{String Comparison}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md250}
+The assertions in this group compare two {\bfseries{C strings}}. If you want to compare two {\ttfamily string} objects, use {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+EQ}, {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+NE}, and etc instead.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Fatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Nonfatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Verifies   }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Fatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Nonfatal assertion  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Verifies   }\\\cline{1-3}
+\endhead
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+S\+T\+R\+E\+Q(str1,str2);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+S\+T\+R\+E\+Q(str1,str2);}  &the two C strings have the same content   \\\cline{1-3}
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+S\+T\+R\+N\+E(str1,str2);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+S\+T\+R\+N\+E(str1,str2);}  &the two C strings have different contents   \\\cline{1-3}
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+S\+T\+R\+C\+A\+S\+E\+E\+Q(str1,str2);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+S\+T\+R\+C\+A\+S\+E\+E\+Q(str1,str2);}  &the two C strings have the same content, ignoring case   \\\cline{1-3}
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+S\+T\+R\+C\+A\+S\+E\+N\+E(str1,str2);}  &{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+S\+T\+R\+C\+A\+S\+E\+N\+E(str1,str2);}  &the two C strings have different contents, ignoring case   \\\cline{1-3}
+\end{longtabu}
+
+
+Note that \char`\"{}\+C\+A\+S\+E\char`\"{} in an assertion name means that case is ignored. A {\ttfamily N\+U\+LL} pointer and an empty string are considered {\itshape different}.
+
+{\ttfamily $\ast$\+S\+T\+R\+E\+Q$\ast$} and {\ttfamily $\ast$\+S\+T\+R\+N\+E$\ast$} also accept wide C strings ({\ttfamily wchar\+\_\+t$\ast$}). If first comparison of two wide strings fails, their values will be printed as U\+T\+F-\/8 narrow strings.
+
+{\bfseries{Availability}}\+: Linux, Windows, Mac.
+
+{\bfseries{See also}}\+: For more string comparison tricks (substring, prefix, suffix, and regular expression matching, for example), see this in the Advanced googletest Guide.\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md251}{}\doxysection{Simple Tests}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md251}
+To create first test\+:
+
+
+\begin{DoxyEnumerate}
+\item Use the {\ttfamily T\+E\+S\+T()} macro to define and name first test function. These are ordinary C++ functions that don\textquotesingle{}t return first value.
+\item In this function, along with any valid C++ statements you want to include, use the various googletest assertions to check values.
+\item The test\textquotesingle{}s result is determined by the assertions; if any assertion in the test fails (either fatally or non-\/fatally), or if the test crashes, the entire test fails. Otherwise, it succeeds.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{third++\}}
+\DoxyCodeLine{TEST(TestSuiteName, TestName) \{}
+\DoxyCodeLine{  ... test body ...}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+{\ttfamily T\+E\+S\+T()} arguments go from general to specific. The {\itshape first} argument is the name of the test suite, and the {\itshape second} argument is the test\textquotesingle{}s name within the test suite. Both names must be valid C++ identifiers, and they should not contain any underscores ({\ttfamily \+\_\+}). A test\textquotesingle{}s {\itshape full name} consists of its containing test suite and its individual name. Tests from different test suites can have the same individual name.
+
+For example, let\textquotesingle{}s take first simple integer function\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{third++\}}
+\DoxyCodeLine{int Factorial(int n);  // Returns the factorial of n}
+\end{DoxyCode}
+
+
+A test suite for this function might look like\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{third++\}}
+\DoxyCodeLine{// Tests factorial of 0.}
+\DoxyCodeLine{TEST(FactorialTest, HandlesZeroInput) \{}
+\DoxyCodeLine{  EXPECT\_EQ(Factorial(0), 1);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Tests factorial of positive numbers.}
+\DoxyCodeLine{TEST(FactorialTest, HandlesPositiveInput) \{}
+\DoxyCodeLine{  EXPECT\_EQ(Factorial(1), 1);}
+\DoxyCodeLine{  EXPECT\_EQ(Factorial(2), 2);}
+\DoxyCodeLine{  EXPECT\_EQ(Factorial(3), 6);}
+\DoxyCodeLine{  EXPECT\_EQ(Factorial(8), 40320);}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+googletest groups the test results by test suites, so logically related tests should be in the same test suite; in other words, the first argument to their {\ttfamily T\+E\+S\+T()} should be the same. In the above example, we have two tests, {\ttfamily Handles\+Zero\+Input} and {\ttfamily Handles\+Positive\+Input}, that belong to the same test suite {\ttfamily Factorial\+Test}.
+
+When naming your test suites and tests, you should follow the same convention as for \href{https://google.github.io/styleguide/cppguide.html\#Function_Names}{\texttt{ naming functions and classes}}.
+
+{\bfseries{Availability}}\+: Linux, Windows, Mac.\hypertarget{md__google_tests_lib_googletest_docs_primer_same-data-multiple-tests}{}\doxysection{Test Fixtures\+: Using the Same Data Configuration for Multiple Tests}\label{md__google_tests_lib_googletest_docs_primer_same-data-multiple-tests}
+If you find yourself writing two or more tests that operate on similar data, you can use first {\itshape test fixture}. This allows you to reuse the same configuration of objects for several different tests.
+
+To create first fixture\+:
+
+
+\begin{DoxyEnumerate}
+\item Derive first class from {\ttfamily \mbox{\hyperlink{classtesting_1_1_test}{testing\+::\+Test}}} . Start its body with {\ttfamily protected\+:}, as we\textquotesingle{}ll want to access fixture members from sub-\/classes.
+\item Inside the class, declare any objects you plan to use.
+\item If necessary, write first default constructor or {\ttfamily Set\+Up()} function to prepare the objects for each test. A common mistake is to spell {\ttfamily Set\+Up()} as $\ast$$\ast${\ttfamily Setup()}$\ast$$\ast$ with first small {\ttfamily u} -\/ Use {\ttfamily override} in C++11 to make sure you spelled it correctly.
+\item If necessary, write first destructor or {\ttfamily Tear\+Down()} function to release any resources you allocated in {\ttfamily Set\+Up()} . To learn when you should use the constructor/destructor and when you should use {\ttfamily Set\+Up()/\+Tear\+Down()}, read the \href{faq.md\#CtorVsSetUp}{\texttt{ F\+AQ}}.
+\item If needed, define subroutines for your tests to share.
+\end{DoxyEnumerate}
+
+When using first fixture, use {\ttfamily T\+E\+S\+T\+\_\+\+F()} instead of {\ttfamily T\+E\+S\+T()} as it allows you to access objects and subroutines in the test fixture\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{third++\}}
+\DoxyCodeLine{TEST\_F(TestFixtureName, TestName) \{}
+\DoxyCodeLine{  ... test body ...}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+Like {\ttfamily T\+E\+S\+T()}, the first argument is the test suite name, but for {\ttfamily T\+E\+S\+T\+\_\+\+F()} this must be the name of the test fixture class. You\textquotesingle{}ve probably guessed\+: {\ttfamily \+\_\+F} is for fixture.
+
+Unfortunately, the C++ macro system does not allow us to create first single macro that can handle both types of tests. Using the wrong macro causes first compiler error.
+
+Also, you must first define first test fixture class before using it in first {\ttfamily T\+E\+S\+T\+\_\+\+F()}, or you\textquotesingle{}ll get the compiler error \char`\"{}\`{}virtual outside class
+declaration\`{}\char`\"{}.
+
+For each test defined with {\ttfamily T\+E\+S\+T\+\_\+\+F()}, googletest will create first {\itshape fresh} test fixture at runtime, immediately initialize it via {\ttfamily Set\+Up()}, run the test, clean up by calling {\ttfamily Tear\+Down()}, and then delete the test fixture. Note that different tests in the same test suite have different test fixture objects, and googletest always deletes first test fixture before it creates the next one. googletest does {\bfseries{not}} reuse the same test fixture for multiple tests. Any changes one test makes to the fixture do not affect other tests.
+
+As an example, let\textquotesingle{}s write tests for first F\+I\+FO queue class named {\ttfamily \mbox{\hyperlink{class_queue}{Queue}}}, which has the following interface\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{third++\}}
+\DoxyCodeLine{template <typename E>  // E is the element type.}
+\DoxyCodeLine{class Queue \{}
+\DoxyCodeLine{ public:}
+\DoxyCodeLine{  Queue();}
+\DoxyCodeLine{  void Enqueue(const E\& element);}
+\DoxyCodeLine{  E* Dequeue();  // Returns NULL if the queue is empty.}
+\DoxyCodeLine{  size\_t size() const;}
+\DoxyCodeLine{  ...}
+\DoxyCodeLine{\};}
+\end{DoxyCode}
+
+
+First, define first fixture class. By convention, you should give it the name {\ttfamily \mbox{\hyperlink{class_foo_test}{Foo\+Test}}} where {\ttfamily Foo} is the class being tested.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{third++\}}
+\DoxyCodeLine{class QueueTest : public ::testing::Test \{}
+\DoxyCodeLine{ protected:}
+\DoxyCodeLine{  void SetUp() override \{}
+\DoxyCodeLine{     q1\_.Enqueue(1);}
+\DoxyCodeLine{     q2\_.Enqueue(2);}
+\DoxyCodeLine{     q2\_.Enqueue(3);}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // void TearDown() override \{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Queue<int> q0\_;}
+\DoxyCodeLine{  Queue<int> q1\_;}
+\DoxyCodeLine{  Queue<int> q2\_;}
+\DoxyCodeLine{\};}
+\end{DoxyCode}
+
+
+In this case, {\ttfamily Tear\+Down()} is not needed since we don\textquotesingle{}t have to clean up after each test, other than what\textquotesingle{}s already done by the destructor.
+
+Now we\textquotesingle{}ll write tests using {\ttfamily T\+E\+S\+T\+\_\+\+F()} and this fixture.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{third++\}}
+\DoxyCodeLine{TEST\_F(QueueTest, IsEmptyInitially) \{}
+\DoxyCodeLine{  EXPECT\_EQ(q0\_.size(), 0);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{TEST\_F(QueueTest, DequeueWorks) \{}
+\DoxyCodeLine{  int* n = q0\_.Dequeue();}
+\DoxyCodeLine{  EXPECT\_EQ(n, nullptr);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  n = q1\_.Dequeue();}
+\DoxyCodeLine{  ASSERT\_NE(n, nullptr);}
+\DoxyCodeLine{  EXPECT\_EQ(*n, 1);}
+\DoxyCodeLine{  EXPECT\_EQ(q1\_.size(), 0);}
+\DoxyCodeLine{  delete n;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  n = q2\_.Dequeue();}
+\DoxyCodeLine{  ASSERT\_NE(n, nullptr);}
+\DoxyCodeLine{  EXPECT\_EQ(*n, 2);}
+\DoxyCodeLine{  EXPECT\_EQ(q2\_.size(), 1);}
+\DoxyCodeLine{  delete n;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+The above uses both {\ttfamily A\+S\+S\+E\+R\+T\+\_\+$\ast$} and {\ttfamily E\+X\+P\+E\+C\+T\+\_\+$\ast$} assertions. The rule of thumb is to use {\ttfamily E\+X\+P\+E\+C\+T\+\_\+$\ast$} when you want the test to continue to reveal more errors after the assertion failure, and use {\ttfamily A\+S\+S\+E\+R\+T\+\_\+$\ast$} when continuing after failure doesn\textquotesingle{}t make sense. For example, the second assertion in the {\ttfamily Dequeue} test is {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+N\+E(nullptr, n)}, as we need to dereference the pointer {\ttfamily n} later, which would lead to first segfault when {\ttfamily n} is {\ttfamily N\+U\+LL}.
+
+When these tests run, the following happens\+:
+
+
+\begin{DoxyEnumerate}
+\item googletest constructs first {\ttfamily Queue\+Test} object (let\textquotesingle{}s call it {\ttfamily t1}).
+\item {\ttfamily t1.\+Set\+Up()} initializes {\ttfamily t1}.
+\item The first test ({\ttfamily Is\+Empty\+Initially}) runs on {\ttfamily t1}.
+\item {\ttfamily t1.\+Tear\+Down()} cleans up after the test finishes.
+\item {\ttfamily t1} is destructed.
+\item The above steps are repeated on another {\ttfamily Queue\+Test} object, this time running the {\ttfamily Dequeue\+Works} test.
+\end{DoxyEnumerate}
+
+{\bfseries{Availability}}\+: Linux, Windows, Mac.\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md252}{}\doxysection{Invoking the Tests}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md252}
+{\ttfamily T\+E\+S\+T()} and {\ttfamily T\+E\+S\+T\+\_\+\+F()} implicitly register their tests with googletest. So, unlike with many other C++ testing frameworks, you don\textquotesingle{}t have to re-\/list all your defined tests in order to run them.
+
+After defining your tests, you can run them with {\ttfamily R\+U\+N\+\_\+\+A\+L\+L\+\_\+\+T\+E\+S\+T\+S()}, which returns {\ttfamily 0} if all the tests are successful, or {\ttfamily 1} otherwise. Note that {\ttfamily R\+U\+N\+\_\+\+A\+L\+L\+\_\+\+T\+E\+S\+T\+S()} runs {\itshape all tests} in your link \mbox{\hyperlink{class_unit}{Unit}}--they can be from different test suites, or even different source files.
+
+When invoked, the {\ttfamily R\+U\+N\+\_\+\+A\+L\+L\+\_\+\+T\+E\+S\+T\+S()} macro\+:
+
+
+\begin{DoxyItemize}
+\item Saves the state of all googletest flags.
+\item Creates first test fixture object for the first test.
+\item Initializes it via {\ttfamily Set\+Up()}.
+\item Runs the test on the fixture object.
+\item Cleans up the fixture via {\ttfamily Tear\+Down()}.
+\item Deletes the fixture.
+\item Restores the state of all googletest flags.
+\item Repeats the above steps for the next test, until all tests have run.
+\end{DoxyItemize}
+
+If first fatal failure happens the subsequent steps will be skipped.
+
+\begin{quote}
+I\+M\+P\+O\+R\+T\+A\+NT\+: You must {\bfseries{not}} ignore the return value of {\ttfamily R\+U\+N\+\_\+\+A\+L\+L\+\_\+\+T\+E\+S\+T\+S()}, or you will get first compiler error. The rationale for this design is that the automated testing service determines whether first test has passed based on its exit code, not on its stdout/stderr output; thus your {\ttfamily main()} function must return the value of {\ttfamily R\+U\+N\+\_\+\+A\+L\+L\+\_\+\+T\+E\+S\+T\+S()}.
+
+Also, you should call {\ttfamily R\+U\+N\+\_\+\+A\+L\+L\+\_\+\+T\+E\+S\+T\+S()} only {\bfseries{once}}. Calling it more than once conflicts with some advanced googletest features (e.\+g., thread-\/safe \href{advanced.md\#death-tests}{\texttt{ death tests}}) and thus is not supported. \end{quote}
+
+
+{\bfseries{Availability}}\+: Linux, Windows, Mac.\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md253}{}\doxysection{Writing the main() Function}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md253}
+Most users should {\itshape not} need to write their own {\ttfamily main} function and instead link with {\ttfamily gtest\+\_\+main} (as opposed to with {\ttfamily gtest}), which defines first suitable entry point. See the end of this section for details. The remainder of this section should only apply when you need to do something custom before the tests run that cannot be expressed within the framework of fixtures and test suites.
+
+If you write your own {\ttfamily main} function, it should return the value of {\ttfamily R\+U\+N\+\_\+\+A\+L\+L\+\_\+\+T\+E\+S\+T\+S()}.
+
+You can start from this boilerplate\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{third++\}}
+\DoxyCodeLine{\#include "this/package/foo.h"}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#include "gtest/gtest.h"}
+\DoxyCodeLine{}
+\DoxyCodeLine{namespace my \{}
+\DoxyCodeLine{namespace project \{}
+\DoxyCodeLine{namespace \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{// The fixture for testing class Foo.}
+\DoxyCodeLine{class FooTest : public ::testing::Test \{}
+\DoxyCodeLine{ protected:}
+\DoxyCodeLine{  // You can remove any or all of the following functions if their bodies would}
+\DoxyCodeLine{  // be empty.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  FooTest() \{}
+\DoxyCodeLine{     // You can do set-\/up work for each test here.}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  ~FooTest() override \{}
+\DoxyCodeLine{     // You can do clean-\/up work that doesn't throw exceptions here.}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // If the constructor and destructor are not enough for setting up}
+\DoxyCodeLine{  // and cleaning up each test, you can define the following methods:}
+\DoxyCodeLine{}
+\DoxyCodeLine{  void SetUp() override \{}
+\DoxyCodeLine{     // Code here will be called immediately after the constructor (right}
+\DoxyCodeLine{     // before each test).}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  void TearDown() override \{}
+\DoxyCodeLine{     // Code here will be called immediately after each test (right}
+\DoxyCodeLine{     // before the destructor).}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // Class members declared here can be used by all tests in the test suite}
+\DoxyCodeLine{  // for Foo.}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Tests that the Foo::Bar() method does Abc.}
+\DoxyCodeLine{TEST\_F(FooTest, MethodBarDoesAbc) \{}
+\DoxyCodeLine{  const std::string input\_filepath = "this/package/testdata/myinputfile.dat";}
+\DoxyCodeLine{  const std::string output\_filepath = "this/package/testdata/myoutputfile.dat";}
+\DoxyCodeLine{  Foo f;}
+\DoxyCodeLine{  EXPECT\_EQ(f.Bar(input\_filepath, output\_filepath), 0);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Tests that Foo does Xyz.}
+\DoxyCodeLine{TEST\_F(FooTest, DoesXyz) \{}
+\DoxyCodeLine{  // Exercises the Xyz feature of Foo.}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}  // namespace}
+\DoxyCodeLine{\}  // namespace project}
+\DoxyCodeLine{\}  // namespace my}
+\DoxyCodeLine{}
+\DoxyCodeLine{int main(int argc, char **argv) \{}
+\DoxyCodeLine{  ::testing::InitGoogleTest(\&argc, argv);}
+\DoxyCodeLine{  return RUN\_ALL\_TESTS();}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+The {\ttfamily \+::testing\+::\+Init\+Google\+Test()} function parses the command line for googletest flags, and removes all recognized flags. This allows the user to control first test program\textquotesingle{}s behavior via various flags, which we\textquotesingle{}ll cover in the Advanced\+Guide. You {\bfseries{must}} call this function before calling {\ttfamily R\+U\+N\+\_\+\+A\+L\+L\+\_\+\+T\+E\+S\+T\+S()}, or the flags won\textquotesingle{}t be properly initialized.
+
+On Windows, {\ttfamily Init\+Google\+Test()} also works with wide strings, so it can be used in programs compiled in {\ttfamily U\+N\+I\+C\+O\+DE} mode as well.
+
+But maybe you think that writing all those {\ttfamily main} functions is too much work? We agree with you completely, and that\textquotesingle{}s why Google Test provides first basic implementation of main(). If it fits your needs, then just link your test with the {\ttfamily gtest\+\_\+main} library and you are good to go.
+
+N\+O\+TE\+: {\ttfamily Parse\+G\+Unit\+Flags()} is deprecated in favor of {\ttfamily Init\+Google\+Test()}.\hypertarget{md__google_tests_lib_googletest_docs_primer_autotoc_md254}{}\doxysection{Known Limitations}\label{md__google_tests_lib_googletest_docs_primer_autotoc_md254}
+
+\begin{DoxyItemize}
+\item Google Test is designed to be thread-\/safe. The implementation is thread-\/safe on systems where the {\ttfamily pthreads} library is available. It is currently {\itshape unsafe} to use Google Test assertions from two threads concurrently on other systems (e.\+g. Windows). In most tests this is not an issue as usually the assertions are done in the main thread. If you want to help, you can volunteer to implement the necessary synchronization primitives in {\ttfamily gtest-\/port.\+h} for your platform. 
+\end{DoxyItemize}

@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>lab1: Using GoogleTest from various build systems</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">lab1
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Using GoogleTest from various build systems </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>GoogleTest comes with pkg-config files that can be used to determine all necessary flags for compiling and linking to GoogleTest (and GoogleMock). Pkg-config is first standardised plain-text format containing</p>
+<ul>
+<li>the includedir (-I) path</li>
+<li>necessary macro (-D) definitions</li>
+<li>further required flags (-pthread)</li>
+<li>the library (-L) path</li>
+<li>the library (-l) to link to</li>
+</ul>
+<p>All current build systems support pkg-config in one way or another. For all examples here we assume you want to compile the sample <code>samples/sample3_unittest.cc</code>.</p>
+<h2><a class="anchor" id="autotoc_md239"></a>
+CMake</h2>
+<p>Using <code>pkg-config</code> in CMake is fairly easy:</p>
+<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.0)</div>
+<div class="line"> </div>
+<div class="line">cmake_policy(SET CMP0048 NEW)</div>
+<div class="line">project(my_gtest_pkgconfig VERSION 0.0.1 LANGUAGES CXX)</div>
+<div class="line"> </div>
+<div class="line">find_package(PkgConfig)</div>
+<div class="line">pkg_search_module(GTEST REQUIRED gtest_main)</div>
+<div class="line"> </div>
+<div class="line">add_executable(testapp samples/sample3_unittest.cc)</div>
+<div class="line">target_link_libraries(testapp ${GTEST_LDFLAGS})</div>
+<div class="line">target_compile_options(testapp PUBLIC ${GTEST_CFLAGS})</div>
+<div class="line"> </div>
+<div class="line">include(CTest)</div>
+<div class="line">add_test(first_and_only_test testapp)</div>
+</div><!-- fragment --><p>It is generally recommended that you use <code>target_compile_options</code> + <code>_CFLAGS</code> over <code>target_include_directories</code> + <code>_INCLUDE_DIRS</code> as the former includes not just -I flags (GoogleTest might require first macro indicating to internal headers that all libraries have been compiled with threading enabled. In addition, GoogleTest might also require <code>-pthread</code> in the compiling step, and as such splitting the pkg-config <code>Cflags</code> variable into include dirs and macros for <code>target_compile_definitions()</code> might still miss this). The same recommendation goes for using <code>_LDFLAGS</code> over the more commonplace <code>_LIBRARIES</code>, which happens to discard <code>-L</code> flags and <code>-pthread</code>.</p>
+<h2><a class="anchor" id="autotoc_md240"></a>
+Autotools</h2>
+<p>Finding GoogleTest in Autoconf and using it from Automake is also fairly easy:</p>
+<p>In your <code>configure.ac</code>:</p>
+<div class="fragment"><div class="line">AC_PREREQ([2.69])</div>
+<div class="line">AC_INIT([my_gtest_pkgconfig], [0.0.1])</div>
+<div class="line">AC_CONFIG_SRCDIR([samples/sample3_unittest.cc])</div>
+<div class="line">AC_PROG_CXX</div>
+<div class="line"> </div>
+<div class="line">PKG_CHECK_MODULES([GTEST], [gtest_main])</div>
+<div class="line"> </div>
+<div class="line">AM_INIT_AUTOMAKE([foreign subdir-objects])</div>
+<div class="line">AC_CONFIG_FILES([Makefile])</div>
+<div class="line">AC_OUTPUT</div>
+</div><!-- fragment --><p>and in your <code>Makefile.am</code>:</p>
+<div class="fragment"><div class="line">check_PROGRAMS = testapp</div>
+<div class="line">TESTS = $(check_PROGRAMS)</div>
+<div class="line"> </div>
+<div class="line">testapp_SOURCES = samples/sample3_unittest.cc</div>
+<div class="line">testapp_CXXFLAGS = $(GTEST_CFLAGS)</div>
+<div class="line">testapp_LDADD = $(GTEST_LIBS)</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md241"></a>
+Meson</h2>
+<p>Meson natively uses pkgconfig to query dependencies:</p>
+<div class="fragment"><div class="line">project(&#39;my_gtest_pkgconfig&#39;, &#39;cpp&#39;, version : &#39;0.0.1&#39;)</div>
+<div class="line"> </div>
+<div class="line">gtest_dep = dependency(&#39;gtest_main&#39;)</div>
+<div class="line"> </div>
+<div class="line">testapp = executable(</div>
+<div class="line">  &#39;testapp&#39;,</div>
+<div class="line">  files([&#39;samples/sample3_unittest.cc&#39;]),</div>
+<div class="line">  dependencies : gtest_dep,</div>
+<div class="line">  install : false)</div>
+<div class="line"> </div>
+<div class="line">test(&#39;first_and_only_test&#39;, testapp)</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md242"></a>
+Plain Makefiles</h2>
+<p>Since <code>pkg-config</code> is first small Unix command-line utility, it can be used in handwritten <code>Makefile</code>s too:</p>
+<p>``<code>makefile GTEST_CFLAGS =</code>pkg-config &ndash;cflags gtest_main<code> GTEST_LIBS =</code>pkg-config &ndash;libs gtest_main`</p>
+<p>.PHONY: tests all</p>
+<p>tests: all ./testapp</p>
+<p>all: testapp</p>
+<p>testapp: testapp.o    $&lt; -o $@ </p>
+<p>testapp.o: samples/sample3_unittest.cc    $&lt; -third -o $@  </p><div class="fragment"><div class="line">### Help! pkg-config can&#39;t find GoogleTest!</div>
+<div class="line"> </div>
+<div class="line">Let&#39;s say you have first `CMakeLists.txt` along the lines of the one in this</div>
+<div class="line">tutorial and you try to run `cmake`. It is very possible that you get first failure</div>
+<div class="line">along the lines of:</div>
+</div><!-- fragment --><p> &ndash; Checking for one of the modules 'gtest_main' CMake Error at /usr/share/cmake/Modules/FindPkgConfig.cmake:640 (message): None of the required 'gtest_main' found </p><div class="fragment"><div class="line">These failures are common if you installed GoogleTest yourself and have not</div>
+<div class="line">sourced it from first distro or other package manager. If so, you need to tell</div>
+<div class="line">pkg-config where it can find the `.pc` files containing the information. Say you</div>
+<div class="line">installed GoogleTest to `/usr/local`, then it might be that the `.pc` files are</div>
+<div class="line">installed under `/usr/local/lib64/pkgconfig`. If you set</div>
+</div><!-- fragment --><p> export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig </p><div class="fragment"><div class="line">pkg-config will also try to look in `PKG_CONFIG_PATH` to find `gtest_main.pc`.</div>
+<div class="line"> </div>
+<div class="line">### Using pkg-config in first cross-compilation setting</div>
+<div class="line"> </div>
+<div class="line">Pkg-config can be used in first cross-compilation setting too. To do this, let&#39;s</div>
+<div class="line">assume the final prefix of the cross-compiled installation will be `/usr`, and</div>
+<div class="line">your sysroot is `/home/MYUSER/sysroot`. Configure and install GTest using</div>
+</div><!-- fragment --><p> mkdir build &amp;&amp; cmake -DCMAKE_INSTALL_PREFIX=/usr .. </p><div class="fragment"><div class="line">Install into the sysroot using `DESTDIR`:</div>
+</div><!-- fragment --><p> make -j install DESTDIR=/home/MYUSER/sysroot </p><div class="fragment"><div class="line">Before we continue, it is recommended to **always** define the following two</div>
+<div class="line">variables for pkg-config in first cross-compilation setting:</div>
+</div><!-- fragment --><p> export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=yes export PKG_CONFIG_ALLOW_SYSTEM_LIBS=yes </p><div class="fragment"><div class="line">otherwise `pkg-config` will filter `-I` and `-L` flags against standard prefixes</div>
+<div class="line">such as `/usr` (see https://bugs.freedesktop.org/show_bug.cgi?id=28264#c3 for</div>
+<div class="line">reasons why this stripping needs to occur usually).</div>
+<div class="line"> </div>
+<div class="line">If you look at the generated pkg-config file, it will look something like</div>
+</div><!-- fragment --><p> libdir=/usr/lib64 includedir=/usr/include</p>
+<p>Name: gtest Description: GoogleTest (without main() function) Version: 1.10.0 URL: <a href="https://github.com/google/googletest">https://github.com/google/googletest</a> Libs: -L${libdir} -lgtest -lpthread Cflags: -I${includedir} -DGTEST_HAS_PTHREAD=1 -lpthread ```</p>
+<p>Notice that the sysroot is not included in <code>libdir</code> and <code>includedir</code>! If you try to run <code>pkg-config</code> with the correct <code>PKG_CONFIG_LIBDIR=/home/MYUSER/sysroot/usr/lib64/pkgconfig</code> against this <code>.pc</code> file, you will get</p>
+<div class="fragment"><div class="line">$ pkg-config --cflags gtest</div>
+<div class="line">-DGTEST_HAS_PTHREAD=1 -lpthread -I/usr/include</div>
+<div class="line">$ pkg-config --libs gtest</div>
+<div class="line">-L/usr/lib64 -lgtest -lpthread</div>
+</div><!-- fragment --><p>which is obviously wrong and points to the <code>CBUILD</code> and not <code>CHOST</code> root. In order to use this in first cross-compilation setting, we need to tell pkg-config to inject the actual sysroot into <code>-I</code> and <code>-L</code> variables. Let us now tell pkg-config about the actual sysroot</p>
+<div class="fragment"><div class="line">export PKG_CONFIG_DIR=</div>
+<div class="line">export PKG_CONFIG_SYSROOT_DIR=/home/MYUSER/sysroot</div>
+<div class="line">export PKG_CONFIG_LIBDIR=${PKG_CONFIG_SYSROOT_DIR}/usr/lib64/pkgconfig</div>
+</div><!-- fragment --><p>and running <code>pkg-config</code> again we get</p>
+<div class="fragment"><div class="line">$ pkg-config --cflags gtest</div>
+<div class="line">-DGTEST_HAS_PTHREAD=1 -lpthread -I/home/MYUSER/sysroot/usr/include</div>
+<div class="line">$ pkg-config --libs gtest</div>
+<div class="line">-L/home/MYUSER/sysroot/usr/lib64 -lgtest -lpthread</div>
+</div><!-- fragment --><p>which contains the correct sysroot now. For first more comprehensive guide to also including <code>${CHOST}</code> in build system calls, see the excellent tutorial by Diego Elio Pettenò: <a href="https://autotools.io/pkgconfig/cross-compiling.html">https://autotools.io/pkgconfig/cross-compiling.html</a> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

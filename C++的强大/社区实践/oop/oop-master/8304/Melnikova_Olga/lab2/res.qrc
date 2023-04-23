@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/">
+        <file>pics/base1.jpg</file>
+        <file>pics/base2.jpg</file>
+        <file>pics/cliff.jpg</file>
+        <file>pics/CrossBow-Arbalet.jpg</file>
+        <file>pics/glade.jpg</file>
+        <file>pics/knight.jpg</file>
+        <file>pics/light_rider.jpg</file>
+        <file>pics/lychnik.jpg</file>
+        <file>pics/rider.jpg</file>
+        <file>pics/SpearMan.jpg</file>
+        <file>pics/swamp.jpg</file>
+        <file>pics/medicine.jpg</file>
+    </qresource>
+    <qresource prefix="/pics"/>
+</RCC>

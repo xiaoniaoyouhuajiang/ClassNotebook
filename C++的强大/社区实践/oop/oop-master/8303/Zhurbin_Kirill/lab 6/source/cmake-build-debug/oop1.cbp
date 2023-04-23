@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="oop1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/User/CLionProjects/oop1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/User/CLionProjects/oop1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="oop1">
+				<Option output="C:/Users/User/CLionProjects/oop1/cmake-build-debug/oop1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/User/CLionProjects/oop1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 oop1"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="oop1/fast">
+				<Option output="C:/Users/User/CLionProjects/oop1/cmake-build-debug/oop1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/User/CLionProjects/oop1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 oop1/fast"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/User/CLionProjects/oop1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/oop1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Adapter.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Adapter.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Base.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Base.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Cell.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Command.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/CompositUnit.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/CompositUnit.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Condition.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/DrinkStamina.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/DrinkStrong.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Facade.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Facade.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/FactoryShooter.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/FactorySoldier.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/FactoryTankman.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/FactoryUnit.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Field.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Field.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/File.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Game.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Ground.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Handler.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/HeavyTankman.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/HeavyTankman.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Iterator.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Iterator.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/KeenShooter.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/KeenShooter.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Landscape.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/LandscapeProtected.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/LightTankman.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/LightTankman.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Logger.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/LoggerProtected.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Mediator.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Mediator.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/NeutralObject.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Observer.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/OldSildier.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/OldSoldier.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Poisen.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Potion.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Rules.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Shooter.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Shooter.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/SlantingShooter.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/SlantingShooter.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/SnapshotField.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/SnapshotField.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Soldier.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Soldier.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/State.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/SubjectObserve.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/SubjectObserve.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Tankman.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Tankman.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Unit.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Unit.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/UnitMediator.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Wall.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/Water.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/YoungSoldier.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/YoungSoldier.h">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/main.cpp">
+			<Option target="oop1"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/oop1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

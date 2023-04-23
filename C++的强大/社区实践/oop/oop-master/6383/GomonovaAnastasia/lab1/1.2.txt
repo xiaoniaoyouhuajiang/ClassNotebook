@@ -1,0 +1,87 @@
+#include <assert.h>
+#include <algorithm> // std::copy
+#include <cstddef> // size_t
+
+template<typename T>
+class Array {
+public:
+  // (default) constructor
+  Array(const size_t size = 0)
+    : m_size(size)
+    , m_array(m_size ? new T[m_size]() : nullptr)
+  {
+  }
+
+  // Copy constructor:
+  Array (const Array& a) 
+    : m_size(a.m_size)
+  {
+    try {
+      if (m_size){
+        m_array = new T[m_size];
+        for (size_t i = 0; i != a.m_size; ++i)
+              m_array[i] = a.m_array[i];
+      }
+      else 
+        m_array = nullptr;
+    }
+        catch (...) {
+          delete[] m_array;
+          throw;
+        }
+  }
+
+  // copy assignment
+  Array& operator=(Array& a) 
+  {
+    if (this != &a)
+    {
+      T* tmp_array = nullptr;
+      try {
+          if (a.m_size){
+            tmp_array = new T[a.m_size];
+            for (size_t i = 0; i != a.m_size; ++i)
+                tmp_array[i] = a.m_array[i]; 
+          }
+          else
+            tmp_array = nullptr;
+        }
+          catch (...) {
+            delete[] tmp_array;
+            throw;
+          }
+      delete[] m_array;
+      m_size = a.m_size;
+      m_array = tmp_array;
+    }
+    return *this;
+  }
+
+  // move constructor:
+  Array (Array&& a)
+  { 
+    m_size = a.m_size;
+    m_array = a.m_array;
+    a.m_array = nullptr;
+  }
+
+ // destructor
+  ~Array() {
+      delete[] m_array;
+  }
+
+  const size_t size() const
+  {
+    return m_size;
+  }
+  
+  T& operator [](const size_t index)
+  {
+    assert(index < m_size);
+    return m_array[index];
+  }
+
+private:
+  size_t m_size;
+  T* m_array;
+};

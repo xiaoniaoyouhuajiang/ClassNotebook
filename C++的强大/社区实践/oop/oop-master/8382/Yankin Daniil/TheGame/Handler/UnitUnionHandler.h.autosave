@@ -1,0 +1,15 @@
+#pragma once
+
+#include "RouteHandler.h"
+
+class IUnit;
+
+
+class UnitUnionHandler
+{
+public:
+    void handle(IUnit* active, IUnit* passive);
+
+private:
+    RouteHandler routeHandler;
+};

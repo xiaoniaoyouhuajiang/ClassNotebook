@@ -1,0 +1,50 @@
+\hypertarget{classtesting_1_1internal_1_1_cartesian_product_generator}{}\doxysection{Шаблон класса testing\+::internal\+::Cartesian\+Product\+Generator$<$ T $>$}
+\label{classtesting_1_1internal_1_1_cartesian_product_generator}\index{testing::internal::CartesianProductGenerator$<$ T $>$@{testing::internal::CartesianProductGenerator$<$ T $>$}}
+Граф наследования\+:testing\+::internal\+::Cartesian\+Product\+Generator$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtesting_1_1internal_1_1_cartesian_product_generator}
+\end{center}
+\end{figure}
+\doxysubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtesting_1_1internal_1_1_cartesian_product_generator_1_1_iterator_impl}{Iterator\+Impl}}
+\item 
+class \mbox{\hyperlink{classtesting_1_1internal_1_1_cartesian_product_generator_1_1_iterator_impl_3_01_index_sequence_3_01_i_8_8_8_01_4_01_4}{Iterator\+Impl$<$ Index\+Sequence$<$ I... $>$ $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_cartesian_product_generator_af27131157a9347f0c82420ca081ee7dd}\label{classtesting_1_1internal_1_1_cartesian_product_generator_af27131157a9347f0c82420ca081ee7dd}} 
+typedef \+::std\+::tuple$<$ T... $>$ {\bfseries Param\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_cartesian_product_generator_af89630ce27d49f999f323e6c3d2867af}\label{classtesting_1_1internal_1_1_cartesian_product_generator_af89630ce27d49f999f323e6c3d2867af}} 
+{\bfseries Cartesian\+Product\+Generator} (const std\+::tuple$<$ \mbox{\hyperlink{classtesting_1_1internal_1_1_param_generator}{Param\+Generator}}$<$ T $>$... $>$ \&g)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_cartesian_product_generator_ad2f1bc6289b6dd7e4b5f4fecbfdf2883}\label{classtesting_1_1internal_1_1_cartesian_product_generator_ad2f1bc6289b6dd7e4b5f4fecbfdf2883}} 
+\mbox{\hyperlink{classtesting_1_1internal_1_1_param_iterator_interface}{Param\+Iterator\+Interface}}$<$ Param\+Type $>$ $\ast$ {\bfseries Begin} () const override
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_cartesian_product_generator_ae072dcf8400ac9dd5692e417262a664b}\label{classtesting_1_1internal_1_1_cartesian_product_generator_ae072dcf8400ac9dd5692e417262a664b}} 
+\mbox{\hyperlink{classtesting_1_1internal_1_1_param_iterator_interface}{Param\+Iterator\+Interface}}$<$ Param\+Type $>$ $\ast$ {\bfseries End} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_cartesian_product_generator_a01d41f7e7634ce6c4408af397f86bce3}\label{classtesting_1_1internal_1_1_cartesian_product_generator_a01d41f7e7634ce6c4408af397f86bce3}} 
+using {\bfseries Iterator} = \mbox{\hyperlink{classtesting_1_1internal_1_1_cartesian_product_generator_1_1_iterator_impl}{Iterator\+Impl}}$<$ typename \mbox{\hyperlink{structtesting_1_1internal_1_1_make_index_sequence}{Make\+Index\+Sequence}}$<$ sizeof...(T)$>$\+::type $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_cartesian_product_generator_adb1f110ba803c09b0b1c38b7602652b1}\label{classtesting_1_1internal_1_1_cartesian_product_generator_adb1f110ba803c09b0b1c38b7602652b1}} 
+std\+::tuple$<$ \mbox{\hyperlink{classtesting_1_1internal_1_1_param_generator}{Param\+Generator}}$<$ T $>$... $>$ {\bfseries generators\+\_\+}
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Google\+\_\+tests/lib/googletest/include/gtest/internal/gtest-\/param-\/util.\+h\end{DoxyCompactItemize}

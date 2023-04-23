@@ -1,0 +1,8 @@
+<map id="KnightUnit" name="KnightUnit">
+<area shape="rect" id="node1" title=" " alt="" coords="129,1041,245,1119"/>
+<area shape="rect" id="node5" href="$classHeavyKnightUnit.html" title=" " alt="" coords="5,1167,168,1288"/>
+<area shape="rect" id="node6" href="$classLightweightKnightUnit.html" title=" " alt="" coords="192,1167,384,1288"/>
+<area shape="rect" id="node2" href="$classBaseUnit.html" title=" " alt="" coords="66,549,307,993"/>
+<area shape="rect" id="node3" href="$classUnit.html" title=" " alt="" coords="66,189,307,501"/>
+<area shape="rect" id="node4" href="$classCreature.html" title=" " alt="" coords="117,5,256,141"/>
+</map>

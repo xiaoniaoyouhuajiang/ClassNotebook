@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="lab2_OOP"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lab2_OOP">
+				<Option output="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/lab2_OOP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 lab2_OOP"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lab2_OOP/fast">
+				<Option output="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/lab2_OOP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 lab2_OOP/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Armor/Armor.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Armor/BaseArmor.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Armor/Cape.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Armor/IronArmor.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Armor/LaminarArmor.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Armor/LeatherArmor.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Base.cpp">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Base.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Exceptions/DoubleBasePlacingException.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Exceptions/DoublePlacingOnFieldException.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Exceptions/GameFieldOutOfRangeException.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Exceptions/ImpossibleMoveException.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Exceptions/InvalidFileLoaddingException.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Factory/ArcherFactory.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Factory/UnitFactory.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Factory/VikingsFactory.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Factory/WizardFactory.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/FieldCell.cpp">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/FieldCell.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/FlyWeight/ArmorFlyWeight.cpp">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/FlyWeight/ArmorFlyWeight.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/FlyWeight/WeaponFlyWeight.cpp">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/FlyWeight/WeaponFlyWeight.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameField.cpp">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameField.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameFieldIterator.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameObject.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/GameAPI.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/GameInfo.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/LoadedRequestInterpreter.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/MainRequestInterpreter.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Memento/LoadRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Memento/RequestMemento.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Memento/SaveRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/AttackRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/AttackUnitRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/CreateBaseRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/CreateRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/CreateUnitRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/ExitRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/MoveRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/MoveUnitRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/NewGameRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/NewRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/Request.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/ShowBaseRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/ShowRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Requests/ShowUnitRequest.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Rules/GamingRule.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Rules/HugeGame.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Rules/PlayerState.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/GameUI/Rules/TinyGame.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Formats/LogFormat.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Formats/NoFormat.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Formats/TagFormat.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Formats/TimeFormat.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Log.cpp">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Log.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Logend.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Loggers/FileLogger.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Loggers/Logger.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Loggers/NoLogger.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Logging/Loggers/TerminalLogger.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/NeutralObject/Battlefield.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/NeutralObject/HolyGrail.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/NeutralObject/House.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/NeutralObject/MageGuild.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/NeutralObject/NeutralObject.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/NeutralObject/WildAnimalsArea.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Observers/BaseObserver.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Observers/UnitObserver.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Point.cpp">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Point.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Proxy/LogProxy.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Proxy/TextureProxy.cpp">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Proxy/TextureProxy.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Strategy/ArcherStrategy.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Strategy/NeutralObjectStrategy.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Strategy/VikingStrategy.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Strategy/WizardStrategy.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Texture/GrassTexture.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Texture/RockTexture.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Texture/SwampTexture.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Texture/Texture.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Archer/Archer.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Archer/CrossBowMan.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Archer/Sniper.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Unit.cpp">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Unit.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Viking/Berserk.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Viking/SwordMan.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Viking/Viking.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Wizard/FireMage.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Wizard/IceMage.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Unit/Wizard/Wizard.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Utils.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Weapon/Far/Bow.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Weapon/Magic/FireBall.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Weapon/Magic/IceStorm.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Weapon/Physic/Axe.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Weapon/Physic/Sword.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/Weapon/Weapon.h">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/main.cpp">
+			<Option target="lab2_OOP"/>
+		</Unit>
+		<Unit filename="/Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

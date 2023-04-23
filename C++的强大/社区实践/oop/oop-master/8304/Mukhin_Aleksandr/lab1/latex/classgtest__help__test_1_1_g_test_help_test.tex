@@ -1,0 +1,93 @@
+\hypertarget{classgtest__help__test_1_1_g_test_help_test}{}\doxysection{Класс gtest\+\_\+help\+\_\+test.\+G\+Test\+Help\+Test}
+\label{classgtest__help__test_1_1_g_test_help_test}\index{gtest\_help\_test.GTestHelpTest@{gtest\_help\_test.GTestHelpTest}}
+Граф наследования\+:gtest\+\_\+help\+\_\+test.\+G\+Test\+Help\+Test\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgtest__help__test_1_1_g_test_help_test}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classgtest__help__test_1_1_g_test_help_test_a26cc1a64bd67278252ebfcd0ac0dca0c}{Test\+Help\+Flag}} (self, flag)
+\item 
+def \mbox{\hyperlink{classgtest__help__test_1_1_g_test_help_test_a03ffa91ecf6193ed2ed80b53933112ab}{Test\+Non\+Help\+Flag}} (self, flag)
+\item 
+\mbox{\Hypertarget{classgtest__help__test_1_1_g_test_help_test_ad91b46ad4506ff52b337b63f6b6c2ad1}\label{classgtest__help__test_1_1_g_test_help_test_ad91b46ad4506ff52b337b63f6b6c2ad1}} 
+def {\bfseries test\+Prints\+Help\+With\+Full\+Flag} (self)
+\item 
+\mbox{\Hypertarget{classgtest__help__test_1_1_g_test_help_test_a3dd96058d093a89350769b4e2cc36563}\label{classgtest__help__test_1_1_g_test_help_test_a3dd96058d093a89350769b4e2cc36563}} 
+def {\bfseries test\+Prints\+Help\+With\+Short\+Flag} (self)
+\item 
+\mbox{\Hypertarget{classgtest__help__test_1_1_g_test_help_test_aafd4d1857c2538c8b1f7cc5a5d1e38b4}\label{classgtest__help__test_1_1_g_test_help_test_aafd4d1857c2538c8b1f7cc5a5d1e38b4}} 
+def {\bfseries test\+Prints\+Help\+With\+Question\+Flag} (self)
+\item 
+\mbox{\Hypertarget{classgtest__help__test_1_1_g_test_help_test_a7be99cd30193e2eecf79f9d65f561afc}\label{classgtest__help__test_1_1_g_test_help_test_a7be99cd30193e2eecf79f9d65f561afc}} 
+def {\bfseries test\+Prints\+Help\+With\+Windows\+Style\+Question\+Flag} (self)
+\item 
+\mbox{\Hypertarget{classgtest__help__test_1_1_g_test_help_test_a701abb8f34df726b9129d7654cb32066}\label{classgtest__help__test_1_1_g_test_help_test_a701abb8f34df726b9129d7654cb32066}} 
+def {\bfseries test\+Prints\+Help\+With\+Unrecognized\+Google\+Test\+Flag} (self)
+\item 
+\mbox{\Hypertarget{classgtest__help__test_1_1_g_test_help_test_ab8d379bbb0da7403ced599f4ee498728}\label{classgtest__help__test_1_1_g_test_help_test_ab8d379bbb0da7403ced599f4ee498728}} 
+def {\bfseries test\+Prints\+Help\+With\+Incorrect\+Flag\+Style} (self)
+\item 
+def \mbox{\hyperlink{classgtest__help__test_1_1_g_test_help_test_ae7831f92e8e3763c07afb908915b3d20}{test\+Runs\+Tests\+Without\+Help\+Flag}} (self)
+\item 
+def \mbox{\hyperlink{classgtest__help__test_1_1_g_test_help_test_a0ebec2e3154d22a63e362d2196f9c638}{test\+Runs\+Tests\+With\+Gtest\+Internal\+Flag}} (self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+\begin{DoxyVerb}Tests the --help flag and its equivalent forms.\end{DoxyVerb}
+ 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classgtest__help__test_1_1_g_test_help_test_a26cc1a64bd67278252ebfcd0ac0dca0c}\label{classgtest__help__test_1_1_g_test_help_test_a26cc1a64bd67278252ebfcd0ac0dca0c}} 
+\index{gtest\_help\_test.GTestHelpTest@{gtest\_help\_test.GTestHelpTest}!TestHelpFlag@{TestHelpFlag}}
+\index{TestHelpFlag@{TestHelpFlag}!gtest\_help\_test.GTestHelpTest@{gtest\_help\_test.GTestHelpTest}}
+\doxysubsubsection{\texorpdfstring{TestHelpFlag()}{TestHelpFlag()}}
+{\footnotesize\ttfamily def gtest\+\_\+help\+\_\+test.\+G\+Test\+Help\+Test.\+Test\+Help\+Flag (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{flag }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Verifies correct behavior when help flag is specified.
+
+The right message must be printed and the tests must
+skipped when the given flag is specified.
+
+Args:
+  flag:  A flag to pass to the binary or None.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classgtest__help__test_1_1_g_test_help_test_a03ffa91ecf6193ed2ed80b53933112ab}\label{classgtest__help__test_1_1_g_test_help_test_a03ffa91ecf6193ed2ed80b53933112ab}} 
+\index{gtest\_help\_test.GTestHelpTest@{gtest\_help\_test.GTestHelpTest}!TestNonHelpFlag@{TestNonHelpFlag}}
+\index{TestNonHelpFlag@{TestNonHelpFlag}!gtest\_help\_test.GTestHelpTest@{gtest\_help\_test.GTestHelpTest}}
+\doxysubsubsection{\texorpdfstring{TestNonHelpFlag()}{TestNonHelpFlag()}}
+{\footnotesize\ttfamily def gtest\+\_\+help\+\_\+test.\+G\+Test\+Help\+Test.\+Test\+Non\+Help\+Flag (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{flag }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Verifies correct behavior when no help flag is specified.
+
+Verifies that when no help flag is specified, the tests are run
+and the help message is not printed.
+
+Args:
+  flag:  A flag to pass to the binary or None.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classgtest__help__test_1_1_g_test_help_test_a0ebec2e3154d22a63e362d2196f9c638}\label{classgtest__help__test_1_1_g_test_help_test_a0ebec2e3154d22a63e362d2196f9c638}} 
+\index{gtest\_help\_test.GTestHelpTest@{gtest\_help\_test.GTestHelpTest}!testRunsTestsWithGtestInternalFlag@{testRunsTestsWithGtestInternalFlag}}
+\index{testRunsTestsWithGtestInternalFlag@{testRunsTestsWithGtestInternalFlag}!gtest\_help\_test.GTestHelpTest@{gtest\_help\_test.GTestHelpTest}}
+\doxysubsubsection{\texorpdfstring{testRunsTestsWithGtestInternalFlag()}{testRunsTestsWithGtestInternalFlag()}}
+{\footnotesize\ttfamily def gtest\+\_\+help\+\_\+test.\+G\+Test\+Help\+Test.\+test\+Runs\+Tests\+With\+Gtest\+Internal\+Flag (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Verifies that the tests are run and no help message is printed when
+a flag starting with Google Test prefix and 'internal_' is supplied.\end{DoxyVerb}
+ \mbox{\Hypertarget{classgtest__help__test_1_1_g_test_help_test_ae7831f92e8e3763c07afb908915b3d20}\label{classgtest__help__test_1_1_g_test_help_test_ae7831f92e8e3763c07afb908915b3d20}} 
+\index{gtest\_help\_test.GTestHelpTest@{gtest\_help\_test.GTestHelpTest}!testRunsTestsWithoutHelpFlag@{testRunsTestsWithoutHelpFlag}}
+\index{testRunsTestsWithoutHelpFlag@{testRunsTestsWithoutHelpFlag}!gtest\_help\_test.GTestHelpTest@{gtest\_help\_test.GTestHelpTest}}
+\doxysubsubsection{\texorpdfstring{testRunsTestsWithoutHelpFlag()}{testRunsTestsWithoutHelpFlag()}}
+{\footnotesize\ttfamily def gtest\+\_\+help\+\_\+test.\+G\+Test\+Help\+Test.\+test\+Runs\+Tests\+Without\+Help\+Flag (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Verifies that when no help flag is specified, the tests are run
+and the help message is not printed.\end{DoxyVerb}
+ 
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Google\+\_\+tests/lib/googletest/test/gtest\+\_\+help\+\_\+test.\+py\end{DoxyCompactItemize}

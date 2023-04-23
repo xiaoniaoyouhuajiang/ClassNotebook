@@ -1,0 +1,20 @@
+digraph "source tree" {
+    overlap=scale;
+    size="8,10";
+    ratio="fill";
+    fontsize="16";
+    fontname="Helvetica";
+	clusterrank="local";
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_2.h" -> "dlib/\nmemory_manager/\nmemory_manager_kernel_abstract.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_3.h" -> "dlib/\nassert.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_3.h" -> "dlib/\nmemory_manager/\nmemory_manager_kernel_abstract.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_1.h" -> "dlib/\nassert.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_1.h" -> "dlib/\nmemory_manager/\nmemory_manager_kernel_abstract.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_abstract.h" -> "dlib/\nalgs.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_3.h" -> "dlib/\nalgs.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_3.h" -> "dlib/\nbinary_search_tree/\nbinary_search_tree_kernel_2.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_1.h" -> "dlib/\nalgs.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_3.h" -> "dlib/\nmemory_manager/\nmemory_manager_kernel_2.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_2.h" -> "dlib/\nalgs.h"
+	"dlib/\nmemory_manager/\nmemory_manager_kernel_2.h" -> "dlib/\nassert.h"
+}

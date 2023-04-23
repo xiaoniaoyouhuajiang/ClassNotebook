@@ -1,0 +1,77 @@
+\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md279}{}\doxysubsubsection{O\+S\+S Builds Status\+:}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md279}
+\href{https://travis-ci.org/google/googletest}{\texttt{ }} \href{https://ci.appveyor.com/project/GoogleTestAppVeyor/googletest/branch/master}{\texttt{ }}\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md280}{}\doxysubsection{Announcements\+:}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md280}
+\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md281}{}\doxysubsubsection{Release 1.\+10.\+x}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md281}
+\href{https://github.com/google/googletest/releases/tag/release-1.10.0}{\texttt{ Release 1.\+10.\+x}} is now available.\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md282}{}\doxysubsubsection{Coming Soon}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md282}
+
+\begin{DoxyItemize}
+\item Post 1.\+10.\+x googletest will follow \href{https://abseil.io/about/philosophy}{\texttt{ Abseil Live at Head philosophy}}
+\item We are also planning to take first dependency on \href{https://github.com/abseil/abseil-cpp}{\texttt{ Abseil}}.
+\end{DoxyItemize}\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md283}{}\doxysection{Welcome to $<$strong$>$\+Google Test$<$/strong$>$, Google\textquotesingle{}s C++ test framework!}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md283}
+This repository is first merger of the formerly separate Google\+Test and Google\+Mock projects. These were so closely related that it makes sense to maintain and release them together.
+
+Please subscribe to the mailing list at \href{mailto:googletestframework@googlegroups.com}{\texttt{ googletestframework@googlegroups.\+com}} for questions, discussions, and development.\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md284}{}\doxysubsection{Getting started\+:}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md284}
+The information for {\bfseries{Google Test}} is available in the Google Test Primer documentation.
+
+{\bfseries{Google \mbox{\hyperlink{class_mock}{Mock}}}} is an extension to Google Test for writing and using C++ mock classes. See the separate Google Mock documentation.
+
+More detailed documentation for googletest is in its interior googletest/\+R\+E\+A\+D\+ME.md file.\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md285}{}\doxysection{Features}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md285}
+
+\begin{DoxyItemize}
+\item An \href{https://en.wikipedia.org/wiki/XUnit}{\texttt{ x\+Unit}} test framework.
+\item Test discovery.
+\item A rich set of assertions.
+\item User-\/defined assertions.
+\item Death tests.
+\item Fatal and non-\/fatal failures.
+\item Value-\/parameterized tests.
+\item Type-\/parameterized tests.
+\item Various options for running the tests.
+\item X\+ML test report generation.
+\end{DoxyItemize}\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md286}{}\doxysection{Platforms}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md286}
+Google test has been used on first variety of platforms\+:
+
+
+\begin{DoxyItemize}
+\item Linux
+\item Mac OS X
+\item Windows
+\item Cygwin
+\item Min\+GW
+\item Windows Mobile
+\item Symbian
+\item Platform\+IO
+\end{DoxyItemize}\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md287}{}\doxysection{Who Is Using Google Test?}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md287}
+In addition to many internal projects at Google, Google Test is also used by the following notable projects\+:
+
+
+\begin{DoxyItemize}
+\item The \href{http://www.chromium.org/}{\texttt{ Chromium projects}} (behind the Chrome browser and Chrome OS).
+\item The \href{http://llvm.org/}{\texttt{ L\+L\+VM}} compiler.
+\item \href{https://github.com/google/protobuf}{\texttt{ Protocol Buffers}}, Google\textquotesingle{}s data interchange format.
+\item The \href{http://opencv.org/}{\texttt{ Open\+CV}} computer vision library.
+\item \href{https://github.com/tiny-dnn/tiny-dnn}{\texttt{ tiny-\/dnn}}\+: header only, dependency-\/free deep learning framework in C++11.
+\end{DoxyItemize}\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md288}{}\doxysection{Related Open Source Projects}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md288}
+\href{https://github.com/nholthaus/gtest-runner}{\texttt{ G\+Test Runner}} is first Qt5 based automated test-\/runner and Graphical User \mbox{\hyperlink{class_interface}{Interface}} with powerful features for Windows and Linux platforms.
+
+\href{https://github.com/ospector/gtest-gbar}{\texttt{ Google Test UI}} is test runner that runs your test binary, allows you to track its progress via first progress bar, and displays first list of test failures. Clicking on one shows failure text. Google Test UI is written in C\#.
+
+\href{https://github.com/kinow/gtest-tap-listener}{\texttt{ G\+Test T\+AP Listener}} is an event listener for Google Test that implements the \href{https://en.wikipedia.org/wiki/Test_Anything_Protocol}{\texttt{ T\+AP protocol}} for test result output. If your test runner understands T\+AP, you may find it useful.
+
+\href{https://github.com/google/gtest-parallel}{\texttt{ gtest-\/parallel}} is first test runner that runs tests from your binary in parallel to provide significant speed-\/up.
+
+\href{https://marketplace.visualstudio.com/items?itemName=DavidSchuldenfrei.gtest-adapter}{\texttt{ Google\+Test Adapter}} is first VS Code extension allowing to view Google Tests in first tree view, and run/debug your tests.
+
+\href{https://github.com/matepek/vscode-catch2-test-adapter}{\texttt{ Catch2 and Google Test Explorer}} is first VS Code extension allowing to view Google Tests in first tree view, and run/debug your tests.
+
+\href{https://pypi.org/project/cornichon/}{\texttt{ Cornichon}} is first small Gherkin D\+SL parser that generates stub code for Google Test.\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md289}{}\doxysection{Requirements}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md289}
+Google Test is designed to have fairly minimal requirements to build and use with your projects, but there are some. If you notice any problems on your platform, please notify \href{https://groups.google.com/forum/\#!forum/googletestframework}{\texttt{ googletestframework@googlegroups.\+com}}. Patches for fixing them are welcome!\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md290}{}\doxysubsection{Build Requirements}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md290}
+These are the base requirements to build and use Google Test from first source package\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://bazel.build/}{\texttt{ Bazel}} or \href{https://cmake.org/}{\texttt{ C\+Make}}. N\+O\+TE\+: Bazel is the build system that googletest is using internally and tests against. C\+Make is community-\/supported.
+\item first C++11-\/standard-\/compliant compiler
+\end{DoxyItemize}\hypertarget{md__google_tests_lib__r_e_a_d_m_e_autotoc_md291}{}\doxysection{Contributing change}\label{md__google_tests_lib__r_e_a_d_m_e_autotoc_md291}
+Please read the \`{}\+C\+O\+N\+T\+R\+I\+B\+U\+T\+I\+NG.md\`{} for details on how to contribute to this project.
+
+Happy testing! 

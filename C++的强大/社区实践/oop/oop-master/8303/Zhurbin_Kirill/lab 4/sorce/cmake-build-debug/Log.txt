@@ -1,0 +1,8 @@
+log:Swith logger mode to write to file
+log:Swith logger mode to write to file
+log:Create base#1,  x: 3,  y: 3, health: 5, max count unit: 5
+log:Create unit  y,  health: 500,  attack: 20, armor: 50
+log:Create unit  o,  health: 400,  attack: 30, armor: 70
+log:Create unit  l,  health: 100,  attack: 200, armor: 150
+log:Create unit  h,  health: 200,  attack: 50, armor: 100
+log:Create unit  s,  health: 30,  attack: 15, armor: 40

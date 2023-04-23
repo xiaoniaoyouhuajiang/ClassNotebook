@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/green-48.png</file>
+        <file>icons/green-96.png</file>
+        <file>icons/red-48.png</file>
+        <file>icons/red-96.png</file>
+        <file>icons/delete.png</file>
+        <file>icons/move.png</file>
+        <file>icons/575_s.png</file>
+        <file>icons/578_s.png</file>
+        <file>icons/1095_s.png</file>
+        <file>icons/1104_s.png</file>
+        <file>icons/1108_s.png</file>
+        <file>icons/1118_s.png</file>
+        <file>icons/bonus.png</file>
+        <file>icons/land.jpg</file>
+        <file>icons/base.png</file>
+        <file>icons/attack.png</file>
+    </qresource>
+</RCC>

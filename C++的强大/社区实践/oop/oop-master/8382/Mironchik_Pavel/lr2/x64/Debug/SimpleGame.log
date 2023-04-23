@@ -1,0 +1,1 @@
+﻿sfml-graphics-d.lib(sfml-graphics-d-2.dll) : fatal error LNK1112: тип компьютера модуля "x86" противоречит типу целевого компьютера "x64"

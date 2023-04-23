@@ -1,0 +1,6 @@
+<map id="Terrain" name="Terrain">
+<area shape="rect" id="node1" title=" " alt="" coords="208,5,387,127"/>
+<area shape="rect" id="node2" href="$classGroundTerrain.html" title=" " alt="" coords="5,175,184,296"/>
+<area shape="rect" id="node3" href="$classStoneTerrain.html" title=" " alt="" coords="208,175,387,296"/>
+<area shape="rect" id="node4" href="$classWaterTerrain.html" title=" " alt="" coords="411,175,589,296"/>
+</map>

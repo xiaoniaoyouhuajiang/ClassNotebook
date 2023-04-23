@@ -1,0 +1,347 @@
+# Matrix Derivatives
+
+If $C = f(A, B)$ where $A,$ $B,$ and $C$ are matrices (or vectors or scalars),
+the chain rule remains the same,
+$$
+\textrm{d}C
+= \frac{\partial f(A, B)}{\partial A} \cdot \textrm{d}{A}
+  + \frac{\partial f(A, B)}{\partial B} \cdot \textrm{d}{B}.
+$$
+The total differential notation $\textrm{d}C$ may be understood by
+plugging in a scalar $x$ with respect which to differentiate,
+$$
+\frac{\textrm{d}C}{\textrm{d}x}
+= \frac{\partial f(A, B)}{\partial A} \cdot \frac{\textrm{d}{A}}{\textrm{d}x}
+  + \frac{\partial f(A, B)}{\partial B} \cdot \frac{\textrm{d}{B}}{\textrm{d}x}.
+$$
+
+In the general case, if $C = f(A_1, \ldots, A_N),$ then
+$$
+\textrm{d}C
+= \sum_{n=1}^N \frac{\partial f(A_1, \ldots, A_N)}{\partial A_n} \textrm{d}{A_n}.
+$$
+
+If $C$ is an $K \times L$ matrix and $A$ is a $M \times N$ matrix,
+then the Jacobian $\frac{\partial C}{\partial A}$ has dimensions $(K
+\times L) \times (M \times N).$ These results may be construed as
+involving standard vectors and Jacobians by collapsing all matrices to
+vectors.  Or they may be read directly by raising the type of
+operations and multiplying the $(K \times L) \times (M \times N)$
+Jacobian by the $M \times N$ matrix differential.^[In the automatic
+differentiation literature in computer science, this is sometimes
+called a "tensor" product, where "tensor" just means array of
+arbitrary dimensionality and should not be confused with the tensor
+calculus used in physics.]
+
+
+
+## Forward mode
+
+The definitions of values and tangents remain the same when moving to
+vector or matrix functions.  As with scalars, the tangent of a matrix
+(or vector) $U$ is defined relative to a scalar variable $x$ as
+
+$$
+\dot{U} = \frac{\partial U}{\partial x}.
+$$
+This derivative is defined elementwise, with
+$$
+\dot{U}_{i, j} =\frac{\partial U_{i, j}}{\partial x}.
+$$
+
+Forward mode automatic differentiation for matrices follows the chain
+rule,
+$$
+\frac{\partial C}{\partial x}
+= \frac{\partial C}{\partial A} \cdot \frac{\partial A}{\partial x}
+  + \frac{\partial C}{\partial B} \cdot \frac{\partial B}{\partial x},
+$$
+which, using tangent notaton, yields
+$$
+\dot{C}
+= \frac{\partial C}{\partial A} \cdot \dot{A}
+  + \frac{\partial C}{\partial B} \cdot \dot{B}.
+$$
+
+In general, if $C =
+f(A_1, \ldots, A_N),$ then
+$$
+\dot{C} = \sum_{n=1}^N \frac{\partial C}{\partial A_n} \cdot
+\dot{A_n}.
+$$
+
+As with forward-mode autodiff for scalars, this matrix derivative rule is
+straightforward to work out and to implement.
+
+The tangent rules for matrix operations carry over neatly from the
+scalar case.  For example, $C = A + B$ is the sum of two matrices, the
+corresponding tangent rule is
+$$
+\dot{C} = \dot{A} + \dot{B}.
+$$
+Here and throughout, matrices used in arithmetic operations will be
+assumed to conform to the required shape and size constraints in the
+expressions in which they are used.  For $A + B$ to be well formed,
+$A$ and $B$ must both be $M \times N$ matrices (i.e., they must have
+the same number of rows and columns).
+
+Similarly, if $C = A \cdot B$ is the product of two matrices, the
+tangent rule is the same as that for scalars,
+$$
+\dot{C} = \dot{A} \cdot B + A \cdot \dot{B}.
+$$
+
+Simple tangent rules exist for many linear algebra operations, such as
+inverse.  If $C = A^{-1}$, then the tangent rule is
+$$
+\dot{C} = -C \cdot \dot{A} \cdot C.
+$$
+Results such as these are derived through algebraic manipulation and
+differentiation (see \cite{giles:2008b} for general rules).  For
+inverse, because
+$$
+C \cdot A = A^{-1} \cdot A = \textrm{I}.
+$$
+Differentiating both sides yields
+$$
+\frac{\partial}{\partial x} C \cdot A
+=
+\frac{\partial}{\partial x} \textrm{I}.
+$$
+Replacing with dot notation yields
+$$
+\dot{C} \cdot A + C \cdot \dot{A} = 0.
+$$
+Rearranging the terms produces
+$$
+\dot{C} \cdot A = - C \cdot \dot{A}.
+$$
+Multiplying both sides of the equation on the right by $A^{-1}$ gives
+$$
+\dot{C} \cdot A \cdot A^{-1} = -C \cdot \dot{A} \cdot A^{-1}.
+$$
+This reduces to the final simplified form
+$$
+\dot{C} = -C \cdot \dot{A} \cdot C,
+$$
+after dropping the factor $A \cdot A^{-1} = \textrm{I}$ and replacing
+$A^{-1}$ with its value $C$.
+
+
+
+## Reverse mode
+
+Using the same adjoint notation as for scalars, if $U$ is an $M \times
+N$ matrix involved in the computation of a final result $y$, then
+$$
+\overline{U} = \frac{\partial y}{\partial U},
+$$
+with entries defined elementwise by
+$$
+\overline{U}_{i, j}
+= \frac{\partial y}{\partial U}[i, j]
+= \frac{\partial y}{\partial U_{i, j}}.
+$$
+The definition applies to vectors if $N = 1$ and row vectors if $M =
+1.$
+
+The adjoint method can be applied to matrix or vector functions in the
+same way as to scalar functions.  Suppose there is a final scalar
+result variable $y$ and along the way to computing $y$, the matrix (or
+vector) $A$ is used exactly once, appearing only in the subexpression
+$B = f(\ldots, A, \ldots).$ By the chain rule,^[The terms in this
+equality can be read as vector derivatives by flattening the matrices.
+If $A$ is an $M \times N$ matrix and $B$ is a $K \times L$ matrix,
+then $\displaystyle \frac{\partial y}{\partial A}$ is a vector of size
+$M \cdot N$, $\displaystyle \frac{\partial B}{\partial A}$ is matrix
+of size $(K \cdot L) \times (M \cdot N),$ and $\displaystyle
+\frac{\partial y}{\partial B}$ is a vector if size $K \cdot L$.  After
+transposition, the right-hand side is a product of an $(M \cdot N)
+\times (K \cdot L)$ matrix and a vector of size $K \cdot L$, yielding
+a vector of size $M \cdot N,$ as found on the left-hand side.]
+$$
+\frac{\partial y}
+     {\partial A}
+= \left(
+    \frac{\partial B}
+         {\partial A}
+   \right)^{\top}
+   \cdot
+   \frac{\partial y}
+        {\partial B}
+= \textrm{J}^{\top}_f(A) \cdot \frac{\partial y}{\partial B},
+$$
+where the Jacobian function $\textrm{J}_f$ is generalized to matrices
+by^[Matrix Jacobians may be understood by generalizing definitions to matrices or by flattening.]
+$$
+\textrm{J}_f(U) = \frac{\partial f(U)}{\partial U}.
+$$
+Rewriting using adjoint notation,
+$$
+\overline{A}
+= \textrm{J}_f^{\top}(A) \cdot \overline{B},
+$$
+or in transposed form,
+$$
+\overline{A}^{\top}
+= \overline{B}^{\top} \cdot \textrm{J}_f(A).
+$$
+The adjoint of an operand is the product of the Jacobian of the
+function and adjoint of the result.
+
+An expression $A$ may be used as an operand in multiple expressions
+involved in the computation of $y.$ As with scalars, the adjoints need
+to be propagated from each result, leading to the fundamental matrix
+autodiff rule for a subexpression $B = f(\ldots, A, \ldots)$ involved
+in the computation of $y,$
+$$
+\overline{A}
+\ \ {\small +}{=} \ \
+\textrm{J}_f^{\top}(A) \cdot \overline{B}.
+$$
+
+## Trace algebra
+
+The Jacobian of a function with an $N \times M$ matrix operand and $K
+\times L$ matrix result has $N \cdot M \cdot K \cdot L$ elements, one
+for each derivative of an output with respect to an input.  This
+makes it prohibitively expensive in terms of both memory and
+computation to store and multiply Jacobians explicitly.  Instead,
+algebra is used to reduce adjoint computations to manageable sizes.
+
+Suppose the $M \times N$ matrix $C$ is used in the computation of
+$y$.  By the chain rule,
+$$
+\begin{array}{rcl}
+\textrm{d}y
+& = & \sum_{n = 1}^N \sum_{m = 1}^N
+        \frac{\partial y}{\partial C_{m, n}} \cdot \textrm{d}C_{m, n}
+\\[4pt]
+& = & \sum_{n = 1}^N \sum_{m = 1}^N
+        \overline{C}_{m, n} \cdot \textrm{d}C_{m, n}
+\\[4pt]
+& = & \sum_{n = 1}^N \sum_{m = 1}^N
+        \overline{C}^{\top}_{n, m} \cdot \textrm{d}C_{m, n}
+\\[4pt]
+& = & \sum_{n = 1}^N
+        \overline{C}^{\top}_{n, \cdot} \cdot \textrm{d}C_{\cdot, n}
+\\[4pt]
+& = & \textrm{Tr}(\overline{C}^{\top} \cdot \textrm{d}C),
+\end{array}
+$$
+where the notation $U_{m, \cdot}$ indicates the $m$-th row of $U$,
+$U_{\cdot, m}$ the $m$-th column of $U$, and $\textrm{Tr}(U)$ the
+trace of an $N \times N$ square matrix $U$ defined by
+$$
+\textrm{Tr}(U) = \sum_{n = 1}^N U_{n, n}.
+$$
+Clarifying that differentiation is with respect to a distinguished
+scalar variable $x$ on both sides of the above equation yields
+$$
+\frac{\textrm{d} y}{\textrm{d} x}
+=
+\frac{\textrm{d}}{\textrm{d} x}
+= \textrm{Tr}\left(
+    \overline{C}^{\top}
+    \cdot \frac{\textrm{d}C}{\textrm{d}x}
+  \right).
+$$
+
+Suppose that $C = f(A, B)$ is a matrix function.  As noted at the
+beginning of this chapter, the chain rule yields
+$$
+\textrm{d}C
+= \frac{\partial f(A, B)}{\partial A} \textrm{d}A
+  + \frac{\partial f(A, B)}{\partial B} \textrm{d}B.
+$$
+Using the result of the previous section and substituting the
+right-hand side above for $\textrm{d}C$,
+$$
+\begin{array}{rcl}
+\textrm{d}y
+& = & \textrm{Tr}(\overline{C}^{\top} \cdot \textrm{d}C)
+\\[4pt]
+& = &
+\textrm{Tr}\left(
+  \overline{C}^{\top}
+  \cdot \left( \frac{\partial f(A, B)}{\partial A} \textrm{d}A
+               + \frac{\partial f(A, B)}{\partial B} \textrm{d}B
+        \right)
+\right)
+\\[4pt]
+& = &
+\textrm{Tr}\left(
+\overline{C}^{\top}
+  \cdot \frac{\partial f(A, B)}{\partial A} \textrm{d}A
++
+\overline{C}^{\top}
+  \cdot \frac{\partial f(A, B)}{\partial B} \textrm{d}B
+\right)
+\\[4pt]
+& = &
+\textrm{Tr}\left(
+  \overline{C}^{\top}
+  \cdot \frac{\partial f(A, B)}{\partial A} \textrm{d}A
+\right)
++ \textrm{Tr}\left(
+  \overline{C}^{\top}
+  \cdot \frac{\partial f(A, B)}{\partial B} \textrm{d}B
+\right).
+\end{array}
+$$
+Recall the transposed form of the adjoint rule,
+$$
+\overline{A}^{\top}
+= \overline{C}^{\top}
+  \cdot \frac{\partial C}{\partial A},
+$$
+and similarly for $\overline{B}^{\top}$.  Plugging that into the final
+line of the previous derivation yields the final form of the
+trace rule for matrix functions $C = f(A, B),$
+$$
+\textrm{Tr}( \overline{C}^{\top} \cdot \textrm{d}C )
+=
+\textrm{Tr}( \overline{A}^{\top} \cdot \textrm{d}A )
++ \textrm{Tr}( \overline{B}^{\top} \cdot \textrm{d}B ).
+$$
+This can be generalized to functions of one or more arguments in the
+obvious way.
+
+
+## Examples
+
+For example, if $C = A + B$, then
+$$
+\frac{\partial C}{\partial A} = 1
+\qquad
+\frac{\partial C}{\partial B} = 1,
+$$
+and hence the adjoint rules are
+$$
+\overline{A} \ \ {\small +}{=} \ \ \overline{C}
+$$
+and
+$$
+\overline{B} \ \ {\small +}{=} \ \ \overline{C}.
+$$
+In the more interesting case of multiplication, with $C = A \cdot B$,
+$$
+\frac{\partial C}{\partial A} = B,
+$$
+and
+$$
+\frac{\partial C}{\partial B} = A,
+$$
+leading to adjoint rules
+$$
+\overline{A}  \ \ {\small +}{=} \ \ \overline{C} \cdot B^{\top}
+$$
+and
+$$
+\overline{B}  \ \ {\small +}{=} \ \ A^{\top} \cdot \overline{C}.
+$$
+
+## References {-}
+
+The section on trace algebra fills in the steps of the derivation presented in
+[@giles:2008; -@giles:2008b].

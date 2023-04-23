@@ -1,0 +1,5 @@
+﻿  Unit.cpp
+d:\university\3_course\oop\repo\8382\mironchik_pavel\lr3\src\engine\unit.cpp(75): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+d:\university\3_course\oop\repo\8382\mironchik_pavel\lr3\src\engine\unit.cpp(132): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\university\3_course\oop\repo\8382\mironchik_pavel\lr3\src\engine\unit.cpp(137): warning C4244: return: преобразование "float" в "int", возможна потеря данных
+  SimpleGame.vcxproj -> D:\University\3_course\OOP\repo\8382\Mironchik_Pavel\lr3\Debug\SimpleGame.exe

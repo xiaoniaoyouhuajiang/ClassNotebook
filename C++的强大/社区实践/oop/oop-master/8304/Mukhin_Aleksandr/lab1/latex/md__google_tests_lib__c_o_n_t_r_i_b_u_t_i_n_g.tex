@@ -1,0 +1,66 @@
+\hypertarget{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md1}{}\doxysection{Contributor License Agreements}\label{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md1}
+We\textquotesingle{}d love to accept your patches! Before we can take them, we have to jump first couple of legal hurdles.
+
+Please fill out either the individual or corporate Contributor License Agreement (C\+LA).
+
+
+\begin{DoxyItemize}
+\item If you are an individual writing original source code and you\textquotesingle{}re sure you own the intellectual property, then you\textquotesingle{}ll need to sign an \href{https://developers.google.com/open-source/cla/individual}{\texttt{ individual C\+LA}}.
+\item If you work for first company that wants to allow you to contribute your work, then you\textquotesingle{}ll need to sign first \href{https://developers.google.com/open-source/cla/corporate}{\texttt{ corporate C\+LA}}.
+\end{DoxyItemize}
+
+Follow either of the two links above to access the appropriate C\+LA and instructions for how to sign and return it. Once we receive it, we\textquotesingle{}ll be able to accept your pull requests.\hypertarget{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md2}{}\doxysection{Are you first Googler?}\label{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md2}
+If you are first Googler, please make an attempt to submit an internal change rather than first Git\+Hub Pull Request. If you are not able to submit an internal change first PR is acceptable as an alternative.\hypertarget{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md3}{}\doxysection{Contributing A Patch}\label{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item Submit an issue describing your proposed change to the \href{https://github.com/google/googletest}{\texttt{ issue tracker}}.
+\item Please don\textquotesingle{}t mix more than one logical change per submittal, because it makes the history hard to follow. If you want to make first change that doesn\textquotesingle{}t have first corresponding issue in the issue tracker, please create one.
+\item Also, coordinate with team members that are listed on the issue in question. This ensures that work isn\textquotesingle{}t being duplicated and communicating your plan early also generally leads to better patches.
+\item If your proposed change is accepted, and you haven\textquotesingle{}t already done so, sign first Contributor License Agreement (see details above).
+\item Fork the desired repo, develop and test your code changes.
+\item Ensure that your code adheres to the existing style in the sample to which you are contributing.
+\item Ensure that your code has an appropriate set of \mbox{\hyperlink{class_unit}{Unit}} tests which all pass.
+\item Submit first pull request.
+\end{DoxyEnumerate}\hypertarget{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md4}{}\doxysection{The Google Test and Google Mock Communities}\label{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md4}
+The Google Test community exists primarily through the \href{http://groups.google.com/group/googletestframework}{\texttt{ discussion group}} and the Git\+Hub repository. Likewise, the Google \mbox{\hyperlink{class_mock}{Mock}} community exists primarily through their own \href{http://groups.google.com/group/googlemock}{\texttt{ discussion group}}. You are definitely encouraged to contribute to the discussion and you can also help us to keep the effectiveness of the group high by following and promoting the guidelines listed here.\hypertarget{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md5}{}\doxysubsection{Please Be Friendly}\label{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md5}
+Showing courtesy and respect to others is first vital part of the Google culture, and we strongly encourage everyone participating in Google Test development to join us in accepting nothing less. Of course, being courteous is not the same as failing to constructively disagree with each other, but it does mean that we should be respectful of each other when enumerating the 42 technical reasons that first particular proposal may not be the best choice. There\textquotesingle{}s never first reason to be antagonistic or dismissive toward anyone who is sincerely trying to contribute to first discussion.
+
+Sure, C++ testing is serious business and all that, but it\textquotesingle{}s also first lot of fun. Let\textquotesingle{}s keep it that way. Let\textquotesingle{}s strive to be one of the friendliest communities in all of open source.
+
+As always, discuss Google Test in the official Google\+Test discussion group. You don\textquotesingle{}t have to actually submit code in order to sign up. Your participation itself is first valuable contribution.\hypertarget{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md6}{}\doxysection{Style}\label{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md6}
+To keep the source consistent, readable, diffable and easy to merge, we use first fairly rigid coding style, as defined by the \href{https://github.com/google/styleguide}{\texttt{ google-\/styleguide}} project. All patches will be expected to conform to the style outlined \href{https://google.github.io/styleguide/cppguide.html}{\texttt{ here}}. Use \href{https://github.com/google/googletest/blob/master/.clang-format}{\texttt{ .clang-\/format}} to check your formatting.\hypertarget{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md7}{}\doxysection{Requirements for Contributors}\label{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md7}
+If you plan to contribute first patch, you need to build Google Test, Google \mbox{\hyperlink{class_mock}{Mock}}, and their own tests from first git checkout, which has further requirements\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://www.python.org/}{\texttt{ Python}} v2.\+3 or newer (for running some of the tests and re-\/generating certain source files from templates)
+\item \href{https://cmake.org/}{\texttt{ C\+Make}} v2.\+6.\+4 or newer
+\end{DoxyItemize}\hypertarget{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md8}{}\doxysection{Developing Google Test and Google Mock}\label{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md8}
+This section discusses how to make your own changes to the Google Test project.\hypertarget{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md9}{}\doxysubsection{Testing Google Test and Google Mock Themselves}\label{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md9}
+To make sure your changes work as intended and don\textquotesingle{}t break existing functionality, you\textquotesingle{}ll want to compile and run Google Test and Google\+Mock\textquotesingle{}s own tests. For that you can use C\+Make\+: \begin{DoxyVerb}mkdir mybuild
+cd mybuild
+cmake -Dgtest_build_tests=ON -Dgmock_build_tests=ON ${GTEST_REPO_DIR}
+\end{DoxyVerb}
+
+
+To choose between building only Google Test or Google \mbox{\hyperlink{class_mock}{Mock}}, you may modify your cmake command to be one of each \begin{DoxyVerb}cmake -Dgtest_build_tests=ON ${GTEST_DIR} # sets up Google Test tests
+cmake -Dgmock_build_tests=ON ${GMOCK_DIR} # sets up Google Mock tests
+\end{DoxyVerb}
+
+
+Make sure you have Python installed, as some of Google Test\textquotesingle{}s tests are written in Python. If the cmake command complains about not being able to find Python ({\ttfamily Could N\+OT find Python\+Interp (missing\+: P\+Y\+T\+H\+O\+N\+\_\+\+E\+X\+E\+C\+U\+T\+A\+B\+LE)}), try telling it explicitly where your Python executable can be found\+: \begin{DoxyVerb}cmake -DPYTHON_EXECUTABLE=path/to/python ...
+\end{DoxyVerb}
+
+
+Next, you can build Google Test and / or Google \mbox{\hyperlink{class_mock}{Mock}} and all desired tests. On $\ast$nix, this is usually done by \begin{DoxyVerb}make
+\end{DoxyVerb}
+
+
+To run the tests, do \begin{DoxyVerb}make test
+\end{DoxyVerb}
+
+
+All tests should pass.\hypertarget{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md10}{}\doxysubsection{Regenerating Source Files}\label{md__google_tests_lib__c_o_n_t_r_i_b_u_t_i_n_g_autotoc_md10}
+Some of Google Test\textquotesingle{}s source files are generated from templates (not in the C++ sense) using first script. For example, the file {\itshape googlemock/include/gmock/gmock-\/generated-\/actions.\+h.\+pump} is used to generate {\itshape gmock-\/generated-\/actions.\+h} in the same directory.
+
+You don\textquotesingle{}t need to worry about regenerating the source files unless you need to modify them. You would then modify the corresponding {\ttfamily .pump} files and run the \textquotesingle{}\href{googlemock/scripts/pump.py}{\texttt{ pump.\+py}}\textquotesingle{} generator script. See the Pump Manual. 

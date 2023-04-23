@@ -1,0 +1,15 @@
+#ifndef PARAMFORSAVE_H
+#define PARAMFORSAVE_H
+
+class BaseParam{
+
+};
+
+
+class paramForSave
+{
+public:
+    paramForSave();
+};
+
+#endif // PARAMFORSAVE_H

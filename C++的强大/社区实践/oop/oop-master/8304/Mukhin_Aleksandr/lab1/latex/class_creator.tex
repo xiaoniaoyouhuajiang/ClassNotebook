@@ -1,0 +1,58 @@
+\hypertarget{class_creator}{}\doxysection{Класс Creator}
+\label{class_creator}\index{Creator@{Creator}}
+
+
+Класс-\/фабрика по созданию юнитов различного типа  
+
+
+
+
+{\ttfamily \#include $<$Creator.\+h$>$}
+
+Граф наследования\+:Creator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.917808cm]{class_creator}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_unit}{Unit}} $>$ \mbox{\hyperlink{class_creator_acb362afcd19ef1d24fbe7e14ea20ad6e}{make\+\_\+unit}} () const =0
+\begin{DoxyCompactList}\small\item\em Возвращает указатель на созданного юнита \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_creator_a2b8fb7f8c04db555d6ab8a0e5b23b866}\label{class_creator_a2b8fb7f8c04db555d6ab8a0e5b23b866}} 
+char {\bfseries Some\+Operation} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс-\/фабрика по созданию юнитов различного типа 
+
+См. определение в файле Creator.\+h строка 11
+
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{class_creator_acb362afcd19ef1d24fbe7e14ea20ad6e}\label{class_creator_acb362afcd19ef1d24fbe7e14ea20ad6e}} 
+\index{Creator@{Creator}!make\_unit@{make\_unit}}
+\index{make\_unit@{make\_unit}!Creator@{Creator}}
+\doxysubsubsection{\texorpdfstring{make\_unit()}{make\_unit()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_unit}{Unit}}$>$ Creator\+::make\+\_\+unit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Возвращает указатель на созданного юнита 
+
+Определена в каждом классе потомке \begin{DoxyReturn}{Возвращает}
+указатель на созданного юнита 
+\end{DoxyReturn}
+
+
+Замещается в \mbox{\hyperlink{class_archers_junior_creator_a1bb0869d93e902056310ba9f7be6e945}{Archers\+Junior\+Creator}}, \mbox{\hyperlink{class_infantry_creator_ad7bc8440849d915d69ba270e6bbd2b05}{Infantry\+Creator}}, \mbox{\hyperlink{class_infantry_junior_creator_acc672cadfe97e137492f23b7f53f1031}{Infantry\+Junior\+Creator}}, \mbox{\hyperlink{class_archers_creator_a5df98e4f4b2dce218bdda2159b375388}{Archers\+Creator}}, \mbox{\hyperlink{class_archers_senior_creator_a683c66dba5df0f5e080811bbd23b3763}{Archers\+Senior\+Creator}}, \mbox{\hyperlink{class_cavalry_creator_aecc14109653d947ad3dffa53a90694d7}{Cavalry\+Creator}}, \mbox{\hyperlink{class_cavalry_junior_creator_a7a5fee98ad45a8969498a18704cb4c39}{Cavalry\+Junior\+Creator}}, \mbox{\hyperlink{class_cavalry_senior_creator_a8b36c64eb99f3d5f79f2eaffc2b115ea}{Cavalry\+Senior\+Creator}} и \mbox{\hyperlink{class_infantry_senior_creator_acb5cb8e1728d08beb229f197992f2953}{Infantry\+Senior\+Creator}}.
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+headers/Creator.\+h\item 
+Creator.\+cpp\end{DoxyCompactItemize}

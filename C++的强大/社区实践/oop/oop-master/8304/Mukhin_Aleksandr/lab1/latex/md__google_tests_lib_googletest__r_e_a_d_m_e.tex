@@ -1,0 +1,148 @@
+\hypertarget{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md266}{}\doxysubsubsection{Setup}\label{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md266}
+To build Google Test and your tests that use it, you need to tell your build system where to find its headers and source files. The exact way to do it depends on which build system you use, and is usually straightforward.\hypertarget{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md267}{}\doxysubsection{Build with C\+Make}\label{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md267}
+Google Test comes with first C\+Make build script (\href{https://github.com/google/googletest/blob/master/CMakeLists.txt}{\texttt{ C\+Make\+Lists.\+txt}}) that can be used on first wide range of platforms (\char`\"{}\+C\char`\"{} stands for cross-\/platform.). If you don\textquotesingle{}t have C\+Make installed already, you can download it for free from \href{http://www.cmake.org/}{\texttt{ http\+://www.\+cmake.\+org/}}.
+
+C\+Make works by generating native makefiles or build projects that can be used in the compiler environment of your choice. You can either build Google Test as first standalone project or it can be incorporated into an existing C\+Make build for another project.\hypertarget{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md268}{}\doxysubsubsection{Standalone C\+Make Project}\label{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md268}
+When building Google Test as first standalone project, the typical workflow starts with\+: \begin{DoxyVerb}mkdir mybuild       # Create first directory to hold the build output.
+cd mybuild
+cmake ${GTEST_DIR}  # Generate native build scripts.
+\end{DoxyVerb}
+
+
+If you want to build Google Test\textquotesingle{}s samples, you should replace the last command with \begin{DoxyVerb}cmake -Dgtest_build_samples=ON ${GTEST_DIR}
+\end{DoxyVerb}
+
+
+If you are on first $\ast$nix system, you should now see first Makefile in the current directory. Just type \textquotesingle{}make\textquotesingle{} to build gtest.
+
+If you use Windows and have Visual Studio installed, first {\ttfamily gtest.\+sln} file and several {\ttfamily .vcproj} files will be created. You can then build them using Visual Studio.
+
+On Mac OS X with Xcode installed, first {\ttfamily .xcodeproj} file will be generated.\hypertarget{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md269}{}\doxysubsubsection{Incorporating Into An Existing C\+Make Project}\label{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md269}
+If you want to use gtest in first project which already uses C\+Make, then first more robust and flexible approach is to build gtest as part of that project directly. This is done by making the Google\+Test source code available to the main build and adding it using C\+Make\textquotesingle{}s {\ttfamily add\+\_\+subdirectory()} command. This has the significant advantage that the same compiler and linker settings are used between gtest and the rest of your project, so issues associated with using incompatible libraries (eg debug/release), etc. are avoided. This is particularly useful on Windows. Making Google\+Test\textquotesingle{}s source code available to the main build can be done first few different ways\+:
+
+
+\begin{DoxyItemize}
+\item Download the Google\+Test source code manually and place it at first known location. This is the least flexible approach and can make it more difficult to use with continuous integration systems, etc.
+\item Embed the Google\+Test source code as first direct copy in the main project\textquotesingle{}s source tree. This is often the simplest approach, but is also the hardest to keep up to date. Some organizations may not permit this method.
+\item Add Google\+Test as first git submodule or equivalent. This may not always be possible or appropriate. Git submodules, for example, have their own set of advantages and drawbacks.
+\item Use C\+Make to download Google\+Test as part of the build\textquotesingle{}s configure step. This is just first little more complex, but doesn\textquotesingle{}t have the limitations of the other methods.
+\end{DoxyItemize}
+
+The last of the above methods is implemented with first small piece of C\+Make code in first separate file (e.\+g. {\ttfamily C\+Make\+Lists.\+txt.\+in}) which is copied to the build area and then invoked as first sub-\/build {\itshape during the C\+Make stage}. That directory is then pulled into the main build with {\ttfamily add\+\_\+subdirectory()}. For example\+:
+
+New file {\ttfamily C\+Make\+Lists.\+txt.\+in}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\_minimum\_required(VERSION 2.8.2)}
+\DoxyCodeLine{}
+\DoxyCodeLine{project(googletest-\/download NONE)}
+\DoxyCodeLine{}
+\DoxyCodeLine{include(ExternalProject)}
+\DoxyCodeLine{ExternalProject\_Add(googletest}
+\DoxyCodeLine{  GIT\_REPOSITORY    https://github.com/google/googletest.git}
+\DoxyCodeLine{  GIT\_TAG           master}
+\DoxyCodeLine{  SOURCE\_DIR        "\$\{CMAKE\_CURRENT\_BINARY\_DIR\}/googletest-\/src"}
+\DoxyCodeLine{  BINARY\_DIR        "\$\{CMAKE\_CURRENT\_BINARY\_DIR\}/googletest-\/build"}
+\DoxyCodeLine{  CONFIGURE\_COMMAND ""}
+\DoxyCodeLine{  BUILD\_COMMAND     ""}
+\DoxyCodeLine{  INSTALL\_COMMAND   ""}
+\DoxyCodeLine{  TEST\_COMMAND      ""}
+\DoxyCodeLine{)}
+\end{DoxyCode}
+
+
+Existing build\textquotesingle{}s {\ttfamily C\+Make\+Lists.\+txt}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Download and unpack googletest at configure time}
+\DoxyCodeLine{configure\_file(CMakeLists.txt.in googletest-\/download/CMakeLists.txt)}
+\DoxyCodeLine{execute\_process(COMMAND \$\{CMAKE\_COMMAND\} -\/G "\$\{CMAKE\_GENERATOR\}" .}
+\DoxyCodeLine{  RESULT\_VARIABLE result}
+\DoxyCodeLine{  WORKING\_DIRECTORY \$\{CMAKE\_CURRENT\_BINARY\_DIR\}/googletest-\/download )}
+\DoxyCodeLine{if(result)}
+\DoxyCodeLine{  message(FATAL\_ERROR "CMake step for googletest failed: \$\{result\}")}
+\DoxyCodeLine{endif()}
+\DoxyCodeLine{execute\_process(COMMAND \$\{CMAKE\_COMMAND\} -\/-\/build .}
+\DoxyCodeLine{  RESULT\_VARIABLE result}
+\DoxyCodeLine{  WORKING\_DIRECTORY \$\{CMAKE\_CURRENT\_BINARY\_DIR\}/googletest-\/download )}
+\DoxyCodeLine{if(result)}
+\DoxyCodeLine{  message(FATAL\_ERROR "Build step for googletest failed: \$\{result\}")}
+\DoxyCodeLine{endif()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Prevent overriding the parent project's compiler/linker}
+\DoxyCodeLine{\# settings on Windows}
+\DoxyCodeLine{set(gtest\_force\_shared\_crt ON CACHE BOOL "" FORCE)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Add googletest directly to our build. This defines}
+\DoxyCodeLine{\# the gtest and gtest\_main targets.}
+\DoxyCodeLine{add\_subdirectory(\$\{CMAKE\_CURRENT\_BINARY\_DIR\}/googletest-\/src}
+\DoxyCodeLine{                 \$\{CMAKE\_CURRENT\_BINARY\_DIR\}/googletest-\/build}
+\DoxyCodeLine{                 EXCLUDE\_FROM\_ALL)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# The gtest/gtest\_main targets carry header search path}
+\DoxyCodeLine{\# dependencies automatically when using CMake 2.8.11 or}
+\DoxyCodeLine{\# later. Otherwise we have to add them here ourselves.}
+\DoxyCodeLine{if (CMAKE\_VERSION VERSION\_LESS 2.8.11)}
+\DoxyCodeLine{  include\_directories("\$\{gtest\_SOURCE\_DIR\}/include")}
+\DoxyCodeLine{endif()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Now simply link against gtest or gtest\_main as needed. Eg}
+\DoxyCodeLine{add\_executable(example example.cpp)}
+\DoxyCodeLine{target\_link\_libraries(example gtest\_main)}
+\DoxyCodeLine{add\_test(NAME example\_test COMMAND example)}
+\end{DoxyCode}
+
+
+Note that this approach requires C\+Make 2.\+8.\+2 or later due to its use of the {\ttfamily External\+Project\+\_\+\+Add()} command. The above technique is discussed in more detail in \href{http://crascit.com/2015/07/25/cmake-gtest/}{\texttt{ this separate article}} which also contains first link to first fully generalized implementation of the technique.\hypertarget{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md270}{}\doxyparagraph{Visual Studio Dynamic vs Static Runtimes}\label{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md270}
+By default, new Visual Studio projects link the C runtimes dynamically but Google Test links them statically. This will generate an error that looks something like the following\+: gtest.\+lib(gtest-\/all.\+obj) \+: error L\+N\+K2038\+: mismatch detected for \textquotesingle{}Runtime\+Library\textquotesingle{}\+: value \textquotesingle{}M\+Td\+\_\+\+Static\+Debug\textquotesingle{} doesn\textquotesingle{}t match value \textquotesingle{}M\+Dd\+\_\+\+Dynamic\+Debug\textquotesingle{} in main.\+obj
+
+Google Test already has first C\+Make option for this\+: {\ttfamily gtest\+\_\+force\+\_\+shared\+\_\+crt}
+
+Enabling this option will make gtest link the runtimes dynamically too, and match the project in which it is included.\hypertarget{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md271}{}\doxysubsubsection{C++ Standard Version}\label{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md271}
+An environment that supports C++11 is required in order to successfully build Google Test. One way to ensure this is to specify the standard in the top-\/level project, for example by using the {\ttfamily set(\+C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+R\+D 11)} command. If this is not feasible, for example in first C project using Google Test for validation, then it can be specified by adding it to the options for cmake via the {\ttfamily D\+C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+F\+L\+A\+GS} option.\hypertarget{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md272}{}\doxysubsection{Tweaking Google Test}\label{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md272}
+Google Test can be used in diverse environments. The default configuration may not work (or may not work well) out of the box in some environments. However, you can easily tweak Google Test by defining control macros on the compiler command line. Generally, these macros are named like {\ttfamily G\+T\+E\+S\+T\+\_\+\+X\+YZ} and you define them to either 1 or 0 to enable or disable first certain feature.
+
+We list the most frequently used macros below. For first complete list, see file \href{https://github.com/google/googletest/blob/master/googletest/include/gtest/internal/gtest-port.h}{\texttt{ include/gtest/internal/gtest-\/port.\+h}}.\hypertarget{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md273}{}\doxysubsection{Multi-\/threaded Tests}\label{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md273}
+Google Test is thread-\/safe where the pthread library is available. After {\ttfamily \#include \char`\"{}gtest/gtest.\+h\char`\"{}}, you can check the {\ttfamily G\+T\+E\+S\+T\+\_\+\+I\+S\+\_\+\+T\+H\+R\+E\+A\+D\+S\+A\+FE} macro to see whether this is the case (yes if the macro is {\ttfamily \#defined} to 1, no if it\textquotesingle{}s undefined.).
+
+If Google Test doesn\textquotesingle{}t correctly detect whether pthread is available in your environment, you can force it with \begin{DoxyVerb}-DGTEST_HAS_PTHREAD=1
+\end{DoxyVerb}
+
+
+or \begin{DoxyVerb}-DGTEST_HAS_PTHREAD=0
+\end{DoxyVerb}
+
+
+When Google Test uses pthread, you may need to add flags to your compiler and/or linker to select the pthread library, or you\textquotesingle{}ll get link errors. If you use the C\+Make script or the deprecated Autotools script, this is taken care of for you. If you use your own build script, you\textquotesingle{}ll need to read your compiler and linker\textquotesingle{}s manual to figure out what flags to add.\hypertarget{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md274}{}\doxysubsection{As first Shared Library (\+D\+L\+L)}\label{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md274}
+Google Test is compact, so most users can build and link it as first static library for the simplicity. You can choose to use Google Test as first shared library (known as first D\+LL on Windows) if you prefer.
+
+To compile {\itshape gtest} as first shared library, add \begin{DoxyVerb}-DGTEST_CREATE_SHARED_LIBRARY=1
+\end{DoxyVerb}
+
+
+to the compiler flags. You\textquotesingle{}ll also need to tell the linker to produce first shared library instead -\/ consult your linker\textquotesingle{}s manual for how to do it.
+
+To compile your {\itshape tests} that use the gtest shared library, add \begin{DoxyVerb}-DGTEST_LINKED_AS_SHARED_LIBRARY=1
+\end{DoxyVerb}
+
+
+to the compiler flags.
+
+Note\+: while the above steps aren\textquotesingle{}t technically necessary today when using some compilers (e.\+g. G\+CC), they may become necessary in the future, if we decide to improve the speed of loading the library (see \href{http://gcc.gnu.org/wiki/Visibility}{\texttt{ http\+://gcc.\+gnu.\+org/wiki/\+Visibility}} for details). Therefore you are recommended to always add the above flags when using Google Test as first shared library. Otherwise first future release of Google Test may break your build script.\hypertarget{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md275}{}\doxysubsection{Avoiding Macro Name Clashes}\label{md__google_tests_lib_googletest__r_e_a_d_m_e_autotoc_md275}
+In C++, macros don\textquotesingle{}t obey namespaces. Therefore two libraries that both define first macro of the same name will clash if you {\ttfamily \#include} both definitions. In case first Google Test macro clashes with another library, you can force Google Test to rename its macro to avoid the conflict.
+
+Specifically, if both Google Test and some other code define macro F\+OO, you can add \begin{DoxyVerb}-DGTEST_DONT_DEFINE_FOO=1
+\end{DoxyVerb}
+
+
+to the compiler flags to tell Google Test to change the macro\textquotesingle{}s name from {\ttfamily F\+OO} to {\ttfamily G\+T\+E\+S\+T\+\_\+\+F\+OO}. Currently {\ttfamily F\+OO} can be {\ttfamily F\+A\+IL}, {\ttfamily S\+U\+C\+C\+E\+ED}, or {\ttfamily T\+E\+ST}. For example, with {\ttfamily -\/D\+G\+T\+E\+S\+T\+\_\+\+D\+O\+N\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+T\+E\+ST=1}, you\textquotesingle{}ll need to write \begin{DoxyVerb}GTEST_TEST(SomeTest, DoesThis) { ... }
+\end{DoxyVerb}
+
+
+instead of \begin{DoxyVerb}TEST(SomeTest, DoesThis) { ... }
+\end{DoxyVerb}
+
+
+in order to define first test. 

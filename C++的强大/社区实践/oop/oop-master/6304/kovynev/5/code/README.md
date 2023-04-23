@@ -1,0 +1,4 @@
+How to run: 
+```
+make
+```

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="labOOP"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="labOOP">
+				<Option output="/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/labOOP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 labOOP"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="labOOP/fast">
+				<Option output="/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/labOOP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 labOOP/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bi/oop4sem/8382/Rocheva_Anna/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/Facade.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/Facade.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/FieldCell.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/FieldCell.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/GameField.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/GameField.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/Gamer.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/Gamer.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/Manager.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/Manager.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/ActionWithObjectCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/ActionWithObjectCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/AttackUnitCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/AttackUnitCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/Command.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/Command.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/CreateUnitCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/CreateUnitCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/DeleteUnitCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/DeleteUnitCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/MoveUnitCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/MoveUnitCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/StartGameCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/StartGameCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/UnitsAttributesCommand.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/commands/UnitsAttributesCommand.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Forest.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Forest.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Grass.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Grass.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Landscape.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Landscape.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Mountains.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Mountains.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Proxy.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Proxy.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Swamp.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/landscapes/Swamp.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/Adapter.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/Adapter.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/FileLogger.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/FileLogger.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/LogProxy.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/LogProxy.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/Logger.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/Logger.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/NoLogger.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/NoLogger.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/TerminalLogger.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/loggers/TerminalLogger.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/main.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/Base.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/Base.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/Object.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/Object.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/Observer.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/Observer.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/Subject.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/Subject.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/Bar.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/Bar.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/Hospital.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/Hospital.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/NeutralObject.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/NeutralObject.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/Shop.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/Shop.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/Strategy.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/Strategy.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/TrainingBase.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/neutralObjects/TrainingBase.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/CompositeUnit.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/CompositeUnit.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/FactoryMethod.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/FactoryMethod.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/Unit.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/Unit.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/aircrafts/Aircraft.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/aircrafts/Aircraft.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/aircrafts/Fighter.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/aircrafts/Fighter.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/aircrafts/Scout.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/aircrafts/Scout.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/attributes/Attack.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/attributes/Attack.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/attributes/Attribute.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/attributes/Attribute.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/attributes/Defense.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/attributes/Defense.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/attributes/Health.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/attributes/Health.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/groundForces/Cannon.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/groundForces/Cannon.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/groundForces/GroundForce.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/groundForces/GroundForce.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/groundForces/Tank.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/groundForces/Tank.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/people/Guardsmen.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/people/Guardsmen.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/people/Infantry.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/people/Infantry.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/people/People.cpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/objects/units/people/People.hpp">
+			<Option target="labOOP"/>
+		</Unit>
+		<Unit filename="/home/bi/oop4sem/8382/Rocheva_Anna/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

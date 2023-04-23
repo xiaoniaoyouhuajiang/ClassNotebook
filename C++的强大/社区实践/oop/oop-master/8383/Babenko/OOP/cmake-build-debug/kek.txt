@@ -1,0 +1,12 @@
+13459958355867469197
+create base -1 0
+[Memento] Wrong command
+[Memento] Wrong command
+create base 0 1
+create base 0 0
+create base 0 0
+create unit 2 2 ARCHER
+create unit 2 1 VIKING
+attack unit 2 1 2 2
+attack unit 2 1 2 2
+attack unit 2 1 2 2
