@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-04-24T16:44:09.971Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="0huHA3h4iuVXWJ8Ze0KA" version="21.2.1" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-04-24T17:02:40.304Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="Yv5acDtotj7CdAWVtZvO" version="21.2.1" type="github" pages="2">
   <diagram id="gqrAPQSGs6m91VuGfRIM" name="以前的">
     <mxGraphModel dx="2074" dy="1068" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
@@ -249,13 +249,13 @@
             <mxPoint x="175" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-8" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="90" y="460" width="190" height="100" as="geometry" />
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-8" value="完成基本的workload&#xa;建模，补充文档" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="82.5" y="460" width="205" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-9" value="Step 2" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="268" y="460" width="312" height="100" as="geometry" />
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-9" value="搭建MICA程序的运行环境&#xa;进行建模分析" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="280" y="460" width="300" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-10" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-10" value="回顾计算机&#xa;组成原理" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
           <mxGeometry x="568" y="460" width="154" height="100" as="geometry" />
         </mxCell>
         <mxCell id="BP3OutZWpWjjy0n3Tlcf-11" value="" style="swimlane;childLayout=stackLayout;horizontal=1;fillColor=none;horizontalStack=1;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;strokeColor=none;stackBorder=10;stackSpacing=-12;resizable=1;align=center;points=[];fontColor=#000000;fontSize=18;" vertex="1" parent="1">
@@ -290,10 +290,10 @@
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-6" value="理清GDB和&#xa;Python的关系" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="280" y="810" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-7" value="理清GDB-init是什么，弄明白&#xa;core dump，并给出示例&#xa;完成一期视频" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-7" value="分析探索MingDebugger" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
           <mxGeometry x="458" y="810" width="312" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-8" value="深入分析Python-CAPI&#xa;抽象对象层和具体对象层" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-8" value="深入分析Python-CAPI&#xa;抽象对象层和具体对象层" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
           <mxGeometry x="758" y="810" width="242" height="100" as="geometry" />
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.495;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="BP3OutZWpWjjy0n3Tlcf-5" target="cGpuGIC4OJbjwKdJvR1R-6">
@@ -304,7 +304,7 @@
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-9" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
           <mxGeometry x="990" y="810" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-10" value="Step 2" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-10" value="理清GDB-init是什么，弄明白&#xa;core dump，并给出示例&#xa;完成一期视频" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
           <mxGeometry x="1168" y="810" width="312" height="100" as="geometry" />
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-11" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
@@ -346,22 +346,25 @@
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-24" value="CUDA编程" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
           <mxGeometry x="50" y="1280" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-25" value="包管理工具" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-25" value="Algorithms: &#xa;Parallel and &#xa;Sequential" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
           <mxGeometry x="223.5" y="1280" width="230" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-29" value="Binding和REPL" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-29" value="并行编译优化&#xa;探索" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
           <mxGeometry x="440" y="1280" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-30" value="Binding和REPL" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-30" value="学习编译原理" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
           <mxGeometry x="620" y="1280" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-31" value="Binding和REPL" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.563;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="cGpuGIC4OJbjwKdJvR1R-31" target="cGpuGIC4OJbjwKdJvR1R-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-31" value="体系结构与&#xa;汇编语言的学习" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
           <mxGeometry x="800" y="1280" width="190" height="206" as="geometry" />
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="cGpuGIC4OJbjwKdJvR1R-33" target="cGpuGIC4OJbjwKdJvR1R-34">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-33" value="&lt;span style=&quot;font-size: 24px&quot;&gt;并行与编译优化&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-33" value="&lt;span style=&quot;font-size: 24px&quot;&gt;高性能C++&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="50" y="1810" width="190" height="110" as="geometry" />
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-34" value="Binding和REPL" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
@@ -378,6 +381,15 @@
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-38" value="Binding和REPL" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
           <mxGeometry x="800" y="1960" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-39" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="790" y="1510" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-40" value="Step 2" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="968" y="1510" width="312" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-41" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="1268" y="1510" width="154" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
