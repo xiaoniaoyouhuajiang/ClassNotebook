@@ -1,9 +1,0 @@
-1117499159456966167
-create base 0 0
-Wrong command
-Wrong command
-Wrong command
-create unit 0 1 VIKING
-Wrong command
-create unit 0 1 VIKING
-move unit 0 1 0 2

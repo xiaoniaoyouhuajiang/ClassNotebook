@@ -1,5 +1,0 @@
-11087798185072367610
-create base 0 0
-Wrong command
-Wrong command
-create unit 1 0 ARCHER

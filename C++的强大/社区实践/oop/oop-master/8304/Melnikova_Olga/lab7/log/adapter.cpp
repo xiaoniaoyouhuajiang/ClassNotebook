@@ -1,3 +1,0 @@
-#include "adapter.h"
-
-

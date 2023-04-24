@@ -1,3 +1,0 @@
-/home/bi/labOOP/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/bi/labOOP/cmake-build-debug/CMakeFiles/labOOP.dir
-/home/bi/labOOP/cmake-build-debug/CMakeFiles/edit_cache.dir

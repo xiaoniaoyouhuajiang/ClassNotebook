@@ -1,6 +1,0 @@
-1 9 300 1
-SwordMan 100 3 9
-23 9 300 3
-Archer 100 20 9
-Archer 100 22 9
-Archer 100 21 9

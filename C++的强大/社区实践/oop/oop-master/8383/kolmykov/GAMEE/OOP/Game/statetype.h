@@ -1,8 +1,0 @@
-#ifndef STATETYPE_H
-#define STATETYPE_H
-
-enum StateType {
-    TOWER_SETTING_STATE, UNIT_SETTING_STATE
-};
-
-#endif // STATETYPE_H

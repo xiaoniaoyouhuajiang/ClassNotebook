@@ -1,4 +1,0 @@
-"/Applications/CLion 2.app/Contents/bin/cmake/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/Library/Developer/CommandLineTools/usr/bin/cc -DCMAKE_CXX_COMPILER=/Library/Developer/CommandLineTools/usr/bin/c++ -G "CodeBlocks - Unix Makefiles" /Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/nikitababenko/ETU/OOP/oop/8383/Babenko/lab2_OOP/cmake-build-debug

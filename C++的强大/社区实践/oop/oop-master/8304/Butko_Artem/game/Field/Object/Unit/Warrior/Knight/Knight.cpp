@@ -1,5 +1,0 @@
-
-
-
-
-#include "Knight.h"

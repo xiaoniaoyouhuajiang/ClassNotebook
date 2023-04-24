@@ -1,3 +1,0 @@
-﻿  FileSigner.cpp
-d:\university\3_course\oop\repo\8382\mironchik_pavel\lr5\src\serialize\filesigner.cpp(37): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
-  SimpleGame.vcxproj -> D:\University\3_course\OOP\repo\8382\Mironchik_Pavel\lr5\Debug\SimpleGame.exe

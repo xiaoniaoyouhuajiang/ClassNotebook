@@ -1,9 +1,0 @@
-#ifndef LAB2_OOP_DOUBLEPLACINGONFIELDEXCEPTION_H
-#define LAB2_OOP_DOUBLEPLACINGONFIELDEXCEPTION_H
-
-#include <exception>
-
-class DoublePlacingOnFieldException: std::exception {
-};
-
-#endif //LAB2_OOP_DOUBLEPLACINGONFIELDEXCEPTION_H

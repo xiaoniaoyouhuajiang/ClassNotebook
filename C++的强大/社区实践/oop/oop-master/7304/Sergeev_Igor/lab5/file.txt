@@ -1,3 +1,0 @@
--5 abs
-5 2 mfful
-10 10 afdd
