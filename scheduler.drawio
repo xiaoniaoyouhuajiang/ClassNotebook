@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-04-25T17:49:54.260Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="ccnjdYCbA9tlWmg3WM9K" version="21.2.1" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-04-26T15:56:05.916Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="sXMhFqv-pWYcBjRGNn0-" version="21.2.2" type="github" pages="2">
   <diagram id="gqrAPQSGs6m91VuGfRIM" name="以前的">
     <mxGraphModel dx="2074" dy="1068" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
@@ -220,7 +220,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="lw2WPv9BKW_zUKk5dRil" name="最近的">
-    <mxGraphModel dx="2440" dy="1256" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="2074" dy="1068" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -322,10 +322,10 @@
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-16" value="使用xeus写&#xa;CUDA代码&#xa;并使用" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="818" y="960" width="172" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-17" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-17" value="看Cppcon中的REPL介绍" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="980" y="960" width="292" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-18" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-18" value="探索Cppyy" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="1260" y="960" width="190" height="100" as="geometry" />
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-19" value="Step 2" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
@@ -343,19 +343,19 @@
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-24" value="CUDA编程" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="50" y="1280" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="cGpuGIC4OJbjwKdJvR1R-25" target="FiT584Juvvzn4bcA7Xxu-1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-25" target="FiT584Juvvzn4bcA7Xxu-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-25" value="Algorithms: &#xa;Parallel and &#xa;Sequential" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="223.5" y="1280" width="230" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.495;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="cGpuGIC4OJbjwKdJvR1R-29" target="FiT584Juvvzn4bcA7Xxu-18">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.495;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-29" target="FiT584Juvvzn4bcA7Xxu-18" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-29" value="并行编译优化&#xa;探索" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="440" y="1280" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.605;entryY=-0.02;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="cGpuGIC4OJbjwKdJvR1R-30" target="FiT584Juvvzn4bcA7Xxu-9">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.605;entryY=-0.02;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-30" target="FiT584Juvvzn4bcA7Xxu-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-30" value="学习编译原理" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
@@ -367,7 +367,7 @@
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-31" value="体系结构与&#xa;汇编语言的学习" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="800" y="1280" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="cGpuGIC4OJbjwKdJvR1R-33" target="cGpuGIC4OJbjwKdJvR1R-34">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-33" target="cGpuGIC4OJbjwKdJvR1R-34" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-33" value="&lt;span style=&quot;font-size: 24px&quot;&gt;高性能C++&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -397,46 +397,46 @@
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-41" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="1268" y="1510" width="154" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-1" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-1" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="243.5" y="1650" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-2" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-2" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="778" y="1650" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-3" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-3" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="420" y="1650" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-4" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-4" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="600" y="1650" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-6" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-6" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="960" y="1650" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-9" value="阅读《程序&#xa;设计语言》C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-9" value="阅读《程序&#xa;设计语言》C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="600" y="1780" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-12" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-12" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="778" y="1780" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-13" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-13" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="1140" y="1780" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-15" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-15" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="960" y="1780" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-18" value="解析项目loopy" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-18" value="解析项目loopy" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="440" y="1910" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-20" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-20" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="980" y="1910" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-21" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-21" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="620" y="1910" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-22" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-22" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="800" y="1910" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-25" value="阅读计算机&#xa;组成原理-X86&#xa;C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-25" value="阅读计算机&#xa;组成原理-X86&#xa;C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="568" y="460" width="190" height="100" as="geometry" />
         </mxCell>
       </root>
