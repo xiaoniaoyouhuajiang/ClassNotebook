@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-02T11:13:28.501Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="99i3TeTca6g7WL-0eQG_" version="21.2.3" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-05-07T18:06:12.211Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="NiGQUVBIvlq8N3rCBhco" version="21.2.9" type="github" pages="4">
   <diagram id="gqrAPQSGs6m91VuGfRIM" name="以前的">
     <mxGraphModel dx="2074" dy="1068" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
@@ -220,7 +220,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="lw2WPv9BKW_zUKk5dRil" name="最近的">
-    <mxGraphModel dx="2074" dy="1068" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -382,7 +382,7 @@
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-37" value="Binding" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="620" y="2180" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="cGpuGIC4OJbjwKdJvR1R-38" target="ydetH_fhRxg6_XpSkAW9-6">
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-38" target="ydetH_fhRxg6_XpSkAW9-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-38" value="高性能&#xa;深度学习" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
@@ -439,24 +439,40 @@
         <mxCell id="FiT584Juvvzn4bcA7Xxu-25" value="阅读计算机&#xa;组成原理-X86&#xa;C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="568" y="460" width="190" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ydetH_fhRxg6_XpSkAW9-1" target="ydetH_fhRxg6_XpSkAW9-2">
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ydetH_fhRxg6_XpSkAW9-1" target="ydetH_fhRxg6_XpSkAW9-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-1" value="包管理工具" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-1" value="包管理工具" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="1020" y="210" width="230" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-2" value="深入分析Python-CAPI&#xa;抽象对象层和具体对象层" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-2" value="深入分析Python-CAPI&#xa;抽象对象层和具体对象层" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="1030" y="1080" width="270" height="117" as="geometry" />
         </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-4" value="Cython构造一个&#xa;memory view对象，视频讲解" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-4" value="Cython构造一个&#xa;memory view对象，视频讲解" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="1290" y="1080" width="270" height="117" as="geometry" />
         </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-5" value="自己动手实现&#xa;Python虚拟机" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-5" value="自己动手实现&#xa;Python虚拟机" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="1550" y="1080" width="150" height="117" as="geometry" />
         </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-6" value="阅读Fliud-dev &#xa;C1-C4" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-6" value="阅读Fliud-dev &#xa;C1-C4" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="800" y="2420" width="190" height="100" as="geometry" />
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="EUYBOnuunk_7CH2h1Fbs" name="工匠精神">
+    <mxGraphModel dx="1434" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="QSHCfKgrCPNFdQzwcAIf" name="生活优化">
+    <mxGraphModel dx="1434" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>
