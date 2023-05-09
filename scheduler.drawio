@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-09T15:05:45.124Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="qt8qGc7Mz99RRB7Tt8Ts" version="21.2.9" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2023-05-09T15:11:55.721Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="7FC2YrQ90ONtEvZBaC4C" version="21.2.9" type="github" pages="4">
   <diagram id="gqrAPQSGs6m91VuGfRIM" name="以前的计划">
     <mxGraphModel dx="1434" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
@@ -397,7 +397,7 @@
         <mxCell id="cGpuGIC4OJbjwKdJvR1R-41" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="1268" y="1510" width="154" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-1" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-1" value="跳读C3，C2" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="243.5" y="1650" width="190" height="100" as="geometry" />
         </mxCell>
         <mxCell id="FiT584Juvvzn4bcA7Xxu-2" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
@@ -539,13 +539,13 @@
         <mxCell id="qfQP-xgr3SDetQFDoj6f-2" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;口琴学习&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="60" y="50" width="190" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="qfQP-xgr3SDetQFDoj6f-3" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="qfQP-xgr3SDetQFDoj6f-3" value="购买系统学习&#xa;的书籍" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
           <mxGeometry x="60" y="200" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="qfQP-xgr3SDetQFDoj6f-4" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="qfQP-xgr3SDetQFDoj6f-4" value="先弄懂压音，并&#xa;成功尝试压音" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
           <mxGeometry x="233.5" y="200" width="230" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="qfQP-xgr3SDetQFDoj6f-5" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="qfQP-xgr3SDetQFDoj6f-5" value="不断尝试吹奏&#xa;《老男孩》" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
           <mxGeometry x="450" y="200" width="190" height="206" as="geometry" />
         </mxCell>
         <mxCell id="oT9I-y5gUZeTY25ZJcFz-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="oT9I-y5gUZeTY25ZJcFz-2" target="oT9I-y5gUZeTY25ZJcFz-3">
@@ -554,7 +554,7 @@
         <mxCell id="oT9I-y5gUZeTY25ZJcFz-2" value="&lt;span style=&quot;font-size: 24px&quot;&gt;修身&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="60" y="500" width="190" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="oT9I-y5gUZeTY25ZJcFz-3" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="oT9I-y5gUZeTY25ZJcFz-3" value="购买洗疗妥，并&#xa;使用" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
           <mxGeometry x="60" y="650" width="190" height="206" as="geometry" />
         </mxCell>
         <mxCell id="oT9I-y5gUZeTY25ZJcFz-4" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
