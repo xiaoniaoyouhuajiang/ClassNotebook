@@ -11,9 +11,14 @@
 
 
 ### 使用git做版本管理
+添加ssh公钥：
+
+
+一般的工作流如下：
 * git config --global user.email "xx"
 * git config --global user.name "xx"
 * git add .
+* git commit -m "xx"
 * git pull origin main
 * git push origin
 中间出现问题记得要授权
