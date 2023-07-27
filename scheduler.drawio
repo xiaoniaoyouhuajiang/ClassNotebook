@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-07-19T18:48:50.766Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.68" etag="75IHwQranz5UN6ynnZNe" version="21.6.3" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2023-07-27T17:25:28.240Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.183" etag="264tYTwrUTswt6Q8CP9w" version="21.6.3" type="github" pages="4">
   <diagram id="gqrAPQSGs6m91VuGfRIM" name="以前的计划">
-    <mxGraphModel dx="1664" dy="1304" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="832" dy="484" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -220,7 +220,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="lw2WPv9BKW_zUKk5dRil" name="最近的充电">
-    <mxGraphModel dx="1109" dy="869" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="832" dy="484" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -261,7 +261,7 @@
         <mxCell id="BP3OutZWpWjjy0n3Tlcf-12" value="阅读Working&#xa;With Branches，&#xa;出一期视频教程&#xa;（GIT）" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="BP3OutZWpWjjy0n3Tlcf-11" vertex="1">
           <mxGeometry x="10" y="33" width="190" height="117" as="geometry" />
         </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-13" value="Step 2" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="BP3OutZWpWjjy0n3Tlcf-11" vertex="1">
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-13" value="Step 2." style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="BP3OutZWpWjjy0n3Tlcf-11" vertex="1">
           <mxGeometry x="188" y="33" width="312" height="117" as="geometry" />
         </mxCell>
         <mxCell id="BP3OutZWpWjjy0n3Tlcf-14" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="BP3OutZWpWjjy0n3Tlcf-11" vertex="1">
