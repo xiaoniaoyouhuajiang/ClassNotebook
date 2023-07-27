@@ -7,9 +7,6 @@
 * 关键一步，为了方便引用，`ln -s .. target`
 * code-server中用md语法插入即可
 
-![test-img.jpg](/storage/dcim/Screenshots/Screenshot_20230724_232309_Edge.jpg)
-
-
 ### 使用git做版本管理
 添加ssh公钥：
 
@@ -24,6 +21,17 @@
 中间出现问题记得要授权
 
 ### 使用drawio工具画图
+![draw-io](/storage/dcim/Screenshots/Screenshot_20230727_161615_Edge.jpg)
+
+## 开发环境迁移
+
+### 远程开发：使用frp连接自己电脑
+
+### 使用lxc-rootfs做可迁移开发环境
+
+### 深入介绍容器技术
+
+## 开发必备网络知识
 
 ## 软件性能工程
 
