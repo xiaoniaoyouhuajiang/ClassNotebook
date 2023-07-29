@@ -7,9 +7,14 @@
 * 关键一步，为了方便引用，`ln -s .. target`
 * code-server中用md语法插入即可
 
+![test](/storage/dcim/Screenshots/Screenshot_20230728_011756_Edge.jpg)
+
 ### 使用git做版本管理
 添加ssh公钥：
-
+```shell
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+cat ~/.ssh/id_rsa.pub
+```
 
 一般的工作流如下：
 * git config --global user.email "xx"
