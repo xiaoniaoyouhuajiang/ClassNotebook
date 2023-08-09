@@ -28,21 +28,36 @@ cat ~/.ssh/id_rsa.pub
 ### 使用drawio工具画图
 ![draw-io](/storage/dcim/Screenshots/Screenshot_20230727_161615_Edge.jpg)
 
+### 更深入地了解Termux
+访问wiki.termux.com/wiki/FAQ
+
 ## 开发环境迁移
 
 ### 了解容器与镜像
 详情看《元工具》的容器章节
 
-### 用Bootable USB结合Linux iso创造移动开发环境
+### 用移动硬盘结合Linux iso创造移动开发环境
+* 简述目的
+    * 随身携带的开发环境
+    * 简述原理
+* 硬件准备
+    * 移动硬盘/磁盘盒+SSD
+    * 一块20G以上的普通U盘（可选）
+* 软件准备
+    * virtual-box
+    * 需要安装的linux iso
+    * disk-genius
+    * disk-info（可选）
+    * rufus（可选）
+* 流程
 
 ### 远程开发：使用frp连接自己电脑
 
-### 使用lxc-rootfs做可迁移开发环境
+### 使用docker结合lxc-rootfs做可迁移开发环境
+
+## language binding
+
 
 ## 开发必备网络知识
 
 ## 软件性能工程
-
-## 更深入地了解Termux
-### FAQ
-访问wiki.termux.com/wiki/FAQ
