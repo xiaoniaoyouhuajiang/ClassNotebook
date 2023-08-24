@@ -7,7 +7,7 @@
 * 关键一步，为了方便引用，`ln -s .. target`
 * code-server中用md语法插入即可
 
-![test](/storage/dcim/Screenshots/Screenshot_20230728_011756_Edge.jpg)
+![test](/screen_shot/Screenshot_20230728_011756_Edge.jpg)
 
 ### 使用git做版本管理
 添加ssh公钥：
@@ -26,7 +26,7 @@ cat ~/.ssh/id_rsa.pub
 中间出现问题记得要授权
 
 ### 使用drawio工具画图
-![draw-io](/storage/dcim/Screenshots/Screenshot_20230727_161615_Edge.jpg)
+![draw-io](/screen_shot/Screenshot_20230727_161615_Edge.jpg)
 
 ### 更深入地了解Termux
 访问wiki.termux.com/wiki/FAQ
