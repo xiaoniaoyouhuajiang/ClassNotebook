@@ -62,7 +62,6 @@ cat ~/.ssh/id_rsa.pub
 * 流程
 
 ## 语言的模块系统
-keys: python/C++/混合编程/
 
 ### python的import机制(已完成)
 * import基本方法
@@ -73,8 +72,14 @@ keys: python/C++/混合编程/
 * importlib的机制（重点）
 
 ### Python知名项目的模块/文件结构分析
+* 编程语言的模块系统
+* setup.py如何"编译"出.so文件
+* 混合项目的文件组织结构
 
-### python源码分析：module对象和相关机制
+### Cython项目的打包与发布
+* Python项目的文件打包与发布规范
+* Cython文件的导入，包装，组织结构
+* Cython释放GIL
 
 ### 了解容器与镜像
 关键词：
