@@ -10,7 +10,7 @@
 
 实际上，虽然汇编语言从开发的角度看很不友好，但从CPU的角度来看，这种指令非常的简单好处理，我们可以将两类代码的抽象语法可视化，这样看
 
-![image-20230924170418193](/home/xiao-sa/software/ClassNotebook/statics/image-20230924170418193.png)
+![image-20230924170418193](/statics/image-20230924170418193.png)
 
 从多个角度来看，这样的程序更好分析
 
@@ -34,6 +34,7 @@ CFG表示中有一个重要概念，叫基本块（Basic Blocks）。
 
 基本块的概念简单来说就是一串指令，这串指令一旦被执行，就会被顺序地被执行直到最后一个指令。
 
+在了解了CFG和basic blocks的概念之后，我们可以写出一个cfg提取器，比如根据某个IR的规则来提取并渲染其控制流图。
 
 
 ### MLIR
@@ -107,7 +108,7 @@ LLVM 在特定领域语言方面的成功激发了 LLVM 内的新项目来解决
 
 常见的编译流程图：
 
-![image-20230923174021581](/home/xiao-sa/software/ClassNotebook/statics/image-20230923174021581.png)
+![image-20230923174021581](/statics/image-20230923174021581.png)
 
 AST -> LLVM-IR
 
@@ -115,10 +116,14 @@ AST -> LLVM-IR
 
 Toy Compiler的编译流程：
 
-![image-20230924000621226](/home/xiao-sa/software/ClassNotebook/statics/image-20230924000621226.png)
+![image-20230924000621226](/statics/image-20230924000621226.png)
 
-“Dialect”译为方言，
+“Dialect”译为方言，是MLIR中的灵魂所在，
 
+#### MLIR上手实践
+接下来要做是将官方文档里的toy example给走一遍，为此，我们需要：
+* clone llvm, build mlir
+* 
 
 
 ## compiler principle
