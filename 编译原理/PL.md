@@ -10,7 +10,7 @@
 
 实际上，虽然汇编语言从开发的角度看很不友好，但从CPU的角度来看，这种指令非常的简单好处理，我们可以将两类代码的抽象语法可视化，这样看
 
-![image-20230924170418193](/statics/image-20230924170418193.png)
+![image-20230924170418193](../statics/image-20230924170418193.png)
 
 从多个角度来看，这样的程序更好分析
 
@@ -86,7 +86,7 @@ LLVM 在特定领域语言方面的成功激发了 LLVM 内的新项目来解决
 
 常见的编译流程图：
 
-![image-20230923174021581](/statics/image-20230923174021581.png)
+![image-20230923174021581](../statics/image-20230923174021581.png)
 
 AST -> LLVM-IR
 
@@ -94,7 +94,7 @@ AST -> LLVM-IR
 
 Toy Compiler的编译流程：
 
-![image-20230924000621226](/statics/image-20230924000621226.png)
+![image-20230924000621226](../statics/image-20230924000621226.png)
 
 “Dialect”译为方言，是MLIR中的灵魂所在，
 
@@ -102,6 +102,8 @@ Toy Compiler的编译流程：
 接下来要做是将官方文档里的toy example给走一遍，为此，我们需要：
 * clone llvm, build mlir
 * 
+
+
 
 ## LLVM
 
@@ -118,6 +120,44 @@ LLVM主要用作三种场景：
 * 自动代码优化
 * 构造DSL（WASM，MLIR）
 
+![Front End, Passes, Back End](../statics/compiler-arch.svg)
+
+
+
+### 依托LLVM的项目
+
+如果你研究编译器/性能工程/并行系统，那么你很有可能被引导至和llvm相关的课题上；就像你研究函数式编程，一定会被叫去研究Haskell一样...
+
+* [rust](https://stackoverflow.com/questions/42626107/execute-llvm-ir-code-generated-from-rust-python-source-code)
+* [julia](http://web.mit.edu/julia_v0.6.2/julia/share/doc/julia/html/en/devdocs/reflection.html)
+* mlir/tvm
+* [mojo](https://docs.modular.com/mojo/why-mojo.html)
+
+作为一个学生来研究llvm项目，有助于加深你对编译原理/体系结构这两大方向内容的理解。
+
+
+
+### 编译安装LLVM
+
+#### 源码安装(cmake)
+
+llvm一个典型的强依赖于cmake build system的结构的项目群，有几个关键变量得说明一下：
+
+```shell
+git clone https://github.com/llvm/llvm-project
+
+cmake -DCMAKE_BUILD_TYPE=Debug -DLLVM_USE_SPLIT_DWARF=ON -DLLVM_OPTIMIZED_TABLEGEN=ON -DLLVM_TARGETS_TO_BUILD="X86" -DBUILD_SHARED_LIBS=ON ../llvm
+# 
+```
+
+
+
+
+
+#### 包管理器
+
+
+
 
 ### why hack llvm
 下面内容主要取自康奈尔大学一名PL教授的[博客](cs.cornell.edu/~asampson/blog/llvm.html)
@@ -129,6 +169,14 @@ LLVM主要用作三种场景：
 * 内核攻击/系统调用拦截工具
 
 
+
+### 用LLVM写PASS
+
+![Module, Function, BasicBlock, Instruction](../statics/llvm-containers.svg)
+
+
+
+### 用LLVM实现一门语言
 
 
 
