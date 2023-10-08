@@ -65,28 +65,6 @@ MLIR有很多成功的典型应用，下面拿我感兴趣的一些项目说明�
 可能不少人会想到一个项目——TVM，并好奇TVM和MLIR是什么关系。首先TVM是一个用来加速向量计算的编译器，是一个解决在特定硬件上运行机器学习模型的完整的端到端方案，可以将模型编译为特定的硬件设备上的模型文件，然后在部署侧上安装tvm runtime，就可以完成高性能的部署了。在TVM的整个优化流里，自定义了一种中间语言：Relay
 
 
-
-#### LLVM的优势
-
-大家或多或少都应该听过LLVM或者说是接触过LLVM相关的生态。我认为LLVM实际上是一种框架，或者是一套编译技术的工具集合，其特点是“可编程”。比方说，RUST，SWIFT，Julia这几门当前比较“新颖”的计算机语言，其后端部分都使用了LLVM-IR，算是使用了这个工具箱，LLVM帮助解决的最大问题是平台兼容性：LLVM库可以以可编程的方式生成机器码，开发者可以使用API来生成IR，然后编译IR，快速执行。
-
-举个例子，大多数的计算机语言都会有函数，全局变量的概念，不少会有CFFI，协程等概念，LLVM有相应的IR，以及相应的metaphors。因此你不需要重新造轮子。
-
-以C语言作类比是一个理解LLVM的不错方法，C是构造系统的一个非常合适的计算机语言，因为C的各种抽象非常接近硬件的API，C语言的表达是完成这些映射的最简表达。但是C语言。。。
-
-
-
-LLVM主要用作三种场景：
-
-* 构造AOT编译器（clang）
-* 构造JIT编译器(julia, numba)
-* 自动代码优化
-* 构造DSL（WASM，MLIR）
-
-
-
-
-
 #### MLIR教程
 
 LLVM 在特定领域语言方面的成功激发了 LLVM 内的新项目来解决它们所产生的问题。最大的问题就在于一些DSL生成LLVM-IR的成本太过于昂贵（必须要在前端下十分大的功夫），为了解决这个问题的一个解决方案便是Multi-Level Intermediate Representaion，即MLIR。
@@ -124,6 +102,35 @@ Toy Compiler的编译流程：
 接下来要做是将官方文档里的toy example给走一遍，为此，我们需要：
 * clone llvm, build mlir
 * 
+
+## LLVM
+
+大家或多或少都应该听过LLVM或者说是接触过LLVM相关的生态。我认为LLVM实际上是一种框架，或者是一套编译技术的工具集合，其特点是“可编程”。比方说，RUST，SWIFT，Julia这几门当前比较“新颖”的计算机语言，其后端部分都使用了LLVM-IR，算是使用了这个工具箱，LLVM帮助解决的最大问题是平台兼容性：LLVM库可以以可编程的方式生成机器码，开发者可以使用API来生成IR，然后编译IR，快速执行。
+
+举个例子，大多数的计算机语言都会有函数，全局变量的概念，不少会有CFFI，协程等概念，LLVM有相应的IR，以及相应的metaphors。因此你不需要重新造轮子。
+
+以C语言作类比是一个理解LLVM的不错方法，C是构造系统的一个非常合适的计算机语言，因为C的各种抽象非常接近硬件的API，C语言的表达是完成这些映射的最简表达。但是C语言。。。
+
+LLVM主要用作三种场景：
+
+* 构造AOT编译器（clang）
+* 构造JIT编译器(julia, numba)
+* 自动代码优化
+* 构造DSL（WASM，MLIR）
+
+
+### why hack llvm
+下面内容主要取自康奈尔大学一名PL教授的[博客](cs.cornell.edu/~asampson/blog/llvm.html)
+
+为什么要研究类LLVM—对于**研究程序本身**的工作者而言，编译器基础设施的研究价值很大，比如说，你可以分析程序中某种常见的模式。在研究下列工具之前，你可以先接触LLVM：
+* 架构模拟器(比如[gem5](research.cs.wisc.edu/vertical/papers/2014/wddd-sim-harmful.pdf))
+* 动态二进制插桩工具(比如[pin](intel.com/content/www/us/en/developer/articles/tool/pin-a-dynamic-binary-instrumentation-tool.html))
+* 源码转换工具（涉及到AST的解析以及序列化的）
+* 内核攻击/系统调用拦截工具
+
+
+
+
 
 
 ## compiler principle
