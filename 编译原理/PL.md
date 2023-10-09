@@ -132,8 +132,9 @@ LLVM主要用作三种场景：
 * [julia](http://web.mit.edu/julia_v0.6.2/julia/share/doc/julia/html/en/devdocs/reflection.html)
 * mlir/tvm
 * [mojo](https://docs.modular.com/mojo/why-mojo.html)
+* [numba](github.com/numba/llvmlite)
 
-作为一个学生来研究llvm项目，有助于加深你对编译原理/体系结构这两大方向内容的理解。
+作为一个学生来研究llvm项目，有助于加深你对编译原理/体系结构这两大方向内容的理解。另一方面，研究程序分析/language binding，llvm也是难以回避的话题和工具。
 
 
 
@@ -151,12 +152,12 @@ cmake -DCMAKE_BUILD_TYPE=Debug -DLLVM_USE_SPLIT_DWARF=ON -DLLVM_OPTIMIZED_TABLEG
 ```
 
 
-
-
-
 #### 包管理器
-
-
+我们用的最多的应该是clang相关的工具，可以使用
+```
+apt-get install clang
+```
+安装clang以及llvm依赖项
 
 
 ### why hack llvm
@@ -174,10 +175,23 @@ cmake -DCMAKE_BUILD_TYPE=Debug -DLLVM_USE_SPLIT_DWARF=ON -DLLVM_OPTIMIZED_TABLEG
 
 ![Module, Function, BasicBlock, Instruction](../statics/llvm-containers.svg)
 
+上图展示的是LLVM库中一个PASS对象的层级结构，这种包含关系可以被理解为C++容器之间的包含关系。
+
+同样的，这一章节我们使用的材料是cs6120这门课程老师博客中的一篇博文，当然也是课程中第七节内容的节选，足以让我们对LLVM PASS有个初步的认识，最重要的是能让我们上手完成PASS开发的实践。
+
+#### 获取skeleton项目
+```
+git clone 
+```
 
 
 ### 用LLVM实现一门语言
+这个课题下，我们最应该关注的内容包括：
+* llvm万华镜
+* julia
+* numba
 
+由于mojo当前仍属于闭源阶段，另一方面它使用的更多的是mlir这个依托llvm发展出来的工具开发的，因此不是重点参考对象。
 
 
 
