@@ -113,8 +113,9 @@ cat ~/.ssh/id_rsa.pub
 
 视频主要和大家讲这几件事：
 
-* 什么是LLVM，如何安装LLVM（ubuntu源码编译以及apt都会讲）
-* LLVM有什么用，和它相关的项目有哪些
+* 什么是LLVM,LLVM有什么用，和它相关的项目有哪些
+
+* 如何安装LLVM（ubuntu源码编译以及apt都会讲）
 * 我们可以用LLVM做什么
 * 实现一个LLVM PASS
 

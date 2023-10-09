@@ -134,7 +134,51 @@ LLVM主要用作三种场景：
 * [mojo](https://docs.modular.com/mojo/why-mojo.html)
 * [numba](github.com/numba/llvmlite)
 
-作为一个学生来研究llvm项目，有助于加深你对编译原理/体系结构这两大方向内容的理解。另一方面，研究程序分析/language binding，llvm也是难以回避的话题和工具。
+
+
+rust和julia会选择使用LLVM-IR及配套后端来生成机器码，关键原因在于：
+
+* 性能优化：LLVM提供了广泛的优化技术，可以生成高性能的机器码；
+* 扩平台：LLVM-IR是和平台无关的，从而语言可以不必关心代码生成方面的细节；
+* 生态丰富：LLVM有庞大的社区和生态系统，丰富的工具库可以有助于项目演进。
+
+
+
+作为一个学生来研究llvm项目，有助于加深你对编译原理/体系结构这两大方向内容的理解。另一方面，研究程序分析/language binding，llvm也是难以回避的话题和工具。关于研究LLVM的意义，这里引用CS6120课程中的部分：
+
+> 当您需要对程序进行操作时，编译器基础结构非常有用。根据我的经验，这是很多。您可以分析程序以查看它们执行某些操作的频率，将它们转换为更好地与您的系统一起工作，或者更改它们以假装使用您假设的新体系结构或操作系统，而无需实际制造新芯片或编写内核模块。对于研究生来说，编译器基础结构通常比大多数人认为的更合适。我鼓励您在使用这些工具之前先默认使用LLVM。
+
+![案例](/home/xiao-sa/software/ClassNotebook/statics/2023-10-09_20-03.png)
+
+
+
+再看下julia和numba的运行过程，这两者是llvm-jit编译器的典型。
+
+
+
+#### julia
+
+julia代码执行的过程非常有趣，但这里我们只关心[JIT代码生成的部分](http://web.mit.edu/julia_v0.6.2/julia/share/doc/julia/html/en/devdocs/eval.html#dev-codegen-1)，即将AST（抽象语法树）转换为的过程。
+
+julia中的方法通过emit_function(jl_method_instance_t*)而被转换为native函数。实现部分可以看`codegen.cpp`，[链接](https://github.com/JuliaLang/julia/blob/master/src/codegen.cpp)。这个文件其余的部分大多是对特定的代码模式进行"手动"优化
+
+![Julia compiler components and interactions. | Download Scientific Diagram](../statics/Julia-compiler-components-and-interactions.png)
+
+
+
+#### numba
+
+![Numba: “weapon of mass optimization” | by Alex Diaz | Towards Data Science](../statics/1*S0S4QUjR-BsdTICtT9797Q.png)
+
+
+
+#### mojo
+
+![Srinidhi Nandakumar on LinkedIn: Mojo is a new programming language that is  quickly becoming the next…](../statics/1686099462096)
+
+
+
+我认为从编程语言的角度来说，学习LLVM以及编译原理中IR这一块的知识，能够帮助开发者不要陷入一种迷茫：现在五花八门的语言有那么多，比如rust和mojo，我们是不是要每个都学习以后会用得上。因为了解了LLVM，你就能对现代编译器是生成机器码的原理有所认识，对高性能的代码生成有所认识，当有人说"xx语言性能好，学他"的时候，你就不会有如果不学习就落后的这种顾虑，因为你清楚这些性能优化背后的原理，在这之后你对项目所使用技术的选项，更多考虑的是在这种开发场景下，哪种语义，标准库，范式的编程语言是比较好的选择。
 
 
 
@@ -146,8 +190,10 @@ llvm一个典型的强依赖于cmake build system的结构的项目群，有几�
 
 ```shell
 git clone https://github.com/llvm/llvm-project
-
+mkdir build
+cd build
 cmake -DCMAKE_BUILD_TYPE=Debug -DLLVM_USE_SPLIT_DWARF=ON -DLLVM_OPTIMIZED_TABLEGEN=ON -DLLVM_TARGETS_TO_BUILD="X86" -DBUILD_SHARED_LIBS=ON ../llvm
+make -j 12
 # 
 ```
 
@@ -175,17 +221,25 @@ apt-get install clang
 
 ![Module, Function, BasicBlock, Instruction](../statics/llvm-containers.svg)
 
-上图展示的是LLVM库中一个PASS对象的层级结构，这种包含关系可以被理解为C++容器之间的包含关系。
+上图展示的是LLVM库中一个IR对象的层级结构，这种包含关系可以被理解为C++容器之间的包含关系。
 
 同样的，这一章节我们使用的材料是cs6120这门课程老师博客中的一篇博文，当然也是课程中第七节内容的节选，足以让我们对LLVM PASS有个初步的认识，最重要的是能让我们上手完成PASS开发的实践。
 
+
+
 #### 获取skeleton项目
+```shell
+git clone https://github.com/sampsyo/llvm-pass-skeleton.git
 ```
-git clone 
-```
+
+注意你可以根据自己的LLVM版本去切换对应的历史版本（最新版本一直使用的是LLVM-17）
+
+后面步骤可以根据项目README或者博客内容来自己试一遍。
+
 
 
 ### 用LLVM实现一门语言
+
 这个课题下，我们最应该关注的内容包括：
 * llvm万华镜
 * julia
