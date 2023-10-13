@@ -292,4 +292,12 @@ git clone https://github.com/sampsyo/llvm-pass-skeleton.git
 ### Python-v2
 
 
+## 软件＆论文
+受益于大模型的发展，一些编译器的优化过程可能会变得更智能。另外就是关注一些最新的技术/进展
 
+### 论文
+
+* [llm for compiler optimization](arxiv.org/pdf/2309.07062.pdf)
+
+
+### 软件
