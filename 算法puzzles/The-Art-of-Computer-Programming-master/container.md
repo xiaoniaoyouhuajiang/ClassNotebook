@@ -23,6 +23,36 @@
 
 用GO（goasm）语言实现的向量化bitmap
 
+
+
+#### static_vector
+
+> A dynamically-resizable vector with fixed capacity and embedded storage
+
+https://github.com/gnzlbg/static_vector
+
+
+
+#### jemalloc
+
+一种内存分配器(malloc)
+
+https://github.com/jemalloc/jemalloc
+
+
+
+#### scattered
+
+Scattered container store each type's data member sequentially for all objects
+
+https://github.com/gnzlbg/scattered
+
+
+
+#### [Annoy](https://github.com/spotify/annoy#annoy)
+
+
+
 #### plf-lib
 PLF是一系列用C++实现的数据结构头文件库，[请看](plflib.org)
 
@@ -32,5 +62,4 @@ PLF是一系列用C++实现的数据结构头文件库，[请看](plflib.org)
 这篇博文来自[博文](baptiste-wicht.com)
 
 [代码](github.com/wichtounet/articles/blob/master/src/vector_list_update_1/bench.cpp)
-
 
