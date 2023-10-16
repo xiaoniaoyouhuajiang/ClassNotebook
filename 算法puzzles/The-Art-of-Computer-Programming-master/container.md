@@ -18,6 +18,7 @@
 
 ## 场景采集
 ### code
+
 #### go-bitmap
 需要学习的代码是[bitmap](github.com/kelindar/bitmap)
 
@@ -31,6 +32,42 @@
 
 https://github.com/gnzlbg/static_vector
 
+主要用于：
+
+* 无法进行内存分配的环境，比如没有空余空间的嵌入式环境，只有静态内存空间是可使用的
+* 需要在静态内存段中分配具有复杂生命周期的对象
+* static_vector的存储内容本身必须位于对象内部？
+
+在其他库中的实现：
+
+* [folly](https://github.com/facebook/folly/blob/main/folly/docs/small_vector.md)
+* [boost](https://www.boost.org/doc/libs/1_59_0/doc/html/boost/container/static_vector.html)
+* [eastl](https://github.com/questor/eastl/blob/master/fixed_vector.h#L71)
+* [llvm](https://llvm.org/doxygen/classllvm_1_1SmallVector.html)
+
+说了这些，可能大家对该数据结构的使用场景还不是特别清楚，我们通过下面例子来深入：
+
+* https://stackoverflow.com/questions/64516180/deciding-to-use-at-runtime-a-booststatic-vector-or-a-stdvector
+* 
+
+
+
+#### small_vector
+
+https://github.com/gharveymn/small_vector
+
+
+
+#### Folly-small_vector
+
+可以看这里
+
+https://zhuanlan.zhihu.com/p/353485606
+
+
+
+#### Boost
+
 
 
 #### jemalloc
@@ -38,6 +75,12 @@ https://github.com/gnzlbg/static_vector
 一种内存分配器(malloc)
 
 https://github.com/jemalloc/jemalloc
+
+
+
+#### llvm-benchmark
+
+https://github.com/s3cur3/llvm-data-structure-benchmarks
 
 
 
@@ -57,6 +100,13 @@ https://github.com/gnzlbg/scattered
 PLF是一系列用C++实现的数据结构头文件库，[请看](plflib.org)
 
 ### 问答网站
+
+#### Hinnant's short_alloc
+
+https://stackoverflow.com/questions/33722907/hinnants-short-alloc-and-alignment-guarantees
+
+
+
 ### benchmark
 #### c++ container benchmark
 这篇博文来自[博文](baptiste-wicht.com)
