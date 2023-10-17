@@ -94,9 +94,19 @@ cat ~/.ssh/id_rsa.pub
 
 理论&介绍：
 
+* 什么是容器化？容器化的好处：https://www.ibm.com/topics/containerization
+* crun的介绍：https://www.redhat.com/sysadmin/introduction-crun
+* 
+
 
 
 实践内容：
+
+* build crun
+
+* 使用runc runtime来运行一个tar包
+* 阅读oci runtime test中的内容
+* 对比crun和runc的性能差异，内存差异
 
 
 
@@ -104,9 +114,19 @@ cat ~/.ssh/id_rsa.pub
 
 理论&介绍：
 
+* 介绍OCI image的构造，跟随https://ravichaganti.com/categories/oci/
+* 解读https://github.com/opencontainers/image-spec/blob/main/image-layout.md
+* 解读https://cd.foundation/blog/community/2022/12/20/no-more-additional-network-requests-enter-oci-image-layout/
+* 分析container images的未来：https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future
+
 
 
 实践内容：
+
+* 通过rootfs bundle构建一个base image
+* 通过指令pull一个镜像，并用history指令查看提交
+* 使用[stereoscope](https://github.com/anchore/stereoscope)，[syft](https://github.com/anchore/syft)， [dive](https://github.com/wagoodman/dive)工具探索容器镜像，分析dive的原理/源码
+* 使用https://github.com/jpetazzo/nsenter, 
 
 
 
