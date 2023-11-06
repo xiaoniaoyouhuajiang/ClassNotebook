@@ -6,9 +6,14 @@
     * stackoverflow
 * benchmark
     * 各种blog
+    * paper，以及各类标准算法以及机器学习算法（benchmark-suite）
 * code
     * github gist
     * github/gitlab..
+* 算法题网
+    * exercism
+    * project-euler
+    * hackerrank
 
 落到编码层面，一个具体的实现通常需要考虑两方面的问题：
 * 数据结构本身的结构（算法层面）
@@ -76,6 +81,8 @@ https://zhuanlan.zhihu.com/p/353485606
 
 https://github.com/jemalloc/jemalloc
 
+#### scalloc
+一种多核可扩展的内存分配器
 
 
 #### llvm-benchmark
@@ -99,6 +106,10 @@ https://github.com/gnzlbg/scattered
 #### plf-lib
 PLF是一系列用C++实现的数据结构头文件库，[请看](plflib.org)
 
+#### scal
+github.com/cksystemsgroup/scal
+对比并行数据结构算法
+
 ### 问答网站
 
 #### Hinnant's short_alloc
@@ -106,6 +117,15 @@ PLF是一系列用C++实现的数据结构头文件库，[请看](plflib.org)
 https://stackoverflow.com/questions/33722907/hinnants-short-alloc-and-alignment-guarantees
 
 
+#### 对比矩阵乘法
+
+https://stackoverflow.com/questions/51656818/benchmarking-matrix-multiplication-performance-c-eigen-is-much-slower-than
+
+可以看出，numpy这样的工具已经是被高度优化过的了，所以做一些它比较擅长的事情可以获得很好的性能，那很多时候我们的目标就是找到一些工具还没有覆盖的例程（我们之所以这样做不是为了要大幅优化某一种方法，而是借助这个探索的过程来学习profiling中的一些细节并获得一些经验）
+
+#### xtensor对比numpy
+
+https://stackoverflow.com/questions/57407106/xtensor-cant-reach-numpy-performance
 
 ### benchmark
 #### c++ container benchmark
@@ -113,3 +133,19 @@ https://stackoverflow.com/questions/33722907/hinnants-short-alloc-and-alignment-
 
 [代码](github.com/wichtounet/articles/blob/master/src/vector_list_update_1/bench.cpp)
 
+#### paper：The Graph based Benchmark Suite
+
+摘要：这是在共享内存的多核系统上完成的一项测试，主要测试的时图的算法。
+
+#### MineBench: A Benchmark Suite for Data Mining Workloads
+
+cucis.ece.northwestern.edu/projects/DMS/publications/NarOzi06A.pdf
+
+#### Poster: The Problem-Based Benchmark Suite(PBBS), V2
+
+cs.umd.edu/~laxman/papers/pbbsv2.pdf
+PBBS是一个基于问题的基准测试套件，包括我多个基准测试，以其IO特性为定义基础，只在比较不同算法的实现，重点对比的是并行算法
+
+#### benchmarks
+比对不同语言性能的benchmarks，访问地址：
+github.com/kostya/benchmarks
