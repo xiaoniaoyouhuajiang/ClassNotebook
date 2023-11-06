@@ -73,6 +73,9 @@ https://zhuanlan.zhihu.com/p/353485606
 
 #### Boost
 
+#### abseil
+
+#### CPP_OPtimizations Diary
 
 
 #### jemalloc
@@ -149,3 +152,11 @@ PBBS是一个基于问题的基准测试套件，包括我多个基准测试，�
 #### benchmarks
 比对不同语言性能的benchmarks，访问地址：
 github.com/kostya/benchmarks
+
+### 其他资源
+* github上Baptiste Wicht的代码以及博客（特别是articles的文章）
+* paper: a study of emerging scale-out workloads on modern hardware
+* principar kernel analysis: a tractable methodology to simulate scaled gpu workloads
+* 一本书《Handbook of Energy-Aware and Green Computing》
+* github搜索 bits of architecture
+* Tools for microarchitectural benchmarking
