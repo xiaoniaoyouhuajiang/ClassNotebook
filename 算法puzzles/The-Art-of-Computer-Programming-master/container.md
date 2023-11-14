@@ -23,12 +23,33 @@
 
 ## 根本问题
 在进入到更细致的问题之前，我们可以考虑一下一些根本性的问题：
+* container和data structure是什么关系
 * 如果让你总结，如何给数据结构的知识划分层次？
 * 什么算是数据结构的根本问题？
 * 数据结构的设计和场景有直接关系，那该如何给场景本身划分层次？
 * 让你给自己的编程语言设计标准库，你会如何设计？
 
 下面是对这些问题的一些探讨
+
+### container vs data structure
+首先我们平时工作中接触的最多的“东西”应该是container，好比Python中的list和dict以及C++中的std:vector, std:map等，它们都是容器，暴露了一部分CRUD接口的存储对象。容器的特性可以用三种行为来表征：
+* access
+* storage
+* traversal
+
+这些对象被期望实现下列这些接口：
+* 构造
+* 插入对象
+* 删除对象
+* 清空所有对象
+* 访问对象
+* 计数
+
+而数据结构是一种更加宽泛的内容，wikipedia上将container和collection都归类为data structure
+
+我们平时讨论的最多的，其实是**ADT**(abstract data type)
+
+想要找到所有这些的集合，可以去看:xlinux.nist.gov/dads
 
 ### standard container
 我们首先需要看下当下最主流的编程语言们的标准容器是什么样的。首先是，`c++ STL容器`
