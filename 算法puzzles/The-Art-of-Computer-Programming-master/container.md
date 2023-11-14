@@ -31,6 +31,12 @@
 
 
 
+#### xsimd
+
+C++的SIMD指令包装器
+
+
+
 #### static_vector
 
 > A dynamically-resizable vector with fixed capacity and embedded storage
