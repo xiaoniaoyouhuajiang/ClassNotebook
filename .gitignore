@@ -11,6 +11,9 @@
 *.exe
 *.ilk
 
+# pdf笔记允许使用pdf
+!/pdf_notes/*.pdf
+
 # 预训练模型，这块后面可能会用LFS来维护
 *.dnn
 
