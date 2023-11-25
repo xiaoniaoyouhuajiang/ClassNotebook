@@ -4,6 +4,10 @@ let
     __functor = self : args :
         (pkgs.fetchgit.__functor self args).overrideAttrs (oldAttrs:{GIT_SSL_NO_VERIFY=true;});
   };
-  in {
-    build = pkgs.callPackage ./package.nix {fetchgit = fetchgit-no-verify;};
-  }
+  build = pkgs.callPackage ./package.nix {fetchgit = fetchgit-no-verify;};
+in {
+  inherit build;
+  shell = pkgs.mkShell {
+    inputsFrom = [build];
+  };
+}
