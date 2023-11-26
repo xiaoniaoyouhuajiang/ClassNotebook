@@ -2,11 +2,11 @@ with import <nixpkgs> {};
 let
   pythonenv = ( let
     nfoursid = python310.pkgs.buildPythonPackage rec {
-        pname = "foursid";
+        pname = "nfoursid";
         version = "1.0.1";
         src = fetchPypi {
             inherit pname version;
-            hash = "xxx"
+            hash = "sha256-1IHorVjxnrpCkkmOpP0TJFcqMcd2/mzyyndOpCRIwEs=";
         };
         nativeBuildInputs = [
             python310.pkgs.setuptools
