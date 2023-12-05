@@ -34,3 +34,9 @@ portable这个特性非常重要，windows有embeddable package，linux并没有
 ### 计算机领域中的bootstrap是什么？
 
 ### 什么是DBI？调试器和DBI的区别
+
+问题：
+* 普通开发者有哪些场景可以利用dbi，用来做什么
+* 对体系结构感兴趣的同学可以如何利用dbi进行学习
+
+### vscode的linter设置：python, c++, go
