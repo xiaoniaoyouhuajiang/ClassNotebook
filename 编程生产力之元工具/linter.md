@@ -13,3 +13,10 @@
 
 ### pylint
 pylint是python开发者用的最多的linter（大概吧），而且我们开发的项目也有相关的门禁，所以就讲讲这个工具把
+
+一个.pylintrc模板：
+```ini
+[MASTER]
+init-hook = "from pylint.config import find_pylintrc;import os, sys; sys.path.append(os.path.append(os.path.dirname(find_pylintrc())))"
+
+```
