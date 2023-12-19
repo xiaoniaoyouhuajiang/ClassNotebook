@@ -222,6 +222,9 @@ PBBS是一个基于问题的基准测试套件，包括我多个基准测试，�
 比对不同语言性能的benchmarks，访问地址：
 github.com/kostya/benchmarks
 
+#### stress-ng
+最符合“压力测试”定义的基准测试，
+
 ### 其他资源
 * github上Baptiste Wicht的代码以及博客（特别是articles的文章）
 * paper: a study of emerging scale-out workloads on modern hardware
