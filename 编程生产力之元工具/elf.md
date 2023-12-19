@@ -1,4 +1,17 @@
 # elf可执行文件相关
+
+## 关于portable
+
+### 意义
+* 简单，暴力（表面上）
+* 通过合理的牺牲忘掉部署的烦恼
+* 在实现上的成本（系统所具备的条件/构造可移植包）做权衡
+
+**注意：由于我的大部分开发内容都在linux上，很多实践操作切换到windows系统下需要自己去探索尝试**
+
+### 关于glibc和musl
+
+
 ## linux分发的最终武器：exodus
 
 ### all in one file
@@ -47,7 +60,6 @@ tar -zxf /home/drrun.tgz
 ```
 
 
-
 另一方面，如果系统中有：
 
 * C编译器
@@ -70,8 +82,20 @@ linker="${current_directory}/./linker-dfd5de2638cea087685b67786050dcdc33aac7b67f
 exec "${linker}" --library-path "${library_path}" --inhibit-rpath "" "${executable}" "$@"
 ```
 
-可以看到，launcher会首先构造`LD_LIBRARY_PATH`的完整路径，还有可执行文件以及linker的路径，
+需要明白一个点是，在构造elf文件的过程中，linker这个elf文件的路径会被**硬编码**到header当中，所以需要使用bash来重新指定新的linker，也就是实现一个'wrapper'，这一块的操作，和nix的实现思路有些相似。
 
+可以看到，launcher会首先构造`LD_LIBRARY_PATH`的完整路径，还有可执行文件以及linker的路径。如果使用上述方法将python打包并且移植到新的系统上，很有可能会出现问题：
+`Fatal python error: init_fs_encoding: failed to get Python codec of the filesystem encoding`
+
+这个问题出现的原因是：python找不到encodings这个模块，所以无法完成`init_fs_encoding`这个过程，换句话说，**python的执行对其所依赖的文件系统/结构有要求**，这个问题我目前还没找到比较好的解决方法，最好的方式就是看
+
+
+#### 局限性
+大体来说，局限性包括这些：
+* 由解释器启动的文件：比如`bash`，`python`，`perl`等，毕竟它们不是elf文件
+* CPU架构问题，这个很好理解，属于工具本身就不需要cover的部分，实在需要运行就需要虚拟机，比如QEMU
+* glibc和内核版本不兼容：如果编译对象本身所依赖的glibc的版本比目标系统要低，可以在构建系统上使用`file /usr/bin/rm`之类的命令看到该系统所支持的最小版本，诸如`for GNU/Linux 3.2.0`了解到系统所支持的最小的内核版本，出发问题的时候，会出现`FATAL: kernel too old`，这个问题的解决方法就是在较低版本的系统上构建
+* 依赖驱动的libs:由于exodus会将所有依赖库都包含到bundle中，随之而来的问题是：为特定驱动程序编译的库只会在拥有相同驱动程序的机器上工作。比如libGLX_indirect.so会根据目标设备来选择链接的对象是`libGLX_mesa.so`或者是`libGLX_nvidia.so`
 
 
 ## Python的分发方案：
@@ -80,3 +104,10 @@ windows下Python有embeddedable方案
 
 ### linux
 关键是要解决
+
+#### nix
+略（可以参考nix的章节）
+
+#### 使用pyoxidizer完成静态链接
+首先，linux下产生一个完全静态链接的Python二进制文件是可行的，使用pyoxidizer需要一个`x86_64-unknown-linux-musl`去使用`musl libc`去进行构建
+
