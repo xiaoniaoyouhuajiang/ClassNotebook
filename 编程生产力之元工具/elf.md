@@ -9,6 +9,8 @@
 
 **注意：由于我的大部分开发内容都在linux上，很多实践操作切换到windows系统下需要自己去探索尝试**
 
+
+
 ### 关于glibc和musl
 
 
@@ -25,6 +27,10 @@ tar -zxf /home/drrun.tgz
 ```
 
 ### 什么是relocatable
+
+我认为等同于`position independent`，和路径无关的代码并不依赖其在内存中的位置
+
+
 
 ### 原理
 
@@ -98,14 +104,47 @@ exec "${linker}" --library-path "${library_path}" --inhibit-rpath "" "${executab
 * 依赖驱动的libs:由于exodus会将所有依赖库都包含到bundle中，随之而来的问题是：为特定驱动程序编译的库只会在拥有相同驱动程序的机器上工作。比如libGLX_indirect.so会根据目标设备来选择链接的对象是`libGLX_mesa.so`或者是`libGLX_nvidia.so`
 
 
+
+## build-once run-anywhere: Cosmopolitan
+
+项目地址：https://github.com/jart/cosmopolitan
+
+
+
+
+
+
 ## Python的分发方案：
+### pyinstaller
+
+应用的打包方案
+
+缺陷：并不能将解释器整个迁移，只能迁移应用
+
 ### windows
+
 windows下Python有embeddedable方案
 
 ### linux
-关键是要解决
+关键是要解决:
+
+* 静态链接
+* relocatable问题
+
+
+
+#### 最简方案：pypy
+
+pypy当前对于c-extension的支持已经有了很大提升，正如我们之前所说：**python不仅是Cpython**
+
+在linux下使用pypy来迁移应用除了能享受portable的好处之外，还有就是性能的提升。
+
+有一些c-extension的代码在构建的时候会遇到一些问题，这种时候一般切换安装版本可以解决。
+
+
 
 #### nix
+
 略（可以参考nix的章节）
 
 #### 使用pyoxidizer完成静态链接
