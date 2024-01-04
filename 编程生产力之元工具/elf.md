@@ -110,8 +110,8 @@ exec "${linker}" --library-path "${library_path}" --inhibit-rpath "" "${executab
 项目地址：https://github.com/jart/cosmopolitan
 
 
-
-
+## AppImage
+Appimage是一个开源项目，也是一个打包格式。
 
 
 ## Python的分发方案：
@@ -120,6 +120,9 @@ exec "${linker}" --library-path "${library_path}" --inhibit-rpath "" "${executab
 应用的打包方案
 
 缺陷：并不能将解释器整个迁移，只能迁移应用
+
+### python-AppImage
+链接地址：github.com/niess/python-appimage
 
 ### windows
 

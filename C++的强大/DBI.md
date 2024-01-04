@@ -1,0 +1,37 @@
+# Dynamic binary instrumentation
+讲解关于动态打桩工具的道与术
+
+## 概述
+
+### 是什么
+已知的比较有名气的动态打桩工具有：
+* pin
+* valgrind
+* dynamorio
+* qemu
+
+比较新的工具
+* triton
+* qbdi
+
+### 为什么
+* 更精细的调试技术
+* 深化对CPU执行指令过程的理解
+* 最大化分析程序运行的状态：性能、能耗
+
+### 怎么做
+
+## 用QBDI上手实践
+
+准备一个简单的动态库，比如实现一个算法的c++代码，将代码编译成so文件：
+
+```shell
+g++ -c -fPIC demo.cpp -o demo.o
+g++ -shared -Wl,-soname,mylib.so -o mylib.so demo.o
+
+# 查看so中的动态符号
+nm -D mylib.so
+```
+
+
+
