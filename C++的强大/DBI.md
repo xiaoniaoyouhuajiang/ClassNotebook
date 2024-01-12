@@ -3,6 +3,11 @@
 
 ## 概述
 
+### 参考的材料
+
+* Optimizing performance Using Dynamic Code Generation
+* 
+
 ### 是什么
 已知的比较有名气的动态打桩工具有：
 * pin
@@ -19,9 +24,14 @@
 * 深化对CPU执行指令过程的理解
 * 最大化分析程序运行的状态：性能、能耗
 
+### 一些应用
+#### Dynamic Binary Visualization
+youtube上有相关的介绍，略
+
+
 ### 怎么做
 
-## 用QBDI上手实践
+#### 用QBDI上手实践
 
 准备一个简单的动态库，比如实现一个算法的c++代码，将代码编译成so文件：
 
@@ -32,6 +42,13 @@ g++ -shared -Wl,-soname,mylib.so -o mylib.so demo.o
 # 查看so中的动态符号
 nm -D mylib.so
 ```
+
+#### 了解QBDI的原理
+
+#### LLVM-BASED优化理论基础
+通俗来说，程序执行本身的执行有两种策略
+
+#### 了解LLVM-BASED的二进制优化工具：Rellume
 
 
 
