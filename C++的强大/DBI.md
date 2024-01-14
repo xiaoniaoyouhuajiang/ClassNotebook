@@ -6,7 +6,9 @@
 ### 参考的材料
 
 * Optimizing performance Using Dynamic Code Generation
-* 
+* [Optimizing Performance Using Dynamic Code Generation](https://mediatum.ub.tum.de/doc/1614897/1614897.pdf)
+
+
 
 ### 是什么
 已知的比较有名气的动态打桩工具有：
@@ -47,6 +49,18 @@ nm -D mylib.so
 
 #### LLVM-BASED优化理论基础
 通俗来说，程序执行本身的执行有两种策略
+
+在程序执行时的编译成为Just In Time compilation。在程序执行之前则称为Ahead of TIME compilation。然而，有一种将机器码转移成高级别代码表示的技术，称为反编译/lifting，将机器码转换为相同的或者是不同的CPU架构一般称为binary rewriting，
+
+
+
+##### 透明动态重写
+
+
+
+![image-20240114185835248](/home/xiao-sa/software/ClassNotebook/statics/image-20240114185835248.png)
+
+
 
 #### 了解LLVM-BASED的二进制优化工具：Rellume
 
