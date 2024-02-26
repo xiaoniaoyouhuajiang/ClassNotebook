@@ -11,16 +11,23 @@
 * 可变变量的引用和可变引用有啥区别
 * 字符串的复杂性如何体现
 * rust中智能指针的使用场景
-* rust作用域的层级结构
+* crate的详细解释，模块树的层级结构
 * 如何为一个项目实现多个模块文件
+* 什么是semver trick
+* 为什么迭代器比普通循环更快
 * rust的trait和go的interface的区别
-* rust如何实现栈上的数组
-* rust如何实现allocator
+* 如何实现栈上的数组
+* 如何实现allocator
+* rust的const
+* 枚举类
 
 解惑：
 * ＆和＊：&在rust中是借用（&expr或&mut expr，不考虑expr & expr）以及被借用的指针类型（&type, &mut type, &'a type, &'a mut type），而*就是解引用(*expr)以及裸指针（Raw pointer）（*const type, *mut type）。值得注意的是，使用println!去打印对象，会自动的完成解引用；想要加强对所有权的理解，可以看一些reddit以及stackoverflow中的例子，确认理解了问题的正解之后；再在一些项目中使用debugger去观察对象在断点处的状态，最后再读下Rust程序语言设计中的引用与借用，便能够理解
 * 首先回顾很重要的一点就是同一时间，可变引用只能有一个。回到问题，不管是可变变量还是可变引用，它们都有在对应的作用域内改变指向对象的能力，因此可变引用只能为可变对象创建
-* 首先要明确只存在一种字符串类型：`str`，而它通常以被借用的形式出现，而最常用的str的容器则是标准库中的String
+* 首先要明确只存在一种字符串类型：`str`，而它通常以被借用的形式出现，而最常用的str的容器则是标准库中的String，String是类似于`Vec`的动态堆字符串类型，而`str`是不可变的utf8字节序列，由于其大小不可知，我们通常使用`&str`。两者的关系可归为`Vec<T>`和`&[T]`。str实际存储的位置可能是：
+    * 二进制文件中的某处：通常存的是字符串的字面量，比如"foo"
+    * String变量中
+    * 栈中
 * 标准库中智能指针有这些类型，我们分开讨论：
     * Box<T>：本质是实现了`Deref`和`Drop`两个关键trait的结构体，可以用来创建递归数据结构以及管理数据结构（容器类型）；
         * Deref：解引用的实现，注意实现deref方法时，输出的是其想要输出目标**的引用**，另外一方面可以使用Type关键字指定输出引用的类型，从而实现强制类型转换。注意，`Deref`可以用于重载不可变引用，但是也存在着用于重载不可变引用的`DerefMut`
@@ -28,11 +35,34 @@
     * 编译产物，在第一点中提到二进制产物也能够称为`crate`，这里要提到rust编译器的工作模式：rust总是使用单个源文件作为输入来开启编译过程。你肯定能猜到，这些源文件就是第一点中的`crate根`，但另一方面，这些关键的二进制产物同样是`crate`，这也是为什么容易搞不清楚，从使用的角度说，就更能明确为何一个package**必须有一个crate（0 lib crate +  N bin crate 或者 1 lib crate + n bin crate。$N \in [1,\infty], n \in [0, \infty]$**。
     * 一种特殊的模块，就叫"crate模块"。这也符合直觉，任何系统的模块存在都是为了crate服务的，编译也从crate对应的文件出发，因此它们是根，即crate根
     * rust中有几个关键字可以用来管理作用域：
-        * mod: 其语法为`mod <Module Name> {...}`，`mod`代表module，即我们在各类编程语言中最熟悉的模块，需要注意，模块与rust文件的关系是mod块嵌入在不同文件中，所以一个rust文件可以有多个模块
+        * mod: 其语法为`mod <Module Name> {...}`，`mod`代表module，即我们在各类编程语言中最熟悉的模块，需要注意，模块与rust文件的关系是mod块嵌入在不同文件中，所以一个rust文件可以有多个模块，mod的详细使用方法可以在下一点中找到
         * pub: 将符号导出为可由外部模块导入的，即公有。可以导出的内容有函数，模块，结构体，枚举类以及字段
-        * 
+        * use: 用于将其他crate的内容导入
+* 很多语言的模块设计强调了文件系统的参与（比如Python），但是Rust将文件布局和模块层次进行了解耦，因此rust可以实现更加细粒度的隐私控制。使用`mod`去导入其他文件中的模块时，首先调用方一定需要显式地`mod <module>;`，其次可以有两种方法：即`<module>.rs`或者是`<module>/mod.rs`文件，
+* semver trick是
+* 迭代器是Rust的零成本抽象之一，
 
+### 项目学习1-smallvec
 
+#### 项目概况
+
+#### code snippets
+
+```rust
+// 用枚举类来构建两种堆分配的错误类型
+#[derive(Debug)]
+pub enum CollectionAllocErr {
+    CapacityOverflow,
+    AllocErr {
+        layout: Layout,
+    },
+}
+impl core::fmt::Display for CollectionAllocErr {
+    fn fmt (&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "Allocation error: {:?}", self)
+    }
+}
+```
 
 ### 配套工具
 
@@ -61,6 +91,8 @@
 为什么要使用neovim来进行rust编程，可以参考这个博客：[博客](https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/)
 
 ![图片](../statics/neovim-rust.png)
+
+#### 我的安装流程
 
 
 ### vscode
