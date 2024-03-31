@@ -16,9 +16,11 @@
 * 什么是semver trick
 * 为什么迭代器比普通循环更快
 * rust的trait和go的interface的区别
+* rust的core::mem::ManuallyDrop如何使用
 * 如何实现栈上的数组
 * 如何实现allocator
-* rust的const
+* rust的union和struct的区别
+* usize的使用场景一般是什么
 * 枚举类
 
 解惑：
@@ -31,6 +33,8 @@
 * 标准库中智能指针有这些类型，我们分开讨论：
     * Box<T>：本质是实现了`Deref`和`Drop`两个关键trait的结构体，可以用来创建递归数据结构以及管理数据结构（容器类型）；
         * Deref：解引用的实现，注意实现deref方法时，输出的是其想要输出目标**的引用**，另外一方面可以使用Type关键字指定输出引用的类型，从而实现强制类型转换。注意，`Deref`可以用于重载不可变引用，但是也存在着用于重载不可变引用的`DerefMut`
+        * Drop: 对象离开作用域时必须执行的函数。drop函数不能显式调用，因此如果需要提前清理值，可以使用`std::mem::drop`
+    * Rc<T>：
 * 在进入代码级别的作用域管理前，必须得先明确`crate`和`crate根`的概念，`crate根`是package的**接口文件**，package的作用可以是library，也可以是executable-file，而它们向外暴露的实体是二进制产物，另一方面它们在rust文件中也有**明确的**表征，即`lib.rs`和`main.rs`。在这些共识之下，crates根代表的实际就是这些个关键文件。优先讲crate根是因为我们关注一个语言的模块系统经常以`文件组织`作为切入点，这符合直觉。而`crate`是:
     * 编译产物，在第一点中提到二进制产物也能够称为`crate`，这里要提到rust编译器的工作模式：rust总是使用单个源文件作为输入来开启编译过程。你肯定能猜到，这些源文件就是第一点中的`crate根`，但另一方面，这些关键的二进制产物同样是`crate`，这也是为什么容易搞不清楚，从使用的角度说，就更能明确为何一个package**必须有一个crate（0 lib crate +  N bin crate 或者 1 lib crate + n bin crate。$N \in [1,\infty], n \in [0, \infty]$**。
     * 一种特殊的模块，就叫"crate模块"。这也符合直觉，任何系统的模块存在都是为了crate服务的，编译也从crate对应的文件出发，因此它们是根，即crate根
@@ -41,6 +45,13 @@
 * 很多语言的模块设计强调了文件系统的参与（比如Python），但是Rust将文件布局和模块层次进行了解耦，因此rust可以实现更加细粒度的隐私控制。使用`mod`去导入其他文件中的模块时，首先调用方一定需要显式地`mod <module>;`，其次可以有两种方法：即`<module>.rs`或者是`<module>/mod.rs`文件，
 * semver trick是
 * 迭代器是Rust的零成本抽象之一，
+* rust的trait和go的interface
+* rust的ManuallyDrop
+* 参考stackoverflow的27859822问题：
+* 如何实现allocator
+* struct和union的区别
+* usize实际是和计算机系统相关的无符号整数类型，所以表示非负场景的数值都可以用usize，比如数组长度
+
 
 ### 项目学习1-smallvec
 
@@ -93,6 +104,17 @@ impl core::fmt::Display for CollectionAllocErr {
 ![图片](../statics/neovim-rust.png)
 
 #### 我的安装流程
+```shell
+# 确保安装版本 > 0.9.0的neo-vim
+pkg install nvim
 
+# 安装nerd font和nvchad
+注意nerd font需要安装在对应的terminal软件依赖中，比如使用windows terminals登录，则对应的windows系统需要安装相应字体
+...
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+
+# 准备好rust-tools
+git clone xx ~/.config/nvim/lua/custom/
+```
 
 ### vscode

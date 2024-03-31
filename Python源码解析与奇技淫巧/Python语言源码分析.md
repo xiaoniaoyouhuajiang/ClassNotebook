@@ -20,6 +20,19 @@ compiler可被分为两种类型：
 
 而对Python而言，Python保留了C的编译器实现，同时一些标准库：sockets,ssl,os,wxpython沿用了C的API，也有一个Python自己解释自己的实现：Pypy
 
+### 手动编译安装
+```shell
+# 安装必要的包：
+apt-get install build-essential
+
+# 可以去修改编译选项：
+vim ./Modules/Setup
+# 去掉zlib的注释
+
+# 注意，安装必要包的内容需要包含：dpkg-dev
+./configure
+make -j
+```
 
 
 ## grammar
