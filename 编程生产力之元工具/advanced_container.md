@@ -3,6 +3,14 @@
 
 ## 复杂环境的容器技术
 
+### sarus
+sarus架构：
+![sarus架构](../statics/architecture.svg)
+注意看OCI Bundle中包含哪些信息
+
+#### 容器镜像的处理
+将tar文件导入为"可管理的oci bundles"依赖的是`Skopeo`，一个泛用性很强的镜像文件处理工具，最终转换为oci镜像路径（一种标准化的表达）。
+
 ### apptainer
 
 #### 为何使用apptainer
