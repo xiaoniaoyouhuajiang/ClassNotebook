@@ -11,6 +11,84 @@ sarus架构：
 #### 容器镜像的处理
 将tar文件导入为"可管理的oci bundles"依赖的是`Skopeo`，一个泛用性很强的镜像文件处理工具，最终转换为oci镜像路径（一种标准化的表达）。
 
+
+
+#### hook系统
+
+> Sarus allows containers to be customized by other programs or scripts leveraging the interface defined by the Open Container Initiative Runtime Specification for POSIX-platform hooks (OCI hooks for short).
+
+
+
+* Native MPI support
+
+
+
+
+
+#### 安装&使用
+
+```shell
+mkdir /opt/sarus
+cd /opt/sarus
+# Adjust url to your preferred version
+wget https://github.com/eth-cscs/sarus/releases/download/1.5.0/sarus-Release.tar.gz
+sudo ./configure_installation.sh
+```
+
+去看环境搭建的脚本，得知做了这些事情：
+
+* 为sarus的二进制目录下中的文件提权
+  * chown root:root bin/sarus
+  * chmod  +s bin/sarus
+* 将passwd和group信息记录到本地的etc目录下（passwd, group）
+* 确保etc/sarus.schema.json的所有权用户为root
+* 为配置文件`sarus.json`提供足够的信息
+  * 功能组件的文件路径
+    * sarus的安装路径
+    * SKOPEO的路径
+    * UMOCI的路径
+    * MKSQUASHFS的路径
+    * tini-static-amd64的路径
+    * runc的路径
+  * local repository base dic
+  * centralized repository dic
+
+![image-20240427233500164](../statics/image-20240427233500164.png)
+
+
+
+```shell
+$ sarus pull alpine
+# image            : docker.io/library/alpine:latest
+# cache directory  : "/home/user/.sarus/cache"
+# temp directory   : "/tmp"
+# images directory : "/home/user/.sarus/images"
+# image digest     : sha256:4ff3ca91275773af45cb4b0834e12b7eb47d1c18f770a0b151381cd227f4c253
+Getting image source signatures
+Copying blob 2408cc74d12b done
+Copying config a366738a18 done
+Writing manifest to image destination
+Storing signatures
+> unpacking OCI image
+> making squashfs image: "/home/user/.sarus/images/docker.io/library/alpine/latest.squashfs"
+
+$ sarus images
+REPOSITORY   TAG          IMAGE ID       CREATED               SIZE         SERVER
+alpine       latest       a366738a1861   2022-05-25T09:19:59   2.59MB       docker.io
+
+$ sarus run alpine cat /etc/os-release
+NAME="Alpine Linux"
+ID=alpine
+VERSION_ID=3.16.0
+PRETTY_NAME="Alpine Linux v3.16"
+HOME_URL="https://alpinelinux.org/"
+BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+```
+
+
+
+
+
 ### apptainer
 
 #### 为何使用apptainer
@@ -24,7 +102,7 @@ sarus架构：
 * [更接近硬件]Apptainer can be used to run massively-parallel applications which leverage fast InfiniBand interconnects and GPUs. These applications suffer minimal performance loss since Apptainer was designed to run "close to the hardware".
 * Bring Your Own Software (BYOS). That is, you don't have to ask the system adminstrators if they are willing to install something for you. You can install whatever you want inside the image and then run it. This is because there is no way to escalate priviledges. That is, the user outside the container is the same user inside so there are no additional security concerns with Apptainer containers.
 
-#### 
+
 
 #### 执行MPI任务
 内容摘自https://apptainer.org/docs/user/main/mpi.html#
@@ -55,5 +133,4 @@ GPU相关的软件栈比较复杂，使用了CUDA技术的软件在部署时通�
 
 
 #### nvidia container toolkit
-
 
