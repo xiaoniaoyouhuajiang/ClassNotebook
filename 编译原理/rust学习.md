@@ -108,6 +108,12 @@ impl core::fmt::Display for CollectionAllocErr {
 # 确保安装版本 > 0.9.0的neo-vim
 pkg install nvim
 
+# linux环境安装nvim：github上有预编译的二进制文件
+# 需要自己编译安装，也没有问题，基本只需要gcc(github仓大概300M)
+git clone https://github.com/neovim/neovim
+git checkout stable
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+
 # 安装nerd font和nvchad
 注意nerd font需要安装在对应的terminal软件依赖中，比如使用windows terminals登录，则对应的windows系统需要安装相应字体
 ...

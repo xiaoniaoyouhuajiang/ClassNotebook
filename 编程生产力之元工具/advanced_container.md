@@ -9,8 +9,29 @@ sarus架构：
 注意看OCI Bundle中包含哪些信息
 
 #### 容器镜像的处理
-将tar文件导入为"可管理的oci bundles"依赖的是`Skopeo`，一个泛用性很强的镜像文件处理工具，最终转换为oci镜像路径（一种标准化的表达）。
+将tar文件导入为"可管理的oci bundles"依赖的是`Skopeo`，一个泛用性很强的镜像文件处理工具，最终转换为oci镜像路径（一种标准化的表达）。(注意这是处理容器镜像的工具，但不是container bundles)
 
+skopeo copy docker://opensuse/amd64:42.2 oci:opensuse:42.2
+
+要运行容器，我们实际需要的是container bundle,它包含：
+* rootfs
+* config file:
+  * user id
+  * 挂载的镜像
+  * 运行的进程
+  * ...
+
+umoci实现了OCI image specification，可以实现创建镜像文件等操作：
+其中几个比较关键的操作：
+* unpack: 从镜像中提取文件系统和配置，变成一个新的oci bundle
+* 
+
+```shell
+# 从opensuse镜像中提取OCI bundle "bundle"
+umoci unpack --image opensuse:leap bundle
+# 使用crun生成容器
+runc run -b bundle ctr-name
+```
 
 
 #### hook系统
