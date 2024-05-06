@@ -3,10 +3,26 @@
 
 ## 复杂环境的容器技术
 
-### sarus
+### sarus与OCI
 sarus架构：
 ![sarus架构](../statics/architecture.svg)
 注意看OCI Bundle中包含哪些信息
+我们可以通过熟悉sarus的组件，进而将OCI的“约定”review一遍
+
+
+#### layer的再阐述
+skope工具是处理“镜像”的，当skope将镜像从镜像仓库拉取下来之后，可以存储为：
+* container storage backends
+* local directories
+* OCI-layout directories
+其中local directories是podman等主流容器方案的后端`storage`实现的一种存储形式。
+
+storage主要处理三种类型的对象：
+* layer: 一种copy-on-write的文件系统，这个是理解容器运行机制的核心概念，注意：**一个给定的layer只可能有唯一一个parent，但任意的layer可以是多个layer的parent**
+* image
+* container
+
+
 
 #### 容器镜像的处理
 将tar文件导入为"可管理的oci bundles"依赖的是`Skopeo`，一个泛用性很强的镜像文件处理工具，最终转换为oci镜像路径（一种标准化的表达）。(注意这是处理容器镜像的工具，但不是container bundles)
@@ -24,11 +40,33 @@ skopeo copy docker://opensuse/amd64:42.2 oci:opensuse:42.2
 umoci实现了OCI image specification，可以实现创建镜像文件等操作：
 其中几个比较关键的操作：
 * unpack: 从镜像中提取文件系统和配置，变成一个新的oci bundle
-* 
+* repack: 上述过程的反过程
+
+简单来说，经过umoci的操作，我们获得了`oci-bundle/runtime-bundle`，紧接着，`runc/crun`等runtime工具这个时候就可以将容器运行起来了，问题在于，从镜像 -> 容器可执行的oci-bundle，这个过程，umoci到底做了什么处理：
+* 将rootfs解压出来
+* 将OCI image configuration转换为OCI runtime configuration
+
+我们来简要分析下runtime-spec的`config.json`包含**重要**的内容：
+* process-容器运行进程的信息
+  * user
+    * uid
+    * gid
+    * additionalGids
+  * args
+  * env
+  * cwd
+  * capabilities（进程能力）
+* mounts
+  ...
+
+
+
 
 ```shell
+# 使用skope获取镜像，并以"oci path"存为本地目录
+skopeo copy docker://opensuse/amd64:42.2 oci:opensuse:latest
 # 从opensuse镜像中提取OCI bundle "bundle"
-umoci unpack --image opensuse:leap bundle
+umoci unpack --image opensuse:latest bundle
 # 使用crun生成容器
 runc run -b bundle ctr-name
 ```
