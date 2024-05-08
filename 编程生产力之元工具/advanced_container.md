@@ -63,8 +63,13 @@ oci_path属于是`OCI Image Media Types`中的一种，可去`OCI Image Layout S
     * 包含`imageLayoutVersion`字段
   * index.json
     * 就是通过该文件来确定`image index`的
-    
+    * index.json实际是image index的json media type的实例，因此我们主要了解json中各字段的含义
+    * manifests: array of objects,存在的目的是保证镜像可以唯一确定其哈希值；允许多个架构/系统的镜像（platform）。digest（指向特定架构的manifest property）其内容包括:
+      * mediaType
+      * config（descriptor）:指向容器的配置文件，内部包含"config"，"rootfs"（其中包含type以及diff_ids以及hisory），
+      * layers: layer descriptor的array
 
+注意：manifest中的config中的`diff_ids`的哈希值不等于各`layers`的哈希值，layer所指示的哈希值是具体文件的哈希值（tarball以及json文件的）,而ids指示的是layer的未经压缩的目录。
 
 简单来说，经过umoci的操作，我们获得了`oci-bundle/runtime-bundle`，紧接着，`runc/crun`等runtime工具这个时候就可以将容器运行起来了
 
