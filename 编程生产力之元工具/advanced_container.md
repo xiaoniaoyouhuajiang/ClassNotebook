@@ -42,9 +42,31 @@ umoci实现了OCI image specification，可以实现创建镜像文件等操作�
 * unpack: 从镜像中提取文件系统和配置，变成一个新的oci bundle
 * repack: 上述过程的反过程
 
-简单来说，经过umoci的操作，我们获得了`oci-bundle/runtime-bundle`，紧接着，`runc/crun`等runtime工具这个时候就可以将容器运行起来了，问题在于，从镜像 -> 容器可执行的oci-bundle，这个过程，umoci到底做了什么处理：
-* 将rootfs解压出来
-* 将OCI image configuration转换为OCI runtime configuration
+回顾一下oci image spec:
+* layer
+* manifests
+* config
+oci_path属于是`OCI Image Media Types`中的一种，可去`OCI Image Layout Specification`查看
+
+列举一些关于OCI Image layout-spec的重点：
+* 给定layout路径以及`ref`，“一些工具”可以依照这个思路创建oci runtime bundle:
+  * 通过ref找到`manifest`,通过`image index`(index.json)
+  * 按顺序解压layer生成rootfs
+  * 将image configuration转换为OCI runtime spec的config.json
+* image layout
+  * blobs:
+    * 包含内容可寻址的blobs
+    * blobs下的对象名称由每个哈希算法生成的目录构成，比如sha256(可通过shasum -a file验证),寻址的规则依照`OCI descriptor`提供的`digest`规则；
+    * 内容的构成可以参考`media-types`
+  * oci-layout
+    * 必定存在，且一定为json
+    * 包含`imageLayoutVersion`字段
+  * index.json
+    * 就是通过该文件来确定`image index`的
+    
+
+
+简单来说，经过umoci的操作，我们获得了`oci-bundle/runtime-bundle`，紧接着，`runc/crun`等runtime工具这个时候就可以将容器运行起来了
 
 我们来简要分析下runtime-spec的`config.json`包含**重要**的内容：
 * process-容器运行进程的信息
@@ -58,7 +80,6 @@ umoci实现了OCI image specification，可以实现创建镜像文件等操作�
   * capabilities（进程能力）
 * mounts
   ...
-
 
 
 
