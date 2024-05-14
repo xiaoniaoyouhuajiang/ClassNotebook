@@ -13,7 +13,7 @@
 LLVM相关的元工具中介绍过类似的功能；核心是基于LD_PRELOAD进行偷梁换柱;基于这种方法完成的库工具可称为：`interposition libraries`（基于`LD_PRELOAD`, `DYLD_INSERT_LIBRARIES`）
 
 ### 动态库劫持
-"劫持"可以理解为劫持者冒充被劫持者的某些函数符号。这么做的目的是在不更改实力程序的elf情况下，改变被劫持符号的行为。
+"劫持"可以理解为劫持者冒充被劫持者的某些函数符号。这么做的目的是在不更改实例程序的elf情况下，改变被劫持符号的行为。
 
 > 链接阶段劫持
 
@@ -25,7 +25,7 @@ LLVM相关的元工具中介绍过类似的功能；核心是基于LD_PRELOAD进
 
 **演示见 insert_test**
 
-这种方法有较大的局限性，在于运行时链接
+这种方法有较大的局限性，在于运行时链接库的符号必须是已知的
 
 代码仓：github.com/HPCToolkit/libmonitor.git
 测试钩子：icl.utk.edu/~mucci/monitor
@@ -37,8 +37,15 @@ HPCtoolkit官方已经将libmonitor合入到主代码仓的模块中；
 
 整个工具的运行逻辑：
 * export LD_PRELOAD=/path_to_build/libmonitor.so:/path_to_build/tests/monitor_hook.so
+* 
 
+### 注入式方法实现监控
+`hpctoolkit`中的组件`hpcrun`就是通过`LD_PRELOAD`来实现在运行时的代码中插入profiling code：
 
+```shell
+hpcrun app arg
+```
+hpcrun会使用异步采样的方法来衡量程序的在CPU上的时间，并且获取每个线程的`call path profile`
 
 ## dbi-采集
 

@@ -75,6 +75,36 @@ impl core::fmt::Display for CollectionAllocErr {
 }
 ```
 
+### 实践-使用PyO3创建一个python-rpc
+安装maturin: `pip install maturin`
+
+创建目录（也可以用pyenv创建虚拟环境完成下列步骤）
+```
+mkdir py_rpc
+cd py_rpc
+maturin init
+```
+
+#### 关于RPC
+定义RPC框架，我们首先想到的就是通信的数据结构以及调用方法，IDL全称为interface design language，很多RPC框架需要使用IDL生成对应的代码（同时IDL很重要的一个特征是不依赖实现语言），因为其中封装了消息收发，结构体编码解码，生成结构体等操作。
+
+```rust
+struct Msg{
+    tag: String,
+    detai: String,
+}
+```
+
+实现RPC框架，需要定义的内容包括：
+* 消息，编码解码的传输层
+* 
+
+我们要做的是thrift RPC框架，使用thrift的好处是：
+* 已经有较多知名大企业使用，有保障 
+
+thrift中的数据类型可以分为`基础类型`，`容器类型`，`常量类型`:
+值得注意的是容器类型包含map, set, list
+
 ### 配套工具
 
 这两个工具真好用：
