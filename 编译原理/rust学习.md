@@ -75,7 +75,15 @@ impl core::fmt::Display for CollectionAllocErr {
 }
 ```
 
-### 实践-使用PyO3创建一个python-rpc
+### 实践-使用PyO3创建一个ssh连接池
+这个实践有以下的目的：
+* 在大量的例子和帮助中学习，熟悉rust
+* 了解pyo3的开发模式，为后续写binding, warapper打下基础
+* 了解russh的使用方法，机制
+* 简单学会使用tokio来完成异步逻辑
+* 实现一个并发的，惰性的ssh连接
+* 
+
 安装maturin: `pip install maturin`
 
 创建目录（也可以用pyenv创建虚拟环境完成下列步骤）
@@ -84,6 +92,22 @@ mkdir py_rpc
 cd py_rpc
 maturin init
 ```
+
+#### 定义pyo3中的class
+定义一个wrapper十分简单：
+```rust
+#[pyclass]
+struct MyClass {
+    inner: i32
+}
+```
+但wrapper存在一些问题：
+* 无法使用lifetime参数：由于pyclass是动态的数据，rust编译器没办法去追踪pyclass本身的生命周期，保证内存安全性的唯一办法是：pyclass在其短于`static的生命期中不要借用任何数据。 -> 
+
+#### 关于async与rust
+记录一下比较重要的点：
+* 
+
 
 #### 关于RPC
 定义RPC框架，我们首先想到的就是通信的数据结构以及调用方法，IDL全称为interface design language，很多RPC框架需要使用IDL生成对应的代码（同时IDL很重要的一个特征是不依赖实现语言），因为其中封装了消息收发，结构体编码解码，生成结构体等操作。
@@ -97,6 +121,7 @@ struct Msg{
 
 实现RPC框架，需要定义的内容包括：
 * 消息，编码解码的传输层
+* message code generator(idl parser + message derive)
 * 
 
 我们要做的是thrift RPC框架，使用thrift的好处是：
