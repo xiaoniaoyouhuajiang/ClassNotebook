@@ -52,6 +52,64 @@
 * struct和union的区别
 * usize实际是和计算机系统相关的无符号整数类型，所以表示非负场景的数值都可以用usize，比如数组长度
 
+### 语言内部
+
+#### 链接过程&linker
+链接器的性能通常是一个比较重要的考虑因素，编译总会有讲obj文件链接在一起的过程，这个过程就是linker在发光发热。
+
+rust使用的链接器是`lld`
+
+rust编译器支持静态/动态地将crate链接起来的方法。
+
+
+一些要点：
+* 智能指针RefCell<T>与内部可变性：内部可变性（Interior mutability）是Rust中的一个设计模式，允许即使有不可变引用时也可以改变数据，这是通常情况下借用规则不允许的，因此需要在数据结构中使用unsafe来模糊可变性和借用规则。
+* Rc为引用计数智能指针，它与Python中的PyObject有什么不一样呢？首先Rc<T>用于希望在堆上分配一些供多个部分读取的内存场景，并且不确定谁会最后使用它。
+
+## 练习
+一些外部的有趣练习：
+* rustlings
+* rust-quiz
+* lifetimekata
+* Rust latam: procedural macros workshop
+
+交互性质的练习：
+* oort
+
+### rust练习册-rustlings
+```shell
+git clone -b 5.6.1 --depth 1 https://github.com/rust-lang/rustlings
+cd rustlings
+cargo install --locked --force --path .
+
+# 开始
+rustlings watch
+```
+这个练习的好处：
+* 有一种读条进步的感觉，比较爽(对于新手)
+* 学会使用“rustc --explain EXXXX”
+* 熟悉编译器的报错和内容
+* 很多题没有标准答案，可以多试试，就当是熟练和建立rust心智模型的过程
+* 建议完成时间：4天内
+* 其中我认为完成部分的习题有比较大的意义（如果你是一个新手，你直接去做这些内容可能也不太容易一次通过）：
+    * vecs/vecs2.rs
+    * move_semantics/*
+    * enums/enums3.rs
+    * strings/*(尤其string4)
+    * hashmaps3
+    * quiz2.rs
+    * error_handling/errors6.rs(知识点：enum;错误传播;map_err)
+    * quiz3.rs
+    * iterators/iterators2/3.rs
+    * smart_pointers/cow1.rs
+    * threads/threads3.rs
+    * macros/macros3.rs
+    * conversions/try_from_into.rs
+    * conversions/as_ref_mut.rs
+
+当然我认为rustlings也有些不足（不过这些本来就不是rustlings设计之初考虑的事）:
+缺少一些复合型的训练
+
 
 ### 项目学习1-smallvec
 
@@ -75,6 +133,23 @@ impl core::fmt::Display for CollectionAllocErr {
 }
 ```
 
+### 项目学习2：py-spy
+py-spy是一个python profiling项目，配备较多的测试用例，配合rust-toolchains，是个不错的学习项目。建议事不考虑bindings的代码，直接从rust-api下手开始看。另一方面，对profiling/debug领域感兴趣的人也应该学习下这个项目。
+
+#### 关键的数据结构
+* PythonSpy: Python进程监视器
+* PythonProcessInfo: Python进程的消息存储结构，包含信息有：memory map layout, 解析好的二进制信息（libpython）：这里值得注意的是二进制信息的存储结构是`BinaryInfo`，这是依赖
+* 
+
+### 开发中的实践
+这是我学习rust过程中记录下的认为有意义的code snippet
+
+* 实现一个类可以不断输入值来更新时间的早晚
+* 使用unsafe实现插桩，完成这些功能
+    * 重复运行某一个函数
+    * 度量某个函数的运行时间
+* 侦测器：筛选出目标进程中满足筛选条件的函数符号
+
 ### 实践-使用PyO3创建一个ssh连接池
 这个实践有以下的目的：
 * 在大量的例子和帮助中学习，熟悉rust
@@ -93,6 +168,9 @@ cd py_rpc
 maturin init
 ```
 
+#### 定义pyo3中的函数
+`#[pyfunction]`用于定义一个Python中的函数（调用Rust），
+
 #### 定义pyo3中的class
 定义一个wrapper十分简单：
 ```rust
@@ -102,10 +180,40 @@ struct MyClass {
 }
 ```
 但wrapper存在一些问题：
-* 无法使用lifetime参数：由于pyclass是动态的数据，rust编译器没办法去追踪pyclass本身的生命周期，保证内存安全性的唯一办法是：pyclass在其短于`static的生命期中不要借用任何数据。 -> 
+* 无法使用lifetime参数：由于pyclass是动态的数据，rust编译器没办法去追踪pyclass本身的生命周期，保证内存安全性的唯一办法是：pyclass不要借用任何短于static生命期的数据。 -> pyclass对象中的每个引用的生命周期>=static
+* 一个问题是如果存在这样一个对象，它在rust函数中有自己的owner，同时也能被python解释器访问，需要用到引用计数的智能指针比如`Arc`, `Py`
+* 无法使用泛型参数，因为rust编译器会为每个泛型T生成相应的代码，这个生成过程是在编译阶段完成的，最好的解决方法是为pyclass实现一个宏
 
-#### 关于async与rust
-记录一下比较重要的点：
+```rust
+use pyo3::prelude::*;
+
+struct GenericClass<T> {
+    data: T,
+}
+
+macro_rules! create_interface {
+    ($name: ident, $type: ident) => {
+        #[pyclass]
+        pub struct $name {
+            inner: GenericClass<$type>,
+        }
+        #[pymethods]
+        impl $name {
+            #[new]
+            pub fn new(data: $type) -> Self {
+                Self {
+                    inner: GenericClass {data: data},
+                }
+            }
+        }
+    };
+}
+
+create_interface!(IntClass, i64);
+create_interface!(FloatClass, String);
+```
+
+python runtime和rust runtime有很大的差异，所以当我们研究一个抽象的`对象`在两个runtime中如何进行转换时，一定会回顾两个语言本身的设计原则：
 * 
 
 
@@ -129,6 +237,8 @@ struct Msg{
 
 thrift中的数据类型可以分为`基础类型`，`容器类型`，`常量类型`:
 值得注意的是容器类型包含map, set, list
+
+
 
 ### 配套工具
 
