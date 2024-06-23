@@ -136,12 +136,57 @@ impl core::fmt::Display for CollectionAllocErr {
 ### 项目学习2：py-spy
 py-spy是一个python profiling项目，配备较多的测试用例，配合rust-toolchains，是个不错的学习项目。建议事不考虑bindings的代码，直接从rust-api下手开始看。另一方面，对profiling/debug领域感兴趣的人也应该学习下这个项目。
 
-#### 关键的数据结构
-* PythonSpy: Python进程监视器
-* PythonProcessInfo: Python进程的消息存储结构，包含信息有：memory map layout, 解析好的二进制信息（libpython）：这里值得注意的是二进制信息的存储结构是`BinaryInfo`，这是依赖
-* 
+#### 关键的数据结构/结构体
+* PythonSpy: Python进程监视器，存储全部状态的抽象
+* PythonProcessInfo: Python进程的消息存储结构，包含信息有：memory map layout, 解析好的二进制信息（libpython）：这里值得注意的是二进制信息的存储结构是`BinaryInfo`，其中有一个关键字段symbols是内存名称到地址的Map
+* InterpreterState：Python解释器的状态机trait，有各个关键版本的impl
+
+
+
+#### 实现中的技巧
+
+* 使用read_process_memory获取进程运行时的内部结构（依赖各个OS的syscall，比如linux的[process_vm_readv](https://man7.org/linux/man-pages/man2/process_vm_readv.2.html)），
+* 用rust的类型推断结合技巧一copy_struct
+
+![image-20240623142813165](../statics/image-20240623142813165.png)
+
+* 使用binary parser——goblin解析并获取二进制文件的关键符号的内存地址，再使用技巧二尝试从内存中提取出需要的`python结构`，这里一定会存在的问题是ASLR（Address space layout randomization），处理地址空间随机化的方法需要解释下,如果说python解释器是附带符号的，则可以通过Python版本来获取interp_head和_PyRuntime两个变量的地址来获取解释器的地址
+
+首先可以通过`cat /proc/sys/kernel/randomize_va_space`获取机器的策略：
+
+`0` 表示禁用 ASLR。
+
+`1` 表示启用基本随机化。
+
+`2` 表示启用完全随机化。
+
+
+
+* 这里存在一个问题，前文提到的`InterpreterState`从何而来？答案是使用`rust-bindgen`来获得Python关键对象的rust结构体，具体分析如下：
+  * 生成binding的脚本为位于项目根目录下的`generate_bindings.py`，对应的函数为`extract_bindings`，内部行为可以分解如下：
+    * 获取CPython源码
+    * checkout到指定的Python版本
+    * 运行configure生成`pyconfig.h`
+    * 将`Python.h`,`frameobject.h`,`pycore_pystate.h`,`pycore_interp.h`,`pycore_frame.h`作为输入写入到文件`bindgen_input.h`
+    * 将`bindgen_input.h`作为输入生成`bindgen_output.rs`，注意这里需要指定一些`whitelist-type`，最后将文件写入到vxx.rs中即可
+  * 上述生成的内容实质上为
+* 获取call stack的方法是：
+  * 从PyInterpreterState中取出所有Python线程
+  * 遍历每个线程的PyFrameObject对象，获取call stack
+* `top`命令本质是生成一个监控的Iterator，每次iter就是从Python进程中采样（获取调用信息），这个iterator每次进行迭代，实际上就是Sampler中的receiver从一个采样线程中去获取采集到的性能样本。采集的代码如下：
+
+![image-20240623195805572](../statics/image-20240623195805572.png)
+
+
+
+#### 依赖py-spy做的有趣的事
+
+
+
+
 
 ### 开发中的实践
+
 这是我学习rust过程中记录下的认为有意义的code snippet
 
 * 实现一个类可以不断输入值来更新时间的早晚
