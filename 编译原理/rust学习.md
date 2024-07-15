@@ -202,7 +202,7 @@ py-spy是一个python profiling项目，配备较多的测试用例，配合rust
 * 了解russh的使用方法，机制
 * 简单学会使用tokio来完成异步逻辑
 * 实现一个并发的，惰性的ssh连接
-* 
+* 实现文件的传送（file-likt-obj/file）
 
 安装maturin: `pip install maturin`
 
