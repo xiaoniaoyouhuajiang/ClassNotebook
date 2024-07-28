@@ -28,9 +28,43 @@ O_DIRECT：是一个创建文件的FLAG，如果使用O_DIRECT打开文件，那
 
 那么什么时候使用比较好呢，除了基准测试场景外，应用本身如果有一个缓存层的话，将数据从磁盘读到页缓存再到应用就产生了多余的开销，这时候使用ODIRECT是不错的选择。
 
+
+
 ### io interface
 pread和pwrite都是同步的读写操作，而异步的Linux IO系统调用有两个，一个是libaio: 不支持OS buffering，一个是io_uring，支持OS buffering。注意使用了异步的rw操作后，一个线程就可以完成多个线程同步操作的任务。但是如果涉及到OS buffering，一个逻辑核的cycle数可能不足以支持buffering的操作（所以这时候启用O_DIRECT,即采用libaio反而会有更好的性能，当然这需要你的任务是进行大范围/高并发的读写）
 
-### 
 
+
+vroom横向对比的自然是其他这些IO引擎：libaio, io_uring, SPDK, psync
+
+
+
+### 性能评估
+
+测试配件：
+
+* Intel Xeon E5-2660
+* 251G RAM
+* 1Tb Samusung Evo 970 Plus Nvme SSD(1gb cache)
+
+
+
+![image-20240728162042960](../statics/image-20240728162042960.png)
+
+
+
+benchmark:
+
+```toml
+[global]
+io_engine={spdk,io_uring,libaio,psync}
+rw={randread,randwrite,read,write}
+blocksize=4k
+direct=1
+norandommap=1
+runtime=900
+numjobs={1,4}
+queue_depth={1,32}
+group_reporting=1
+```
 
