@@ -21,15 +21,20 @@
 
 值得注意的是，不少的代码仓并不会对构造对象做详尽的benchmark，这种情况下，我会尽可能的补充合适的benchmark snippet，并对结果进行分析
 
+
+
 ## 根本问题
+
 在进入到更细致的问题之前，我们可以考虑一下一些根本性的问题：
 * container和data structure是什么关系
-* 如果让你总结，如何给数据结构的知识划分层次？
 * 什么算是数据结构的根本问题？
 * 数据结构的设计和场景有直接关系，那该如何给场景本身划分层次？
+* 如果让你总结，如何给数据结构的知识划分层次？
 * 让你给自己的编程语言设计标准库，你会如何设计？
 
 下面是对这些问题的一些探讨
+
+
 
 ### container vs data structure
 首先我们平时工作中接触的最多的“东西”应该是container，好比Python中的list和dict以及C++中的std:vector, std:map等，它们都是容器，暴露了一部分CRUD接口的存储对象。容器的特性可以用三种行为来表征：
@@ -51,10 +56,25 @@
 
 想要找到所有这些的集合，可以去看:xlinux.nist.gov/dads
 
+
+
+### "根本问题"
+
+你希望通过数据结构的知识解决什么，这些问题便是“根本问题”，对于笔者，好奇的点在于，**切实**地搞清楚：
+
+* 深入地学习数据结构，主要是学些什么
+* 开发中的问题对所学知识有怎样的依赖
+* 能否通过数据结构的知识做出更好的软件
+
+
+
 ### standard container
 我们首先需要看下当下最主流的编程语言们的标准容器是什么样的。首先是，`c++ STL容器`
 
+
+
 ## 场景采集
+
 ### code
 
 #### c++ STL容器
@@ -182,6 +202,8 @@ PLF是一系列用C++实现的数据结构头文件库，[请看](plflib.org)
 github.com/cksystemsgroup/scal
 对比并行数据结构算法
 
+
+
 ### 问答网站
 
 #### Hinnant's short_alloc
@@ -199,7 +221,10 @@ https://stackoverflow.com/questions/51656818/benchmarking-matrix-multiplication-
 
 https://stackoverflow.com/questions/57407106/xtensor-cant-reach-numpy-performance
 
+
+
 ### benchmark
+
 #### c++ container benchmark
 这篇博文来自[博文](baptiste-wicht.com)
 
@@ -224,6 +249,8 @@ github.com/kostya/benchmarks
 
 #### stress-ng
 最符合“压力测试”定义的基准测试，
+
+
 
 ### 其他资源
 * github上Baptiste Wicht的代码以及博客（特别是articles的文章）

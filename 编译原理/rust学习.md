@@ -54,6 +54,20 @@
 
 ### 语言内部
 
+
+
+#### 标准库
+
+rust的标准库很小巧，这是一个Reddit上的月经话题。
+
+参考文章https://nindalf.com/posts/rust-stdlib/
+
+这里总结了这么设计的一些原因：
+
+* 标准库很难新增代码，因为rust语言的项目原则中[stability as deliverable](https://blog.rust-lang.org/2014/10/30/Stability.html)提到，rust禁止breaking changes。
+
+
+
 #### 链接过程&linker
 链接器的性能通常是一个比较重要的考虑因素，编译总会有讲obj文件链接在一起的过程，这个过程就是linker在发光发热。
 
