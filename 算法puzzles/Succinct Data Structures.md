@@ -1,5 +1,7 @@
 # Succinct Data Structures
 
+## 引导
+
 我们如何编码一个具体的的组合对象(例如树)，使得即使用一个静态的占用很小内存的数据结构，仍可在恒定的时间内执行查询？
 
 这里有一个问题，“占用很小”该如何定义？
@@ -18,15 +20,66 @@
 
 一些简洁数据结构的例子：
 
-* 集合
-* 树；图
-* 字符串
+* bitvector
+* tree;treap
+* text collection
 * Permutations
+
+
+
+一个简单的例子：boolean array
+
+
+
+### 该系列会包含的内容
+
+* 理论基础, 推导（简单的）
+* 可以参考的代码实现
+  * Rust（数据结构实现）
+  * Python（一些计算的估计，manim动画脚本）
+
+
+
+### 《简洁数据结构》，数据结构的信息论下界
+
+* 引导部分
+* “惊喜程度”与“熵”的直观理解
+* Worst-Case Entropy
+* Shannon Entropy
+
+
+
+### 《简洁数据结构》，bit vector的构成与表示（Rust实现）
+
+* bit vector的API介绍
+* bit vector的Query动画
+* 位向量表示&Rust代码介绍
+
+
+
+### 《简洁数据结构》，array抽象以及部分和的应用
+
+
+
+### 《简洁数据结构》，bit vector的Rank效率优化
+
+
+
+### 《简洁数据结构》，bit  vector的Query优化以及应用场景
+
+
+
+### 《简洁数据结构》，
+
+
+
+什么是Compact data structure
 
 
 
 ## 参考资料
 
+* 书本*Compact Data Structure*
 * https://web.stanford.edu/class/archive/cs/cs166/cs166.1226/
 * https://stackoverflow.com/questions/72580828/what-is-a-succinct-rank-data-structure-how-does-it-work
 
@@ -73,6 +126,46 @@
 $ceil(LogL)+o(logL)$bits
 
 至于信息论的下界为何是这个值，可以参考[数据结构的信息论下界推导]()
+
+
+
+### Query
+
+对于紧凑的数据结构来说，`Rank`和`Select`都是最重要的两种`query`操作，为何如此？
+
+一开始我对这个问题的答案非常好奇，找到很多的相关博客以及一些高阶课程课件以及论文，但这些都没有回答我的问题，直到我阅读了一本和数据压缩以及字符串处理领域的大牛`Gonzalo Navarro`所写的`Compact Data Structure`，情况才有所好转。
+
+这个问题背后最根本的问题实际是“对于紧凑的数据表示，索引在实际场景中的表现主要是什么？”
+
+我们现将目光放到两个关键的场景：
+
+* 文本压缩
+* 
+
+
+
+## Arrays
+
+一个数组 $A[1, n]$ 是一个元素序列，可以在任意位置进行读取和写入。也就是说，数组是一种抽象数据类型，支持以下操作： 
+
+* read(A, i)：返回 A[i]，对于任意 1 ≤ i ≤ n
+* write(A, i, x)：设置 A[i] ← x，对于任意 1 ≤ i ≤ n 和任意 x。 
+
+
+
+与经典的数组编程结构不同，我们对空间高效的数组表示感兴趣，这些表示希望能够只存储每个数字 A[i] 的有用位。在某些情况下，数组的值是统一的，使用相同数量的位来存储所有元素是合理的。在其他情况下，数字之间的差异很大，我们更倾向于为每个元素分配可变数量的位。
+
+
+
+### 元素为固定大小的数组
+
+![image-20240908210144089](../statics/image-20240908210144089.png)
+
+### 元素为可变大小的数组
+
+
+
+
 
 
 
@@ -128,7 +221,7 @@ pub struct BitVector {
 
 
 
-### Access
+### Access/Read
 
 > 访问bit_vector的第i个元素
 
@@ -163,7 +256,59 @@ self.words[block]得到的是pos所"被包含"的usize变量，shift代表在指
 
 
 
-可以看到，该数据结构的
+这里有一个问题是，如何得到一个切片的值（如"01001101"中的最后三位"101"）
+
+
+
+#### 形式化表达
+
+*Compact Data Structure*书中给到了相应的形式化表述：
+
+> In general, we will assume that the elements use a small number of bits, which fit
+> in a computer word of w bits and thus can be manipulated in constant time. We call
+> “integer” the numeric data type offered by the language using w bits
+>
+> 上述是对Words的描述
+
+
+
+首先书中提到的获取$B[j]$的方法如下：
+
+![image-20240908151948891](../statics/image-20240908151948891.png)
+
+对于bit array，我们有：
+
+这里$B[j] = {\lfloor W[j]/2^{w-j} \rfloor} mod 2$
+
+实际上这是因为：
+$$
+n >> k  = \lfloor n/2^k \rfloor
+$$
+
+
+验证代码可以使用：
+
+```python
+tem = 2173192
+bin_tem = bin(tem)
+# 用于验证公式是否可用：print(bin_tem)
+
+# 获取一个数字的二进制表示的总位数
+def words(j):
+    return len(bin(t)) - 2
+
+# 返回数字的二进制表示第j位的值
+def get_bit_dec(dec, j):
+    return int(k/2 ** (words(k) - j)) % 2
+```
+
+
+
+
+
+### update(动态结构)
+
+待填坑
 
 
 
@@ -281,7 +426,7 @@ $O({\frac{nlogn}{b}} + nloglogb) \overset{b=logn}{\rightarrow} n + log^{3}n = O(
 
 
 
-#### Darray
+#### Darray结构
 
 Darray是dense array的简称，这个结构体需要组合两个内嵌结构，分别是`DArrayIndex`和`Rank9SelIndex`
 
@@ -372,4 +517,6 @@ fn build_rank(bv: &BitVector) -> Self {
 
 
 ### 应用场景
+
+一个直接点的问题：实现了bit vector这个数据结构，它在什么情况下能够派上用场呢？
 

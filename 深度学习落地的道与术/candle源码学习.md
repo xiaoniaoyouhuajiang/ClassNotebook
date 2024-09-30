@@ -1,0 +1,59 @@
+# candle源码学习
+
+## candle介绍
+
+candle是huggingface提出的深度学习框架，目前已经支持了市场上主流的模型，详情：
+
+https://github.com/huggingface/candle
+
+Candle 的设计理念围绕以下几个核心特性：
+
+1. **简洁的语法**：类似于 PyTorch 的 API 设计，便于快速上手。
+2. **多后端支持**：包括优化的 CPU 后端、Mac 的 Accelerate 后端、支持 CUDA 的 GPU 后端，以及 WebAssembly (WASM) 支持，允许模型直接在浏览器中运行。
+3. **丰富的预训练模型**：支持多种流行的深度学习模型，涵盖大型语言模型、计算机视觉模型、音频模型和多模态模型。
+4. **量化支持**：支持与 llama.cpp 相同的量化技术，可显著降低模型内存占用。
+5. **文件格式支持**：支持加载多种格式的模型文件，包括 safetensors、npz、ggml 或 PyTorch 格式。
+6. **无服务器部署**：支持轻量级、快速的 CPU 部署。
+
+
+
+candle的核心作用：
+
+* 轻量部署/推理
+* 消除python栈，忽视掉gil一类的问题
+
+
+
+1. **candle-core**：定义了核心操作、设备抽象和 `Tensor` 结构体。
+2. **candle-nn**：提供构建神经网络模型所需的工具。
+3. **candle-kernels**：包含 CUDA 自定义内核。
+4. **candle-datasets**：实现数据集和数据加载器。
+5. **candle-transformers**：提供 Transformer 相关的实用工具。
+6. **candle-flash-attn**：实现 Flash Attention v2 层。
+
+
+
+调试要点：
+
+* rust-analyzer + vscode
+* 调CPU backend的
+* 围绕官方测试用例
+* 应用围绕llama3
+
+
+
+## 计划内容
+
+* candle-tensor的设计：
+  * dtype
+  * tensor的统一存储格式：storage
+  * tensor的构造方法
+  * 内部可变性相关设计
+  * Op实现
+  * backward
+* backpropagation设计
+  * thinc的设计
+  * candle的设计
+  * 自动微分技术
+  * julia, pytorch的设计
+
