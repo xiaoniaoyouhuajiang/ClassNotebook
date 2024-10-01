@@ -49,7 +49,7 @@ candle的核心作用：
   * tensor的统一存储格式：storage
   * tensor的构造方法
   * 内部可变性相关设计（内存调试）
-  * 索引
+  * 行/列主序&索引
   * Op实现（matmul..）
   * 常见API（view..）
 * backpropagation设计

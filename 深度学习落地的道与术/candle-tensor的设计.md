@@ -400,6 +400,128 @@ fn storage(&self) -> std::sync::RwLockReadGuard<'_, Storage> {
 
 
 
+### layout
+
+`storage`是一个一维数组，因此“shape”相关的信息存储在了`layout`中
+
+从而，当我们要获取三维数组的slice如`tensor[1][2]`，时我们可以知道如何截取或者转换storage中的内容
+
+```rust
+#[derive(Clone, PartialEq, Eq)]
+pub struct Shape(Vec<usize>);
+
+pub struct Layout {
+    shape: Shape,
+    // The strides are given in number of elements and not in bytes.
+    stride: Vec<usize>,
+    start_offset: usize,
+}
+
+// layout的初始化方法
+impl Layout {
+        pub fn contiguous_with_offset<S: Into<Shape>>(shape: S, start_offset: usize) -> Self {
+            let shape = shape.into();
+            let stride = shape.stride_contiguous();
+            Self {
+                shape,
+                stride,
+                start_offset,
+            }
+    }
+}
+```
+
+
+
+layout存储了：
+
+* shape
+* strides
+* start offset
+
+
+
+这里我们先了解下，什么是strides:
+
+我的理解就是连续元素的步长，如：
+
+```
+[[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]], [...]]
+这个数组的shape是(2, 3, 4)
+按照candle中的定义，stride应该是一个连续元素数量的数组，即：
+(3 * 4, 4, 1)
+
+上述的例子，还会用来演示narrow
+```
+
+这里注意一点：candle是行主序存储，
+
+
+
+
+
+关于如何使用layout，我们从tensor的API：narrow出发：
+
+```rust
+pub fn narrow<D: Dim>(&self, dim: D, start: usize, len: usize) -> Result<Self> {
+    let dims = self.dims();
+    let dim = dim.to_index(self.shape(), "narrow")?;
+    let err = |msg| {
+        Err::<(), _>(
+            Error::NarrowInvalidArgs {
+                shape: self.shape().clone(),
+                dim,
+                start,
+                len,
+                msg,
+            }
+            .bt(),
+        )
+    };
+    if start > dims[dim] {
+        err("start > dim_len")?
+    }
+    if start.saturating_add(len) > dims[dim] {
+        err("start + len > dim_len")?
+    }
+    if start == 0 && dims[dim] == len {
+        Ok(self.clone())
+    } else {
+        let op = BackpropOp::new1(self, |t| Op::Narrow(t, dim, start, len));
+        let layout = self.layout().narrow(dim, start, len)?;
+        let tensor_ = Tensor_ {
+            id: TensorId::new(),
+            storage: self.storage.clone(),
+            layout,
+            op,
+            is_variable: false,
+            dtype: self.dtype,
+            device: self.device.clone(),
+        };
+        Ok(Tensor(Arc::new(tensor_)))
+    }
+}
+```
+
+可以看到storage实际上只是经过了拷贝，真正变化的内容是`layout`，Layout.narrow()如下：
+
+```rust
+...
+    Ok(Self {
+        shape: Shape::from(dims),
+        stride: self.stride.clone(),
+        start_offset: self.start_offset + self.stride[dim] * start,
+    })
+```
+
+
+
+
+
+
+
+
+
 ### index
 
 这部分实现的代码在indexer.rs
@@ -407,6 +529,10 @@ fn storage(&self) -> std::sync::RwLockReadGuard<'_, Storage> {
 相应的测试文件indexing_tests.rs
 
 首先我们来看索引器结构体
+
+
+
+#### TensorIndexer
 
 ```rust
 #[derive(Debug)]
@@ -424,6 +550,54 @@ pub enum TensorIndexer {
 
 
 
+使用TensorIndexer来索引Tensor
+
+```rust
+impl Tensor {
+    fn index(&self, indexers: &[TensorIndexer]) -> Result<Self, Error> {
+        let mut x = self.clone();
+        let dims = self.shape().dims();
+        let mut current_dim = 0;
+        for (i, indexer) in indexers.iter().enumerate() {
+            x = match indexer {
+                TensorIndexer::Select(n) => x.narrow(current_dim, *n, 1)?.squeeze(current_dim)?,
+                TensorIndexer::Narrow(left_bound, right_bound) => {
+                    let start = match left_bound {
+                        Bound::Included(n) => *n,
+                        Bound::Excluded(n) => *n + 1,
+                        Bound::Unbounded => 0,
+                    };
+                    let stop = match right_bound {
+                        Bound::Included(n) => *n + 1,
+                        Bound::Excluded(n) => *n,
+                        Bound::Unbounded => dims[i],
+                    };
+                    let out = x.narrow(current_dim, start, stop.saturating_sub(start))?;
+                    current_dim += 1;
+                    out
+                }
+                TensorIndexer::IndexSelect(indexes) => {
+                    if indexes.rank() != 1 {
+                        crate::bail!("multi-dimensional tensor indexing is not supported")
+                    }
+                    let out = x.index_select(&indexes.to_device(x.device())?, current_dim)?;
+                    current_dim += 1;
+                    out
+                }
+                TensorIndexer::Err(e) => crate::bail!("indexing error {e:?}"),
+            };
+        }
+        Ok(x)
+    }
+}
+```
+
+* Select(usize) -> tensor.narrow
+
+
+
+#### 测试用例
+
 再来看下test中常用的indexing方法：
 
 ```rust
@@ -434,10 +608,45 @@ let result = tensor.i((.., 2))?;
 let result = tensor.i(..)?;
 let result = tensor.i(1..3)?;
 // index_3d
-
+assert_eq!(tensor.i((0, 1, 3))?.to_scalar::<u32>()?, 7);
+assert_eq!(tensor.i((0..2, 0, 0))?.to_vec1::<u32>()?, &[0, 12]);
 // slice_assign
 
 ```
+
+indexing的API只有tensor.i(`index`:...)
+
+其实现：
+
+```rust
+pub trait IndexOp<T> {
+    /// Returns a slicing iterator which are the chunks of data necessary to
+    /// reconstruct the desired tensor.
+    fn i(&self, index: T) -> Result<Tensor, Error>;
+}
+...
+impl<T> IndexOp<T> for Tensor
+where
+    T: Into<TensorIndexer>
+{}
+
+impl<A> IndexOp<(A,)> for Tensor
+where
+    A: Into<TensorIndexer>,
+{}
+
+#[allow(non_snake_case)]
+impl<A, B> IndexOp<(A, B)> for Tensor
+where
+    A: Into<TensorIndexer>,
+    B: Into<TensorIndexer>,
+{}
+```
+
+* `i`接受特定的`T`，然后返回一个Tensor对象
+* `Into<TensorIndexer>`即可以转换为TensorIndexer的类型
+* 接受的对象基本是基于`TensorIndexer`构成的元组类型
+* 
 
 
 
