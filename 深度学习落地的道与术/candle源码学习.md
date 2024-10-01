@@ -48,12 +48,29 @@ candle的核心作用：
   * dtype
   * tensor的统一存储格式：storage
   * tensor的构造方法
-  * 内部可变性相关设计
-  * Op实现
-  * backward
+  * 内部可变性相关设计（内存调试）
+  * 索引
+  * Op实现（matmul..）
+  * 常见API（view..）
 * backpropagation设计
+  * 自动微分技术
   * thinc的设计
   * candle的设计
-  * 自动微分技术
   * julia, pytorch的设计
 
+
+
+## 对比其他框架
+
+| Using PyTorch | Using Candle                        |                                                              |
+| ------------- | ----------------------------------- | ------------------------------------------------------------ |
+| Creation      | `torch.Tensor([[1, 2], [3, 4]])`    | `Tensor::new(&[[1f32, 2.], [3., 4.]], &Device::Cpu)?`        |
+| Creation      | `torch.zeros((2, 2))`               | `Tensor::zeros((2, 2), DType::F32, &Device::Cpu)?`           |
+| Indexing      | `tensor[:, :4]`                     | `tensor.i((.., ..4))?`                                       |
+| Operations    | `tensor.view((2, 2))`               | `tensor.reshape((2, 2))?`                                    |
+| Operations    | `a.matmul(b)`                       | `a.matmul(&b)?`                                              |
+| Arithmetic    | `a + b`                             | `&a + &b`                                                    |
+| Device        | `tensor.to(device="cuda")`          | `tensor.to_device(&Device::new_cuda(0)?)?`                   |
+| Dtype         | `tensor.to(dtype=torch.float16)`    | `tensor.to_dtype(&DType::F16)?`                              |
+| Saving        | `torch.save({"A": A}, "model.bin")` | `candle::safetensors::save(&HashMap::from([("A", A)]), "model.safetensors")?` |
+| Loading       | `weights = torch.load("model.bin")` | `candle::safetensors::load("model.safetensors", &device)`    |

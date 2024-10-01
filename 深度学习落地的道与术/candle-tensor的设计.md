@@ -255,7 +255,7 @@ pub enum CpuStorageRef<'a> {
 
 
 
-## 结构体设计
+## 其他结构体设计
 
 ### CpuStorage
 
@@ -280,7 +280,7 @@ CpuStorage是数据的统一存储类型
 
 
 
-### Tensor
+## Tensor
 
 ```rust
 // Tensors are refcounted so that cloning is cheap when building the op graph.
@@ -321,9 +321,125 @@ pub struct Tensor_ {
 * Tensor使用Arc来引用计数，从而拷贝Tensor的成本变得比较低
 * op字段用于记录作用于tensor的
 * 实现了内部可变性：
-  * `Arc<Storage>`形的storage字段针对不会修改数据内容的变量
   * `Arc<Mutex<Storage>>`形的storage字段针对会修改数据内容的变量
   * 字段`is_variable`
+
+
+
+### 低成本拷贝
+
+Arc对象的拷贝实际上很像引用，在多线程环境中实际拷贝的是对象指针，从而在构建大型计算图中，会指向一个内存块。
+
+
+
+
+
+### 内部可变性
+
+关于internal mutability的含义，可以参考：
+
+> By default shared things in Rust are read-only. You use internal mutability, when you need to modify a shared thing.
+>
+> So anywhere you need to have a shared thing (`&`, `Rc`, `Arc`, `static`, captures of `Fn`), but you want to mutate it, you use internal mutability (cells, mutexes, atomics).
+
+而关于Cell，我们可以有：
+
+```rust
+use std::cell::{Cell, RefCell};
+
+let c = Cell::new(5);
+let mut r = RefCell::new(5);
+
+// 使用 Cell
+let _value = c.get(); // 获取值
+c.set(6); // 修改值
+
+// 使用 RefCell
+let _value = r.borrow(); // 获取不可变引用
+*r.borrow_mut() = 6; // 获取可变引用并修改值
+
+//那么为何Tensor的设计不是：
+pub struct Tensor_ {
+    storage: Cell<Storage>,
+	...
+}
+```
+
+
+
+storage的定义其实经过了这样的变化（可以查看历史PR）
+
+* `Arc<Storage>`:
+* `Arc<RefCell<Storage>>`:pr154
+* `Arc<RwLock<Storage>>`:pr155
+
+
+
+这里有几个问题：
+
+* 为何不使用Cell（理论上最低的开销），源码注释给出了答案：
+
+> Using an unsafe cell would have the lowest cost but undefined behavior on concurrent accesses
+
+简言之就是担心出现竞态条件
+
+* 不用RefCell
+
+> 因为检查借用的开销，顺带一提storage()方法经过这样的变动：
+
+```rust
+fn storage(&self) -> Result<std::cell::Ref<'_, Storage>> {
+    Ok(self.storage.try_borrow()?)
+fn storage(&self) -> std::sync::RwLockReadGuard<'_, Storage> {
+    self.storage.read().unwrap()
+```
+
+* 使用Mutex和RwLock哪个好
+
+在计算图场景下，一个表达式当中可能多次引用了同一个storage，甚至可能是不同的线程在同一时间完成该操作，如果使用Mutex，该开销将非常高，而RwLock仅在改数据时进行上锁，因此RwLock更加合适。
+
+
+
+### index
+
+这部分实现的代码在indexer.rs
+
+相应的测试文件indexing_tests.rs
+
+首先我们来看索引器结构体
+
+```rust
+#[derive(Debug)]
+/// Generic structure used to index a slice of the tensor
+pub enum TensorIndexer {
+    /// This selects the elements for which an index has some specific value.
+    Select(usize),
+    /// This is a regular slice, purely indexing a chunk of the tensor
+    Narrow(Bound<usize>, Bound<usize>),
+    /// Indexing via a 1d tensor
+    IndexSelect(Tensor),
+    Err(Error),
+}
+```
+
+
+
+再来看下test中常用的indexing方法：
+
+```rust
+// integer_index
+let result = tensor.i(1)?;
+let result = tensor.i((.., 2))?;
+// range_index
+let result = tensor.i(..)?;
+let result = tensor.i(1..3)?;
+// index_3d
+
+// slice_assign
+
+```
+
+
 
 
 
@@ -457,6 +573,10 @@ impl<S: WithDType, const N1: usize, const N2: usize, const N3: usize> NdArray
 
 
 
+### reshape
+
+
+
 ### backward
 
 ```rust
@@ -469,4 +589,6 @@ impl<S: WithDType, const N1: usize, const N2: usize, const N3: usize> NdArray
 
 
 ## 设计总结
+
+### 从模式上看
 
