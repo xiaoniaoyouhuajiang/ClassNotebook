@@ -45,10 +45,12 @@ candle的核心作用：
 ## 计划内容
 
 * candle-tensor的设计：
-  * dtype
-  * tensor的统一存储格式：storage
-  * tensor的构造方法
-  * 内部可变性相关设计（内存调试）
+  * ~~dtype~~
+  * ~~tensor的统一存储字段：storage~~
+  * ~~tensor的构造方法~~
+  * 内部可变性,内存拷贝设计（内存调试）
+  * layout字段如何与storage配合
+  * tensor的indexing实现
   * 行/列主序&索引
   * Op实现（matmul..）
   * 常见API（view..）

@@ -276,10 +276,6 @@ CpuStorage是数据的统一存储类型
 
 
 
-### Layout
-
-
-
 ## Tensor
 
 ```rust
@@ -321,7 +317,7 @@ pub struct Tensor_ {
 * Tensor使用Arc来引用计数，从而拷贝Tensor的成本变得比较低
 * op字段用于记录作用于tensor的
 * 实现了内部可变性：
-  * `Arc<Mutex<Storage>>`形的storage字段针对会修改数据内容的变量
+  * `Arc<RwLock<Storage>>`形的storage字段针对会修改数据内容的变量
   * 字段`is_variable`
 
 
@@ -454,7 +450,7 @@ layout存储了：
 上述的例子，还会用来演示narrow
 ```
 
-这里注意一点：candle是行主序存储，
+这里注意一点：candle是行主序存储
 
 
 
@@ -507,6 +503,8 @@ pub fn narrow<D: Dim>(&self, dim: D, start: usize, len: usize) -> Result<Self> {
 
 ```rust
 ...
+    let mut dims = dims.to_vec();
+    dims[dim] = len;
     Ok(Self {
         shape: Shape::from(dims),
         stride: self.stride.clone(),
@@ -514,7 +512,9 @@ pub fn narrow<D: Dim>(&self, dim: D, start: usize, len: usize) -> Result<Self> {
     })
 ```
 
+从这里我们能够得知：
 
+`tensor.narrow`返回的新tensor，其内部的storage实际上指向的内存块是原tensor的，除非对tensor调用`to_vec`，`to_vec2`等方法，该操作并不会出现storage类型的内存分配/拷贝操作
 
 
 
