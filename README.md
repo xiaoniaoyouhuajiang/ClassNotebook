@@ -1,26 +1,29 @@
 # ClassNotebook
-CS相关的个人笔记以及B站视频文档出处。
+* CS、数学相关的个人笔记以及B站视频文档出处，参考[文档内容编排](#文档内容编排)
+  * CS以及bilibili视频网站文档一般为markdown格式
+  * 公式推导相关材料一般为pdf格式
+* 学习、教程规划链接，请访问[这里](https://xiaoniaoyouhuajiang.github.io/ClassNotebook/)
+* demo代码（规划中）
 
-## 内容管理
-管理的内容包括:
-* 文档:视频文档（编排见`文档内容编排`）
-* code-src:demo代码
-* pdf_notes:一些pdf笔记
 
-注：pdf笔记，一般为在研读的材料的笔记记录，并且其中许多内容不适合完全用文本记录，可能需要画图等
 
 ## 文档内容编排
+
 ```
 - 编程生产力之元工具
   - 元工具.md 跟软件开发人员工作密切相关的工具的原理讲解及workflow优化，如debugger,profiler,repl,shell等
 - 编译原理
   - PL.md 跟编译原理/计算机语言设计/LLVM技术栈/程序分析相关的技术内容
+  - rust.md 学习和记录rust学习中的细节
 - 并行思维与编程
   - 并行思维与编程.md 并行计算的笔记
+  - 集群超算系统架构.md 学习、工作中了解到和超算集群相关的知识
 - 存储系统
   - 关于存储的点点滴滴.md 存储介质，操作系统和存储的配合，如何评测存储产品
 - 深度学习落地的道与术
   - 深度学习落地的道与术.md 机器学习系统相关的技术
+  - candle源码学习.md Rust深度学习框架Candle的源码阅读与学习计划
+  - candle-tensor的设计.md 记录阅读tensor源码的一些结论与经验
 - 深度学习应用与理论
   - 深度学习应用与理论.md 使用深度学习相关的算法的场景以及原理
 - 算法puzzles
@@ -38,7 +41,11 @@ CS相关的个人笔记以及B站视频文档出处。
 - scheduler.drawio github pages相关
 ```
 
-## code-src-目录
+
+
+## code_src目录
+
+> code_src目录已经比较久没有更新，其中记录的内容和代码多数有过时
 
 * bayesnet-贝叶斯网
   * utils.py(贝叶斯网的实现)
@@ -65,5 +72,17 @@ CS相关的个人笔记以及B站视频文档出处。
 
 ## todo
 
+本人主打佛系维护
 
+### 仓库维护
+
+* 更新github page的规划内容
+* 回顾code_src内容，并将有效代码分离到其他仓库
+
+
+
+### 个人计划
+
+* candle源码阅读，尝试contribute
+* 更新hpds库
 
