@@ -48,10 +48,11 @@ candle的核心作用：
   * ~~dtype~~
   * ~~tensor的统一存储字段：storage~~
   * ~~tensor的构造方法~~
-  * 内部可变性,内存拷贝设计（内存调试）
-  * layout字段如何与storage配合
-  * tensor的indexing实现
-  * 行/列主序&索引
+  * ~~内部可变性,内存拷贝设计（内存调试）~~
+  * ~~layout字段如何与storage配合~~
+  * ~~tensor的indexing实现~~
+  * tensor indexer
+  * broadcast实现
   * Op实现（matmul..）
   * 常见API（view..）
 * backpropagation设计
