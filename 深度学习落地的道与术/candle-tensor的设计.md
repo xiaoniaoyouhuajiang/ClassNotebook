@@ -658,9 +658,142 @@ where
 
 实现一个深度学习框架的Op系统，其关键是**反向传播**的过程该如何实现，从tensor的实现考虑，需要思考：
 
+* 基本：实现一个OP的全流程
+  * 给op注册<op_type>OpT trait
+  * 实现各个op的过程宏：
+    * layout对齐(broadcast)
+    * storage.<op_type>_impl（op_type包括：unary, binary）
+    * BackpropOp增加关系
+  * 将特定op（如 Add, Sub等）注册为tensor的方法
+* op_impl
 * 如何记录梯度信息
 
 
+
+#### 注册实例
+
+有两部分注册工作，我们都以binary op作为示例：
+
+* 给op注册<op_type>OpT trait
+
+```rust
+// BinaryOpt
+pub trait BinaryOpT {
+    const NAME: &'static str;
+    const KERNEL: &'static str;
+    const V: Self;
+    fn bf16(v1: bf16, v2: bf16) -> bf16;
+    fn f16(v1: f16, v2: f16) -> f16;
+    fn f32(v1: f32, v2: f32) -> f32;
+    fn f64(v1: f64, v2: f64) -> f64;
+    fn u8(v1: u8, v2: u8) -> u8;
+    fn u32(v1: u32, v2: u32) -> u32;
+    fn i64(v1: i64, v2: i64) -> i64;
+
+    const BF16_VEC: bool = false;
+    fn bf16_vec(_xs1: &[bf16], _xs2: &[bf16], _ys: &mut [bf16]) {}
+    const F16_VEC: bool = false;
+    fn f16_vec(_xs1: &[f16], _xs2: &[f16], _ys: &mut [f16]) {}
+    const F32_VEC: bool = false;
+    fn f32_vec(_xs1: &[f32], _xs2: &[f32], _ys: &mut [f32]) {}
+    const F64_VEC: bool = false;
+    fn f64_vec(_xs1: &[f64], _xs2: &[f64], _ys: &mut [f64]) {}
+    const U8_VEC: bool = false;
+    fn u8_vec(_xs1: &[u8], _xs2: &[u8], _ys: &mut [u8]) {}
+    const U32_VEC: bool = false;
+    fn u32_vec(_xs1: &[u32], _xs2: &[u32], _ys: &mut [u32]) {}
+    const I64_VEC: bool = false;
+    fn i64_vec(_xs1: &[i64], _xs2: &[i64], _ys: &mut [i64]) {}
+}
+
+// 注册过程
+bin_op!(Add, "add", |v1, v2| v1 + v2, vs_add, vd_add);
+bin_op!(Sub, "sub", |v1, v2| v1 - v2, vs_sub, vd_sub);
+bin_op!(Mul, "mul", |v1, v2| v1 * v2, vs_mul, vd_mul);
+bin_op!(Div, "div", |v1, v2| v1 / v2, vs_div, vd_div);
+bin_op!(
+    Minimum,
+    "minimum",
+    |v1, v2| if v1 > v2 { v2 } else { v1 },
+    vs_min,
+    vd_min
+);
+bin_op!(
+    Maximum,
+    "maximum",
+    |v1, v2| if v1 < v2 { v2 } else { v1 },
+    vs_max,
+    vd_max
+);
+```
+
+
+
+* 将特定op（如 Add, Sub等）注册为tensor的方法
+
+```rust
+impl Tensor {
+    ...
+    // 二元算子注册
+    binary_op!(add, Add);
+    binary_op!(mul, Mul);
+    binary_op!(sub, Sub);
+    binary_op!(div, Div);
+    // broadcast注册
+	broadcast_binary_op!(broadcast_add, add);
+    broadcast_binary_op!(broadcast_mul, mul);
+    broadcast_binary_op!(broadcast_sub, sub);
+    broadcast_binary_op!(broadcast_div, div);
+    broadcast_binary_op!(broadcast_maximum, maximum);
+    broadcast_binary_op!(broadcast_minimum, minimum);
+    broadcast_binary_op!(broadcast_eq, eq);
+    broadcast_binary_op!(broadcast_ne, ne);
+    broadcast_binary_op!(broadcast_lt, lt);
+    broadcast_binary_op!(broadcast_le, le);
+    broadcast_binary_op!(broadcast_gt, gt);
+    broadcast_binary_op!(broadcast_ge, ge);
+}
+
+// binary_op
+macro_rules! binary_op {
+    ($fn_name:ident, $op_name:ident) => {
+        pub fn $fn_name(&self, rhs: &Self) -> Result<Self> {
+            let shape = self.same_shape_binary_op(rhs, stringify!($fn_name))?;
+            if shape.elem_count() == 0 {
+                return Ok(self.clone());
+            }
+            let storage = self.storage().binary_impl::<crate::op::$op_name>(
+                &*rhs.storage(),
+                self.layout(),
+                rhs.layout(),
+            )?;
+            let op = BackpropOp::new2(self, rhs, |t1, t2| Op::Binary(t1, t2, BinaryOp::$op_name));
+            Ok(from_storage(storage, shape.clone(), op, false))
+        }
+    };
+}
+```
+
+
+
+### op_impl
+
+该实现的链路可以概括为（以binary op为例）：
+
+```mermaid
+graph TD
+    A[storage.binary_impl] --> B1[CpuStorage.binary_impl]
+    A[storage.binary_impl] --> B2[CudaStorage.binary_impl]
+    A[storage.binary_impl] --> B3[MetalStorage.binary_impl]
+    B2 --> C2[...]
+    B3 --> C3[...]
+    B1 --> C11[binary_map_vec]
+    B1 --> C13[binary_map]
+```
+
+
+
+### 计算图构建实例
 
 看一段简单的单元测试代码：
 
@@ -692,6 +825,78 @@ fn simple_grad(device: &Device) -> Result<()> {
 2. **维度扩展**：如果一个张量的维度较小，那么在比较时会在其前面添加更多的维度，每个新维度的大小为1，直到两个张量的维度大小相同。
 3. **维度广播**：如果一个张量的某个维度大小为1，而另一个张量的相应维度大小大于1，那么较小的张量会在该维度上被广播扩展到较大的维度大小。
 4. **元素广播**：如果两个张量的维度大小在某个维度上不匹配，并且其中一个张量的维度大小也不是1，那么它们不能进行广播。
+
+
+
+```rust
+// shape.rs
+    pub fn broadcast_shape_binary_op(&self, rhs: &Self, op: &'static str) -> Result<Shape> {
+        let lhs = self;
+        let lhs_dims = lhs.dims();
+        let rhs_dims = rhs.dims();
+        let lhs_ndims = lhs_dims.len();
+        let rhs_ndims = rhs_dims.len();
+        let bcast_ndims = usize::max(lhs_ndims, rhs_ndims);
+        let mut bcast_dims = vec![0; bcast_ndims];
+        // 遍历最大维度次数
+        for (idx, bcast_value) in bcast_dims.iter_mut().enumerate() {
+            let rev_idx = bcast_ndims - idx;
+            let l_value = if lhs_ndims < rev_idx {
+                1
+            } else {
+                lhs_dims[lhs_ndims - rev_idx]
+            };
+            let r_value = if rhs_ndims < rev_idx {
+                1
+            } else {
+                rhs_dims[rhs_ndims - rev_idx]
+            };
+            *bcast_value = if l_value == r_value {
+                l_value
+            } else if l_value == 1 {
+                r_value
+            } else if r_value == 1 {
+                l_value
+            } else {
+                Err(Error::ShapeMismatchBinaryOp {
+                    lhs: lhs.clone(),
+                    rhs: rhs.clone(),
+                    op,
+                }
+                .bt())?
+            }
+        }
+        Ok(Shape::from(bcast_dims))
+    }
+```
+
+
+
+接下来的循环遍历 `bcast_dims`，对于每个维度：
+
+- `rev_idx` 是当前维度的反向索引，用于从尾部开始比较维度大小。
+- `l_value` 是 `lhs` 在 `rev_idx` 位置的维度大小，如果 `lhs` 的维度数不足以到达该位置，则默认为1。
+- `r_value` 是 `rhs` 在 `rev_idx` 位置的维度大小，如果 `rhs` 的维度数不足以到达该位置，则默认为1。
+- `bcast_value` 是广播后的维度大小，它将取 `l_value` 和 `r_value` 中的非1值，如果两者都大于1且不相等，则返回一个形状不匹配的错误。
+
+
+
+#### 实现细节
+
+Tensor.broadcast -> Layout.broadcast
+
+```
+// Layout.broadcast
+
+```
+
+
+
+
+
+问题：**broadcast是否属于op**
+
+
 
 
 
