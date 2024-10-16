@@ -776,6 +776,19 @@ macro_rules! binary_op {
 
 
 
+下面是一个调用的例子
+
+```rust
+    #[inline(always)]
+    fn f32(v1: f32, v2: f32) -> f32 {
+        $e(v1, v2)
+    }
+```
+
+
+
+
+
 ### op_impl
 
 该实现的链路可以概括为（以binary op为例）：
@@ -789,6 +802,88 @@ graph TD
     B3 --> C3[...]
     B1 --> C11[binary_map_vec]
     B1 --> C13[binary_map]
+    C13 --> D1[BinaryOpT.f32]
+```
+
+```rust
+pub fn binary_map<T: Copy, U: Copy, F: FnMut(T, T) -> U>(
+    lhs_l: &Layout,
+    rhs_l: &Layout,
+    lhs: &[T],
+    rhs: &[T],
+    mut f: F,
+) -> Vec<U> {
+    match (lhs_l.contiguous_offsets(), rhs_l.contiguous_offsets()) {
+        (Some((o_l1, o_l2)), Some((o_r1, o_r2))) => lhs[o_l1..o_l2]
+            .iter()
+            .zip(rhs[o_r1..o_r2].iter())
+            .map(|(&l, &r)| f(l, r))
+            .collect(),
+        (Some((o_l1, o_l2)), None) => {
+            // TODO: Maybe we want to avoid going through the layout twice.
+            match rhs_l.offsets_b() {
+                Some(ob) => {
+                    let mut i_in_block = 0;
+                    let mut i_right_broadcast = 0;
+                    lhs[o_l1..o_l2]
+                        .iter()
+                        .map(|&l| {
+                            let r = unsafe { rhs.get_unchecked(i_in_block + ob.start) };
+                            i_right_broadcast += 1;
+                            if i_right_broadcast >= ob.right_broadcast {
+                                i_in_block += 1;
+                                i_right_broadcast = 0;
+                            }
+                            if i_in_block >= ob.len {
+                                i_in_block = 0
+                            }
+                            f(l, *r)
+                        })
+                        .collect()
+                }
+                None => lhs_l
+                    .strided_index()
+                    .zip(rhs_l.strided_index())
+                    .map(|(lhs_i, rhs_i)| f(lhs[lhs_i], rhs[rhs_i]))
+                    .collect(),
+            }
+        }
+        (None, Some((o_r1, o_r2))) => {
+            // TODO: Maybe we want to avoid going through the layout twice.
+            match lhs_l.offsets_b() {
+                Some(ob) => {
+                    let mut i_in_block = 0;
+                    let mut i_right_broadcast = 0;
+                    rhs[o_r1..o_r2]
+                        .iter()
+                        .map(|&r| {
+                            let l = unsafe { lhs.get_unchecked(i_in_block + ob.start) };
+                            i_right_broadcast += 1;
+                            if i_right_broadcast >= ob.right_broadcast {
+                                i_in_block += 1;
+                                i_right_broadcast = 0;
+                            }
+                            if i_in_block >= ob.len {
+                                i_in_block = 0
+                            }
+                            f(*l, r)
+                        })
+                        .collect()
+                }
+                None => lhs_l
+                    .strided_index()
+                    .zip(rhs_l.strided_index())
+                    .map(|(lhs_i, rhs_i)| f(lhs[lhs_i], rhs[rhs_i]))
+                    .collect(),
+            }
+        }
+        _ => lhs_l
+            .strided_index()
+            .zip(rhs_l.strided_index())
+            .map(|(lhs_i, rhs_i)| f(lhs[lhs_i], rhs[rhs_i]))
+            .collect(),
+    }
+}
 ```
 
 
@@ -881,6 +976,74 @@ fn simple_grad(device: &Device) -> Result<()> {
 
 
 
+#### Layout.strided_index
+
+```rust
+    ...    
+	None => lhs_l
+            .strided_index()
+            .zip(rhs_l.strided_index())
+            .map(|(lhs_i, rhs_i)| f(lhs[lhs_i], rhs[rhs_i]))
+            .collect(),
+	}
+```
+
+`binary_map`的实现高度依赖`Layout.strided_index`方法来提供Iterator
+
+这个方法实际是返回一个基于Layout的StridedIndex结构体
+
+```rust
+#[derive(Debug)]
+pub struct StridedIndex<'a> {
+    next_storage_index: Option<usize>,
+    multi_index: Vec<usize>,
+    dims: &'a [usize],
+    stride: &'a [usize],
+}
+
+// 为其实现Iterator方法
+impl<'a> Iterator for StridedIndex<'a> {
+    type Item = usize;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let storage_index = match self.next_storage_index {
+            None => return None,
+            Some(storage_index) => storage_index,
+        };
+        let mut updated = false;
+        let mut next_storage_index = storage_index;
+        for ((multi_i, max_i), stride_i) in self
+            .multi_index
+            .iter_mut()
+            .zip(self.dims.iter())
+            .zip(self.stride.iter())
+            .rev()
+        {
+            let next_i = *multi_i + 1;
+            if next_i < *max_i {
+                *multi_i = next_i;
+                updated = true;
+                next_storage_index += stride_i;
+                break;
+            } else {
+                next_storage_index -= *multi_i * stride_i;
+                *multi_i = 0
+            }
+        }
+        self.next_storage_index = if updated {
+            Some(next_storage_index)
+        } else {
+            None
+        };
+        Some(storage_index)
+    }
+}
+```
+
+
+
+
+
 #### 实现细节
 
 Tensor.broadcast -> Layout.broadcast
@@ -906,15 +1069,7 @@ Tensor.broadcast -> Layout.broadcast
 
 
 
-### 二元算子
-
-
-
-#### 典例-affine
-
-
-
-
+### affine算子
 
 注册一个二元算子，使用的是宏`bin_trait`
 
@@ -1009,7 +1164,121 @@ impl<S: WithDType, const N1: usize, const N2: usize, const N3: usize> NdArray
 
 
 
+## 问题定位
 
+### issue2499
+
+详情可以查看帖子：https://github.com/huggingface/candle/issues/2499
+
+
+
+@okpatil4u 
+
+Your backend is CPU. I modified the loop count of broadcast_add in the code to 10 times and tested the performance of both optimized and unoptimized binary products, comparing the results with the performance of the Python code. I think maybe the main reason for this discrepancy is likely that you haven't enabled compilation optimizations, resulting in low loop efficiency in the compiled product (not utilizing compilation optimization capabilities such as SIMD instructions). 
+
+
+
+I modified the loop count of broadcast_add in the code to 10 times and tested the performance of both optimized and unoptimized binary products, comparing the results with the performance of the Python code.
+
+**Experimental Conditions**：
+my PC CPU:
+
+```
+OS: ubuntu 20.04
+Architecture:                    x86_64
+CPU Operating Modes:          32-bit, 64-bit
+Address sizes:                 43 bits physical, 48 bits virtual
+Byte Order:                    Little Endian
+CPU:                            12
+  Online CPU(s) list:          0-11
+Vendor ID:                     AuthenticAMD
+  Model Name:                  AMD Ryzen 5 3600 6-Core Processor
+    CPU Family:               23
+    Model:                     113
+    Thread(s) per core:       2
+    Core(s) per socket:       6
+    Socket(s):                 1
+    Stepping:                  0
+    Frequency boost:          enabled
+```
+
+
+
+compiler setting
+
+```
+[profile.release]
+opt-level = 2
+lto = false
+debug = true
+panic = 'abort'
+```
+
+
+
+and this is my result:
+optimized:broadcast add（10x loop） : 447.87228ms
+optimized:broadcast add（100x） : 3.983712414s
+python code: broadcast add（10x） : 0.04471111297607422（44.71111297607422ms）
+python code: broadcast add（100x） : 0.4770965576171875（477.0965576171875ms）
+
+Obviously, Python code is 10x faster than candle
+
+I used strace to trace the system calls of both implementations and found that the Python version of broadcast seems to use multi-threading to distribute tensor operations (in this case, 48 threads). I am not sure if this implementation mechanism improves computational efficiency. In contrast, the Rust code in this case used only one thread/logical core. I tested whether multi-threading could enhance the efficiency of the code in this scenario using Rayon.
+
+```
+strace --follow-forks --summary-only python3 broadcast_add.py
+
+strace: Process 66105 attached
+strace: Process 66106 attached
+strace: Process 66107 attached
+strace: Process 66108 attached
+strace: Process 66109 attached
+strace: Process 66110 attached
+strace: Process 66111 attached
+strace: Process 66112 attached
+strace: Process 66113 attached
+strace: Process 66114 attached
+...
+```
+
+
+
+```rust
+// modified code
+use rayon::prelude::*;
+use std::time::Instant;
+
+fn main() -> Result<()> {
+    let a = Arc::new(Tensor::rand(0f32, 1.0, (32, 630, 12, 32), &candle_core::Device::Cpu)?);
+    let b = Arc::new(Tensor::rand(0f32, 1.0, (32, 1, 1, 32), &candle_core::Device::Cpu)?);
+
+    let start = Instant::now();
+    (0..10).into_par_iter().for_each(|_| {
+        let a_clone = a.clone();
+        let b_clone = b.clone();
+        let _ = a_clone.broadcast_add(&b_clone);
+    });
+    println!("broadcast add with Rayon: {:?}", Instant::now() - start);
+
+    Ok(())
+}
+```
+
+
+
+rayon version:broadcast add with Rayon（100x）: 781.284023ms
+
+However, such a coarse level of parallelism doesn't make practical sense. Could you tell me if there is an API or another method that could make Candle Tensor achieve the same efficiency as Torch in this scenario, and how does Torch internally implement tensor.broadcast_add? Thank you very much. [@LaurentMazare](https://github.com/LaurentMazare)
+
+
+
+You can try adding [profile.release] to your cargo.toml with the following settings:
+```toml
+[profile.release]
+debug = true
+opt-level = 3
+```
 
 
 

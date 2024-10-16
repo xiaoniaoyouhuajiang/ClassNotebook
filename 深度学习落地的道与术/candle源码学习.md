@@ -51,9 +51,17 @@ candle的核心作用：
   * ~~内部可变性,内存拷贝设计（内存调试）~~
   * ~~layout字段如何与storage配合~~
   * ~~tensor的indexing实现~~
-  * tensor indexer
   * broadcast实现
-  * Op实现（matmul..）
+    * ~~基本思路~~
+    * broadcast_binary_op
+    * stride变化
+  * issue2499问题定位
+  * 算子实现（围绕cpu-binary op）
+    * 算子注册
+    * 模块层次
+    * 性能优化相关设计
+    * 自定义算子
+    * 反向传播（引子）
   * 常见API（view..）
 * backpropagation设计
   * 自动微分技术
