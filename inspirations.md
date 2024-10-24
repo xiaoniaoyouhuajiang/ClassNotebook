@@ -40,3 +40,19 @@ portable这个特性非常重要，windows有embeddable package，linux并没有
 * 对体系结构感兴趣的同学可以如何利用dbi进行学习
 
 ### vscode的linter设置：python, c++, go
+
+
+
+### 开发一个表格工具
+
+它可以：
+
+* 附带截图功能
+* 根据表格图片转换为一种中间格式
+* 中间格式的输出包括：标准化的图片，markdown代码，ASCII输出，单页PDF
+* 根据场景生成假表格
+
+
+
+### 定制化AI agent生成方案
+
