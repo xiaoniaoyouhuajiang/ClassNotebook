@@ -1,5 +1,5 @@
 #define SAMPLES 1000
-#define MATSIZE 513
+#define MATSIZE 4096
 
 #include <time.h>
 #include <iostream>

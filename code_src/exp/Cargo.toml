@@ -1,7 +1,13 @@
+cargo-features = ["profile-rustflags"]
 [package]
 name = "exp"
 version = "0.1.0"
 edition = "2021"
+
+[dependencies]
+rand = "0.8"
+rayon = "1.5.1"
+nalgebra = "0.33"
 
 [dev-dependencies]
 criterion = { version = "0.5", features = ["html_reports"] }
@@ -9,3 +15,15 @@ criterion = { version = "0.5", features = ["html_reports"] }
 [[bench]]
 name = "matmul"
 harness = false
+
+[profile.bench]
+opt-level = 2
+
+[profile.release]
+opt-level = 2
+lto = "fat"
+codegen-units = 1
+debug = false
+rustflags = ["-C", "target-cpu=native"]
+# panic = 'abort'
+# strip = 'symbols'

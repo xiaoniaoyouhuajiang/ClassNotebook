@@ -360,6 +360,239 @@ Rust常见的几个编译优化选项：
 
 
 
+#### Data重用：tiled
+
+一段演示的rust代码：
+
+```rust
+/// index ptr with index i
+unsafe fn at(ptr: *const f32, i: usize) -> f32 {
+    *ptr.offset(i as isize)
+}
+
+/// 4x4 matrix multiplication kernel for f32
+///
+/// This does the matrix multiplication:
+///
+/// C ← α A B + β C
+///
+/// + k: length of data in a, b
+/// + a, b are packed
+/// + c has general strides
+/// + rsc: row stride of c
+/// + csc: col stride of c
+/// + if `beta` is 0, then c does not need to be initialized
+#[inline(always)]
+pub unsafe fn kernel_4x4(k: usize, alpha: f32, a: *const f32, b: *const f32,
+                         beta: f32, c: *mut f32, rsc: isize, csc: isize)
+{
+    let mut ab = [[0.; 4]; 4];
+    let mut a = a;
+    let mut b = b;
+
+    // Compute matrix multiplication into ab[i][j]
+    unroll_by_8!(k, {
+        let v0 = [at(a, 0), at(a, 1), at(a, 2), at(a, 3)];
+        let v1 = [at(b, 0), at(b, 1), at(b, 2), at(b, 3)];
+        loop4x4!(i, j, ab[i][j] += v0[i] * v1[j]);
+
+        a = a.offset(4);
+        b = b.offset(4);
+    });
+
+
+    macro_rules! c {
+        ($i:expr, $j:expr) => (c.offset(rsc * $i as isize + csc * $j as isize));
+    }
+
+    // Compute C = alpha A B + beta C,
+    // except we can not read C if beta is zero.
+    if beta == 0. {
+        loop4x4!(i, j, *c![i, j] = alpha * ab[i][j]);
+    } else {
+        loop4x4!(i, j, *c![i, j] = *c![i, j] * beta + alpha * ab[i][j]);
+    }
+}
+```
+
+
+
+
+
+#### simd
+
+检测simd指令的方法：
+
+```rust
+#[inline]
+pub(crate) fn detect<G>(selector: G) where G: GemmSelect<T> {
+    // dispatch to specific compiled versions
+    #[cfg(any(target_arch="x86", target_arch="x86_64"))]
+    {
+        if is_x86_feature_detected_!("fma") {
+            if is_x86_feature_detected_!("avx2") {
+                return selector.select(KernelFmaAvx2);
+            }
+            return selector.select(KernelFma);
+        } else if is_x86_feature_detected_!("avx") {
+            return selector.select(KernelAvx);
+        } else if is_x86_feature_detected_!("sse2") {
+            return selector.select(KernelSse2);
+        }
+    }
+
+    #[cfg(target_arch="aarch64")]
+    #[cfg(has_aarch64_simd)]
+    {
+        if is_aarch64_feature_detected_!("neon") {
+            return selector.select(KernelNeon);
+        }
+    }
+
+    return selector.select(KernelFallback);
+}
+```
+
+
+
+以`is_x86_feature_detected_!`为例：
+
+```rust
+```
+
+
+
+#### 深度优化的核心思想
+
+下面内容引入自：https://github.com/flame/how-to-optimize-gemm/wiki
+
+This work is based on two publications. You will want to read these when you are done with this exercise. If you use information on this page in other research, please reference these papers.
+
+- Anatomy of high-performance matrix multiplication. Kazushige Goto, Robert A. van de Geijn. ACM Transactions on Mathematical Software (TOMS), 2008.
+
+  (Available without charge at the following site: http://www.cs.utexas.edu/users/flame/FLAMEPublications.html)
+
+- BLIS: A Framework for Rapidly Instantiating BLAS Functionality. Field G. Van Zee, Robert A. van de Geijn. ACM Transactions on Mathematical Software (TOMS), 2015.
+
+  (Available without charge at the following site: http://www.cs.utexas.edu/users/flame/FLAMEPublications.html)
+
+For more advanced exercises with recent architectures (Intel Sandy/Ivy Bridges, Haswell, etc.), you may want to try BLISlab.
+
+- BLISlab: A Sandbox for Optimizing GEMM
+
+  (Available at: https://github.com/flame/blislab)
+
+
+
+#### 实例代码
+
+```mermaid
+graph TD
+	A[gemm_loop] --类型输入--> B1(GemmKernel)
+	A[gemm_loop] --数据输入--> B2(A;B;C)
+    A[gemm_loop] --调用--> B3[gemm_packed]
+
+```
+
+算法代码中的含义可以参考https://github.com/flame/blis/blob/master/docs/KernelsHowTo.md#implementation-notes-for-gemm
+
+
+
+```rust
+/// Implement matrix multiply using packed buffers and a microkernel
+/// strategy, the type parameter `K` is the gemm microkernel.
+// no inline is best for the default case, where we support many K per
+// gemm entry point. FIXME: make this conditional on feature detection
+#[inline(never)]
+unsafe fn gemm_loop<K>(
+    m: usize, k: usize, n: usize,
+    alpha: K::Elem,
+    a: *const K::Elem, rsa: isize, csa: isize,
+    b: *const K::Elem, rsb: isize, csb: isize,
+    beta: K::Elem,
+    c: *mut K::Elem, rsc: isize, csc: isize)
+    where K: GemmKernel
+{
+    debug_assert!(m <= 1 || n == 0 || rsc != 0);
+    debug_assert!(m == 0 || n <= 1 || csc != 0);
+
+    // if A or B have no elements, compute C ← βC and return
+    if m == 0 || k == 0 || n == 0 {
+        return c_to_beta_c(m, n, beta, c, rsc, csc);
+    }
+
+    let knc = K::nc();
+    let kkc = K::kc();
+    let kmc = K::mc();
+    ensure_kernel_params::<K>();
+
+    let a = Ptr(a);
+    let b = Ptr(b);
+    let c = Ptr(c);
+
+    let (nthreads, tp) = get_thread_pool();
+    let thread_config = LoopThreadConfig::new::<K>(m, k, n, nthreads);
+    let nap = thread_config.num_pack_a();
+
+    let (mut packing_buffer, ap_size, bp_size) = make_packing_buffer::<K>(m, k, n, nap);
+    let app = Ptr(packing_buffer.ptr_mut());
+    let bpp = app.add(ap_size * nap);
+
+    // LOOP 5: split n into nc parts (B, C)
+    for (l5, nc) in range_chunk(n, knc) {
+        dprint!("LOOP 5, {}, nc={}", l5, nc);
+        let b = b.stride_offset(csb, knc * l5);
+        let c = c.stride_offset(csc, knc * l5);
+
+        // LOOP 4: split k in kc parts (A, B)
+        // This particular loop can't be parallelized because the
+        // C chunk (writable) is shared between iterations.
+        for (l4, kc) in range_chunk(k, kkc) {
+            dprint!("LOOP 4, {}, kc={}", l4, kc);
+            let b = b.stride_offset(rsb, kkc * l4);
+            let a = a.stride_offset(csa, kkc * l4);
+
+            // Pack B -> B~
+            K::pack_nr(kc, nc, slice::from_raw_parts_mut(bpp.ptr(), bp_size),
+                       b.ptr(), csb, rsb);
+
+            // First time writing to C, use user's `beta`, else accumulate
+            let betap = if l4 == 0 { beta } else { <_>::one() };
+
+            // LOOP 3: split m into mc parts (A, C)
+            range_chunk(m, kmc)
+                .parallel(thread_config.loop3, tp)
+                .thread_local(move |i, _nt| {
+                    // a packing buffer A~ per thread
+                    debug_assert!(i < nap);
+                    app.add(ap_size * i)
+                })
+                .for_each(move |tp, &mut app, l3, mc| {
+                    dprint!("LOOP 3, {}, mc={}", l3, mc);
+                    let a = a.stride_offset(rsa, kmc * l3);
+                    let c = c.stride_offset(rsc, kmc * l3);
+
+                    // Pack A -> A~
+                    K::pack_mr(kc, mc, slice::from_raw_parts_mut(app.ptr(), ap_size),
+                               a.ptr(), rsa, csa);
+
+                    // LOOP 2 and 1
+                    gemm_packed::<K>(nc, kc, mc,
+                                     alpha,
+                                     app.to_const(), bpp.to_const(),
+                                     betap,
+                                     c, rsc, csc,
+                                     tp, thread_config);
+                });
+        }
+    }
+}
+```
+
+
+
+
+
 #### Cache-oblivious算法
 
 当$C=A\times B$时，
