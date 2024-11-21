@@ -16,8 +16,8 @@ where Standard: Distribution<T>,
 pub fn generate_matrices<T>() -> (Vec<Vec<T>>, Vec<Vec<T>>)
 where Standard: Distribution<T>,
 {
-    let a = random_dynamic_matrix::<T>(4096, 4096);
-    let b = random_dynamic_matrix::<T>(4096, 4096);
+    let a = random_dynamic_matrix::<T>(256, 256);
+    let b = random_dynamic_matrix::<T>(256, 256);
     (a, b)
 }
 
@@ -157,8 +157,8 @@ where
 
 pub fn static_matmul()
 {
-    let matrix = vec![vec![0; 4096]; 4096];
-    let mut result = vec![vec![0; 4096]; 4096];
+    let matrix = vec![vec![0; 256]; 256];
+    let mut result = vec![vec![0; 256]; 256];
 
     // 只对化外层并行循环
     result.par_iter_mut().enumerate().for_each(|(i, row)| {

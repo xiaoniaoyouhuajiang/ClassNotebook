@@ -5,7 +5,7 @@ use exp::matmul::{generate_matrices, matmul_o1, matmul_o2, matmul_o3_1, matmul_o
 fn bench_matmul_orignal(c: &mut Criterion) {
     let mut group = c.benchmark_group("Matrix Multiplication Orignal");
     let (a, b) = generate_matrices();
-    group.bench_with_input(BenchmarkId::new("4x4", "4"), &(), |bench, _| {
+    group.bench_with_input(BenchmarkId::new("128x128", "128"), &(), |bench, _| {
         bench.iter(|| matmul_orignal(a.clone(), b.clone()));
     });
     group.finish();
@@ -14,7 +14,7 @@ fn bench_matmul_orignal(c: &mut Criterion) {
 fn bench_matmul_reference(c: &mut Criterion) {
     let mut group = c.benchmark_group("Matrix Multiplication Reference");
     let (a, b) = generate_matrices::<f64>();
-    group.bench_with_input(BenchmarkId::new("4x4", "4"), &(), |bench, _| {
+    group.bench_with_input(BenchmarkId::new("128x128", "128"), &(), |bench, _| {
         bench.iter(|| matmul_o1(&a, &b));
     });
     group.finish();
@@ -23,25 +23,25 @@ fn bench_matmul_reference(c: &mut Criterion) {
 fn bench_matmul_order(c: &mut Criterion) {
     let mut group = c.benchmark_group("Matrix Multiplication with better order");
     let (a, b) = generate_matrices::<f64>();
-    group.bench_with_input(BenchmarkId::new("4x4", "4"), &(), |bench, _| {
+    group.bench_with_input(BenchmarkId::new("128x128", "128"), &(), |bench, _| {
         bench.iter(|| matmul_o2(&a, &b));
     });
     group.finish();
 }
 
 fn bench_matmul_parallel_outter(c: &mut Criterion) {
-    let mut group = c.benchmark_group("Matrix Multiplication with outter parallel");
+    let mut group = c.benchmark_group("Matrix Multiplication with outter loop parallel");
     let (a, b) = generate_matrices::<f64>();
-    group.bench_with_input(BenchmarkId::new("4x4", "4"), &(), |bench, _| {
+    group.bench_with_input(BenchmarkId::new("128x128", "128"), &(), |bench, _| {
         bench.iter(|| matmul_o3_1(&a, &b));
     });
     group.finish();
 }
 
 fn bench_matmul_parallel_all(c: &mut Criterion) {
-    let mut group = c.benchmark_group("Matrix Multiplication with outter parallel");
+    let mut group = c.benchmark_group("Matrix Multiplication with outter&inner loop parallel");
     let (a, b) = generate_matrices::<f64>();
-    group.bench_with_input(BenchmarkId::new("4x4", "4"), &(), |bench, _| {
+    group.bench_with_input(BenchmarkId::new("128x128", "128"), &(), |bench, _| {
         bench.iter(|| matmul_o3_2(&a, &b));
     });
     group.finish();
@@ -50,7 +50,7 @@ fn bench_matmul_parallel_all(c: &mut Criterion) {
 fn bench_matmul_tiling(c: &mut Criterion) {
     let mut group = c.benchmark_group("Matrix Multiplication with tiled matrix");
     let (a, b) = generate_matrices::<f64>();
-    group.bench_with_input(BenchmarkId::new("4x4", "4"), &(), |bench, _| {
+    group.bench_with_input(BenchmarkId::new("128x128", "128"), &(), |bench, _| {
         bench.iter(|| matmul_o4_1(&a, &b, 64));
     });
     group.finish();
@@ -59,7 +59,7 @@ fn bench_matmul_tiling(c: &mut Criterion) {
 // fn bench_matmul_tiling_parallel(c: &mut Criterion) {
 //     let mut group = c.benchmark_group("Matrix Multiplication with tiled matrix");
 //     let (a, b) = generate_matrices();
-//     group.bench_with_input(BenchmarkId::new("4x4", "4"), &(), |bench, _| {
+//     group.bench_with_input(BenchmarkId::new("128x128", "4"), &(), |bench, _| {
 //         bench.iter(|| matmul_o4_2(&a, &b));
 //     });
 //     group.finish();

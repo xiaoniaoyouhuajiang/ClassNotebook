@@ -486,11 +486,15 @@ For more advanced exercises with recent architectures (Intel Sandy/Ivy Bridges, 
 
 #### 实例代码
 
+![image-20241114181611909](../statics/image-20241114181611909.png)
+
 ```mermaid
 graph TD
 	A[gemm_loop] --类型输入--> B1(GemmKernel)
 	A[gemm_loop] --数据输入--> B2(A;B;C)
-    A[gemm_loop] --调用--> B3[gemm_packed]
+	A[gemm_loop] --调用--> B3[pack_nr]
+	A[gemm_loop] --调用--> B4[pack_mr]
+    A[gemm_loop] ---调用---> C1[gemm_packed]
 
 ```
 

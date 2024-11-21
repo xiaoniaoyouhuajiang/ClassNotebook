@@ -16,16 +16,16 @@ valgrind --tool=cachegrind ./target/release/exp
 block64_转置矩阵乘：
 */
 fn main() {
-    let (a, b) = generate_matrices::<i32>();
+    // let (a, b) = generate_matrices::<i32>();
     let m = 
-        nalgebra::DMatrix::from_element(128, 128, rand::random::<f32>());
-    // let start_time = std::time::Instant::now();
-    // static_matmul();
-    // let end_time = std::time::Instant::now();
-    // println!("static matrix multiplication time: {:?}", end_time - start_time);
+        nalgebra::DMatrix::from_element(256, 256, rand::random::<f32>());
+    let start_time = std::time::Instant::now();
+    static_matmul();
+    let end_time = std::time::Instant::now();
+    println!("simple matrix multiplication time: {:?}", end_time - start_time);
     let start_time = std::time::Instant::now();
     // let _ = matmul_o3_2(&a, &b);
     let _ = &m * &m;
     let end_time = std::time::Instant::now();
-    println!("dynamic matrix multiplication time: {:?}", end_time - start_time);
+    println!("blis matrix multiplication time: {:?}", end_time - start_time);
 }
