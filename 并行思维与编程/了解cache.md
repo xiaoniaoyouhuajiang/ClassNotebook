@@ -8,7 +8,7 @@
 
 ### Dynamic RAM
 
-俗语“内存”
+内存基本是DRAM制作的
 
 * 存储空间需要经常刷新
 
@@ -18,11 +18,17 @@
 
 ### Static RAM
 
+一般称为SRAM
+
 * 不一定需要被"refreshed"
 * 比DRAM快得多
 * 很贵
 
+主要用作CPU cache
 
+
+
+#### 内部结构
 
 
 
@@ -39,3 +45,8 @@ lscpu
 ```
 
 ![image-20241023134715644](../statics/image-20241023134715644.png)
+
+
+
+## tlb相关
+
