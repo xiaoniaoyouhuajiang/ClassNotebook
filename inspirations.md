@@ -56,3 +56,38 @@ portable这个特性非常重要，windows有embeddable package，linux并没有
 
 ### 定制化AI agent生成方案
 
+* 首先得有一个综合的LLM/model能力评估标准
+
+
+
+
+
+### candle 案例-TrOCR
+
+你可以获得什么知识：
+
+* 本地调试Rust/Candle代码的经验
+* DL模型相关的基础工具以及知识（tokenizer, safetensor, trocr相关内容等等）
+* 承接前文（Candle框架相关内容），对深入了解rust的DL生态产生兴趣
+* 一个可以快速构建的portable OCR方案
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
