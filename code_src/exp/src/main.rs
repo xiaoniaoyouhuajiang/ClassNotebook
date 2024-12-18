@@ -1,4 +1,10 @@
 #![feature(optimize_attribute)]
+// for n_body
+#![allow(
+    non_upper_case_globals,
+    non_camel_case_types,
+    non_snake_case,
+)]
 pub mod matmul;
 // use nalgebra;
 pub use matmul::{matmul_o1, matmul_o2, matmul_o4_1, matmul_o4_2, matmul_o3_1, 

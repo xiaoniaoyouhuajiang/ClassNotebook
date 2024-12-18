@@ -613,6 +613,94 @@ $A \cdot B^{T}$
 
 
 
+## unsafe
+
+### why
+
+* 能读懂更多数据结构相关的源码
+
+* 学会rust的裸指针操作
+
+
+
+### 实际案例:n_body
+
+n_body是来自[the Benchmarks Game](https://benchmarksgame-team.pages.debian.net/benchmarksgame/)的一段程序，中文名大概可以是“N体问题”，这段程序简短但是原版是一段高度优化的C代码，很有参考性。
+
+优化的具体点包括：
+
+* SSE simd指令
+* 内存布局优化
+
+
+
+#### 丑陋的直接翻译版
+
+以下是直接将C语言代码进行翻译得到的关键片段的截取
+
+```rust
+#[repr(C)]  // Note 2
+struct body {
+    position: [f64; 3],
+    velocity: [f64; 3],
+    mass: f64,
+}
+```
+
+* 使用#[repr(C)]可以使得结构体中的内存布局和C保持一致
+
+
+
+```rust
+unsafe fn offset_Momentum(bodies: *mut body) {
+    for i in 0..BODIES_COUNT {  // <---- Note 3
+        for m in 0..3 {
+            (*bodies.add(0)).velocity[m] -=  // <- Note 4
+                (*bodies.add(i)).velocity[m] // <- Note 5
+                * (*bodies.add(i)).mass / SOLAR_MASS;
+        }
+    }
+}
+```
+
+* *bodies.add(i)实际是rust中对裸指针的加法，因为没有进行运算符重载
+
+
+
+```rust
+// Add the potential energy between this body and
+// every other body.
+for j in i+1..BODIES_COUNT {
+    let mut position_Delta =   // <----------- Note 1
+        [mem::MaybeUninit::<f64>::uninit(); 3];
+    for m in 0..3 {
+        position_Delta[m].as_mut_ptr().write(
+            (*bodies.add(i)).position[m]
+                - (*bodies.add(j)).position[m]
+        );
+    }
+    let position_Delta: [f64; 3] = // <------- Note 2
+        mem::transmute(position_Delta);
+
+    energy -= (*bodies.add(i)).mass
+        * (*bodies.add(j)).mass
+        / f64::sqrt(               // <------- Note 3
+              position_Delta[0]*position_Delta[0]+
+              position_Delta[1]*position_Delta[1]+
+              position_Delta[2]*position_Delta[2]
+          );
+}
+```
+
+* 上述代码中`Note1`的C源码是`double position_Delta[3];`，C语言中当你不主动提供initializer的情况下，变量中的元素是不可预测的随机值，为啥提这点，因为有些场景下，不初始化值意味着更好的性能，但`未初始化变量`又是很多BUG的诞生地，在rust中，你如果要达到同样的效果，就必须打更多字
+* 
+
+
+
+## 设计模式
+
+
+
 
 
 

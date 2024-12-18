@@ -27,7 +27,86 @@ let vb = {
 };
 ```
 
-显然我们需要重点关注的对象是`VarBuilder`
+显然我们需要重点关注的对象是`VarBuilder`以及`safetensors`
+
+
+
+#### VarBuilder
+
+```rust
+// 能覆盖大多数场景的VarBuilder
+pub type VarBuilder<'a> = VarBuilderArgs<'a, Box<dyn SimpleBackend + 'a>>;
+
+pub trait Backend: Send + Sync {
+    type Hints: Default;
+
+    /// Retrieve a tensor with some target shape.
+    fn get(
+        &self,
+        s: Shape,
+        name: &str,
+        h: Self::Hints,
+        dtype: DType,
+        dev: &Device,
+    ) -> Result<Tensor>;
+
+    fn contains_tensor(&self, name: &str) -> bool;
+}
+
+pub trait SimpleBackend: Send + Sync {
+    /// Retrieve a tensor based on a target name and shape.
+    fn get(
+        &self,
+        s: Shape,
+        name: &str,
+        h: crate::Init,
+        dtype: DType,
+        dev: &Device,
+    ) -> Result<Tensor>;
+
+    fn contains_tensor(&self, name: &str) -> bool;
+}
+
+impl Backend for Box<dyn SimpleBackend + '_> {
+    type Hints = crate::Init;
+    fn get(
+        &self,
+        s: Shape,
+        name: &str,
+        h: Self::Hints,
+        dtype: DType,
+        dev: &Device,
+    ) -> Result<Tensor> {
+        self.as_ref().get(s, name, h, dtype, dev)
+    }
+
+    fn contains_tensor(&self, name: &str) -> bool {
+        self.as_ref().contains_tensor(name)
+    }
+}
+
+pub struct VarBuilderArgs<'a, B: Backend> {
+    data: Arc<TensorData<B>>,
+    path: Vec<String>,
+    pub dtype: DType,
+    _phantom: std::marker::PhantomData<&'a B>,
+}
+
+struct TensorData<B: Backend> {
+    backend: B,
+    pub device: Device,
+}
+
+
+```
+
+
+
+
+
+#### Safetensors
+
+
 
 
 
