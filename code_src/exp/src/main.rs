@@ -1,14 +1,13 @@
 #![feature(optimize_attribute)]
 // for n_body
-#![allow(
-    non_upper_case_globals,
-    non_camel_case_types,
-    non_snake_case,
-)]
 pub mod matmul;
+pub mod n_body;
+pub mod n_body_safe;
 // use nalgebra;
 pub use matmul::{matmul_o1, matmul_o2, matmul_o4_1, matmul_o4_2, matmul_o3_1, 
     matmul_o3_2, generate_matrices, static_matmul};
+pub use n_body::main as n_body_main;
+pub use n_body_safe::main as n_body_safe_main;
 use rand;
 
 /* 

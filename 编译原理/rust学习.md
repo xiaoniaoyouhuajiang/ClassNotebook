@@ -618,8 +618,14 @@ $A \cdot B^{T}$
 ### why
 
 * 能读懂更多数据结构相关的源码
-
 * 学会rust的裸指针操作
+* rust中SIMD编程的原始方法
+
+
+
+> 基础准备：
+>
+> 能够简单阅读C和Rust代码
 
 
 
@@ -634,7 +640,7 @@ n_body是来自[the Benchmarks Game](https://benchmarksgame-team.pages.debian.ne
 
 
 
-#### 丑陋的直接翻译版
+#### 直接翻译版
 
 以下是直接将C语言代码进行翻译得到的关键片段的截取
 
@@ -650,6 +656,15 @@ struct body {
 * 使用#[repr(C)]可以使得结构体中的内存布局和C保持一致
 
 
+
+```c
+static void offset_Momentum(body bodies[]){
+    for(intnative_t i=0; i<BODIES_COUNT; ++i)
+        for(intnative_t m=0; m<3; ++m)
+            bodies[0].velocity[m]-=
+              bodies[i].velocity[m]*bodies[i].mass/SOLAR_MASS;
+}
+```
 
 ```rust
 unsafe fn offset_Momentum(bodies: *mut body) {
@@ -692,14 +707,404 @@ for j in i+1..BODIES_COUNT {
 }
 ```
 
-* 上述代码中`Note1`的C源码是`double position_Delta[3];`，C语言中当你不主动提供initializer的情况下，变量中的元素是不可预测的随机值，为啥提这点，因为有些场景下，不初始化值意味着更好的性能，但`未初始化变量`又是很多BUG的诞生地，在rust中，你如果要达到同样的效果，就必须打更多字
-* 
+* 上述代码中`Note1`的C源码是`double position_Delta[3];`，C语言中当你不主动提供initializer的情况下，变量中的元素是不可预测的随机值，为啥提这点，因为有些场景下，不初始化值意味着更好的性能，但`未初始化变量`又是很多BUG的诞生地，在rust中，你如果要达到同样的效果，就必须打更多字。注意这里还有一个细节，就是写入数据的时候使用了指针操作`write`，这就避免了去读指定内存段的操作，很多时候rust改写内存值需要优先读取它的值（到寄存器中），这是因为你读取的类型有析构函数
+
+* `Note2`中，我们使用了transmute，这个函数就牛逼了，他可以对两个相同size的类型进行相互转换，本质就是将一种类型的比特位解释为另外一种，跟C中的cast类似，现在，我们将[mem::MaybeUninit::<f64>::uninit(); 3]转换为了[f64; 3]
+
+* ```C
+  float x = something();
+  int y = *(int *) &x;
+  ```
+
+
+
+```c
+static void advance(body bodies[]){
+
+    #define INTERACTIONS_COUNT \
+        (BODIES_COUNT*(BODIES_COUNT-1)/2)
+    #define ROUNDED_INTERACTIONS_COUNT \
+        (INTERACTIONS_COUNT+INTERACTIONS_COUNT%2)
+
+    //  ,--------------------------------- Note 1
+    // v       v-------------------------- Note 2
+    static alignas(__m128d) double
+      position_Deltas[3][ROUNDED_INTERACTIONS_COUNT],
+      magnitudes[ROUNDED_INTERACTIONS_COUNT];
+```
+
+* C中局部的static变量的初始值会被设置为0，这是语言标准定义的。另一方面，清零的操作只会进行一次，换句话说，每次对`advance`函数的调用后，static变量的内部残留值将会被延续到下一次调用（带状态的函数），副作用是，非线程安全。
+* alignas(__m128d)代表声明对象将会以`__m128d`的方式对齐，而这是SSE向量类型，简单介绍就是，该类型用于存储两个双精度浮点(double)类型，该类型要求变量按照16字节对齐
+
+
+
+对应到相应的Rust代码：
+
+```rust
+unsafe fn advance(bodies: *mut body) {
+
+    const INTERACTIONS_COUNT: usize =
+        BODIES_COUNT * (BODIES_COUNT - 1) / 2;
+    const ROUNDED_INTERACTIONS_COUNT: usize =
+        INTERACTIONS_COUNT + INTERACTIONS_COUNT % 2;
+
+    // Note 1
+    #[repr(align(16))]
+    #[derive(Copy, Clone)]
+    struct Align16([f64; ROUNDED_INTERACTIONS_COUNT]);
+
+    // Note 2
+    static mut position_Deltas: [Align16; 3] =
+        [Align16([0.; ROUNDED_INTERACTIONS_COUNT]); 3];
+    static mut magnitudes: Align16 =
+        Align16([0.; ROUNDED_INTERACTIONS_COUNT]);
+```
+
+* 由于只有自定义类型能在Rust中进行对齐内存，所以我们声明了`Align16`
+
+
+
+温馨声明：之后的代码段都在函数advance中：
+
+```c
+for(intnative_t i=0; i<ROUNDED_INTERACTIONS_COUNT/2; ++i){
+    __m128d position_Delta[3];
+
+    for(intnative_t m=0; m<3; ++m)
+        position_Delta[m]=
+            ((__m128d *)position_Deltas[m])[i];
+```
+
+```rust
+for i in 0..ROUNDED_INTERACTIONS_COUNT/2 {
+    let mut position_Delta =
+        [mem::MaybeUninit::<__m128d>::uninit(); 3];
+    for m in 0..3 {
+        position_Delta[m].as_mut_ptr().write(
+            *(&position_Deltas[m].0
+                as *const f64         // <----- Note 1
+                as *const __m128d).add(i)
+        );
+    }
+    let position_Delta: [__m128d; 3] =
+        mem::transmute(position_Delta);
+```
+
+* 注意到上述代码中原生数据类型的转换，C中使用了`(__m128d *)position_Deltas[m]`将访问的double[]类型转换为__m128d指针类型，这个时候注意索引`i`，其总数为`ROUNDED_INTERACTIONS_COUNT/2`，刚好能将position_Deltas完整遍历。而Rust代码中对于`position_Delta`的处理则和上文一致。
+
+* rust中对裸指针的处理：可变： as *mut f64 仅读： as *const f64
+
+
+
+```c
+const __m128d distance_Squared=
+  position_Delta[0]*position_Delta[0]+
+  position_Delta[1]*position_Delta[1]+
+  position_Delta[2]*position_Delta[2];
+
+__m128d distance_Reciprocal=
+   _mm_cvtps_pd(_mm_rsqrt_ps(_mm_cvtpd_ps(distance_Squared)));
+for(intnative_t j=0; j<2; ++j)
+    distance_Reciprocal=distance_Reciprocal*1.5-
+      0.5*distance_Squared*distance_Reciprocal*
+      (distance_Reciprocal*distance_Reciprocal);
+
+((__m128d *)magnitudes)[i] =
+    0.01/distance_Squared*distance_Reciprocal;
+```
+
+```rust
+let distance_Squared: __m128d = _mm_add_pd(
+    _mm_add_pd(
+        _mm_mul_pd(position_Delta[0], position_Delta[0]),
+        _mm_mul_pd(position_Delta[1], position_Delta[1]),
+    ),
+    _mm_mul_pd(position_Delta[2], position_Delta[2]),
+);
+
+let mut distance_Reciprocal: __m128d =
+  _mm_cvtps_pd(_mm_rsqrt_ps(_mm_cvtpd_ps(distance_Squared)));
+for _ in 0..2 {
+    distance_Reciprocal = _mm_sub_pd(
+        _mm_mul_pd(distance_Reciprocal, _mm_set1_pd(1.5)),
+        _mm_mul_pd(
+            _mm_mul_pd(
+                _mm_mul_pd(
+                    _mm_set1_pd(0.5),
+                    distance_Squared,
+                ),
+                distance_Reciprocal,
+            ),
+            _mm_mul_pd(
+                distance_Reciprocal,
+                distance_Reciprocal,
+            ),
+        ));
+}
+
+(magnitudes.0.as_mut_ptr() as *mut __m128d)
+    .add(i)
+    .write(_mm_mul_pd(
+        _mm_div_pd(
+            _mm_set1_pd(0.01),
+            distance_Squared,
+        ),
+        distance_Reciprocal,
+    ));
+```
+
+* 向量操作，基本都带前缀：`_mm_`
+* 依旧地，C中的向量操作都使用了运算符重载
+
+
+
+最后，我们来看main函数
+
+```rust
+fn main() {
+    unsafe {
+        offset_Momentum(solar_Bodies.as_mut_ptr());  // Note 1
+        output_Energy(solar_Bodies.as_mut_ptr());
+        let c = std::env::args().nth(1).unwrap()  // Note 2
+            .parse().unwrap();
+        for _ in 0..c {
+            advance(solar_Bodies.as_mut_ptr())
+        }
+        output_Energy(solar_Bodies.as_mut_ptr());
+    }
+}
+```
+
+
+
+#### 原生版本性能测试
+
+* 编译
+
+```shell
+time gcc -o3 -fomit-frame-pointer -march=native -funroll-loops -static ./c_src/n_body.c -o ./build/n_body_gcc -lm
+
+real    0m0.101s
+user    0m0.057s
+sys     0m0.043s
+```
+
+```shell
+time clang -O3 -fomit-frame-pointer -march=native -funroll-lo
+ops -static c_src/n_body.c -o build/n_body_clang -lm
+c_src/n_body.c:130:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+1 warning generated.
+
+real    0m0.169s
+user    0m0.097s
+sys     0m0.072s
+```
+
+```shell
+time rustc -C opt-level=3 -C target-cpu=native -C codegen-units=1 ./src/n_body.rs -o ./build/n_body_rustc
+
+real    0m0.274s
+user    0m0.164s
+sys     0m0.093s
+```
+
+
+
+* 执行
+
+使用hyperfine来进行测试与统计
+
+```shell
+hyperfine --runs 5 time ./build/n_body_gcc 50000000
+```
+
+```shell
+hyperfine --runs 5 './build/n_body_gcc 50000000'
+Benchmark 1: ./build/n_body_gcc 50000000
+  Time (mean ± σ):      3.147 s ±  0.005 s    [User: 3.146 s, System: 0.001 s]
+  Range (min … max):    3.140 s …  3.151 s    5 runs
+```
+
+```shell
+hyperfine --runs 5 './build/n_body_clang 50000000'
+Benchmark 1: ./build/n_body_clang 50000000
+  Time (mean ± σ):      3.165 s ±  0.016 s    [User: 3.164 s, System: 0.001 s]
+  Range (min … max):    3.148 s …  3.191 s    5 runs
+```
+
+```shell
+hyperfine --runs 5 './build/n_body_rustc 50000000'
+Benchmark 1: ./build/n_body_rustc 50000000
+  Time (mean ± σ):      2.662 s ±  0.005 s    [User: 2.661 s, System: 0.001 s]
+  Range (min … max):    2.657 s …  2.669 s    5 runs
+```
+
+可以看到，在我的PC上，rust程序的执行时间比c版本的（clang和gcc编译）要短0.5秒
+
+
+
+#### 修改为可变引用
+
+```rust
+fn offset_Momentum(bodies: &mut [body; BODIES_COUNT]) {
+    for i in 0..BODIES_COUNT {
+        for m in 0..3 {
+            //     v----------------------------------- Note 3
+            bodies[0].velocity[m] -=
+                bodies[i].velocity[m] * bodies[i].mass / SOLAR_MASS;
+        }
+    }
+}
+```
+
+
+
+实际性能没什么变化
+
+```shell
+hyperfine --runs 5 './build/n_body_rustc_safe 50000000'
+Benchmark 1: ./build/n_body_rustc_safe 50000000
+  Time (mean ± σ):      2.669 s ±  0.019 s    [User: 2.668 s, System: 0.001 s]
+  Range (min … max):    2.656 s …  2.703 s    5 runs
+```
+
+
+
+#### 未初始化变量
+
+在rust翻译版本代码中，我们显式地声明了未初始化变量：
+
+```rust
+let mut position_Delta = [mem::MaybeUninit::<__m128d>::uninit(); 3];
+for m in 0..3 {
+    position_Delta[m].as_mut_ptr().write(
+        initial_value_here
+    );
+}
+let position_Delta: [__m128d; 3] = mem::transmute(position_Delta);
+```
+
+如果说我们将上述代码修改为一般代码常见的形式：
+
+```rust
+let mut position_Delta = [0.; 3];
+for m in 0..3 {
+    position_Delta[m] = initial_value_here;
+}
+```
+
+这个时候再去检查二进制产物的体积，是不会会更大？
+
+```shell
+$ size nbody-2 nbody-3
+   text	   data	    bss	    dec	    hex	filename
+ 226776	  10744	    888	 238408	  3a348	nbody-2
+ 226776	  10744	    888	 238408	  3a348	nbody-3
+```
+
+事实上，并没有
+
+因为，编译器发现编码者在声明变量后立刻去对值进行了填充，应用一种编译技术"dead store elimination"，理所当然地，性能并不会降低：
+
+```shell
+hyperfine --runs 5 './build/n_body_rustc_safe 50000000'
+Benchmark 1: ./build/n_body_rustc_safe 50000000
+  Time (mean ± σ):      2.672 s ±  0.013 s    [User: 2.671 s, System: 0.001 s]
+  Range (min … max):    2.660 s …  2.695 s    5 runs
+```
+
+
+
+#### advance函数优化
+
+advance函数中有为了提升性能而使用的SSE扩展代码，在SSE代码片段中，我们不可避免地使用了unsafe——将同一段内存解释为不同的类型。
+
+我们考虑使用`union`，同一段内存（size一样大），我们可以对这段数据有不同的解释方式（所有字段共享的内存空间必须能够容纳最大的那个字段。这意味着 `union` 的大小等于其最大字段的大小）：
+
+```rust
+#[repr(C)]
+union Interactions {
+    scalars: [f64; ROUNDED_INTERACTIONS_COUNT],
+    vectors: [__m128d; ROUNDED_INTERACTIONS_COUNT / 2],
+}
+```
+
+
+
+从而，循环中的源代码段从
+
+```rust
+position_Delta[m].as_mut_ptr().write(
+    *(&position_Deltas[m].0
+        as *const f64         // <----- Note 1
+        as *const __m128d).add(i)
+);
+```
+
+变成了
+
+```rust
+position_Delta[m] = position_Deltas[m].vectors[i];
+```
+
+虽然，我们的代码依旧是unsafe的（对union对象的字段进行访问都是unsafe），但是我们得到了编译器进行边界检查的好处。
+
+
+
+另一方面，我们知道我们所运行的所有Rust代码其底层都难以避免会触碰到"unsafe code"，但是现在我们多了一种选项：
+
+```rust
+// Our union type, as seen above, reproduced here for your reference
+#[repr(C)]
+union Interactions {
+    scalars: [f64; ROUNDED_INTERACTIONS_COUNT],
+    vectors: [__m128d; ROUNDED_INTERACTIONS_COUNT / 2],
+}
+
+impl Interactions {
+    /// Returns a reference to the storage as `f64`s.
+    pub fn as_scalars(&mut self) -> &mut [f64; ROUNDED_INTERACTIONS_COUNT] {
+        // Safety: the in-memory representation of `f64` and `__m128d` is
+        // compatible, so accesses to the union members is safe in any
+        // order.
+        unsafe {
+            &mut self.scalars
+        }
+    }
+
+    /// Returns a reference to the storage as `__m128d`s.
+    pub fn as_vectors(&mut self)
+        -> &mut [__m128d; ROUNDED_INTERACTIONS_COUNT/2]
+    {
+        // Safety: the in-memory representation of `f64` and `__m128d` is
+        // compatible, so accesses to the union members is safe in any
+        // order.
+        unsafe {
+            &mut self.vectors
+        }
+    }
+}
+```
+
+没错，通过封装，我们可以得到一些safe的API。
+
+
+
+
 
 
 
 ## 设计模式
 
+### typestate模式
 
+原贴：https://cliffle.com/blog/rust-typestate/
+
+要点：
+
+* 
 
 
 

@@ -31,6 +31,58 @@ let vb = {
 
 
 
+#### Safetensors
+
+问题：我们如何将Safetensors文件转换为内存中的数据？
+
+
+
+首先，内存中的存储对象是MmapedSafetensors：
+
+```rust
+pub struct MmapedSafetensors {
+    safetensors: Vec<yoke::Yoke<SafeTensors_<'static>, memmap2::Mmap>>,
+    routing: Option<HashMap<String, usize>>,
+}
+```
+
+
+
+反序列化过程请看代码：
+
+```rust
+pub unsafe fn multi<P: AsRef<Path>>(paths: &[P]) -> Result<Self> {
+    let mut routing = HashMap::new();
+    let mut safetensors = vec![];
+    for (index, p) in paths.iter().enumerate() {
+        let p = p.as_ref();
+        let file = std::fs::File::open(p).map_err(|e| Error::from(e).with_path(p))?;
+        let file = memmap2::MmapOptions::new()
+            .map(&file)
+            .map_err(|e| Error::from(e).with_path(p))?;
+        let data = yoke::Yoke::<SafeTensors_<'static>, memmap2::Mmap>::try_attach_to_cart(
+            file,
+            |data: &[u8]| {
+                let st = safetensors::SafeTensors::deserialize(data)
+                    .map_err(|e| Error::from(e).with_path(p))?;
+                Ok::<_, Error>(SafeTensors_(st))
+            },
+        )?;
+        for k in data.get().0.names() {
+            routing.insert(k.to_string(), index);
+        }
+        safetensors.push(data)
+    }
+    Ok(Self {
+        safetensors,
+        routing: Some(routing),
+    })
+```
+
+
+
+
+
 #### VarBuilder
 
 ```rust
@@ -54,17 +106,7 @@ pub trait Backend: Send + Sync {
 }
 
 pub trait SimpleBackend: Send + Sync {
-    /// Retrieve a tensor based on a target name and shape.
-    fn get(
-        &self,
-        s: Shape,
-        name: &str,
-        h: crate::Init,
-        dtype: DType,
-        dev: &Device,
-    ) -> Result<Tensor>;
-
-    fn contains_tensor(&self, name: &str) -> bool;
+	...
 }
 
 impl Backend for Box<dyn SimpleBackend + '_> {
@@ -91,20 +133,69 @@ pub struct VarBuilderArgs<'a, B: Backend> {
     pub dtype: DType,
     _phantom: std::marker::PhantomData<&'a B>,
 }
+```
 
+首先梳理一下，模型权重数据的源头可以有很多种，最简单的，就是将权重存储在一个文件当中，还有可能存储在一个bucket当中。对于candle而言，它需要实现从不同介质的数据到candle tensor的载入/映射逻辑。由于介质不一定相同，他一定需要一种用于分发不同载入逻辑的**Type**，在源码中，这个类型/Trait就是Bacnkend，同时，我们后面会看到这个类型也是存储数据的实际类型，换句话说，**Backend的类型直接决定了它会如何被载入**。
+
+而VarBuilderArgs中的_phantom就是起到标识不同分发逻辑的作用，而VarBuilder是作为最常用的VarBuilderArgs的一种分发（自然还有其他的可能），其Backend为SimpleBackend，SimpleBackend也是一种Trait，因此它也有分发的对象（具体的结构体），比如npz格式，safetensor格式等。
+
+因此，candle源码中定义了很多其他文件，如"npy.rs"等用于实现从文件到数据的转换逻辑。
+
+
+
+现在我们把目光聚焦在数据实际所在的位置，我们需要留意VarBuilderArgs中用于存储数据的字段，另外我们专注于对Safetensor对象的转换：
+
+```rust
 struct TensorData<B: Backend> {
     backend: B,
     pub device: Device,
 }
 
+impl SimpleBackend for candle::safetensors::MmapedSafetensors {
+    fn get(
+        &self,
+        s: Shape,
+        name: &str,
+        _: crate::Init,
+        dtype: DType,
+        dev: &Device,
+    ) -> Result<Tensor> {
+        let tensor = self.load(name, dev)?.to_dtype(dtype)?;
+        if tensor.shape() != &s {
+            Err(candle::Error::UnexpectedShape {
+                msg: format!("shape mismatch for {name}"),
+                expected: s,
+                got: tensor.shape().clone(),
+            }
+            .bt())?
+        }
+        Ok(tensor)
+    }
 
+    fn contains_tensor(&self, name: &str) -> bool {
+        self.get(name).is_ok()
+    }
+}
 ```
 
+可以看到，要通过VarBuilder获取tensor，可以通过`MmapedSafetensors.load(name)`的方法
 
 
 
+再来关注，当VarBuilder初始化的同时，会发生什么？
 
-#### Safetensors
+```rust
+pub unsafe fn from_mmaped_safetensors<P: AsRef<std::path::Path>>(
+    paths: &[P],
+    dtype: DType,
+    dev: &Device,
+) -> Result<Self> {
+    let tensors = candle::safetensors::MmapedSafetensors::multi(paths)?;
+    Ok(Self::from_backend(Box::new(tensors), dtype, dev.clone()))
+}
+```
+
+可以看到是通过MmapedSafetensors::multi方法，具体的载入逻辑可以回到Safetensors小节去看。
 
 
 
