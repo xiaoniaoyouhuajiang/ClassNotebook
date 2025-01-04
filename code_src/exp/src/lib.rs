@@ -2,3 +2,7 @@
 
 pub mod matmul; // Matrix multiplication
 pub mod n_body;
+pub mod closure_test;
+pub mod mutex;
+pub mod sync_send;
+pub mod smart_pointer;

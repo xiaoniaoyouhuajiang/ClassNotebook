@@ -615,17 +615,29 @@ $A \cdot B^{T}$
 
 ## unsafe
 
+https://cliffle.com/p/dangerust/
+
+
+
 ### why
 
-* 能读懂更多数据结构相关的源码
+* 能读懂更多数据结构相关的源码，了解背后的一些细节
+  * static var
+  * compiler opt
+  * uninitialized data
+  * ...
+
 * 学会rust的裸指针操作
 * rust中SIMD编程的原始方法
+* 比对性能和elf文件大小
 
 
 
 > 基础准备：
 >
 > 能够简单阅读C和Rust代码
+>
+> x86-64机器
 
 
 
@@ -945,7 +957,7 @@ Benchmark 1: ./build/n_body_rustc 50000000
 
 
 
-#### 修改为可变引用
+#### 裸指针修改为可变引用
 
 ```rust
 fn offset_Momentum(bodies: &mut [body; BODIES_COUNT]) {
@@ -1091,6 +1103,36 @@ impl Interactions {
 没错，通过封装，我们可以得到一些safe的API。
 
 
+
+再一次的，我们来看看性能是否有衰减：
+
+```shell
+hyperfine --runs 5 './build/n_body_rustc_safe 50000000'
+Benchmark 1: ./build/n_body_rustc_safe 50000000
+  Time (mean ± σ):      2.680 s ±  0.007 s    [User: 2.679 s, System: 0.001 s]
+  Range (min … max):    2.671 s …  2.687 s    5 runs
+```
+
+
+
+#### 最终版本
+
+```shell
+hyperfine --runs 5 './build/n_body_rustc 50000000'
+Benchmark 1: ./build/n_body_rustc 50000000
+  Time (mean ± σ):      2.662 s ±  0.005 s    [User: 2.661 s, System: 0.001 s]
+  Range (min … max):    2.657 s …  2.669 s    5 runs
+
+hyperfine --runs 5 './build/n_body_rustc_safe 50000000'
+Benchmark 1: ./build/n_body_rustc_safe 50000000
+  Time (mean ± σ):      2.233 s ±  0.009 s    [User: 2.232 s, System: 0.001 s]
+  Range (min … max):    2.223 s …  2.243 s    5 runs
+  
+size build/n_body_rustc_safe build/n_body_rustc
+   text    data     bss     dec     hex filename
+ 356003   13048     281  369332   5a2b4 build/n_body_rustc_safe
+ 356579   13336     617  370532   5a764 build/n_body_rustc
+```
 
 
 
