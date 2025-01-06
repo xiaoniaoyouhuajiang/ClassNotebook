@@ -27,9 +27,35 @@ pub trait Future {
 
 
 
+### runtime
+
+首先我们提出一个问题：既然async可以有那么多不同runtime的实现，那么我们直接使用最好的作为标准库不就得了，就像python有asyncio，那rust也应该要有这么一个东西。
+
+事实上，python的asyncio并不一定是**最好的**，要不然就不会有那么多项目使用uvloop这个使用cython优化过后的event loop了。
+
+
+
 ## 线程模型
 
 下面涉及的概念并不和语言绑定（C/C++），但会以Rust作为演示和讲解的主要语言。
+
+
+
+### 你能获得什么
+
+系列1：
+
+* 了解什么是同步原语
+* 对Sync以及Send更加深刻的认识，以及各种反例
+* 多线程代码必知：move || {}，如何约束一个函数的类型（Fn）
+* 底层并发概念：atmoic的使用：
+  * 回答一个问题：原子操作 VS Mutex
+
+
+
+系列2：
+
+* 在Rust中实现atomic（x86-64）
 
 
 
@@ -66,11 +92,50 @@ where
 
 
 
+#### 同步原语
+
+英文名称synchronization primitive，相信很多人都会听说互斥锁/事件等概念，并且很多博文也将这些概念统一为同步原语，那我们该如何以及为何要将一个概念归属于同步原语的范畴呢？
+
+我的理解，同步原语是程序员在**操作系统提供的线程/进程机制之上**创造的同步工具。它可以是抽象的概念，比如我们说互斥锁就会想到不管任何编程语言，在实现多线程操作的时候，但有可能会触及到的抽象概念。
+
+这一些概念可以参考这份清单：http://www.cs.columbia.edu/~hgs/os/sync.html
+
+但在一些语境下，也有人会用这个词去描述同步工具的**实例**，即一个现实的例子，比如一个rust库的基本描述就是：
+
+> Compact and efficient synchronization primitives for Rust. Also provides an API for creating custom synchronization primitives.
+
+既然是工具，肯定是可以有不同实现的，但对于一门高级语言来说，最常被使用到的一般是标准库提供的同步原语，比如std::sync
+
+
+
+
+
 
 
 ### 并发相关的概念
 
+我们要去回答一些问题：
+
+* 原子操作和互斥锁，哪一个更加高效
+
+
+
 #### Cell家族&智能指针
+
+我们不会讨论所有的智能指针/跟内存相关的容器，讨论并发，必然要涉及到线程概念，一旦涉及到线程，必然会使用到memory container：
+
+![rust-memory-container-cs-3840x2160-dark-back.png](../statics/rust-memory-container-cs-3840x2160-dark-back.png)
+
+
+
+##### Cell
+
+Cell是一个可共享的可变引用container(单线程情况下)
+
+来看最重要的API：set的签名：
+
+```rust
+```
 
 
 
@@ -78,11 +143,17 @@ where
 
 ##### 回顾内部可变性
 
+在不使用Cell的前提下实现内部可变性，其实都可以视作在用使用一种Cell变体（refcell, mutex）
+
+
+
+
+
 
 
 #### sync, send
 
-sync和send都是marker trait，同时也是auto trait——通常会被编译器检查类型并自动实现。
+sync和send都是marker trait(未定义任何行为)，同时也是auto trait——通常会被编译器检查类型并自动实现。
 
 我们先把这两个概念厘清。
 
@@ -119,16 +190,53 @@ fn main() {
 
 
 
-大部分的类型都实现了Send，除了一些特例：
+* 类型T的应用&T如果实现了Send，则T**必然**实现了Sync
+* 但是Sync强调同时，另一方面可以看出，很少有类型是Sync而不是Send（但不是没有，比如）
+* 由于这两个Trait可自动派生，从而当一个复合类型的所有成员都实现了Send/Sync，那么该类型自动就实现了Send/Sync
 
-* Rc
-* Mutex Guard
+
+
+我们来看一些典型的反例：
+
+* 裸指针：它的存在就意味着它没有任何的安全保障
+* Cell家族全员不是Sync（因为UnsafeCell不是）
+* Rc两者都不是（这就不得不联想到Python了，想想为啥PyObject不是线程安全的就知道了...）
+* MutexGuard：是Sync但不是Send：其他线程可以访问该对象，但不能销毁该对象
+
+
+
+Rc的例子：
+
+```rust
+impl<T> Drop for Rc<T> {
+    fn drop(&mut self) {
+        let current_count = &mut unsafe { &mut *self.inner }.count;
+        if * cnt == 1 {
+            let _ = unsafe { Box::from_raw(self.inner) };
+        } else {
+            *cnt -= 1
+        }
+    }
+}
+```
+
+
+
+
+
+Rust给使用者们提供了打破限制的办法，那理所当然就是unsafe的（JoJo，我不想做人啦），我们会在后面的例子中看到实际案例（实现自旋锁的过程中，值得一提的是，像parking lot这样的同步原语库也必然会有类似的声明）：
+
+```rust
+unsafe impl<T> Sync for Mutex<T> where T: Send {}
+```
 
 
 
 ##### 共享变量的条件
 
+就拿上面的Mutex举例，这是共享数据结构的多线程模式，每一个线程获取的，是目标对象的引用类型，这就要求一般状况下，我们一定要求该类型实现了Sync
 
+Arc是一种Rc, Arc<T>，如果T他是Sync，
 
 
 
@@ -424,3 +532,17 @@ fn too_relaxed() {
 
 ##### 实现atmoic
 
+
+
+#### 回答问题
+
+> 互斥锁和原子操作孰更高效
+
+原子操作的实现直接依赖于特殊的CPU指令(compare and swap)，使用原子指令，并不会阻碍其他线程工作，但锁就不是了，这里有一个细节在于：使用非自旋锁机制，其他线程会释放CPU资源，重新启动线程时，伴随着上下文切换的开销，但尝试原子操作的线程则会一直尝试知道成功，因此一般来说，原子操作的执行效率会更高。
+
+当然，我们可以从另一个角度来审视这个问题：你所使用的任何锁机制，它一定要用到原子指令来完成：
+
+* 一定需要compare-and-swap原子操作来获得锁
+* 一定需要store操作来释放锁
+
+所以你至少也需要两倍于原子操作的时间。

@@ -201,9 +201,7 @@ pub unsafe fn from_mmaped_safetensors<P: AsRef<std::path::Path>>(
 
 #### Yoke:零拷贝反序列化
 
-
-
-
+这部分内容，请参考同目录下的单独文章*Zero-Copy*。
 
 
 
