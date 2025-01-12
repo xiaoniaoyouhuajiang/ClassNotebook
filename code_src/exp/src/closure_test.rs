@@ -56,8 +56,11 @@ fn test_fn_once_by_reference() {
         // println!("{}", func(4));
     }
     let x = vec![1, 2, 3];
-    fn_once(|z|{z == x.len()});
-    println!("{:?}", x);
+    let closure = |z: usize | {z == x.len()};
+    fn_once(closure);
+    closure(4);
+    closure(3);
+    let y = x;
 }
 
 #[test]

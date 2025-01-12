@@ -205,6 +205,328 @@ pub unsafe fn from_mmaped_safetensors<P: AsRef<std::path::Path>>(
 
 
 
+### 从模型中加载张量
+
+现在，我们讨论如何从SimpleBackend的一种实现`MmapedSafetensors`中加载某一个layer的张量：
+
+```rust
+impl SimpleBackend for candle::safetensors::MmapedSafetensors {
+    fn get(
+        &self,
+        s: Shape,
+        name: &str,
+        _: crate::Init,
+        dtype: DType,
+        dev: &Device,
+    ) -> Result<Tensor> {
+        let tensor = self.load(name, dev)?.to_dtype(dtype)?;
+        if tensor.shape() != &s {
+            Err(candle::Error::UnexpectedShape {
+                msg: format!("shape mismatch for {name}"),
+                expected: s,
+                got: tensor.shape().clone(),
+            }
+            .bt())?
+        }
+        Ok(tensor)
+    }
+
+    fn contains_tensor(&self, name: &str) -> bool {
+        self.get(name).is_ok()
+    }
+}
+```
+
+
+
+还是回到trocr的例子中：
+
+```rust
+let mut model = trocr::TrOCRModel::new(&encoder_config, &decoder_config, vb)?;
+```
+
+上文中，我们构造了基于mmap映射内存的vb对象，这一个语句中，则是通过一个具体的transformer对象来调用MmapedSafetensors中的值。
+
+
+
+#### 推理过程
+
+```rust
+// trocr model在初始化过程创建encoder和decoder以及
+let encoder = TrOCREncoder::new(encoder_cfg, vb.clone())?;
+let decoder = TrOCRForCausalLM::new(decoder_cfg, vb)?;
+
+// 以Encoder的forward过程为例，Encoder初始化过程如下
+let vb_v = vb.pp("encoder");
+let embeddings = Embeddings::new(cfg, false, vb_v.pp("embeddings"))?;
+...
+
+// Embeddings对象的构造（参考下文）
+...
+
+// 以embedding的forward过程为例
+let encoder_xs = model.encoder().forward(&image)?;
+```
+
+
+
+Embeddings的构造过程
+
+```rust
+pub fn new(cfg: &Config, use_mask_token: bool, vb: VarBuilder) -> Result<Self> {
+    let hidden_size = cfg.hidden_size;
+    let cls_token = vb.get((1, 1, hidden_size), "cls_token")?;
+    let mask_token = if use_mask_token {
+        Some(vb.get((1, 1, hidden_size), "mask_token")?)
+    } else {
+        None
+    };
+    let patch_embeddings = PatchEmbeddings::new(cfg, vb.pp("patch_embeddings"))?;
+    let num_patches = patch_embeddings.num_patches;
+    let position_embeddings =
+        vb.get((1, num_patches + 1, hidden_size), "position_embeddings")?;
+    Ok(Self {
+        cls_token,
+        mask_token,
+        patch_embeddings,
+        position_embeddings,
+        hidden_size,
+    })
+}
+```
+
+
+
+观察出，有几个比较重要的调用：
+
+* vb.clone()
+* vb.pp(s：ToString)
+* get<S: Into<Shape>>(&self, s: S, name: &str) -> Result<Tensor>
+
+
+
+`get`调用非常重要，因为这是提取权重过程真正发生的位置。下面进行逐一分解
+
+
+
+##### clone
+
+```rust
+impl<B: Backend> Clone for VarBuilderArgs<'_, B> {
+    fn clone(&self) -> Self {
+        Self {
+            data: self.data.clone(),
+            path: self.path.clone(),
+            dtype: self.dtype,
+            _phantom: self._phantom,
+        }
+    }
+}
+```
+
+在我们讲述的场景中：
+
+vb.data -> Arc<TensorData<Backend>> ，所以当拷贝发生时，我们可以理解为这其实是对mmap内存段的又一个引用
+
+
+
+##### push_prefix
+
+```rust
+impl<B: Backend> VarBuilderArgs<'_, B> {
+	pub fn push_prefix<S: ToString>(&self, s: S) -> Self {
+        let mut path = self.path.clone();
+        path.push(s.to_string());
+        Self {
+            data: self.data.clone(),
+            path,
+            dtype: self.dtype,
+            _phantom: std::marker::PhantomData,
+        }
+    }
+}
+```
+
+可以看出，其实pp就是往path中新增一些字符前缀
+
+
+
+##### get
+
+以Embedding模块中的mask_token为例：
+
+```rust
+vb.get((1, 1, hidden_size), "mask_token")?
+```
+
+
+
+```rust
+// vb的get方法
+pub fn get_with_hints_dtype<S: Into<Shape>>(
+    &self,
+    s: S,
+    name: &str,
+    hints: B::Hints,
+    dtype: DType,
+) -> Result<Tensor> {
+    let path = self.path(name);
+    self.data
+        .backend
+        .get(s.into(), &path, hints, dtype, &self.data.device)
+}
+
+// Backend的get方法
+impl SimpleBackend for candle::safetensors::MmapedSafetensors {
+    fn get(
+        &self,
+        s: Shape,
+        name: &str,
+        _: crate::Init,
+        dtype: DType,
+        dev: &Device,
+    ) -> Result<Tensor> {
+        let tensor = self.load(name, dev)?.to_dtype(dtype)?;
+        if tensor.shape() != &s {
+            Err(candle::Error::UnexpectedShape {
+                msg: format!("shape mismatch for {name}"),
+                expected: s,
+                got: tensor.shape().clone(),
+            }
+            .bt())?
+        }
+        Ok(tensor)
+    }
+
+    fn contains_tensor(&self, name: &str) -> bool {
+        self.get(name).is_ok()
+    }
+}
+
+// MmaoedSafetensors的get方法
+    pub fn get(&self, name: &str) -> Result<st::TensorView<'_>> {
+        let index = match &self.routing {
+            None => 0,
+            Some(routing) => {
+                let index = routing.get(name).ok_or_else(|| {
+                    Error::CannotFindTensor {
+                        path: name.to_string(),
+                    }
+                    .bt()
+                })?;
+                *index
+            }
+        };
+        Ok(self.safetensors[index].get().0.tensor(name)?)
+    }
+```
+
+
+
+这里，通过safetensors crate的`tensor`方法，我们能够得到TensorView对象：
+
+```rust
+    pub fn tensor(&self, tensor_name: &str) -> Result<TensorView<'data>, SafeTensorError> {
+        if let Some(index) = &self.metadata.index_map.get(tensor_name) {
+            if let Some(info) = &self.metadata.tensors.get(**index) {
+                Ok(TensorView {
+                    dtype: info.dtype,
+                    shape: info.shape.clone(),
+                    data: &self.data[info.data_offsets.0..info.data_offsets.1],
+                })
+            } else {
+                Err(SafeTensorError::TensorNotFound(tensor_name.to_string()))
+            }
+        } else {
+            Err(SafeTensorError::TensorNotFound(tensor_name.to_string()))
+        }
+    }
+```
+
+可以看到，SafeTensor对象中有一个Metadata字段，贮存了TensorInfo数组，这里面包含了内存区域中的一小块用于存储该tensor的偏移量：
+
+```rust
+#[derive(Debug, Deserialize, Serialize, Clone)]
+pub struct TensorInfo {
+    /// The type of each element of the tensor
+    pub dtype: Dtype,
+    /// The shape of the tensor
+    pub shape: Vec<usize>,
+    /// The offsets to find the data within the byte-buffer array.
+    pub data_offsets: (usize, usize),
+}
+```
+
+注意到，TensorView当中的data是一个byte slice
+
+
+
+从safetensor::TensorView到candle::Tensor，有一个转换函数：
+
+```rust
+fn convert(view: &st::TensorView<'_>, device: &Device) -> Result<Tensor> {
+    match view.dtype() {
+        st::Dtype::U8 => convert_::<u8>(view, device),
+        st::Dtype::U16 => {
+            let conv = |x| Ok(u32::from(x));
+            convert_with_cast_::<u16, u32, _>(view, device, conv)
+        }
+        st::Dtype::U32 => convert_::<u32>(view, device),
+        st::Dtype::I32 => {
+            let conv = |x| Ok(i64::from(x));
+            convert_with_cast_::<i32, i64, _>(view, device, conv)
+        }
+        st::Dtype::I64 => convert_::<i64>(view, device),
+        st::Dtype::BF16 => convert_::<half::bf16>(view, device),
+        st::Dtype::F16 => convert_::<half::f16>(view, device),
+        st::Dtype::F32 => convert_::<f32>(view, device),
+        st::Dtype::F64 => convert_::<f64>(view, device),
+        dtype => Err(Error::UnsupportedSafeTensorDtype(dtype)),
+    }
+}
+```
+
+
+
+##### 转换
+
+```rust
+fn convert_<T: WithDType>(view: &st::TensorView<'_>, device: &Device) -> Result<Tensor> {
+    convert_slice::<T>(view.data(), view.shape(), device)
+}
+
+fn convert_slice<T: WithDType>(data: &[u8], shape: &[usize], device: &Device) -> Result<Tensor> {
+    let size_in_bytes = T::DTYPE.size_in_bytes();
+    let elem_count = data.len() / size_in_bytes;
+    if (data.as_ptr() as usize) % size_in_bytes == 0 {
+        // SAFETY This is safe because we just checked that this
+        // was correctly aligned.
+        let data: &[T] =
+            unsafe { std::slice::from_raw_parts(data.as_ptr() as *const T, elem_count) };
+        Tensor::from_slice(data, shape, device)
+    } else {
+        // XXX: We need to specify `T` here, otherwise the compiler will infer u8 because of the following cast
+        // Making this vector too small to fit a full f16/f32/f64 weights, resulting in out-of-bounds access
+        let mut c: Vec<T> = Vec::with_capacity(elem_count);
+        // SAFETY: We just created c, so the allocated memory is necessarily
+        // contiguous and non overlapping with the view's data.
+        // We're downgrading the `c` pointer from T to u8, which removes alignment
+        // constraints.
+        unsafe {
+            std::ptr::copy_nonoverlapping(data.as_ptr(), c.as_mut_ptr() as *mut u8, data.len());
+            c.set_len(elem_count)
+        }
+        Tensor::from_slice(&c, shape, device)
+    }
+}
+```
+
+
+
+关于Storage的转换便不再赘述，需要关心的是，从&[u8]到&[T]（比如可能是f64）的过程。
+
+
+
 ### 相关术语
 
 #### backbone
