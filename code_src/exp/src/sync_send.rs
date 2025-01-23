@@ -1,3 +1,4 @@
+
 struct Rc<T> {
     inner: Box<Inner<T>>
 }
@@ -17,12 +18,3 @@ impl<T> Rc<T> {
         }
     }
 }
-
-// impl<T> Clone for Rc<T> {
-//     fn clone(&self) -> Self {
-//         unsafe {&mut *self.inner}.count += 1;
-//         Self {
-//             inner: self.inner
-//         }
-//     }
-// }

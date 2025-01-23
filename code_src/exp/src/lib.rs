@@ -9,3 +9,4 @@ pub mod smart_pointer;
 pub mod mini_runtime;
 pub mod zero_copy;
 pub mod dyn_type;
+pub mod collections;

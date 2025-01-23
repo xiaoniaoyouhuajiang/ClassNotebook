@@ -57,8 +57,8 @@ candle的核心作用：
     * stride变化
   * issue2499问题定位
   * 算子实现（围绕cpu-binary op）
-    * 算子注册
-    * 模块层次
+    * ~~算子注册~~
+    * ~~模块层次~~
     * 性能优化相关设计
     * 自定义算子
     * 反向传播（引子）
@@ -68,9 +68,24 @@ candle的核心作用：
   * thinc的设计
   * candle的设计
   * julia, pytorch的设计
+* 从模型加载到forward
+  * 加载Safetensor文件
+  * VarBuild以及SimpleBackend
+    * 技术点：零拷贝反序列化
+  * 推理过程的Tensor提取
+  * 零拷贝反序列化（大量实例代码）
+    * Cow
+      * rust中的Cow container
+      * Cow原理
+      * `* Cow的紧密优化`
+    * mmap
+    * 擦除技术
+      * dyn-类型擦除
+      * Yoke-生命期擦除（重点）
+      * `* Yoke的实现原理`
 * 实战：表格转换工具
-  * 使用transformers模型Trocr
-    * 
+  * ~~使用transformers模型Trocr~~
+  * 实现TableTransformer
 
 
 
@@ -247,3 +262,16 @@ impl PatchEmbeddings {
 
 这样看起来，模型的大的这一个有点奇怪，由于我当前使用的是[trocr-small-printed](https://huggingface.co/microsoft/trocr-small-printed)模型，有可能是配置的问题，于是我考虑使用大亿些的
 
+
+
+## 你可以收获什么
+
+* 了解Candle是怎样获取模型的权重的
+
+* 模型初始化过程中，Candle怎样检索Tensor
+
+* 了解到Cow，Mmap等零拷贝反序列化常涉及到的名词，Rust中怎样使用
+
+* Rust中如何通过生命期擦除实现零拷贝反序列化
+
+  

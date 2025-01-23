@@ -36,7 +36,7 @@
 
 
 
-### container vs data structure
+### container/collections vs data structure
 首先我们平时工作中接触的最多的“东西”应该是container，好比Python中的list和dict以及C++中的std:vector, std:map等，它们都是容器，暴露了一部分CRUD接口的存储对象。容器的特性可以用三种行为来表征：
 * access
 * storage
@@ -62,7 +62,7 @@
 
 你希望通过数据结构的知识解决什么，这些问题便是“根本问题”，对于笔者，好奇的点在于，**切实**地搞清楚：
 
-* 深入地学习数据结构，主要是学些什么
+* 深入地学习数据结构，主要是学些什么(container/collection or algorithm)
 * 开发中的问题对所学知识有怎样的依赖
 * 能否通过数据结构的知识做出更好的软件
 

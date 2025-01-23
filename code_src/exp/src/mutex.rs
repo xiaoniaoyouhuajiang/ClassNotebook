@@ -1,4 +1,4 @@
-use std::sync::atomic::{AtomicBool, Ordering, AtomicUsize};
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::cell::UnsafeCell;
 
 struct Mutex<T> {
@@ -8,6 +8,7 @@ struct Mutex<T> {
 
 unsafe impl<T> Sync for Mutex<T> where T: Send {}
 
+#[allow(unused)]
 impl<T> Mutex<T> {
     pub fn new(t: T) -> Self {
         Self {
@@ -57,6 +58,8 @@ fn test_mutex() {
 fn test_atomic() {
     use std::thread;
     use std::sync::Arc;
+    use std::sync::atomic::{AtomicUsize, Ordering};
+
     let shared = Arc::new(AtomicUsize::new(0));
     let mut handles = vec![];
     let start_time = std::time::Instant::now();

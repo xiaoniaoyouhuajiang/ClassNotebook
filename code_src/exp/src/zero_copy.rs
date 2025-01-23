@@ -69,7 +69,7 @@ fn test_zero_copy_deserialize() {
     use memmap2::MmapOptions;
     use std::fs::File;
 
-    #[derive(yoke::Yokeable, Deserialize)]
+    #[derive(Deserialize)]
     struct Person<'a> {
         #[serde(borrow)]
         name: Cow<'a, str>,
@@ -77,7 +77,6 @@ fn test_zero_copy_deserialize() {
         #[serde(borrow)]
         email: Cow<'a, str>,
     }
-
     // 先创建一个临时文件，并写入一些JSON数据
     // test结束后，临时文件会被自动删除
     let mut temp_file = NamedTempFile::new().unwrap();
