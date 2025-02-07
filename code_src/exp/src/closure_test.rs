@@ -46,6 +46,7 @@ fn test_unique_immutable() {
     print!("{:?}", z)
 }
 
+#[allow(unused_variables, dead_code)]
 #[test]
 fn test_fn_once_by_reference() {
     fn fn_once<F>(func: F)

@@ -1,3 +1,4 @@
+#[allow(unused_variables, dead_code)]
 #[test]
 fn test_collection_lifetime() {
     let mut v = vec![1i32, 2, 3, 4];

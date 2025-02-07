@@ -167,4 +167,44 @@ unsafe extern "C" {
 
 ### objects-Binding
 
-Python的诸多内置类型，比如dict, list的bindings可以在`src/types`中找到，
+Python的诸多内置类型，比如dict, list的bindings可以在`src/types`中找到，PyObject在PyO3中被称为PyAny，其定义在src/type/any.rs
+
+既然是ffi，一定要对对象进行映射，我们先不考虑具体的代码实现，而是简单思考下，如果在Rust中实现了一个类型，在Python中进行调用会存在哪些问题？这部分的内容，会以[Pyo3用户手册第三小节](https://pyo3.rs/v0.23.4/python-from-rust.html)中的文档内容结合pyo3源代码讲解为主。
+
+
+
+#### 'py生命期
+
+python3.13中，提供了实验性的GIL禁用功能，可以在编译时选择`--disable-gil`来禁用GIL，但默认构建仍然启用GIL（事实上我还没去了解CPython团队做了什么工作来实现，推测是修改了引用计数的机制），因此接下来的内容，我都会围绕在“有GIL”这一前提下展开。而在PyO3源码中，存在一个`token`-`Python<'py'>`，其主要用途为（下面内容文档也会写，但并不会非常细致，我希望通过努力让各位更容易理解）：
+
+
+
+我们先来回顾一些跟GIL以及Rust原生函数相关的线索：
+
+* GIL确保同一时间只有一个线程能够使用Python解释器
+* 系统调用，普通的Rust代码可以释放掉GIL锁（因为不涉及Python对象以及Python API）
+* 在Python中调用Rust函数，如果有返回值，那么返回的一定是PyObject，这就意味着：
+  * 返回对象的生命期并非由Rust的“规则”管辖，而是由Python解释器去管理，但由于该函数由用户创建，那么PyO3一定要有标记来告诉使用者，存在一种生命期被Python解释器的生命期所包含
+  * 另外一个问题是，Rust代码中的static生命期在这种情况下还是"static"吗？
+
+
+
+* 为Python解释器提供全局API
+* Bound<'py, T'>
+
+
+
+#### Python结构体
+
+在src/marker.rs中，定义了这么一个结构体：
+
+```rust
+/// The [`Python<'py>`] type can be used to create references to variables owned by the Python
+/// interpreter, using functions such as [`Python::eval_bound`] and [`PyModule::import`].
+#[derive(Copy, Clone)]
+pub struct Python<'py>(PhantomData<(&'py GILGuard, NotSend)>);
+```
+
+注释中，提到这个类型可以用来创建python解释器中变量的引用。
+
+PyO3中绑定到'生命期的类型，比如`Bound<'py,T>`，都包含一个Python<'py> token，

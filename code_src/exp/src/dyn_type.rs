@@ -39,6 +39,7 @@ fn test_static() {
     draw_shape(&rectangle);
 }
 
+#[allow(unused_variables, dead_code)]
 #[test]
 fn test_dynamic_vector() {
     trait Drawable {

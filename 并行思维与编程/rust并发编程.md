@@ -9,6 +9,28 @@
 
 
 
+### 生态
+
+rust异步生态中有三个著名的crate：Tokio, async-std,futures，它们之间的关系：
+
+* `std::futures` 是实现 async/await 语法所需功能的标准库
+* std::futures从futures-rs中发展出来
+* tokio提供了一个具体的异步runtime，以及实用工具，用于处理IO类，Unix信号类，它是基于future-rs实现的
+
+
+
+####  runtime-agnostic
+
+
+
+
+
+### 异步模型
+
+
+
+
+
 ### Future
 
 ```rust
@@ -31,7 +53,11 @@ pub trait Future {
 
 首先我们提出一个问题：既然async可以有那么多不同runtime的实现，那么我们直接使用最好的作为标准库不就得了，就像python有asyncio，那rust也应该要有这么一个东西。
 
-事实上，python的asyncio并不一定是**最好的**，要不然就不会有那么多项目使用uvloop这个使用cython优化过后的event loop了。
+事实上，python内置的asyncio runtime并不一定是**最好的**，要不然就不会有那么多项目使用uvloop这个使用cython优化过后的event loop了。
+
+
+
+
 
 
 
@@ -546,3 +572,10 @@ fn too_relaxed() {
 * 一定需要store操作来释放锁
 
 所以你至少也需要两倍于原子操作的时间。
+
+
+
+## GPU编程
+
+### 图形学&vulkan
+

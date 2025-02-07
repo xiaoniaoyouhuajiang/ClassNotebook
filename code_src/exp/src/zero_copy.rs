@@ -1,8 +1,6 @@
 use std::{borrow::Cow, fmt::Error, rc::Rc};
-use memmap2::Mmap;
 use serde::{Serialize, Deserialize};
 
-use crate::zero_copy;
 
 #[derive(Serialize, Deserialize)]
 pub struct Person<'a> {
