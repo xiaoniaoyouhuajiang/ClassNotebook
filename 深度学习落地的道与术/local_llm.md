@@ -165,6 +165,21 @@ https://www.reddit.com/r/LocalLLaMA/comments/1cgo1tz/llama_3_hardware_recommenda
 
 
 
+### 模型推理-显卡对比
+
+25年2月有人使用消费级显卡做过一个benchmark:
+
+捡垃圾指南：廉价显卡本地跑大模型的推理速度对比 - erix的文章 - 知乎
+https://zhuanlan.zhihu.com/p/8797619083
+
+
+
+
+
+
+
+
+
 ## 其他参考材料
 
 * gpu选购（讲思路）：https://timdettmers.com/2023/01/30/which-gpu-for-deep-learning/

@@ -70,11 +70,18 @@ cargo build --release --features cuda
 
 https://github.com/huggingface/candle/issues/353
 
-的问题，可以通过修改compute_cap环境变量编译成功（原因尚未定位，实验显卡2060S）：
+的问题，可以通过重新安装cuda-toolkit解决：
 
 ```shell
-CUDA_COMPUTE_CAP=80 cargo build --release --features cuda
+sudo apt-get remove --purge nvidia-cuda-toolkit
+sudo apt-get -y install cuda-toolkit
 ```
+
+
+
+### 调试方法
+
+下面讲讲vscode环境下的
 
 
 
@@ -83,6 +90,11 @@ CUDA_COMPUTE_CAP=80 cargo build --release --features cuda
 candle框架中最核心的部分是tensor以及其op的定义部分，这些都在`candle-core`这个模块下，但是框架中的cuda代码都在candle-kernels中，所以我们需要先搞清楚，框架是如何串联两者获得GPU backend的加速能力的。
 
 在candle-core中是通过：
+
+* bindgen_cuda构建
+* cudarc作为ffi + 编写CUDA代码
+
+这两个工具来获取CUDA能力的，下面我们先从candle的代码出发，讲述如何
 
 
 
@@ -366,4 +378,63 @@ pub mod cuda_backend;
         })
     }
 ```
+
+
+
+### bingen_cuda
+
+专门为CUDA代码生成binding的构建工具
+
+
+
+#### 基本使用方法
+
+比如说，我们有一段cuda代码
+
+```rust
+__global__ void cuda_hello(){
+    printf("Hello World from GPU!\n");
+}
+```
+
+通过下面的build.rs，我们就可以在项目中获得CUDA的能力
+
+```rust
+fn main() {
+    let builder = bindgen_cuda::Builder::default();
+    let bindings = builder.build_ptx().unwrap();
+    bindings.write("src/lib.rs");
+}
+```
+
+
+
+上面的操作将会为用户生成代码：
+
+```rust
+pub const CUDA: &str = include_str!(concat!(env!("OUT_DIR"), "/cuda.ptx"));
+```
+
+事实上，candle-kernel里面的代码就和上面的demo如出一辙，区别仅仅是通过
+
+```rust
+    println!("cargo:rerun-if-changed=build.rs");
+    println!("cargo:rerun-if-changed=src/compatibility.cuh");
+    println!("cargo:rerun-if-changed=src/cuda_utils.cuh");
+    println!("cargo:rerun-if-changed=src/binary_op_macros.cuh");
+```
+
+来保证cuda的修改会重新触发编译罢了。现在，我们需要搞清楚的问题是，build_ptx()到底干了什么
+
+
+
+#### builder内部
+
+
+
+
+
+### cudarc
+
+我们已经得知，candle主要是通过cudarc来调用CUDA代码的，下面我们从这几个层次分析一下这个项目：
 
