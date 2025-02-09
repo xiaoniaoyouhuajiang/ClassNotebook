@@ -430,6 +430,39 @@ pub const CUDA: &str = include_str!(concat!(env!("OUT_DIR"), "/cuda.ptx"));
 
 #### builder内部
 
+下面会围绕builder的功能讲述它做了什么事以及为什么这么做，但对个中细节不会展开描述，感兴趣的同学可以自行阅读代码。
+
+使用cargo-modules来查看代码的整体结构：
+
+```shell
+crate cuda_gen
+├── struct Bindings: pub
+│   └── fn write: pub
+├── struct Builder: pub
+│   ├── fn arg: pub
+│   ├── fn build_lib: pub
+│   ├── fn build_ptx: pub
+│   ├── fn cuda_root: pub
+│   ├── fn include_paths: pub
+│   ├── fn include_paths_glob: pub
+│   ├── fn kernel_paths: pub
+│   ├── fn kernel_paths_glob: pub
+│   ├── fn out_dir: pub
+│   └── fn watch: pub
+├── enum Error: pub
+├── fn compute_cap: pub(crate)
+├── fn cuda_include_dir: pub(crate)
+├── fn default_include: pub(crate)
+└── fn default_kernels: pub(crate)
+```
+
+代码的过程就是两步，将它分解一下，实际过程如下：
+
+* 初始化builder，调用build_ptx()生成binding
+  * 确定cuda根目录，compute_cap，cuda_include以及编译输出的文件路径
+  * 构造nvcc command，重点是生成ptx代码
+* binding通过write方法将生成代码写入lib.rs
+
 
 
 
