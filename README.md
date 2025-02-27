@@ -5,12 +5,14 @@
       <img src=https://img.shields.io/github/stars/xiaoniaoyouhuajiang/ClassNotebook.svg?style=social >
       <img src=https://img.shields.io/badge/License-GPLv3.0-turquoise.svg >
  </div>
-> **Feynman’s learning technique comprises four key steps:**
+> Feynman’s learning technique comprises four key steps:
 >
 > 1. Select a concept and map your knowledge
 > 2. Teach it to a 12-year-old
 > 3. Review and Refine
 > 4. Test and Archive
+
+
 
 bilibili videos:https://space.bilibili.com/7258779
 
@@ -21,7 +23,7 @@ bilibili videos:https://space.bilibili.com/7258779
 * 学习、教程规划链接，请访问[这里](https://xiaoniaoyouhuajiang.github.io/ClassNotebook/)
 * demos代码（规划中）
 
-![img](../ClassNotebook/statics/FeynmanTechnique.jpg)
+![img](./statics/FeynmanTechnique.jpg)
 
 
 
