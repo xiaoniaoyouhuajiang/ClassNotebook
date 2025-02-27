@@ -1,9 +1,27 @@
-# ClassNotebook
+# 📚ClassNotebook
+
+  <div align='center'>
+      <img src=https://img.shields.io/badge/Language-python,rust-brightgreen.svg >
+      <img src=https://img.shields.io/github/stars/xiaoniaoyouhuajiang/ClassNotebook.svg?style=social >
+      <img src=https://img.shields.io/badge/License-GPLv3.0-turquoise.svg >
+ </div>
+> **Feynman’s learning technique comprises four key steps:**
+>
+> 1. Select a concept and map your knowledge
+> 2. Teach it to a 12-year-old
+> 3. Review and Refine
+> 4. Test and Archive
+
+bilibili videos:https://space.bilibili.com/7258779
+
+
 * CS、数学相关的个人笔记以及B站视频文档出处，参考[文档内容编排](#文档内容编排)
   * CS以及bilibili视频网站文档一般为markdown格式
   * 公式推导相关材料一般为pdf格式
 * 学习、教程规划链接，请访问[这里](https://xiaoniaoyouhuajiang.github.io/ClassNotebook/)
-* demo代码（规划中）
+* demos代码（规划中）
+
+![img](../ClassNotebook/statics/FeynmanTechnique.jpg)
 
 
 
@@ -43,9 +61,15 @@
 
 
 
-## code_src目录
+## 实验代码
 
-> code_src目录已经比较久没有更新，其中记录的内容和代码多数有过时
+### exp
+
+
+
+### code_src
+
+**code_src目录已经比较久没有更新，其中记录的内容和代码已许久没更新过了**
 
 * bayesnet-贝叶斯网
   * utils.py(贝叶斯网的实现)
@@ -72,17 +96,46 @@
 
 ## todo
 
-本人主打佛系维护
+learn-by-project
 
-### 仓库维护
+该页维护的内容并非个人频道的所有专题，只列举了部分，对专题分类感兴趣的，请前往[该链接](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=video.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fxiaoniaoyouhuajiang%2FClassNotebook%2Fmain%2Fvideo.drawio#%7B%22pageId%22%3A%22eG58fKcfLWwg1yVHmBJ_%22%7D)
 
-* 更新github page的规划内容
-* 回顾code_src内容，并将有效代码分离到其他仓库
+### 维护
+
+- [ ] 更新github page的规划内容
+- [ ] 回顾code_src内容，并将有效代码分离到其他仓库
+- [ ] 英语README
 
 
 
-### 个人计划
+### 源码/论文分析
 
-* candle源码阅读，尝试contribute
-* 更新hpds库
+并不会对源码逐行解析，会找到代码中自认为有价值的部分进行**解读**和**模式分析**，会在视频开头列举出大家**可能**可以获得的知识
+
+- [x] [candle](https://github.com/huggingface/candle)
+  - [x] [candle-core-tensor](https://www.bilibili.com/video/BV1PRxseeEpq/?spm_id_from=333.1387.0.0&vd_source=d9b5b41044517f2b6d7225069dd1acb3)
+  - [x] [candle-example-trocr](https://www.bilibili.com/video/BV1zRqBYgE5q?spm_id_from=333.788.videopod.sections&vd_source=d9b5b41044517f2b6d7225069dd1acb3)
+  - [x] [mmap](https://www.bilibili.com/video/BV1s6r6YAEuC?spm_id_from=333.788.videopod.sections&vd_source=d9b5b41044517f2b6d7225069dd1acb3)
+  - [x] [candle零拷贝反序列化](https://www.bilibili.com/video/BV1BBcgeDEY3?spm_id_from=333.788.videopod.sections&vd_source=d9b5b41044517f2b6d7225069dd1acb3)
+  - [x] [cuda-kernel-binding](https://www.bilibili.com/video/BV1fwKsegEog?spm_id_from=333.788.videopod.sections&vd_source=d9b5b41044517f2b6d7225069dd1acb3)
+- [ ] greptimedb
+
+- [ ] mistral.rs
+
+
+
+### contributes
+
+#### 个人
+
+- [ ] pyrussh
+- [ ] hpds
+
+
+
+#### 第三方
+
+- [ ] greptimedb
+- [ ] mistral
+- [ ] py-spy
 
