@@ -1,6 +1,321 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" version="24.7.17" pages="4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.16" pages="6">
+  <diagram id="lw2WPv9BKW_zUKk5dRil" name="知识充电">
+    <mxGraphModel dx="1968" dy="4406" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="BP3OutZWpWjjy0n3Tlcf-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="331" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-2" value="&lt;span style=&quot;font-size: 24px&quot;&gt;元工具技术&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="50" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-3" value="" style="swimlane;childLayout=stackLayout;horizontal=1;fillColor=none;horizontalStack=1;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;strokeColor=none;stackBorder=10;stackSpacing=-12;resizable=1;align=center;points=[];fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="70" y="180" width="590" height="249" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-4" value="Program Analysis&#xa;Benchmark Design" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=20;" parent="BP3OutZWpWjjy0n3Tlcf-3" vertex="1">
+          <mxGeometry x="10" y="33" width="210" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-5" value="Debugger&amp;&#xa;Profiler" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="BP3OutZWpWjjy0n3Tlcf-3" vertex="1">
+          <mxGeometry x="208" y="33" width="194" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-6" value="版本管理工具" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="BP3OutZWpWjjy0n3Tlcf-3" vertex="1">
+          <mxGeometry x="390" y="33" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BP3OutZWpWjjy0n3Tlcf-4" target="BP3OutZWpWjjy0n3Tlcf-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="175" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-8" value="完成基本的workload&#xa;建模，补充文档" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="82.5" y="460" width="205" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-9" value="搭建MICA程序的运行环境&#xa;进行建模分析" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="280" y="460" width="300" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-11" value="" style="swimlane;childLayout=stackLayout;horizontal=1;fillColor=none;horizontalStack=1;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;strokeColor=none;stackBorder=10;stackSpacing=-12;resizable=1;align=center;points=[];fontColor=#000000;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="440" y="600" width="652" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-12" value="阅读Working&#xa;With Branches，&#xa;出一期视频教程&#xa;（GIT）" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="BP3OutZWpWjjy0n3Tlcf-11" vertex="1">
+          <mxGeometry x="10" y="33" width="190" height="117" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-13" value="Step 2." style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="BP3OutZWpWjjy0n3Tlcf-11" vertex="1">
+          <mxGeometry x="188" y="33" width="312" height="117" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-14" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="BP3OutZWpWjjy0n3Tlcf-11" vertex="1">
+          <mxGeometry x="488" y="33" width="154" height="117" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.437;exitY=0.995;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="BP3OutZWpWjjy0n3Tlcf-6" target="BP3OutZWpWjjy0n3Tlcf-12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="535" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BP3OutZWpWjjy0n3Tlcf-16" target="cGpuGIC4OJbjwKdJvR1R-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-16" value="Binding和REPL" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="636.5" y="210" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="BP3OutZWpWjjy0n3Tlcf-18" value="包管理工具" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="810" y="210" width="230" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-3" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;编译器技术由于过于宽泛，而且主题宏大，单独作为一个进程&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1130" y="-40" width="210" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-6" value="理清GDB和&#xa;Python的关系" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="280" y="810" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-7" value="分析探索py-spy" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="458" y="810" width="312" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.495;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="BP3OutZWpWjjy0n3Tlcf-5" target="cGpuGIC4OJbjwKdJvR1R-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="375" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-9" value="memray源码分析" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="758" y="810" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-10" value="理清GDB-init是什么，弄明白&#xa;core dump" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="1138" y="810" width="312" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-11" value="探索完成writing a&#xa; Linux Debugger" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="938" y="810" width="210" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-12" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="748" y="460" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-13" value="Step 2" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="926" y="460" width="312" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-14" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="1226" y="460" width="154" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-15" value="能够使用xeus探索&#xa;Dlib动态库" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="640" y="960" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-16" value="使用xeus写&#xa;CUDA代码&#xa;并使用" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="818" y="960" width="172" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-17" value="看Cppcon中的REPL介绍" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="980" y="960" width="292" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-18" value="探索Cppyy" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="1260" y="960" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-19" value="探索RCRL以及Inspector项目" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="1438" y="960" width="312" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-20" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="1738" y="960" width="154" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-23" target="cGpuGIC4OJbjwKdJvR1R-24" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-23" value="&lt;span style=&quot;font-size: 24px&quot;&gt;并行与编译优化&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="1970" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-24" value="CUDA编程" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="50" y="2120" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-25" target="FiT584Juvvzn4bcA7Xxu-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-25" value="Algorithms: &#xa;Parallel and &#xa;Sequential" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="223.5" y="2120" width="230" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.495;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-29" target="FiT584Juvvzn4bcA7Xxu-18" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-29" value="并行编译优化&#xa;探索" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="440" y="2120" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.605;entryY=-0.02;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-30" target="FiT584Juvvzn4bcA7Xxu-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-30" value="学习编译原理" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="620" y="2120" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.563;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-31" target="cGpuGIC4OJbjwKdJvR1R-39" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-31" value="体系结构与&#xa;汇编语言的学习" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="800" y="2120" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-39" value="阅读&#xa;AVX-现代&#xa;并行编程&#xa;C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="790" y="2350" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-40" value="量化方法中的《TLP》阅读" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="968" y="2350" width="312" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cGpuGIC4OJbjwKdJvR1R-41" value="PE课程中汇编章节作业" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="1268" y="2350" width="282" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-1" value="跳读C3，C2" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="243.5" y="2490" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-2" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="778" y="2490" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-3" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="420" y="2490" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-4" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="600" y="2490" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-6" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="960" y="2490" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-9" value="阅读《程序&#xa;设计语言》C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="600" y="2620" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-12" value="Mapping high level&#xa;into llvm-ir" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="778" y="2620" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-13" value="阅读Writing an &#xa;compiler in go" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="1140" y="2620" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-15" value="复习Interpreter&#xa;in go" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="960" y="2620" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-18" value="解析项目loopy" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="440" y="2750" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-20" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="980" y="2750" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-21" value="llvm-ir" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="620" y="2750" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-22" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="800" y="2750" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FiT584Juvvzn4bcA7Xxu-25" value="阅读计算机&#xa;组成原理-X86&#xa;C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="568" y="460" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ydetH_fhRxg6_XpSkAW9-1" target="ydetH_fhRxg6_XpSkAW9-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-1" value="ffi" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="1020" y="210" width="230" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-2" value="深入分析Python-CAPI&#xa;抽象对象层和具体对象层" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="1040" y="1080" width="270" height="117" as="geometry" />
+        </mxCell>
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-4" value="Cython构造一个&#xa;memory view对象，视频讲解" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="1290" y="1080" width="270" height="117" as="geometry" />
+        </mxCell>
+        <mxCell id="ydetH_fhRxg6_XpSkAW9-5" value="自己动手实现&#xa;Python虚拟机" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="1540" y="1080" width="150" height="117" as="geometry" />
+        </mxCell>
+        <mxCell id="a9HAjJTK13Pjy1ucHgHR-1" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="570" y="-15" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a9HAjJTK13Pjy1ucHgHR-2" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;fontSize=20;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="570" y="45" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a9HAjJTK13Pjy1ucHgHR-3" value="进行中" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="710" y="-20" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a9HAjJTK13Pjy1ucHgHR-4" value="已完成" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="710" y="35" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a9HAjJTK13Pjy1ucHgHR-5" value="一次最多两个线程" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="270" y="40" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a9HAjJTK13Pjy1ucHgHR-6" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;fontSize=20;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="870" y="-15" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a9HAjJTK13Pjy1ucHgHR-7" value="中断标识" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="-20" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a9HAjJTK13Pjy1ucHgHR-9" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;&lt;a href=&quot;data:page/id,k4x8bkAEsg89NT-Shseg&quot;&gt;异步编程&lt;/a&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="69" y="1200" width="190" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="EUYBOnuunk_7CH2h1Fbs" name="工匠精神">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ZZMj9K8tf0BF4FTSQsgq-2" target="ZZMj9K8tf0BF4FTSQsgq-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-2" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;hpds&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="60" y="90" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-3" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="60" y="240" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-4" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="233.5" y="240" width="230" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-5" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="450" y="240" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ZZMj9K8tf0BF4FTSQsgq-11" target="ZZMj9K8tf0BF4FTSQsgq-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-11" value="&lt;span style=&quot;font-size: 24px&quot;&gt;pyrussh&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="58.5" y="550" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-12" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="58.5" y="700" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-13" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="232" y="700" width="230" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-14" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="448.5" y="700" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="yS-kzPitKw-vYIm3mvBI-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="yS-kzPitKw-vYIm3mvBI-2" target="yS-kzPitKw-vYIm3mvBI-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yS-kzPitKw-vYIm3mvBI-2" value="&lt;span style=&quot;font-size: 24px&quot;&gt;Candle&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="60" y="970" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="yS-kzPitKw-vYIm3mvBI-3" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="60" y="1120" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="yS-kzPitKw-vYIm3mvBI-4" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="233.5" y="1120" width="230" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="yS-kzPitKw-vYIm3mvBI-5" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="450" y="1120" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="Rwc8Y87xJ34f3QLDgsj5-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Rwc8Y87xJ34f3QLDgsj5-2" target="Rwc8Y87xJ34f3QLDgsj5-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rwc8Y87xJ34f3QLDgsj5-2" value="&lt;span style=&quot;font-size: 24px&quot;&gt;开源pr&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="550" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Rwc8Y87xJ34f3QLDgsj5-3" value="graphtimedb" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="740" y="700" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="Rwc8Y87xJ34f3QLDgsj5-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Rwc8Y87xJ34f3QLDgsj5-5" target="Rwc8Y87xJ34f3QLDgsj5-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rwc8Y87xJ34f3QLDgsj5-5" value="candle" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="913.5" y="700" width="230" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="Rwc8Y87xJ34f3QLDgsj5-6" value="py-spy" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="700" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="Rwc8Y87xJ34f3QLDgsj5-7" value="学习candle-core" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="933.5" y="950" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Rwc8Y87xJ34f3QLDgsj5-8" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="950" width="190" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
   <diagram id="gqrAPQSGs6m91VuGfRIM" name="以前的计划">
-    <mxGraphModel dx="832" dy="484" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -28,18 +343,6 @@
         <mxCell id="Wlz0abQoxIl_LB6TaBgo-10" value="拆轮子&#xa;bottle，asgi" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" parent="Wlz0abQoxIl_LB6TaBgo-9" vertex="1">
           <mxGeometry x="10" y="33" width="190" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="Wlz0abQoxIl_LB6TaBgo-14" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="900" y="30" width="90" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Wlz0abQoxIl_LB6TaBgo-15" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;fontSize=20;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
-          <mxGeometry x="900" y="90" width="90" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Wlz0abQoxIl_LB6TaBgo-16" value="进行中" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" parent="1" vertex="1">
-          <mxGeometry x="1040" y="25" width="100" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Wlz0abQoxIl_LB6TaBgo-17" value="已完成" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" parent="1" vertex="1">
-          <mxGeometry x="1040" y="80" width="100" height="40" as="geometry" />
-        </mxCell>
         <mxCell id="Wlz0abQoxIl_LB6TaBgo-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="Wlz0abQoxIl_LB6TaBgo-19" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="348.5" y="740" as="targetPoint" />
@@ -56,9 +359,6 @@
         </mxCell>
         <mxCell id="Wlz0abQoxIl_LB6TaBgo-22" value="阅读第&#xa;四，第五章" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=20;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="417.5" y="763" width="154" height="200" as="geometry" />
-        </mxCell>
-        <mxCell id="Wlz0abQoxIl_LB6TaBgo-23" value="一次最多两个线程" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="600" y="85" width="170" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Wlz0abQoxIl_LB6TaBgo-24" value="输出读书笔记" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=20;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="557.5" y="763" width="172" height="200" as="geometry" />
@@ -210,326 +510,11 @@
         <mxCell id="o7WDqtN_BN_W0Uv2VoTu-3" value="研究dask文档" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="1341.5" y="1580" width="170" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="3Gv3u3O6Pqug7XY8LohI-8" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;fontSize=20;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
-          <mxGeometry x="1200" y="30" width="90" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="3Gv3u3O6Pqug7XY8LohI-9" value="中断标识" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" parent="1" vertex="1">
-          <mxGeometry x="1350" y="25" width="100" height="40" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-  <diagram id="lw2WPv9BKW_zUKk5dRil" name="最近的充电">
-    <mxGraphModel dx="1430" dy="797" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="BP3OutZWpWjjy0n3Tlcf-2" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="331" y="200" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-2" value="&lt;span style=&quot;font-size: 24px&quot;&gt;元工具技术&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="50" y="50" width="190" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-3" value="" style="swimlane;childLayout=stackLayout;horizontal=1;fillColor=none;horizontalStack=1;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;strokeColor=none;stackBorder=10;stackSpacing=-12;resizable=1;align=center;points=[];fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="70" y="180" width="590" height="249" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-4" value="Program Analysis&#xa;Benchmark Design" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="BP3OutZWpWjjy0n3Tlcf-3" vertex="1">
-          <mxGeometry x="10" y="33" width="210" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-5" value="Debugger技术" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="BP3OutZWpWjjy0n3Tlcf-3" vertex="1">
-          <mxGeometry x="208" y="33" width="194" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-6" value="版本管理工具" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="BP3OutZWpWjjy0n3Tlcf-3" vertex="1">
-          <mxGeometry x="390" y="33" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BP3OutZWpWjjy0n3Tlcf-4" target="BP3OutZWpWjjy0n3Tlcf-8" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="175" y="480" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-8" value="完成基本的workload&#xa;建模，补充文档" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="82.5" y="460" width="205" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-9" value="搭建MICA程序的运行环境&#xa;进行建模分析" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="280" y="460" width="300" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-11" value="" style="swimlane;childLayout=stackLayout;horizontal=1;fillColor=none;horizontalStack=1;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;strokeColor=none;stackBorder=10;stackSpacing=-12;resizable=1;align=center;points=[];fontColor=#000000;fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="440" y="600" width="652" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-12" value="阅读Working&#xa;With Branches，&#xa;出一期视频教程&#xa;（GIT）" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="BP3OutZWpWjjy0n3Tlcf-11" vertex="1">
-          <mxGeometry x="10" y="33" width="190" height="117" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-13" value="Step 2." style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="BP3OutZWpWjjy0n3Tlcf-11" vertex="1">
-          <mxGeometry x="188" y="33" width="312" height="117" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-14" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="BP3OutZWpWjjy0n3Tlcf-11" vertex="1">
-          <mxGeometry x="488" y="33" width="154" height="117" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.437;exitY=0.995;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="BP3OutZWpWjjy0n3Tlcf-6" target="BP3OutZWpWjjy0n3Tlcf-12" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="535" y="590" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BP3OutZWpWjjy0n3Tlcf-16" target="cGpuGIC4OJbjwKdJvR1R-15" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-16" value="Binding和REPL" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="636.5" y="210" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="BP3OutZWpWjjy0n3Tlcf-18" value="包管理工具" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="810" y="210" width="230" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-3" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;编译器技术由于过于宽泛，而且主题宏大，单独作为一个进程&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1370" y="210" width="210" height="190" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-6" value="理清GDB和&#xa;Python的关系" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
-          <mxGeometry x="280" y="810" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-7" value="分析探索MingDebugger" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="458" y="810" width="312" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.495;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="BP3OutZWpWjjy0n3Tlcf-5" target="cGpuGIC4OJbjwKdJvR1R-6" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="375" y="810" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-9" value="出一期使&#xa;用Cython开发&#xa;高性能数据结构&#xa;并调试的视频" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="758" y="810" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-10" value="理清GDB-init是什么，弄明白&#xa;core dump，并给出示例&#xa;完成一期视频" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="1138" y="810" width="312" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-11" value="探索完成writing a&#xa; Linux Debugger" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="938" y="810" width="210" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-12" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="748" y="460" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-13" value="Step 2" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="926" y="460" width="312" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-14" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="1226" y="460" width="154" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-15" value="能够使用xeus探索&#xa;Dlib动态库" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
-          <mxGeometry x="640" y="960" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-16" value="使用xeus写&#xa;CUDA代码&#xa;并使用" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="818" y="960" width="172" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-17" value="看Cppcon中的REPL介绍" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="980" y="960" width="292" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-18" value="探索Cppyy" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="1260" y="960" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-19" value="探索RCRL以及Inspector项目" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="1438" y="960" width="312" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-20" value="Step 3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="1738" y="960" width="154" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-23" target="cGpuGIC4OJbjwKdJvR1R-24" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-23" value="&lt;span style=&quot;font-size: 24px&quot;&gt;并行与编译优化&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="50" y="1130" width="190" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-24" value="CUDA编程" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="50" y="1280" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-25" target="FiT584Juvvzn4bcA7Xxu-1" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-25" value="Algorithms: &#xa;Parallel and &#xa;Sequential" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="223.5" y="1280" width="230" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.495;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-29" target="FiT584Juvvzn4bcA7Xxu-18" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-29" value="并行编译优化&#xa;探索" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="440" y="1280" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.605;entryY=-0.02;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-30" target="FiT584Juvvzn4bcA7Xxu-9" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-30" value="学习编译原理" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="620" y="1280" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.563;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-31" target="cGpuGIC4OJbjwKdJvR1R-39" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-31" value="体系结构与&#xa;汇编语言的学习" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="800" y="1280" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-33" target="cGpuGIC4OJbjwKdJvR1R-34" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-33" value="&lt;span style=&quot;font-size: 24px&quot;&gt;高性能C++&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="50" y="2020" width="190" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-34" value="内存管理" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="50" y="2180" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-35" value="容器设计" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="223.5" y="2180" width="230" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-36" value="算法" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="440" y="2180" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-37" value="Binding" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="620" y="2180" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="cGpuGIC4OJbjwKdJvR1R-38" target="ydetH_fhRxg6_XpSkAW9-6" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-38" value="高性能&#xa;深度学习" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="800" y="2180" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-39" value="阅读&#xa;AVX-现代&#xa;并行编程&#xa;C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="790" y="1510" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-40" value="量化方法中的《TLP》阅读" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="968" y="1510" width="312" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="cGpuGIC4OJbjwKdJvR1R-41" value="PE课程中汇编章节作业" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="1268" y="1510" width="282" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-1" value="跳读C3，C2" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="243.5" y="1650" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-2" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="778" y="1650" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-3" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="420" y="1650" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-4" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="600" y="1650" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-6" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="960" y="1650" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-9" value="阅读《程序&#xa;设计语言》C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="600" y="1780" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-12" value="Mapping high level&#xa;into llvm-ir" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="778" y="1780" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-13" value="阅读Writing an &#xa;compiler in go" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="1140" y="1780" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-15" value="复习Interpreter&#xa;in go" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="960" y="1780" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-18" value="解析项目loopy" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="440" y="1910" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-20" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="980" y="1910" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-21" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="620" y="1910" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-22" value="Step 1" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="800" y="1910" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="FiT584Juvvzn4bcA7Xxu-25" value="阅读计算机&#xa;组成原理-X86&#xa;C1-C3" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="568" y="460" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ydetH_fhRxg6_XpSkAW9-1" target="ydetH_fhRxg6_XpSkAW9-2" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-1" value="包管理工具" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="1020" y="210" width="230" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-2" value="深入分析Python-CAPI&#xa;抽象对象层和具体对象层" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="1040" y="1080" width="270" height="117" as="geometry" />
-        </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-4" value="Cython构造一个&#xa;memory view对象，视频讲解" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="1290" y="1080" width="270" height="117" as="geometry" />
-        </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-5" value="自己动手实现&#xa;Python虚拟机" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="1550" y="1080" width="150" height="117" as="geometry" />
-        </mxCell>
-        <mxCell id="ydetH_fhRxg6_XpSkAW9-6" value="阅读Fliud-dev &#xa;C1-C4" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="800" y="2420" width="190" height="100" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-  <diagram id="EUYBOnuunk_7CH2h1Fbs" name="工匠精神">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ZZMj9K8tf0BF4FTSQsgq-2" target="ZZMj9K8tf0BF4FTSQsgq-3" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-2" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;hpds&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="60" y="90" width="190" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-3" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="60" y="240" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-4" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="233.5" y="240" width="230" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-5" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="450" y="240" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ZZMj9K8tf0BF4FTSQsgq-11" target="ZZMj9K8tf0BF4FTSQsgq-12" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-11" value="&lt;span style=&quot;font-size: 24px&quot;&gt;pyrussh&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="58.5" y="550" width="190" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-12" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="58.5" y="700" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-13" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="232" y="700" width="230" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="ZZMj9K8tf0BF4FTSQsgq-14" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="448.5" y="700" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="fovIKE46zdDYR3kM_yQ1-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="fovIKE46zdDYR3kM_yQ1-7" target="fovIKE46zdDYR3kM_yQ1-8" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="fovIKE46zdDYR3kM_yQ1-7" value="&lt;span style=&quot;font-size: 24px&quot;&gt;Ming-Debugger&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="60" y="1420" width="190" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="fovIKE46zdDYR3kM_yQ1-8" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="60" y="1570" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="fovIKE46zdDYR3kM_yQ1-9" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="233.5" y="1570" width="230" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="fovIKE46zdDYR3kM_yQ1-10" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="450" y="1570" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="yS-kzPitKw-vYIm3mvBI-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yS-kzPitKw-vYIm3mvBI-2" target="yS-kzPitKw-vYIm3mvBI-3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="yS-kzPitKw-vYIm3mvBI-2" value="&lt;span style=&quot;font-size: 24px&quot;&gt;Candle&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="970" width="190" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="yS-kzPitKw-vYIm3mvBI-3" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
-          <mxGeometry x="60" y="1120" width="190" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="yS-kzPitKw-vYIm3mvBI-4" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
-          <mxGeometry x="233.5" y="1120" width="230" height="206" as="geometry" />
-        </mxCell>
-        <mxCell id="yS-kzPitKw-vYIm3mvBI-5" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
-          <mxGeometry x="450" y="1120" width="190" height="206" as="geometry" />
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="QSHCfKgrCPNFdQzwcAIf" name="生活优化">
-    <mxGraphModel dx="832" dy="652" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -539,7 +524,7 @@
         <mxCell id="qfQP-xgr3SDetQFDoj6f-2" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;口琴学习&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="60" y="50" width="190" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="qfQP-xgr3SDetQFDoj6f-3" value="购买系统学习&#xa;的书籍" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="qfQP-xgr3SDetQFDoj6f-3" value="购买系统学习&#xa;的书籍" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="60" y="200" width="190" height="206" as="geometry" />
         </mxCell>
         <mxCell id="qfQP-xgr3SDetQFDoj6f-4" value="先弄懂压音，并&#xa;成功尝试压音" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
@@ -548,21 +533,49 @@
         <mxCell id="qfQP-xgr3SDetQFDoj6f-5" value="不断尝试吹奏&#xa;《老男孩》" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="450" y="200" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="oT9I-y5gUZeTY25ZJcFz-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="oT9I-y5gUZeTY25ZJcFz-2" target="oT9I-y5gUZeTY25ZJcFz-3" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="d3o-Wfbg48l5fujHqO4f-1" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;自重健身&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="480" width="190" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="oT9I-y5gUZeTY25ZJcFz-2" value="&lt;span style=&quot;font-size: 24px&quot;&gt;修身&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="60" y="500" width="190" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="oT9I-y5gUZeTY25ZJcFz-3" value="购买洗疗妥，并&#xa;使用" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="d3o-Wfbg48l5fujHqO4f-2" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
           <mxGeometry x="60" y="650" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="oT9I-y5gUZeTY25ZJcFz-4" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="233.5" y="650" width="230" height="206" as="geometry" />
+        <mxCell id="d3o-Wfbg48l5fujHqO4f-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=-0.023;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="d3o-Wfbg48l5fujHqO4f-1" target="d3o-Wfbg48l5fujHqO4f-2">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="oT9I-y5gUZeTY25ZJcFz-5" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
-          <mxGeometry x="450" y="650" width="190" height="206" as="geometry" />
+        <mxCell id="d3o-Wfbg48l5fujHqO4f-4" value="" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="233.5" y="650" width="190" height="206" as="geometry" />
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="k4x8bkAEsg89NT-Shseg" name="异步编程">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="U9qpvepdRPl84zbWjVXO-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U9qpvepdRPl84zbWjVXO-2" target="U9qpvepdRPl84zbWjVXO-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U9qpvepdRPl84zbWjVXO-2" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;异步编程&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1200" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="U9qpvepdRPl84zbWjVXO-3" value="CUDA编程" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1350" width="190" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="U9qpvepdRPl84zbWjVXO-4" value="Algorithms: &#xa;Parallel and &#xa;Sequential" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="243.5" y="1350" width="230" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="U9qpvepdRPl84zbWjVXO-5" value="并行编译优化&#xa;探索" style="shape=step;perimeter=stepPerimeter;fixedSize=1;points=[];whiteSpace=wrap;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="460" y="1350" width="190" height="206" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="z33YwZBDTwfxJSIWzOXv" name="数据结构">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>
