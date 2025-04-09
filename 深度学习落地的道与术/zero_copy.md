@@ -4,27 +4,17 @@
 
 但是当我们坐下来严肃地讨论相关的内容时，我们必须得明确上下文。
 
-
-
 从数据迁移的角度考虑，零拷贝不一定是真的“完全不需要进行内存的拷贝”，而是避免拷贝所有数据，从而占用了更少的资源（时间资源，或者是其他的）
-
-
 
 在到更加具体的场景当中，我们使用json文件存储数据，当我们进行“零拷贝反序列化”，我们一定会把数据从磁盘中（假如json数据没有格式错误）load到一段内存中，但这离将数据转换为runtime（比如Python解释器中）的数据结构（某一个PyOjbect）还是有一定距离的，假如说，前面分配的内存中，某一个字段的值和PyObject中对应字段的值是完全一致的，那我们只需要让后者指向前者的内存地址，就可以去利用它。从这个角度来说，我们就算是避免了/完成零拷贝反序列化。
 
-
-
 放到Rust语境下，这必然涉及到一个相关概念：生命期。现在，我们来展开
-
-
 
 ## 相关技术
 
 ### Cow(copy on write)
 
 先贴个维基百科的链接：https://en.wikipedia.org/wiki/Copy-on-write
-
-
 
 #### overview
 
@@ -34,15 +24,11 @@ cow是一种资源管理技术，其内涵是只有当需要修改资源时，�
 
 这很显然主要是为了节省资源。（还记得我们讲到UnionFs的时候涉及到的内容吗？没错，那也是一项实际应用）
 
-
-
 #### Rust视角
 
 假想存在这么一种类型，他一定很复杂，因为需要考虑到它生命期/所有权相关的设计。
 
 简言之，就是可选所有权
-
-
 
 #### 实例代码
 
@@ -78,8 +64,6 @@ fn test_cow_without_copy() {
 }
 ```
 
-
-
 #### 原理&优化点
 
 Cow类型：
@@ -92,10 +76,6 @@ pub enum Cow<'a, B> where
     Owned(<B as ToOwned>::Owned),
 }
 ```
-
-
-
-
 
 当Cow类型触发`to_mut`时，会有：
 
@@ -114,8 +94,6 @@ pub enum Cow<'a, B> where
         }
     }
 ```
-
-
 
 从而，当触发to_owned时，就会有全局内存分配器完成内存的拷贝，我们示例代码中，是一个slice，从而，最终会调用：
 
@@ -137,21 +115,15 @@ impl<T: Copy> ConvertVec for T {
 }
 ```
 
-
-
 实际上，Cow的内存布局是可以优化的：enum类型有一个tag占用了一个word（size_of::<usize()>）
 
 对于一个slice，一定会有Length和Capacity（Owned类型，Borrowed也会有，只不过需要Padding），从而size_of::<std::borrow::Cow<str>>() == 4
 
 但实际上，当Capacity为0，必定是borrowed，因此信息实际上存在一定的冗余，只需要使用3个word就可以实现Cow相应的功能。
 
-
-
 ### mmap
 
 在我们使用candle运行trocr的推理代码时，我们必须将模型参数从文件中读取到内存，在candle的一般场景中，mmap系统调用是我们最常使用的加载模型文件的方法。
-
-
 
 #### 使用场景&优势
 
@@ -165,13 +137,9 @@ impl<T: Copy> ConvertVec for T {
 
 其他可以参考这一篇内容：https://stackoverflow.com/questions/258091/when-should-i-use-mmap-for-file-access
 
-
-
 反例：
 
 * pipes/ttys是特殊的文件类型，mmap不能使用
-
-
 
 看了上述介绍你可能会觉得，对于并发的DL模型推理来说，mmap十分适合。
 
@@ -180,8 +148,6 @@ impl<T: Copy> ConvertVec for T {
 > So it doesn't create an extra copy in RAM and lives in the kernel page cache happily, loading instantly on subsequent runs.
 
 * https://github.com/ggerganov/llama.cpp/issues/91
-
-
 
 #### 原理
 
@@ -229,10 +195,6 @@ impl<T: Copy> ConvertVec for T {
   - 数据从磁盘直接加载到物理内存，并通过页表映射到用户空间。
   - 用户程序可以直接访问映射区域，避免了额外的拷贝操作。
 
-
-
-
-
 ### 擦除
 
 #### dyn：类型擦除
@@ -270,8 +232,6 @@ fn main() {
 }
 ```
 
-
-
 动态派发：
 
 ```rust
@@ -305,8 +265,6 @@ fn main() {
 }
 ```
 
-
-
 包含dyn关键字声明参数的函数实际在运行时决定了分派的函数，通过dyn，我们可以构造Trait objects，从而我们可以实现：
 
 ```rust
@@ -319,11 +277,7 @@ backends.push( Box::new(PositiveBackend{}) as Box<dyn Backend>);
 backends.push( Box::new(NegativeBackend{}) as Box<dyn Backend>);
 ```
 
-
-
 当然，这种抽象的代价伴随着性能的损失(类似CPP的虚表，map[method_name])，可以看一下相关的微基准测试：https://medium.com/digitalfrontiers/rust-dynamic-dispatching-deep-dive-236a5896e49b
-
-
 
 #### Yoke：生命期擦除
 
@@ -333,32 +287,15 @@ Yoke模块的设计，可以看看https://github.com/unicode-org/icu4x/blob/main
 
 咋一听这个还感觉挺吓人的，虽然这个有好处，比如能够让我们利用cache。
 
-
-
 > `Yoke<Y, C>` allows one to "yoke" a zero-copy deserialized object (say, a `Cow<'a, str>`) to the source it was deserialized from, (say, an `Rc<[u8]>`), known as a "cart", producing a type that looks like `Yoke<Cow<'static, str>, Rc<[u8]>>` and can be moved around with impunity.
-
-
 
 ##### 困境
 
 生命期就是困境，参考exp代码中的zero_copy.rs，使用Yoke的一个前提是cart实现了`stable_deref_trait`
-
-
 
 ```rust
 #[cfg(feature = "stable_deref_trait")]
 unsafe impl stable_deref_trait::StableDeref for Mmap {}
 ```
 
-
-
-
-
 ## 零拷贝反序列化
-
-
-
-
-
-
-
