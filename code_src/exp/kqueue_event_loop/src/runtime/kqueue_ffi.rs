@@ -1,37 +1,37 @@
 #![allow(non_camel_case_types, non_snake_case)]
-// src/runtime/kqueue_ffi.rs
+// 基于kqueue的FFI绑定
 
 use libc::{c_int, c_void, intptr_t, timespec, uintptr_t};
 
-// Define the kevent struct based on libc definition for macOS/BSD
+// 基于macOS/BSD的libc定义定义kevent结构体
 #[derive(Debug, Clone, Copy)] // Removed Default
 #[repr(C)]
 pub struct kevent {
-    pub ident: uintptr_t,  // identifier for this event
-    pub filter: i16,       // filter for event
-    pub flags: u16,        // action flags for kq
-    pub fflags: u32,       // filter flag value
-    pub data: intptr_t,    // filter data value
-    pub udata: *mut c_void, // opaque user data identifier
+    pub ident: uintptr_t,  // 事件的标识符
+    pub filter: i16,       // 事件过滤器
+    pub flags: u16,        // kqueue的动作标志
+    pub fflags: u32,       // 过滤器标志值
+    pub data: intptr_t,    // 过滤器数据值
+    pub udata: *mut c_void, // 不透明的用户数据标识符
 }
 
-// Constants for kqueue filters and flags (common values)
+// kqueue过滤器和标志的常量（常用值）
 // Filters
 pub const EVFILT_READ: i16 = -1;
 // pub const EVFILT_WRITE: i16 = -2; // Not used in this example
 
 // Flags
-pub const EV_ADD: u16 = 0x1; // add event to kq (implies enable)
-pub const EV_ENABLE: u16 = 0x4; // enable event
+pub const EV_ADD: u16 = 0x1; // 添加事件到kqueue（隐含启用）
+pub const EV_ENABLE: u16 = 0x4; // 启用事件
 #[allow(unused)]
-pub const EV_DELETE: u16 = 0x2; // delete event from kq
-pub const EV_CLEAR: u16 = 0x20; // clear event state after retrieval (ET simulation)
-// pub const EV_ONESHOT: u16 = 0x10; // only report one occurrence
+pub const EV_DELETE: u16 = 0x2; // 从kqueue删除事件
+pub const EV_CLEAR: u16 = 0x20; // 检索后清除事件状态（模拟边缘触发）
+// pub const EV_ONESHOT: u16 = 0x10; // 只报告一次发生
 
 extern "C" {
     pub fn kqueue() -> c_int;
 
-    // timespec can be null for indefinite wait
+    // timespec可以为null表示无限等待
     pub fn kevent(
         kq: c_int,
         changelist: *const kevent,
@@ -45,12 +45,12 @@ extern "C" {
     pub fn close(fd: c_int) -> c_int;
 }
 
-// Wrapper for our event structure
+// 事件结构的包装器
 #[derive(Debug)]
 pub struct Event(pub kevent); // Tuple struct wrapping kevent
 
 impl Event {
-    // Helper to get the token (udata) back as usize
+    // 帮助获取token(udata)作为usize返回
     pub fn token(&self) -> usize {
         self.0.udata as usize
     }
