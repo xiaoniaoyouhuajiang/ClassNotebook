@@ -41,9 +41,103 @@
 
 - schema设计原则
 
+### Helix-db实践
+
+使用Helix-db在本地部署了数据库实例，记录一些关键内容。
+
+1.使用helixql(helixdb自创的一种schema定义和query模型定义的查询语言，语法细节见https://docs.helix-db.com/documentation/hql/hql)构建数据库实例的定义：
+
+```cypher
+// schema.hx
+N::Folder {
+    name: String,
+    extracted_at: Date DEFAULT NOW
+}
+
+N::File {
+    name: String,
+    extension: String,
+    text: String,
+    extracted_at: Date DEFAULT NOW
+}
+
+N::Entity {
+    entity_type: String,
+    start_byte: I64,
+    end_byte: I64,
+    order: I64,
+    text: String,
+    extracted_at: Date DEFAULT NOW
+}
+...
+E::Entity_to_Entity {
+    From: Entity,
+    To: Entity,
+    Properties: {
+    }
+}
+
+E::Entity_to_EmbededCode {
+    From: Entity,
+    To: EmbededCode,
+    Properties: {
+    }
+}
+
+V::EmbededCode {
+    vector: [F64]
+}
+
+
+// queries.hx
+// Create Files
+QUERY createSuperFile(root_id: ID, name: String, extension: String, text: String) => 
+    root <- N<Root>(root_id)
+    file <- AddN<File>({name:name, extension:extension, text:text})
+    AddE<Root_to_File>()::From(root)::To(file)
+    RETURN file
+
+QUERY createFile(folder_id: ID, name: String, extension: String, text: String) => 
+    folder <- N<Folder>(folder_id)
+    file <- AddN<File>({name:name, extension:extension, text:text})
+    AddE<Folder_to_File>()::From(folder)::To(file)
+    RETURN file
+
+// Get Files
+QUERY getAllFiles() => 
+    files <- N<File>
+    RETURN files::!{text}
+
+QUERY getFile(file_id: ID) => 
+    file <- N<File>(file_id)
+    RETURN file::!{text}
+```
+
+<br>
+
+2.使用helix compile创建得到编译好的rust文件（helixql -> rust），文件名为queries.rs，结合helix-db内部的helix-container(bin crate)，能够得到一个可执行文件，该文件可理解为helix-db的数据库实例（暴露了数据库服务，默认端口6969），它会创建并管理持久化的数据库文件（默认路径在~/.helix/data下，也可以自己指定）**data.mdb**
+
+* 查看数据库实例可以使用`helix status`（注意这是cli工具，并非container）
+
+<br>
+
+3.使用graph construction工具，我选择使用helixdb提供的codebase-index([GitHub - HelixDB/codebase-index](https://github.com/HelixDB/codebase-index/tree/main))工具，使用本地embedding（基于fastembed-rs）工具将示例项目的vector和基于tree-sitter创建的graph塞进了实例管理数据中（只要在src目录下cargo run即可，项目默认使用的是gemini提供的embedding api，我没有KEY所以替换成了本地实现的embedding function）
+
+<br>
+
+4.最后使用dashboard（[GitHub - HelixDB/helix-dashboard](https://github.com/HelixDB/helix-dashboard)）启动前后端，即可将数据渲染到浏览器上，下面为参考：
+
+![dashboard](/Users/wangjiajie/software/ClassNotebook/statics/helixdb-dashboard.png)
+
 ### 图的自动化构建
 
 <br>
+
+评估哪一个方法更好需要围绕着具体的**benchmark**和已经成熟的**商业化工具**进行评估，我会优先考虑调研在**软件开发**助理和**自动交易系统/deep researcher**两个领域的技术方案。我在此列举出我调研中了解到一些可借鉴的点:
+
+* cognition.ai
+  
+  * 
 
 ### schema设计原则
 
@@ -56,5 +150,7 @@
 * 通用设计：[GitHub - TuGraph-family/chat2graph: Chat2Graph: Graph Native Agentic System.](https://github.com/TuGraph-family/chat2graph)
 
 * benchmark sota：[GitHub - OSU-NLP-Group/HippoRAG: [NeurIPS&#39;24] HippoRAG is a novel RAG framework inspired by human long-term memory that enables LLMs to continuously integrate knowledge across external documents. RAG + Knowledge Graphs + Personalized PageRank.](https://github.com/OSU-NLP-Group/HippoRAG)
+
+
 
 ## 记录问题
