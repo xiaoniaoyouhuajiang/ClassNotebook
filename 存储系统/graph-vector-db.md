@@ -121,4 +121,84 @@ lmdb基于COW实现了AC特性：
 
 
 
-## 基于kv的graph引擎
+## 基于kv-db的graph引擎
+
+### 可遍历性&一等公民
+
+在思考具体的算法如何将向量和实体/节点关联起来之前，我们应该更抽象地看待问题：要实现混合搜索，系统中最基础的单元应该要具备一些作为**基本公民**的共性，在helixdb中，它们首先是**可遍历性**。这在代码中十分清晰：
+
+```rust
+// tr_val.rs
+pub enum TraversalVal {
+    /// A node in the graph
+    Node(Node),
+    /// An edge in the graph
+    Edge(Edge),
+    /// A vector in the graph
+    Vector(HVector),
+    /// A count of the number of items
+    Count(Count),
+    /// A path between two nodes in the graph
+    Path((Vec<Node>, Vec<Edge>)),
+    /// A value in the graph
+    Value(Value),
+    /// An empty traversal value
+    Empty,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Clone)]
+#[serde(rename_all = "snake_case")]
+pub enum EdgeType {
+    #[serde(rename = "vec")]
+    Vec,
+    #[serde(rename = "node")]
+    Node,
+}
+
+pub trait Traversable {
+    fn id(&self) -> u128;
+    fn label(&self) -> String;
+    fn check_property(&self, prop: &str) -> Result<Cow<'_,Value>, GraphError>;
+    fn uuid(&self) -> String;
+}
+```
+
+可遍历性保证了，图系统中的遍历可适用于任何实现了这个trait的对象，特别的，针对向量的流程如下：
+
+![](../statics/helixdb-vector-intergrate.png)
+
+此外，EdgeType类型也能够体现出向量和节点都属于图系统中的一等公民。
+
+以推荐系统作为具体场景，一个简单的推荐算法可能只是一个查询就能cover的：
+
+```rust
+let results = G::new(storage, &txn)
+    .search_v(&user_a_vector, K, "user_embedding", None) // 1. 向量搜索
+    .out("follows", &EdgeType::Node)                     // 2. 图遍历
+    .filter_ref(|val, _| {                               // 3. 过滤
+        // ... 检查 val 是否是 user_a 或 user_a 已关注的人
+        Ok(is_not_followed_by_user_a)
+    })
+    .dedup()                                             // 4. 去重
+    .collect_to::<Vec<_>>();
+```
+
+<br>
+
+### 底层存储结构
+
+所有类型的数据存储共享同一个lmdb环境：
+
+![](../statics/helix-storage-engine.png)
+
+### 简单的数学分析
+
+这种设计的直观优势很明显，相较于neo4j+向量数据库，所有的操作都在一次http请求中完成，另一方面，这种设计保证了一致性：事务特性依托于lmdb的事务特性。
+
+以推荐系统为例，进行分析：
+
+* top_k向量搜索（hnsw）：$O(log_2(向量总数)$
+
+* 返回了k个向量，假设每个用户关注d个人，结合邻接关系的索引，这一步的复杂度为$O(log2(k*d))$
+
+其实从这里我们也能看出一点：实质上对比多个系统混合的方案来说，混合索引的算法复杂度并没有更低。
