@@ -181,6 +181,136 @@ QUERY getFile(file_id: ID) =>
 
 * benchmark sota：[GitHub - OSU-NLP-Group/HippoRAG: [NeurIPS&#39;24] HippoRAG is a novel RAG framework inspired by human long-term memory that enables LLMs to continuously integrate knowledge across external documents. RAG + Knowledge Graphs + Personalized PageRank.](https://github.com/OSU-NLP-Group/HippoRAG)
 
+<br>
+
+## 效果评测
+
+在我看来，一项技术/一个工具到底值不值得投入时间去研究或是开发很大程度取决于这个东西是否有非常明显的效益，举个例子，向量/深度学习编译器之所以会吸引很多开发者去研究，其中一个关键原因是它的关键**评判因素非常简单**并且诸如pytorch编译的**效果非常显著**，就是性能，常规的深度网络前向推理的时间远比经过编译优化后的运行时间要长，单就这一点就能迅速得到性能，能效上该工具的潜能巨大。
+
+那么，回到rag/agent。这个工具和我提到的例子不一样的地方在于，后者有明确的评判边界，但是rag的评判因素可能没那么具体，但是广义的rag有一些现实中效益非常显著的例子（至少目前来看是这样），比如cursor，比如google的deep research。
+
+这一节的目标是让这个过程尽可能清晰，简洁。
+
+<br>
+
+### 对比多种评估方法
+
+市面上充斥着大量的rag评估工具和评估方法，我们经常能听到人们说ragas，deep eval之类的词，而我认为要做的第一步是简单地评估下已有的方法。
+
+参考这一篇文章：https://towardsdatascience.com/benchmarking-hallucination-detection-methods-in-rag-6a03c555f063/
+
+这篇文章探讨了在检索增强生成（RAG）系统中检测大型语言模型（LLM）生成的错误回答（即“幻觉”）的方法。
+
+- **幻觉检测方法**：文章评估了多种幻觉检测方法，包括：
+  - **自我评估**：LLM对生成答案的置信度进行评分。
+  - **G-Eval**：使用思维链（CoT）提示，自动开发评估标准来评估答案质量。
+  - **幻觉指标**：估计LLM回答与上下文矛盾的程度。
+  - **RAGAS**：提供多种评分指标，用于检测幻觉。
+  - **可信语言模型（TLM）**：使用自我反思、一致性检验和概率度量来识别错误、矛盾和幻觉。
+
+- **评估方法**：文章在四个公开的RAG数据集上评估了这些方法，并使用AUROC和精确率/召回率来评估其性能。
+- **结果分析**：TLM在所有数据集上都表现出色，其次是自我评估和RAGAS可靠性。RAGAS可靠性在需要与上下文相关的准确性的数据集（如PubMedQA和COVID-QA）中表现良好。
+
+![](../statics/rag-auroc曲线.png)
+
+现在以这张图为例从细节分析一下评估是如何进行的：PubMedQA数据集中包含问题，上下文和答案的实例，使用分割将数据集划分为训练集和测试集。以ragas为例，ragas是一种评分方法，包含多个评分指标，比如忠诚度，上下文利用率，回答关联性等，将他们转换为0～1之间的数值，表示幻觉产生的可能性。
+
+注意：**数据集中包含一个布尔标签（标注值）用于评判该回答是否正确**
+
+然后，将数据集中的标注值用来和转换后的值进行比较。我们先介绍下ROC曲线
+
+- ROC（Receiver Operating Characteristic）曲线是二分类评估工具，用于刻画一个“连续评分”或“概率输出”模型在不同判定阈值下的分类性能。它以：
+  
+  - 横轴：FPR（False Positive Rate）= FP / (FP + TN)
+  - 纵轴：TPR（True Positive Rate，或 Recall）= TP / (TP + FN)  
+    来描绘随着阈值变化，查全率与误报率的权衡。
+
+- 为什么需要“连续评分 + 阈值”  
+  ROC 的核心是：模型不是直接输出“正/负”，而是输出“分数/概率”。你通过改变阈值把分数转成“正/负”，每个阈值都对应一个 (FPR, TPR) 点。将所有阈值的点连起来就是 ROC 曲线。AUC（Area Under the Curve）衡量整体区分能力，等价于“随机抽一对正负样本，正样本得分高于负样本的概率”。
+
+roc曲线评估意味着：
+
+- 阈值无关：综合考察所有可能阈值下的表现。
+- 类别不平衡时仍较稳定（相比精确率-召回率曲线的关注点不同）。
+- 便于比较不同模型/评分方法的整体区分能力。
+
+说了这么多，看下示例代码：
+
+```python
+import numpy as np
+from datasets import load_dataset
+from sklearn.metrics import roc_curve, roc_auc_score
+import matplotlib.pyplot as plt
+
+# 伪代码：加载 COVID-QA（名称仅示例，实际请查 HF 对应数据集）
+ds = load_dataset("covid_qa_cleaned")["test"]  # 或 train/validation
+
+# 假设你已实现如下函数：
+# - build_retriever(): 返回一个检索器
+# - generate_answer(question, contexts): 用 LLM 生成答案
+# - compute_ragas_scores(batch): 用 ragas 计算各指标（返回 dict: {'faithfulness': ..., 'answer_rel': ..., ...}）
+# - binary_label_answer_correct(gold_answer, generated_answer): 返回 0/1，定义你的“真值任务”
+
+retriever = build_retriever()
+
+records = []
+for ex in ds:
+    q = ex["question"]
+    gold_ans = ex["answer"]             # 具体字段名随数据集而定
+    # 1) 检索
+    contexts = retriever.search(q, top_k=5)
+    # 2) 生成答案
+    gen_ans = generate_answer(q, contexts)
+    # 3) 计算 RAGAS 指标
+    ragas_dict = compute_ragas_scores([
+        {"question": q,
+         "contexts": contexts,
+         "answer": gen_ans,
+         "ground_truth": gold_ans}
+    ])[0]
+
+    # 4) 构造真值标签（例：答案是否正确）
+    y = binary_label_answer_correct(gold_ans, gen_ans)
+
+    records.append({
+        "question": q,
+        "gold_answer": gold_ans,
+        "generated_answer": gen_ans,
+        "ragas_faithfulness": ragas_dict["faithfulness"],
+        "ragas_answer_rel": ragas_dict["answer_relevance"],
+        "ragas_context_rel": ragas_dict["context_relevance"],
+        "label_correct": y
+    })
+
+# 选择一个评分做 ROC（比如 answer relevance）
+y_true = np.array([r["label_correct"] for r in records])
+y_score = np.array([r["ragas_answer_rel"] for r in records])
+
+# 计算 ROC & AUC
+fpr, tpr, thresholds = roc_curve(y_true, y_score)
+auc = roc_auc_score(y_true, y_score)
+print("AUC:", auc)
+
+# 画图
+plt.figure(figsize=(5,5))
+plt.plot(fpr, tpr, label=f"AnswerRel (AUC={auc:.3f})")
+plt.plot([0,1], [0,1], "k--", alpha=0.4)
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.title("ROC on COVID-QA (Answer Correctness)")
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+### TLM is what you need
+
+通过刚刚那份报告对比我们能知道，TLM（# Trustworthy Language Model）指标是一个很好的选择，只因它在各个数据集上的auroc值都很高。
+
+### ARES方法
+
+
+
 ## ADK探索
 
 ### 简介
