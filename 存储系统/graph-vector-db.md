@@ -115,11 +115,7 @@ lmdb基于COW实现了AC特性：
 
 ### hnsw
 
-
-
 ### 稀疏搜索（sparse search）
-
-
 
 ## 基于kv-db的graph引擎
 
@@ -185,7 +181,14 @@ let results = G::new(storage, &txn)
 
 <br>
 
-### 底层存储结构
+### 存储结构
+
+首先说下关联：属性图意味着每一个节点可以通过**属性**来关联自身的元数据，底层实现上，属性其实是哈希表：
+
+```rust
+    #[serde(default)]
+    pub properties: Option<HashMap<String, Value>>,
+```
 
 所有类型的数据存储共享同一个lmdb环境：
 
