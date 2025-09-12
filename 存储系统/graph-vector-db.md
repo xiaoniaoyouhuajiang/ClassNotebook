@@ -111,6 +111,9 @@ lmdb基于COW实现了AC特性：
 
 <br>
 
+### Rust wrapper:heed3
+
+
 ## 向量存储
 
 ### hnsw
@@ -193,6 +196,64 @@ let results = G::new(storage, &txn)
 所有类型的数据存储共享同一个lmdb环境：
 
 ![](../statics/helix-storage-engine.png)
+
+核心代码：
+```rust
+pub struct HelixGraphStorage {
+    pub graph_env: Env,
+
+    pub nodes_db: Database<U128<BE>, Bytes>,
+    pub edges_db: Database<U128<BE>, Bytes>,
+    pub out_edges_db: Database<Bytes, Bytes>,
+    pub in_edges_db: Database<Bytes, Bytes>,
+    pub secondary_indices: HashMap<String, Database<Bytes, U128<BE>>>,
+    pub vectors: VectorCore,
+    pub bm25: Option<HBM25Config>,
+    pub version_info: VersionInfo,
+
+    pub storage_config: StorageConfig,
+}
+```
+
+另外，值得注意的一点是helixdb存储了几个库用于保存索引：
+* 快速完成out()和in_()遍历
+    * out_edges_db
+    * in_edges_db
+* 快速根据属性查找节点
+    * secondary_indices
+* hnsw索引信息
+
+下面是一些用例以及其在存储系统上发生的细节
+```rust
+// 插入节点
+G::new_mut(...).add_n("person", Some(props!{"name" => "Alice"}), Some(&["name"]))
+```
+* 开启写事务RwTxn，保证原子性
+* nodes_db.put
+    * key: 生成的u128的node_id
+    * value: node.encode_node()后生成的序列化字节数组
+* secondary_indices.get("name").unwrap().put(...)
+    * Key: 属性值 "Alice" 被序列化后的字节数组
+    * Value: 刚刚生成的 node.id
+* txn.commit()
+
+```rust
+G::new_mut(...).add_e("knows", None, node1_id, node2_id, false, EdgeType::Node)
+```
+* 开启写事务 (RwTxn)。
+* 创建 Edge 对象：
+    * key：分配新 id，并记录 label、from_node (node1_id) 和 to_node (node2_id)
+    * 序列化数据：调用 edge.encode_edge() 将 Edge 对象序列化为字节数组 。
+* edges_db.put(...)
+    * Key: edge.id。
+    * Value: 序列化后的边数据。
+* out_edges_db (出边索引)-out_edges_db.put(...)
+    * Key: 调用 HelixGraphStorage::out_edge_key(&node1_id, &hash_label("knows", ...)) 生成20字节的 Key 。
+    * Value: 调用 HelixGraphStorage::pack_edge_data(&edge.id, &node2_id) 生成32字节的 Value 。
+* 写入 in_edges_db (入边索引)：动作: in_edges_db.put(...) 。
+    * Key: 调用 HelixGraphStorage::in_edge_key(&node2_id, &hash_label("knows", ...)) 生成20字节的 Key 。
+    * Value: 调用 HelixGraphStorage::pack_edge_data(&edge.id, &node1_id) 生成32字节的 Value 。
+* txn.commit()
 
 ### 简单的数学分析
 
