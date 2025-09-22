@@ -41,7 +41,21 @@ ECS（Entity-Component-System）是一种在游戏开发中广泛使用的设计
 2. **组件（Component）**：组件是附加到实体上的数据结构，用于描述实体的属性，如位置、速度、生命值等。一个实体可以有多个组件，组件之间相互独立，不同的组件可以包含不同类型的数据。
 3. **系统（System）**：系统是一组操作组件数据的逻辑单元。系统会根据实体拥有的组件类型和数据来执行相应的逻辑，如物理更新、渲染、输入处理等。系统不存储状态，它们通过组件的数据来执行操作。
 
+### SoA范式
+Soa代表的是一种结构体设计模式，它符合DoD的设计原则，根因是这类设计能充分利用cpu缓存提高应用的性能。下面以超图（Ultragraph）的设计作为案例进行说明。
 
+```rust
+#[derive(Default)]
+pub(crate) struct CsrAdjacency<W> {
+    pub(crate) offsets: Vec<usize>,
+    pub(crate) targets: Vec<usize>,
+    pub(crate) weights: Vec<W>,
+}
+```
+CsrAdjacency 是一种在图数据结构中用于存储顶点邻居信息的数据结构：
+* offsets: 每个节点的邻接列表的起始位置，即该节点第一个邻居的索引。
+* targets: 每条边的目标节点索引，即连接到当前节点的节点索引。
+* weights (可选): 每条边的权重，可选字段，用于存储边的额外信息。
 
 ### bevy ecs
 
