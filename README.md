@@ -23,7 +23,7 @@ bilibili videos:https://space.bilibili.com/7258779
 * 学习、教程规划链接，请访问[这里](https://xiaoniaoyouhuajiang.github.io/ClassNotebook/)
 * demos代码（规划中）
 
-![img](./statics/FeynmanTechnique.jpg)
+![img](./docs/statics/FeynmanTechnique.jpg)
 
 
 
@@ -140,4 +140,3 @@ learn-by-project
 - [ ] greptimedb
 - [ ] mistral
 - [ ] py-spy
-

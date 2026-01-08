@@ -159,7 +159,7 @@ fn main() {
 
 * Sync意味着类型可以**同时**被多个线程引用
 
-* 类型T的应用&T如果实现了Send，则T**必然**实现了Sync
+* 类型T的应用`&T`如果实现了Send，则T**必然**实现了Sync
 
 * 但是Sync强调同时，另一方面可以看出，很少有类型是Sync而不是Send（但不是没有，比如）
 
@@ -197,7 +197,7 @@ unsafe impl<T> Sync for Mutex<T> where T: Send {}
 
 就拿上面的Mutex举例，这是共享数据结构的多线程模式，每一个线程获取的，是目标对象的引用类型，这就要求一般状况下，我们一定要求该类型实现了Sync
 
-Arc是一种Rc, Arc<T>，如果T他是Sync，
+Arc是一种Rc, `Arc<T>`，如果T他是Sync，
 
 #### move和闭包,Fn家族
 

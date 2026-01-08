@@ -12,6 +12,12 @@
 *.ilk
 *.lock
 .vscode/
+node_modules/
+
+# VitePress
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+docs/.vitepress/.temp/
 
 # pdf笔记允许使用pdf
 !/pdf_notes/*.pdf
