@@ -145,7 +145,7 @@ fatal error: all goroutines are asleep - deadlock!
 
 观察执行流图：
 
-![image-20210221175604932](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210221175604932.png)
+<!-- image missing: image-20210221175604932 (Typora local cache) -->
 
 ​	
 
@@ -171,7 +171,7 @@ fatal error: all goroutines are asleep - deadlock!
 
 两个进程互相等待对方释放资源
 
-![image-20210221181623845](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210221181623845.png)
+<!-- image missing: image-20210221181623845 (Typora local cache) -->
 
 
 
@@ -180,4 +180,3 @@ fatal error: all goroutines are asleep - deadlock!
 
 
 ### Livelock
-

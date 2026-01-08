@@ -58,7 +58,7 @@ nm -D mylib.so
 
 
 
-![image-20240114185835248](/statics/image-20240114185835248.png)
+![image-20240114185835248](../statics/image-20240114185835248.png)
 
 
 

@@ -10,7 +10,7 @@ title: 知识库
     <h1 class="hero-title">知识库</h1>
     <p class="hero-subtitle">记录编程、系统架构、机器学习与工程实践的探索之旅。</p>
     <div class="hero-actions">
-      <a class="hero-button" href="/并行思维与编程/rust并发编程">开始浏览</a>
+      <a class="hero-button" href="并行思维与编程/异步编程">开始浏览</a>
     </div>
     <p class="hero-note">侧边栏支持按目录层级展开，首页仅列一级目录入口。</p>
   </div>

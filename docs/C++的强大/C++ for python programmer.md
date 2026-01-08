@@ -104,7 +104,7 @@ https://www.cnblogs.com/flyinggod/p/10838214.html
 
 * [不推荐手动配置环境变量，，但咱们可以自己去看](https://docs.microsoft.com/zh-cn/cpp/build/building-on-the-command-line?view=msvc-170)
 
-![image-20220914222747581](E:\topics\C++的强大\pics\image-20220914222747581.png)
+![image-20220914222747581](./pics/image-20220914222747581.png)
 
 * 前提：一个巨坑，系统变量——VSINSTALLDIR(https://developercommunity.visualstudio.com/t/vcvars32bat-fails-after-upgrade-to-vs-2017-version/375841)
 * 记住配置自己的命令行脚本，比如init.bat
@@ -115,7 +115,7 @@ https://www.cnblogs.com/flyinggod/p/10838214.html
 
 * 如果只想要编译器，链接器，标准库，以及其他C++开发的基础工具，则使用installer安装时只需要勾选：
 
-![image-20220914220553130](E:\topics\C++的强大\pics\image-20220914220553130.png)
+![image-20220914220553130](./pics/image-20220914220553130.png)
 
 * 类似gcc xxx.cpp，直接生成可执行文件
 
@@ -145,11 +145,11 @@ cl /EHsc xxx.cpp
 
 CUDA所包含的：
 
-![image-20220917011008988](E:\topics\C++的强大\pics\image-20220917011008988.png)
+![image-20220917011008988](./pics/image-20220917011008988.png)
 
-![image-20220917011043705](E:\topics\C++的强大\pics\image-20220917011043705.png)
+![image-20220917011043705](./pics/image-20220917011043705.png)
 
-![image-20220917011125149](E:\topics\C++的强大\pics\image-20220917011125149.png)
+![image-20220917011125149](./pics/image-20220917011125149.png)
 
 推荐使用CMake来构建项目，因为：
 
@@ -176,9 +176,9 @@ CUDA所包含的：
 
 在windows下编译成功的这种快乐，你也值得拥有
 
-![image-20220917013804436](E:\topics\C++的强大\pics\image-20220917013804436.png)
+![image-20220917013804436](./pics/image-20220917013804436.png)
 
-![image-20220917015056536](E:\topics\C++的强大\pics\image-20220917015056536.png)
+![image-20220917015056536](./pics/image-20220917015056536.png)
 
 
 

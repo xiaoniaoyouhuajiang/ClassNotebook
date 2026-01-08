@@ -127,7 +127,7 @@ QUERY getFile(file_id: ID) =>
 
 4.最后使用dashboard（[GitHub - HelixDB/helix-dashboard](https://github.com/HelixDB/helix-dashboard)）启动前后端，即可将数据渲染到浏览器上，下面为参考：
 
-![dashboard](/Users/wangjiajie/software/ClassNotebook/statics/helixdb-dashboard.png)
+![dashboard](../statics/helixdb-dashboard.png)
 
 ### 图的自动化构建
 

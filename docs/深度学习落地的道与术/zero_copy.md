@@ -115,9 +115,9 @@ impl<T: Copy> ConvertVec for T {
 }
 ```
 
-实际上，Cow的内存布局是可以优化的：enum类型有一个tag占用了一个word（size_of::<usize()>）
+实际上，Cow的内存布局是可以优化的：enum类型有一个tag占用了一个word（`size_of::<usize>()`）
 
-对于一个slice，一定会有Length和Capacity（Owned类型，Borrowed也会有，只不过需要Padding），从而size_of::<std::borrow::Cow<str>>() == 4
+对于一个slice，一定会有Length和Capacity（Owned类型，Borrowed也会有，只不过需要Padding），从而 `size_of::<std::borrow::Cow<str>>() == 4`
 
 但实际上，当Capacity为0，必定是borrowed，因此信息实际上存在一定的冗余，只需要使用3个word就可以实现Cow相应的功能。
 

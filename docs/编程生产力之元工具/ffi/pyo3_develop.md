@@ -190,7 +190,7 @@ python3.13中，提供了实验性的GIL禁用功能，可以在编译时选择`
 
 
 * 为Python解释器提供全局API
-* Bound<'py, T'>
+* Bound`<'py, T'>`
 
 
 
@@ -207,4 +207,4 @@ pub struct Python<'py>(PhantomData<(&'py GILGuard, NotSend)>);
 
 注释中，提到这个类型可以用来创建python解释器中变量的引用。
 
-PyO3中绑定到'生命期的类型，比如`Bound<'py,T>`，都包含一个Python<'py> token，
+PyO3中绑定到'生命期的类型，比如`Bound<'py,T>`，都包含一个Python`<'py>` token，

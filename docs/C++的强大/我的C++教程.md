@@ -58,11 +58,11 @@ m = n;
 
 
 
-![image-20221203191417119](E:\topics\C++的强大\statics\image-20221203191417119.png)
+![image-20221203191417119](./statics/image-20221203191417119.png)
 
 
 
-![image-20221203163717077](E:\topics\C++的强大\statics\image-20221203163717077.png)
+![image-20221203163717077](./statics/image-20221203163717077.png)
 
 * 首先要了解什么是 [value categories](https://en.cppreference.com/w/cpp/language/value_category)
 

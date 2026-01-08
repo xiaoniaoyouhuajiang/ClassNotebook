@@ -659,10 +659,10 @@ where
 实现一个深度学习框架的Op系统，其关键是**反向传播**的过程该如何实现，从tensor的实现考虑，需要思考：
 
 * 基本：实现一个OP的全流程
-  * 给op注册<op_type>OpT trait
+  * 给op注册`<op_type>`OpT trait
   * 实现各个op的过程宏：
     * layout对齐(broadcast)
-    * storage.<op_type>_impl（op_type包括：unary, binary）
+    * storage.`<op_type>`_impl（op_type包括：unary, binary）
     * BackpropOp增加关系
   * 将特定op（如 Add, Sub等）注册为tensor的方法
 * op_impl
@@ -674,7 +674,7 @@ where
 
 有两部分注册工作，我们都以binary op作为示例：
 
-* 给op注册<op_type>OpT trait
+* 给op注册`<op_type>`OpT trait
 
 ```rust
 // BinaryOpt

@@ -73,10 +73,10 @@ C预处理器对源码处理后生成的文件会被编译器拿去处理，预�
 
 让我们回顾一下如何执行Python代码：
 
-* Python -c "<what you want to execute(python code)>"
-* python -m  <module>
-* python <file contain python code>
-* cat <file> | file
+* Python -c "`<what you want to execute(python code)>`"
+* python -m  `<module>`
+* python `<file contain python code>`
+* cat `<file>` | file
 * 开启repl并输入指令
 * 调用C API
 
@@ -118,7 +118,7 @@ PyPreConfig类型包含的字段都是整形，与PyPreConfig相关的文件有�
 
 * runtime flags：包括debug/optimized等
 * 运行模式：包括script file, stdin, module
-* 扩展选项，用-X <option>来进行指定
+* 扩展选项，用-X `<option>`来进行指定
 * 运行时的环境变量
 
 #### 使用命令行方法来设置运行时
@@ -400,11 +400,11 @@ list_traverse(PyListObject *o, visitproc visit, void *arg)
 
 ### 理解执行流程
 
-![image-20220903224506962](E:\topics\Python源码解析与奇技淫巧\pics\image-20220903224506962.png)
+![image-20220903224506962](./pics/image-20220903224506962.png)
 
 上述是Python运行的一般流水线。
 
-![image-20220903224653341](E:\topics\Python源码解析与奇技淫巧\pics\image-20220903224653341.png)
+![image-20220903224653341](./pics/image-20220903224653341.png)
 
 
 
@@ -425,7 +425,7 @@ def mul(a, b):
 
 
 
-![image-20220903214357610](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220903214357610.png)
+<!-- image missing: image-20220903214357610 (Typora local cache) -->
 
 
 
@@ -610,7 +610,7 @@ result = mul(10, 20)
 
 
 
-![image-20220904001147251](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220904001147251.png)
+<!-- image missing: image-20220904001147251 (Typora local cache) -->
 
 
 
@@ -656,7 +656,7 @@ result = mul(10, 20)
 
 
 
-![image-20220904024854571](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220904024854571.png)
+<!-- image missing: image-20220904024854571 (Typora local cache) -->
 
 但显然如果都是4kb就能被称之为**pool**，多少是有些奇怪的。
 
@@ -732,7 +732,6 @@ UNIX-based的系统，Python会使用mmap系统调用来请求内存。
 
 
 ## GIL的设计
-
 
 
 

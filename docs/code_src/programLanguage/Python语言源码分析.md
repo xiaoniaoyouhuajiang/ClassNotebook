@@ -56,10 +56,10 @@ C预处理器对源码处理后生成的文件会被编译器拿去处理，预�
 
 让我们回顾一下如何执行Python代码：
 
-* Python -c "<what you want to execute(python code)>"
-* python -m  <module>
-* python <file contain python code>
-* cat <file> | file
+* Python -c "`<what you want to execute(python code)>`"
+* python -m  `<module>`
+* python `<file contain python code>`
+* cat `<file>` | file
 * 开启repl并输入指令
 * 调用C API
 
@@ -97,7 +97,7 @@ PyPreConfig类型包含的字段都是整形，与PyPreConfig相关的文件有�
 前面也提到运行时配置的数据结构被设置在pyConfig结构体中，其中包括：
 * runtime flags：包括debug/optimized等
 * 运行模式：包括script file, stdin, module
-* 扩展选项，用-X <option>来进行指定
+* 扩展选项，用-X `<option>`来进行指定
 * 运行时的环境变量
 
 #### 使用命令行方法来设置运行时

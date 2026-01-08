@@ -150,9 +150,9 @@ Visual Studio有更加成熟的混合调试模式
 
 ### 像py文件一样导入pyx
 
-![image-20221109233716294](E:\topics\Python高性能编码\statics\image-20221109233716294.png)
+![image-20221109233716294](./statics/image-20221109233716294.png)
 
-![image-20221109233930149](E:\topics\Python高性能编码\statics\image-20221109233930149.png)
+![image-20221109233930149](./statics/image-20221109233930149.png)
 
 
 
@@ -180,13 +180,13 @@ from my_matrix import Matrix
 
 将find_and_load的import琐碎细节忽略掉，我们很快能锁定魔法的入口：
 
-![image-20221109234527747](E:\topics\Python高性能编码\statics\image-20221109234527747.png)
+![image-20221109234527747](./statics/image-20221109234527747.png)
 
 
 
 PyxLoader会引用load_module方法，事实上这就是我们今天的主角：
 
-![image-20221109234736216](E:\topics\Python高性能编码\statics\image-20221109234736216.png)
+![image-20221109234736216](./statics/image-20221109234736216.png)
 
 通过214，216行我们能发现，对pyx模块的loading过程实际上是先执行build_module，完成pyx -> c -> so的过程；
 
@@ -196,7 +196,7 @@ PyxLoader会引用load_module方法，事实上这就是我们今天的主角：
 
 ### 不一样的python runtime能否导入呢？
 
-![image-20221109235058711](E:\topics\Python高性能编码\statics\image-20221109235058711.png)
+![image-20221109235058711](./statics/image-20221109235058711.png)
 
 
 

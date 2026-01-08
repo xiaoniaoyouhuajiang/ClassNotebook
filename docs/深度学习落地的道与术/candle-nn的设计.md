@@ -301,7 +301,7 @@ pub fn new(cfg: &Config, use_mask_token: bool, vb: VarBuilder) -> Result<Self> {
 
 * vb.clone()
 * vb.pp(s：ToString)
-* get<S: Into<Shape>>(&self, s: S, name: &str) -> Result<Tensor>
+* `get<S: Into<Shape>>(&self, s: S, name: &str) -> Result<Tensor>`
 
 
 
@@ -326,7 +326,7 @@ impl<B: Backend> Clone for VarBuilderArgs<'_, B> {
 
 在我们讲述的场景中：
 
-vb.data -> Arc<TensorData<Backend>> ，所以当拷贝发生时，我们可以理解为这其实是对mmap内存段的又一个引用
+`vb.data -> Arc<TensorData<Backend>>` ，所以当拷贝发生时，我们可以理解为这其实是对mmap内存段的又一个引用
 
 
 

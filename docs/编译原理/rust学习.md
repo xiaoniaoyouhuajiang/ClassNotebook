@@ -157,10 +157,10 @@
   * String变量中
   * 栈中
 * 标准库中智能指针有这些类型，我们分开讨论：
-  * Box<T>：本质是实现了`Deref`和`Drop`两个关键trait的结构体，可以用来创建递归数据结构以及管理数据结构（容器类型）；
+  * Box`<T>`：本质是实现了`Deref`和`Drop`两个关键trait的结构体，可以用来创建递归数据结构以及管理数据结构（容器类型）；
     * Deref：解引用的实现，注意实现deref方法时，输出的是其想要输出目标**的引用**，另外一方面可以使用Type关键字指定输出引用的类型，从而实现强制类型转换。注意，`Deref`可以用于重载不可变引用，但是也存在着用于重载不可变引用的`DerefMut`
     * Drop: 对象离开作用域时必须执行的函数。drop函数不能显式调用，因此如果需要提前清理值，可以使用`std::mem::drop`
-  * Rc<T>：
+  * Rc`<T>`：
 * 在进入代码级别的作用域管理前，必须得先明确`crate`和`crate根`的概念，`crate根`是package的**接口文件**，package的作用可以是library，也可以是executable-file，而它们向外暴露的实体是二进制产物，另一方面它们在rust文件中也有**明确的**表征，即`lib.rs`和`main.rs`。在这些共识之下，crates根代表的实际就是这些个关键文件。优先讲crate根是因为我们关注一个语言的模块系统经常以`文件组织`作为切入点，这符合直觉。而`crate`是:
   * 编译产物，在第一点中提到二进制产物也能够称为`crate`，这里要提到rust编译器的工作模式：rust总是使用单个源文件作为输入来开启编译过程。你肯定能猜到，这些源文件就是第一点中的`crate根`，但另一方面，这些关键的二进制产物同样是`crate`，这也是为什么容易搞不清楚，从使用的角度说，就更能明确为何一个package**必须有一个crate（0 lib crate +  N bin crate 或者 1 lib crate + n bin crate。$N \in [1,\infty], n \in [0, \infty]$**。
   * 一种特殊的模块，就叫"crate模块"。这也符合直觉，任何系统的模块存在都是为了crate服务的，编译也从crate对应的文件出发，因此它们是根，即crate根
@@ -200,8 +200,8 @@ rust编译器支持静态/动态地将crate链接起来的方法。
 
 一些要点：
 
-* 智能指针RefCell<T>与内部可变性：内部可变性（Interior mutability）是Rust中的一个设计模式，允许即使有不可变引用时也可以改变数据，这是通常情况下借用规则不允许的，因此需要在数据结构中使用unsafe来模糊可变性和借用规则。
-* Rc为引用计数智能指针，它与Python中的PyObject有什么不一样呢？首先Rc<T>用于希望在堆上分配一些供多个部分读取的内存场景，并且不确定谁会最后使用它。
+* 智能指针RefCell`<T>`与内部可变性：内部可变性（Interior mutability）是Rust中的一个设计模式，允许即使有不可变引用时也可以改变数据，这是通常情况下借用规则不允许的，因此需要在数据结构中使用unsafe来模糊可变性和借用规则。
+* Rc为引用计数智能指针，它与Python中的PyObject有什么不一样呢？首先Rc`<T>`用于希望在堆上分配一些供多个部分读取的内存场景，并且不确定谁会最后使用它。
 
 ## 练习
 
@@ -815,7 +815,7 @@ for j in i+1..BODIES_COUNT {
 
 * 上述代码中`Note1`的C源码是`double position_Delta[3];`，C语言中当你不主动提供initializer的情况下，变量中的元素是不可预测的随机值，为啥提这点，因为有些场景下，不初始化值意味着更好的性能，但`未初始化变量`又是很多BUG的诞生地，在rust中，你如果要达到同样的效果，就必须打更多字。注意这里还有一个细节，就是写入数据的时候使用了指针操作`write`，这就避免了去读指定内存段的操作，很多时候rust改写内存值需要优先读取它的值（到寄存器中），这是因为你读取的类型有析构函数
 
-* `Note2`中，我们使用了transmute，这个函数就牛逼了，他可以对两个相同size的类型进行相互转换，本质就是将一种类型的比特位解释为另外一种，跟C中的cast类似，现在，我们将[mem::MaybeUninit::<f64>::uninit(); 3]转换为了[f64; 3]
+* `Note2`中，我们使用了transmute，这个函数就牛逼了，他可以对两个相同size的类型进行相互转换，本质就是将一种类型的比特位解释为另外一种，跟C中的cast类似，现在，我们将[mem::MaybeUninit::`<f64>`::uninit(); 3]转换为了[f64; 3]
 
 * ```C
   float x = something();
@@ -878,7 +878,7 @@ for(intnative_t i=0; i<ROUNDED_INTERACTIONS_COUNT/2; ++i){
 ```rust
 for i in 0..ROUNDED_INTERACTIONS_COUNT/2 {
     let mut position_Delta =
-        [mem::MaybeUninit::<__m128d>::uninit(); 3];
+        [mem::MaybeUninit::`<__m128d>`::uninit(); 3];
     for m in 0..3 {
         position_Delta[m].as_mut_ptr().write(
             *(&position_Deltas[m].0
@@ -1063,7 +1063,7 @@ Benchmark 1: ./build/n_body_rustc_safe 50000000
 在rust翻译版本代码中，我们显式地声明了未初始化变量：
 
 ```rust
-let mut position_Delta = [mem::MaybeUninit::<__m128d>::uninit(); 3];
+let mut position_Delta = [mem::MaybeUninit::`<__m128d>`::uninit(); 3];
 for m in 0..3 {
     position_Delta[m].as_mut_ptr().write(
         initial_value_here
@@ -1243,19 +1243,19 @@ size build/n_body_rustc_safe build/n_body_rustc
    }
    
    impl ProtoKind for Bootp {
-       type AuthInfo = Vec<u8>; // 假设 BOOTP 认证信息是字节序列
+       type AuthInfo = Vec`<u8>`; // 假设 BOOTP 认证信息是字节序列
        fn auth_info(&self) -> Self::AuthInfo { /* ... */ vec![1,2,3] }
    }
    // Bootp 可能没有额外的专属方法，或者有其他不同的方法
    
    // 通用的文件下载请求结构体
-   struct FileDownloadRequest<P: ProtoKind> {
+   struct FileDownloadRequest`<P: ProtoKind>` {
        file_name: PathBuf,
        protocol_details: P, // 存储协议特定的信息
    }
    
    // 为所有 FileDownloadRequest<P> 实现的通用方法
-   impl<P: ProtoKind> FileDownloadRequest<P> {
+   impl`<P: ProtoKind>` FileDownloadRequest<P> {
        fn file_path(&self) -> &Path {
            &self.file_name
        }
@@ -1286,15 +1286,15 @@ size build/n_body_rustc_safe build/n_body_rustc
    
    // ... (ProtoKind, Nfs, Bootp, FileDownloadRequest<P> 定义同上) ...
    
-   // 专门为 FileDownloadRequest<Nfs> 实现的方法
-   impl FileDownloadRequest<Nfs> {
+   // 专门为 FileDownloadRequest`<Nfs>` 实现的方法
+   impl FileDownloadRequest`<Nfs>` {
        fn mount_point(&self) -> &Path {
            self.protocol_details.mount_point() // 直接调用 Nfs 结构体的方法
        }
    }
    
-   // 可能为 FileDownloadRequest<Bootp> 实现的其他专属方法
-   // impl FileDownloadRequest<Bootp> {
+   // 可能为 FileDownloadRequest`<Bootp>` 实现的其他专属方法
+   // impl FileDownloadRequest`<Bootp>` {
    //     fn get_boot_server_ip(&self) -> IpAddr { /* ... */ }
    // }
    
@@ -1348,12 +1348,12 @@ Rust 的这种模式与之相似之处在于：
 
 ```rust
 #[derive(Debug)]
-struct HttpRequest<State> {
+struct HttpRequest`<State>` {
     url: String,
     method: String,
-    headers: Vec<(String, String)>,
-    body: Option<String>,
-    _state: std::marker::PhantomData<State>, // 状态标记，不占空间
+    headers: Vec`<(String, String)>`,
+    body: Option`<String>`,
+    _state: std::marker::PhantomData`<State>`, // 状态标记，不占空间
 }
 
 // 状态标记类型 (空结构体)
@@ -1363,7 +1363,7 @@ struct WithUrl;    // 已设置URL
 struct ReadyToSend; // 方法和URL都已设置
 
 // 初始构造
-impl HttpRequest<Fresh> {
+impl HttpRequest`<Fresh>` {
     pub fn new() -> Self {
         HttpRequest {
             url: String::new(),
@@ -1380,7 +1380,7 @@ trait HttpBuilder {
     fn add_header(self, key: &str, value: &str) -> Self;
 }
 
-impl<S> HttpBuilder for HttpRequest<S> {
+impl`<S>` HttpBuilder for HttpRequest`<S>` {
     fn add_header(mut self, key: &str, value: &str) -> Self {
         self.headers.push((key.to_string(), value.to_string()));
         self
@@ -1388,8 +1388,8 @@ impl<S> HttpBuilder for HttpRequest<S> {
 }
 
 // 从 Fresh 或 WithMethod 状态设置 URL
-impl HttpRequest<Fresh> {
-    pub fn url(self, url: &str) -> HttpRequest<WithUrl> { // 返回新状态的类型
+impl HttpRequest`<Fresh>` {
+    pub fn url(self, url: &str) -> HttpRequest`<WithUrl>` { // 返回新状态的类型
         HttpRequest {
             url: url.to_string(),
             method: self.method,
@@ -1399,8 +1399,8 @@ impl HttpRequest<Fresh> {
         }
     }
 }
-impl HttpRequest<WithMethod> {
-     pub fn url(self, url: &str) -> HttpRequest<ReadyToSend> { // 返回新状态的类型
+impl HttpRequest`<WithMethod>` {
+     pub fn url(self, url: &str) -> HttpRequest`<ReadyToSend>` { // 返回新状态的类型
         HttpRequest {
             url: url.to_string(),
             method: self.method,
@@ -1413,8 +1413,8 @@ impl HttpRequest<WithMethod> {
 
 
 // 从 Fresh 或 WithUrl 状态设置方法
-impl HttpRequest<Fresh> {
-    pub fn method(self, method: &str) -> HttpRequest<WithMethod> { // 返回新状态的类型
+impl HttpRequest`<Fresh>` {
+    pub fn method(self, method: &str) -> HttpRequest`<WithMethod>` { // 返回新状态的类型
         HttpRequest {
             url: self.url,
             method: method.to_string(),
@@ -1424,8 +1424,8 @@ impl HttpRequest<Fresh> {
         }
     }
 }
-impl HttpRequest<WithUrl> {
-    pub fn method(self, method: &str) -> HttpRequest<ReadyToSend> { // 返回新状态的类型
+impl HttpRequest`<WithUrl>` {
+    pub fn method(self, method: &str) -> HttpRequest`<ReadyToSend>` { // 返回新状态的类型
         HttpRequest {
             url: self.url,
             method: method.to_string(),
@@ -1438,7 +1438,7 @@ impl HttpRequest<WithUrl> {
 
 
 // 只有 ReadyToSend 状态才有 send 方法
-impl HttpRequest<ReadyToSend> {
+impl HttpRequest`<ReadyToSend>` {
     pub fn send(self) {
         println!("Sending {} request to {}...", self.method, self.url);
         // ... 实际发送逻辑 ...
@@ -1447,18 +1447,18 @@ impl HttpRequest<ReadyToSend> {
 
 
 fn main() {
-    let request_builder = HttpRequest::<Fresh>::new();
+    let request_builder = HttpRequest::`<Fresh>`::new();
 
-    // request_builder.send(); // 编译错误! HttpRequest<Fresh> 没有 send 方法
+    // request_builder.send(); // 编译错误! HttpRequest`<Fresh>` 没有 send 方法
 
     let request_with_url = request_builder.url("http://example.com");
-    // request_with_url.send(); // 编译错误! HttpRequest<WithUrl> 没有 send 方法
+    // request_with_url.send(); // 编译错误! HttpRequest`<WithUrl>` 没有 send 方法
 
     let request_ready = request_with_url.method("GET");
     request_ready.send(); // 正确!
 
     // 另一种顺序
-    let request_builder2 = HttpRequest::<Fresh>::new();
+    let request_builder2 = HttpRequest::`<Fresh>`::new();
     let request_with_method = request_builder2.method("POST");
     let request_ready2 = request_with_method.url("http://api.example.com");
     request_ready2.send();
