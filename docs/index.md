@@ -10,7 +10,22 @@ title: 知识库
     <h1 class="hero-title">知识库</h1>
     <p class="hero-subtitle">记录编程、系统架构、机器学习与工程实践的探索之旅。</p>
     <div class="hero-actions">
-      <a class="hero-button" href="并行思维与编程/异步编程">开始浏览</a>
+      <a class="hero-button" href="/并行思维与编程/异步编程">开始浏览</a>
+      <a
+        class="hero-button ghost hero-star"
+        href="https://github.com/xiaoniaoyouhuajiang/ClassNotebook"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="点个赞?🌟 跳转到 GitHub 仓库"
+      >
+        <span class="hero-star-text">点个赞?🌟</span>
+        <img
+          class="hero-star-badge"
+          alt="GitHub stars"
+          src="https://img.shields.io/github/stars/xiaoniaoyouhuajiang/ClassNotebook?style=flat&label=stars&color=0f766e"
+        />
+      </a>
+      <a class="hero-button hero-oss" href="/开源/">我的开源贡献🔥</a>
     </div>
     <p class="hero-note">侧边栏支持按目录层级展开，首页仅列一级目录入口。</p>
   </div>

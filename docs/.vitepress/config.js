@@ -42,6 +42,8 @@ const dirDisplayMap = {
 const ignorePrefixes = new Set([
   ".vitepress",
   "statics",
+  "data",
+  "开源",
   ...ignorePatterns
     .map((pattern) => pattern.split("/**")[0])
     .filter((prefix) => prefix && !prefix.includes("*")),
@@ -158,6 +160,9 @@ function collectDirItems(relDir) {
     nodir: true,
   });
   const indexFile = pickIndexFile(mdFiles);
+  const indexFileBase = indexFile
+    ? path.basename(indexFile).toLowerCase()
+    : null;
 
   const mdItems = mdFiles
     .filter((file) => file !== indexFile)
@@ -185,7 +190,11 @@ function collectDirItems(relDir) {
 
   return {
     items: [...mdItems, ...subItems],
-    link: indexFile ? toSidebarLink(indexFile) : undefined,
+    link: indexFile
+      ? indexFileBase === "index.md"
+        ? `/${normalized}/`
+        : toSidebarLink(indexFile)
+      : undefined,
   };
 }
 
