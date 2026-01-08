@@ -29,6 +29,15 @@ export const projects: OssProject[] = [
     repo: "https://github.com/xiaoniaoyouhuajiang/sidebundle",
     homepage: "https://github.com/xiaoniaoyouhuajiang/sidebundle#",
   },
+  {
+    draft: false,
+    name: "Ferrumpy",
+    tagline: "lldb插件：让调试rust像Python一样方便",
+    tags: ["debugger", "rust", "python"],
+    cover: "../statics/ferrumpy.svg",
+    repo: "https://github.com/xiaoniaoyouhuajiang/Ferrumpy",
+    homepage: "https://github.com/xiaoniaoyouhuajiang/ferrumpy#",
+  },
 ];
 
 export const pullRequests: OssPullRequest[] = [

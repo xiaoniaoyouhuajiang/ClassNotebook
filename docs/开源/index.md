@@ -33,9 +33,6 @@ function starsBadgeUrl(repoUrl) {
   return `https://img.shields.io/github/stars/${slug}?style=flat&label=stars&color=0f766e`;
 }
 </script>
-
-这里记录我做过的开源项目与精选贡献（PR）。内容通过手工维护的模板生成：`docs/data/oss.ts`。
-
 ## 个人项目
 
 <div class="oss-grid">
@@ -88,7 +85,7 @@ function starsBadgeUrl(repoUrl) {
       <div class="oss-title-name">尚未添加 PR</div>
       <div class="oss-title-role">在 `docs/data/oss.ts` 填写 `pullRequests`</div>
     </div>
-    <p class="oss-desc">精选 PR 更推荐“少而精”：写清楚问题、方案与影响，而不是堆列表。</p>
+    <p class="oss-desc"></p>
   </div>
   <div v-for="pr in visiblePullRequests" :key="pr.url" class="oss-card">
     <div class="oss-title">

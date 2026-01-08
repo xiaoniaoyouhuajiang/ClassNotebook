@@ -1,0 +1,95 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Fixed: Orange Rust with Mechanical Gear Reflection and Snake</title>
+
+  <defs>
+    <text id="mainTextCmd" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="130" text-anchor="middle" x="400" y="250" letter-spacing="5">RUST</text>
+
+    <path id="snakeSpinePath"
+          d="M 210, 230
+             Q 240, 180 280, 220
+             C 310, 250 330, 280 360, 240
+             S 410, 190 450, 230
+             S 520, 280 550, 240
+             Q 580, 200 600, 220" fill="none"/>
+
+    <linearGradient id="orangeRustGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff8c00" />
+      <stop offset="50%" stop-color="#ff4500" />
+      <stop offset="100%" stop-color="#cd3700" />
+    </linearGradient>
+
+    <radialGradient id="gearMetal" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+        <stop offset="40%" stop-color="#999" /> <stop offset="80%" stop-color="#555" />
+        <stop offset="100%" stop-color="#333" />
+    </radialGradient>
+    <g id="gearUnit">
+        <circle cx="25" cy="25" r="20" fill="url(#gearMetal)" stroke="#222" stroke-width="2"/>
+        <circle cx="25" cy="25" r="8" fill="none" stroke="#111" stroke-width="4"/>
+        <circle cx="25" cy="25" r="22" fill="none" stroke="#444" stroke-width="4" stroke-dasharray="6,4"/>
+        <rect x="5" y="22" width="15" height="6" fill="#222"/>
+        <circle cx="8" cy="8" r="3" fill="#555"/>
+    </g>
+    <pattern id="mechanicalPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <rect width="50" height="50" fill="#2a2a2a"/> <use href="#gearUnit" x="0" y="0"/>
+      <use href="#gearUnit" x="25" y="25" transform="scale(0.6)"/>
+    </pattern>
+
+    <linearGradient id="snakeSkinGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#2E7D32"/>
+        <stop offset="50%" stop-color="#4CAF50"/>
+        <stop offset="100%" stop-color="#1B5E20"/>
+    </linearGradient>
+    <linearGradient id="snakeSkinShadow" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1a471d"/>
+        <stop offset="100%" stop-color="#0f3311"/>
+    </linearGradient>
+     <radialGradient id="snakeEye">
+        <stop offset="20%" stop-color="#FFD700"/>
+        <stop offset="100%" stop-color="#FF4500"/>
+    </radialGradient>
+
+    <linearGradient id="fadeGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.5" stop-color="white" stop-opacity="1"/>
+      <stop offset="1" stop-color="black" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="reflectionMask">
+      <rect x="0" y="250" width="800" height="350" fill="url(#fadeGradient)"/>
+    </mask>
+
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0d0d0d" />
+  <rect width="100%" height="100%" fill="url(#mechanicalPattern)" opacity="0.05"/>
+
+
+  <g filter="drop-shadow(0px 5px 5px rgba(0,0,0,0.5))">
+      <use xlink:href="#mainTextCmd" stroke="#5c1a00" stroke-width="6" fill="none"/>
+      <use xlink:href="#mainTextCmd" fill="url(#orangeRustGradient)"/>
+  </g>
+
+
+  <g mask="url(#reflectionMask)">
+
+      <g transform="translate(0, 510) scale(1, -1)">
+
+        <use href="#snakeSpinePath" stroke="url(#snakeSkinShadow)" stroke-width="16" stroke-linecap="round" fill="none"/>
+
+        <g>
+            <use xlink:href="#mainTextCmd" fill="url(#mechanicalPattern)"/>
+            <use xlink:href="#mainTextCmd" fill="none" stroke="#555" stroke-width="2"/>
+            <use xlink:href="#mainTextCmd" fill="black" opacity="0.3"/>
+        </g>
+
+        <use href="#snakeSpinePath" stroke="url(#snakeSkinGreen)" stroke-width="16" stroke-linecap="round" fill="none"
+             stroke-dasharray="0, 50, 90, 80, 70, 90, 80, 200"/>
+
+        <g transform="translate(600, 220) rotate(-30)">
+             <ellipse cx="0" cy="0" rx="14" ry="10" fill="url(#snakeSkinGreen)"/>
+             <circle cx="5" cy="-4" r="3" fill="url(#snakeEye)"/>
+             <circle cx="5" cy="4" r="3" fill="url(#snakeEye)"/>
+             <path d="M 12,0 L 22,-3 M 12,0 L 22,3" stroke="#ff0000" stroke-width="2"/>
+        </g>
+
+      </g> </g> <line x1="50" y1="255" x2="750" y2="255" stroke="#ff4500" stroke-width="3" opacity="0.5" filter="drop-shadow(0 0 5px orange)"/>
+
+</svg>
