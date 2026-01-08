@@ -4,21 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - 'docs/**'
-      - 'C++的强大/**'
-      - '机器学习应用与理论/**'
-      - '深度学习落地的道与术/**'
-      - '并行思维与编程/**'
-      - '编程生产力之元工具/**'
-      - '编译原理/**'
-      - '存储系统/**'
-      - '网络与通信原理/**'
-      - '算法puzzles/**'
-      - 'Python源码解析与奇技淫巧/**'
-      - 'Python高性能编码/**'
-      - '数理逻辑/**'
-      - '问题分析/**'
-      - 'code_src/**'
+      - "docs/**"
+      - ".github/workflows/deploy.yml"
+      - "package.json"
+      - "package-lock.json"
+  workflow_dispatch:
 
 permissions:
   contents: read
