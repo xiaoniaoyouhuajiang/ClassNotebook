@@ -38,6 +38,15 @@ export const projects: OssProject[] = [
     repo: "https://github.com/xiaoniaoyouhuajiang/Ferrumpy",
     homepage: "https://github.com/xiaoniaoyouhuajiang/ferrumpy#",
   },
+  {
+    draft: false,
+    name: "Fagent",
+    tagline: "随事实更新的graph-agent",
+    tags: ["knowledge-graph", "agent", "deltalake", "vectordb"],
+    cover: "/oss/fagent.svg",
+    repo: "https://github.com/xiaoniaoyouhuajiang/fagent",
+    homepage: "https://github.com/xiaoniaoyouhuajiang/fagent#",
+  },
 ];
 
 export const pullRequests: OssPullRequest[] = [

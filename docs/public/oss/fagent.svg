@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="font-family: 'Arial', sans-serif; background-color: #fcfcfc;">
+
+  <defs>
+    <!-- 滤镜：蓝色辉光 (LLM使用) -->
+    <filter id="blueGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#007bff" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- 箭头定义 -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+
+  <!-- ===============================
+       第一部分：拓扑网络 (左上)
+       =============================== -->
+  <g id="network_graph" transform="translate(50, 50)">
+    <!-- 连线 (Edge List) -->
+    <g stroke="#ccc" stroke-width="2">
+      <line x1="60" y1="50" x2="180" y2="30" />
+      <line x1="180" y1="30" x2="280" y2="100" />
+      <line x1="60" y1="50" x2="100" y2="180" />
+      <line x1="180" y1="30" x2="100" y2="180" />
+      <line x1="180" y1="30" x2="240" y2="200" />
+      <line x1="280" y1="100" x2="240" y2="200" />
+      <!-- 连接到输出节点 -->
+      <line x1="100" y1="180" x2="340" y2="150" />
+      <line x1="240" y1="200" x2="340" y2="150" />
+      <line x1="280" y1="100" x2="340" y2="150" />
+    </g>
+
+    <!-- 节点 (Nodes) -->
+
+    <!-- Node 1: 左上小红点 -->
+    <circle cx="60" cy="50" r="15" fill="#FF6B6B" stroke="#333" stroke-width="2"/>
+
+    <!-- Node 2: 顶部包含向量 (椭圆) -->
+    <ellipse cx="180" cy="30" rx="70" ry="25" fill="#FFD93D" stroke="#333" stroke-width="2"/>
+    <text x="180" y="35" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">[0.2, 0.4, ...]</text>
+
+    <!-- Node 3: 右上绿点 -->
+    <circle cx="280" cy="100" r="16" fill="#6BCB77" stroke="#333" stroke-width="2"/>
+
+    <!-- Node 4: 左下黄点 -->
+    <circle cx="100" cy="180" r="20" fill="#FFD93D" stroke="#333" stroke-width="2"/>
+
+    <!-- Node 5: 下方包含向量 (椭圆) -->
+    <ellipse cx="240" cy="200" rx="75" ry="28" fill="#FF6B6B" stroke="#333" stroke-width="2"/>
+    <text x="240" y="205" font-size="12" font-weight="bold" fill="white" text-anchor="middle">[0.9, 1.1, ...]</text>
+
+    <!-- Node 6: 中间小绿点 -->
+    <circle cx="200" cy="120" r="10" fill="#6BCB77" stroke="#333" stroke-width="2"/>
+
+    <!-- Node 7: 关键输出节点 (最右侧，指向DB) -->
+    <circle cx="340" cy="150" r="12" fill="#4D96FF" stroke="#333" stroke-width="2"/>
+  </g>
+
+  <!-- 连接线 1：网络 -> 数据库 (横向) -->
+  <line x1="400" y1="200" x2="510" y2="200" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- ===============================
+       第二部分：数据库 (右上)
+       注：保持高对比度深色线条
+       =============================== -->
+  <g id="database" transform="translate(530, 150)">
+    <!-- 侧面 -->
+    <path d="M0,0 L0,100 L110,100 L110,0" fill="#f0f0f0" stroke="none"/>
+    <line x1="0" y1="0" x2="0" y2="100" stroke="black" stroke-width="3"/>
+    <line x1="110" y1="0" x2="110" y2="100" stroke="black" stroke-width="3"/>
+
+    <!-- 底部圆弧 -->
+    <path d="M0,100 A55,20 0 0,0 110,100" fill="#ddd" stroke="black" stroke-width="3"/>
+
+    <!-- 明显的分割线 (加深) -->
+    <path d="M0,33 A55,20 0 0,0 110,33" fill="none" stroke="black" stroke-width="3"/>
+    <path d="M0,66 A55,20 0 0,0 110,66" fill="none" stroke="black" stroke-width="3"/>
+
+    <!-- 顶部圆面 -->
+    <ellipse cx="55" cy="0" rx="55" ry="20" fill="#fff" stroke="black" stroke-width="3"/>
+
+    <!-- 标签 (加粗加深) -->
+    <text x="55" y="70" font-size="28" font-weight="900" fill="black" text-anchor="middle">DB</text>
+  </g>
+
+  <!-- 连接线 2：数据库 -> LLM (指向左下方) -->
+  <!-- 起点: 数据库底部中心 (530+55, 150+100+20) -> (585, 270) 近似 -->
+  <!-- 终点: LLM顶部 (400, 420) -->
+  <path d="M585,270 Q585,350 450,420" fill="none" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- ===============================
+       第三部分：发光 LLM (下方正中)
+       注：scale(2) 放大两倍
+       =============================== -->
+  <!-- 坐标计算：
+       Network X范围 ~50-350
+       DB X范围 ~530-640
+       中间点大约在 X=400 左右
+  -->
+  <g id="llm_group" transform="translate(400, 480) scale(2)" filter="url(#blueGlow)">
+    <!-- 装饰框 -->
+    <rect x="-45" y="-25" width="90" height="50" rx="8" ry="8" fill="none" stroke="#007bff" stroke-width="1.5" opacity="0.8"/>
+
+    <!-- 文字 -->
+    <text x="0" y="8" font-family="Verdana, sans-serif" font-size="24" font-weight="900" fill="#222" text-anchor="middle" letter-spacing="1">LLM</text>
+  </g>
+
+</svg>
